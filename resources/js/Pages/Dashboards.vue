@@ -3,7 +3,7 @@
     <div id="view">
       <div class="flex flex-col py-2 px-4 px-6">
         <h2 class="text-lg pt-4 work big font-bold capitalize">
-          Hello, {{ name }}
+          Hello, {{ $page.props.user.fullname }}
         </h2>
         <p class="text-grey-600 font-medium">Lets Make Trading easy for you</p>
         <div class="grid_container my-4 block md:grid gap-4 grid-cols-2">
@@ -35,7 +35,8 @@
               </div>
             </inertia-link>
             <div
-              class="action_btn justify-center items-center flex flex-row rounded-md py-4 px-2 bg-white live_chat">
+              id="live_chat"
+              class="action_btn justify-center items-center flex flex-row rounded-md py-4 px-2 bg-white">
               <div class="card_logo mx-4 my-3">
                 <img class="w-full" src="../images/cards/24.svg" alt="" />
               </div>
@@ -108,10 +109,8 @@ import MainLayout from "@/Layouts/MainLayout.vue";
 .bitcoin_btn {
   grid-area: 1 / 2 / 2 / 3;
 }
-.p-ripple.lightcyan .p-ink {
-  background-color: #27c8ff4d;
-}
-.live_chat {
+
+#live_chat {
   grid-area: 2 / 1 / 3 / 3;
   min-height: 100px;
   max-height: 8rem;
@@ -119,8 +118,5 @@ import MainLayout from "@/Layouts/MainLayout.vue";
 }
 .dark {
   background-color: #04172a;
-}
-.action_btn {
-  //background-color: #33c2d3;
 }
 </style>

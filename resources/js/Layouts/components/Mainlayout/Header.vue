@@ -2,19 +2,19 @@
 import ProfilePic from "@/components/reusables_/ProfilePic.vue";
 import MenuDropDown from "@/components/reusables_/MenuDropdown.vue";
 import { ref } from "vue";
-
+defineEmits(["toggleSideBar"]);
 const isDrop = ref(false);
 const toggleModal = () => {
   isDrop.value = !isDrop.value;
 };
-const toggleSideBar = () => {
-  // emit('toggleSideBar')
-};
+// const toggleSideBar = () => {
+
+// };
 </script>
 <template>
   <header
     class="flex py-5 px-4 static inset-x-0 w-full justify-between items-center">
-    <div class="logo mx-2" @click="toggleSideBar">
+    <div class="logo mx-2" @click="$emit('toggleSideBar')">
       <div class="myHidden">
         <svg
           width="30"
@@ -47,7 +47,7 @@ const toggleSideBar = () => {
       <div
         class="capitalize select-none flex items-center"
         @click="toggleModal()">
-        <ProfilePic :isSize="'small'" :name="fullname" /><span
+        <ProfilePic :is-size="'small'" /><span
           class="hidden sm:block font-medium px-2"
           >{{ fullname }}</span
         >
@@ -73,12 +73,6 @@ const toggleSideBar = () => {
         @toggle-modal="toggleModal"
         v-if="isDrop" />
     </transition>
-
-    <!-- <div class="notifications md:mx-2 mx-8 flex items-center">
-                <img src="/img/nav-icons/notification.svg" class="hidden" alt="">
-                <img src="/img/nav-icons/unread-notification.svg" alt="">
-                <span class="px-2 font-medium md:hidden">Notifications</span>
-            </div> -->
   </header>
 </template>
 <style lang="scss" scoped>
