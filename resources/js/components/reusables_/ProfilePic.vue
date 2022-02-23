@@ -5,21 +5,27 @@
     <span>{{ text }}</span>
   </div>
 </template>
-<script>
-import { computed } from "vue";
-
-export default {
-  name: "ProfilePic",
-  setup(props) {
-    return {
-      text: computed(() => {
+<script setup>
+// import { computed } from "vue"
+import {usePage, computed} from '@/utils'
+const props = defineProps({
+    fullname: {
+      type: String,
+      default: "OP",
+    },
+    isSize: {
+      type: String,
+      default: "mid",
+    },
+  })
+const text = computed(() => {
         let letters = "";
-        props.name.split(" ").forEach((word) => {
+        usePage().props.value.user.fullname.split(" ").forEach((word) => {
           letters += word.charAt(0);
         });
         return letters;
-      }),
-      size: computed(() => {
+      })
+    const size = computed(() => {
         switch (props.isSize) {
           case "small":
             return "h-12 w-12 ";
@@ -32,18 +38,5 @@ export default {
           default:
             return "h-12 h-12";
         }
-      }),
-    };
-  },
-  props: {
-    name: {
-      type: String,
-      default: "OP",
-    },
-    isSize: {
-      type: String,
-      default: "mid",
-    },
-  },
-};
+      })
 </script>
