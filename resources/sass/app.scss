@@ -1,0 +1,287 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+// @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;600;700&display=swap");
+body {
+    font-family: "DM Sans", sans-serif;
+    color: #04172a;
+    // font-size: 80%;
+    background-color: #fff;
+}
+
+.work {
+    font-family: "Work Sans", sans-serif;
+}
+
+.card-container .card {
+    //background-image: url('/img/card-back.svg')
+}
+
+.upload {
+    background-image: url("/img/card-back.svg");
+}
+
+#sign-page {
+    background-color: white;
+    background-image: url("/img/sign-back.png");
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    #wrapper {
+        width: 80%;
+        margin: 0 auto;
+        padding: 2em 0;
+    }
+}
+
+.signup .input-box {
+    margin: 0.5em 0 1em 0 !important;
+}
+
+#sign {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .ads h3 {
+        color: #010946;
+        font-size: 2.5em;
+        font-family: "Work Sans", sans-serif;
+        font-weight: 700;
+    }
+    .form-container {
+        width: 100%;
+        max-width: 500px;
+        h4 {
+            font-size: 1.4em;
+        }
+        form {}
+    }
+    .input-box {
+        margin: 1em 0 2em 0;
+        input {
+            border: 0.5px solid #e5e5e5;
+            font-weight: 600;
+        }
+        button {
+            filter: drop-shadow(0px 0px 15px #e4e8ef);
+            box-shadow: 0px 0px 15px #e4e8ef;
+        }
+        input,
+        button {
+            width: 100%;
+            padding: 1em 1em;
+            border-radius: 0.4em;
+        }
+        input::placeholder {
+            font-weight: 500;
+        }
+        input:focus,
+        input:active {
+            outline: none;
+        }
+        .bg-grey {
+            background-color: #f8f8f8;
+        }
+    }
+    .submit {
+        margin-bottom: 1em;
+    }
+    .right {
+        float: right;
+    }
+    .direction {
+        padding: 0 0 0.5em 0;
+        direction: rtl;
+        .forgot-password {
+            padding: 0 0 1em 0;
+        }
+    }
+}
+
+.dark {
+    background-color: #04172a;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.ibm {
+    font-family: "IBM Plex Mono", monospace;
+}
+
+* {
+    transition: .15s ease-in-out;
+}
+
+.modal {
+    max-width: 600px;
+    width: 90%;
+    padding: 1em;
+    background-color: white;
+    max-height: 100%;
+    position: fixed;
+    transition: 0.25s ease-in-out;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .modal_guts {
+        width: 100%;
+        padding: .5em;
+        height: 100%;
+        // background: red;
+        /* let it scroll */
+        overflow: auto;
+    }
+}
+
+.link_list li:hover::before,
+.selectedLink::before {
+    content: "";
+    background-image: url(/img/active_link.svg);
+    position: absolute;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    // top: 0;
+}
+
+
+/* Firefox */
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+@media (max-width: 768px) {
+    .ads {
+        display: none;
+    }
+    #sign-page {
+        background-image: none;
+        #wrapper {
+            width: 90%;
+        }
+    }
+    #sign {
+        justify-content: center;
+    }
+    #sign .input-box {
+        margin: 0.5em 0 1em 0;
+    }
+    .p-toast {
+        width: 100%;
+        max-width: 20em;
+    }
+}
+
+.custom.p-toast .p-toast-message.p-toast-message-success {
+    background: #00c2ff !important;
+    color: white;
+    border: solid #00c2ff;
+}
+
+.codes {
+    position: absolute;
+    overflow: auto;
+    left: 0;
+    transition: 0.5s ease-in-out;
+    max-height: 10em;
+}
+
+input {
+    appearance: none !important;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(12, 24, 37, 0.54);
+    align-items: center;
+    z-index: 10;
+}
+
+.card {
+    height: 5em;
+    transition: .2s ease-in-out;
+    background-size: 7em;
+    background-position: right bottom;
+    display: flex;
+    flex-direction: row;
+    background-repeat: no-repeat;
+    p {
+        // font-size: 1.2rem;
+        text-transform: capitalize;
+    }
+}
+
+//   .card:hover .tracking-wider::before {
+//     width: 100%;
+//   }
+.fade-in {
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.35s;
+    // animation-delay: calc(var(--order) * 200ms)
+}
+
+// .tracking-wider::before {
+//     position: absolute;
+//     left: 0;
+//     content: "";
+//     bottom: 0;
+//     width: 20%;
+//     background-color: white;
+//     height: 1px;
+//     transition: 0.5s ease-in-out;
+// }
+@keyframes fadeInOpacity {
+    20% {
+        opacity: 0;
+        transform: translateY(20%);
+    }
+    30%,
+    100% {
+        opactity: 1;
+        transform: translateY(0);
+    }
+}
+
+.custom.p-toast .p-toast-message.p-toast-message-success .p-toast-message-icon,
+.custom.p-toast .p-toast-message.p-toast-message-success .p-toast-icon-close {
+    color: white;
+}
+
+.p-toast .p-toast-message .p-toast-message-content .p-toast-message-icon {
+    font-size: 1em;
+    margin-top: 0.3em;
+}
+
+.custom.p-toast .p-toast-message .p-toast-message-content .p-toast-message-icon {
+    font-size: 1em;
+    margin-top: 0.3em;
+}
+
+.rotate {
+    animation: rotate 0.35s ease-in;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
