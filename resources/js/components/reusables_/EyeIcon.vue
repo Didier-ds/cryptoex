@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute inset-y-0 display flex items-center right-0 mx-2">
+  <div class="display flex items-center right-0 mx-2">
     <div v-if="show">
       <svg
         width="24"

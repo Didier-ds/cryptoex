@@ -1,116 +1,105 @@
 <template>
-  <Head title="Log in" />
-
-  <jet-authentication-card>
-    <template #logo>
-      <jet-authentication-card-logo />
-    </template>
-
-    <jet-validation-errors class="mb-4" />
-
-    <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
-      {{ status }}
-    </div>
-
-    <form @submit.prevent="submit">
-      <div>
-        <jet-label for="email" value="Email" />
-        <jet-input
-          id="email"
-          v-model="form.email"
-          type="email"
-          class="mt-1 block w-full"
-          required
-          autofocus />
+  <div class="py-4">
+    <max-width-container>
+      <Logo />
+      <div class="main_container">
+        <div class="ads_container">
+          <p class="whitespace-pre">{{ adText }}</p>
+        </div>
+        <div id="form_container">
+          <div class="my-4">
+            <p class="font-bold text-gray-800 work text-lg">
+              Log In to Your Account
+            </p>
+          </div>
+          <jet-validation-errors class="mb-4" />
+          <form @submit.prevent="submit">
+            <div class="input_container mb-8">
+              <q-input
+                v-model="form.email"
+                borderless
+                input-class="my_input"
+                placeholder="Email Address" />
+            </div>
+            <div class="input_container mb-8">
+              <q-input
+                v-model="form.password"
+                :type="isPwd ? 'password' : 'text'"
+                borderless
+                input-class="my_input relative"
+                placeholder="Password">
+                <template #append>
+                  <EyeIcon :show="!isPwd" @click="isPwd = !isPwd" />
+                </template>
+              </q-input>
+            </div>
+            <div class="mb-4">
+              <q-btn
+                color="primary"
+                type="submit"
+                :disabled="form.processing"
+                unelevated
+                class="w-full primary_shadow py-3 work font-medium"
+                label="Login" />
+            </div>
+          </form>
+          <div class="other_link_section flex flex-col">
+            <inertia-link
+              to="/forgotpassword"
+              class="forgot-password self-end inline-block mb-4 font-semibold text-cyan"
+              >Forgot Your Password</inertia-link
+            >
+            <p class="font-semibold">
+              Don't have an account ?
+              <inertia-link to="/createaccount"
+                ><span class="text-cyan">Sign Up</span></inertia-link
+              >
+            </p>
+          </div>
+        </div>
       </div>
-
-      <div class="mt-4">
-        <jet-label for="password" value="Password" />
-        <jet-input
-          id="password"
-          v-model="form.password"
-          type="password"
-          class="mt-1 block w-full"
-          required
-          autocomplete="current-password" />
-      </div>
-
-      <div class="block mt-4">
-        <label class="flex items-center">
-          <jet-checkbox v-model:checked="form.remember" name="remember" />
-          <span class="ml-2 text-sm text-gray-600">Remember me</span>
-        </label>
-      </div>
-
-      <div class="flex items-center justify-end mt-4">
-        <Link
-          v-if="canResetPassword"
-          :href="route('password.request')"
-          class="underline text-sm text-gray-600 hover:text-gray-900">
-          Forgot your password?
-        </Link>
-
-        <jet-button
-          class="ml-4"
-          :class="{ 'opacity-25': form.processing }"
-          :disabled="form.processing">
-          Log in
-        </jet-button>
-      </div>
-    </form>
-  </jet-authentication-card>
+    </max-width-container>
+  </div>
 </template>
 
-<script>
-import { defineComponent } from "vue";
-import JetAuthenticationCard from "@/Jetstream/AuthenticationCard.vue";
-import JetAuthenticationCardLogo from "@/Jetstream/AuthenticationCardLogo.vue";
-import JetButton from "@/Jetstream/Button.vue";
-import JetInput from "@/Jetstream/Input.vue";
-import JetCheckbox from "@/Jetstream/Checkbox.vue";
-import JetLabel from "@/Jetstream/Label.vue";
+<script setup>
 import JetValidationErrors from "@/Jetstream/ValidationErrors.vue";
-import { Head, Link } from "@inertiajs/inertia-vue3";
-
-export default defineComponent({
-  components: {
-    Head,
-    JetAuthenticationCard,
-    JetAuthenticationCardLogo,
-    JetButton,
-    JetInput,
-    JetCheckbox,
-    JetLabel,
-    JetValidationErrors,
-    Link,
-  },
-
-  props: {
-    canResetPassword: Boolean,
-    status: String,
-  },
-
-  data() {
-    return {
-      form: this.$inertia.form({
-        email: "",
-        password: "",
-        remember: false,
-      }),
-    };
-  },
-
-  methods: {
-    submit() {
-      this.form
-        .transform((data) => ({
-          ...data,
-          remember: this.form.remember ? "on" : "",
-        }))
-        .post(this.route("login"), {
-          onFinish: () => this.form.reset("password"),
-        });
-    },
+import EyeIcon from "@/components/reusables_/EyeIcon.vue";
+import Logo from "@/components/reusables_/Logo.vue";
+import { ref, useForm } from "@/utils";
+defineProps({
+  canResetPassword: Boolean,
+  status: {
+    type: String,
+    default: null,
   },
 });
+const isPwd = ref(true);
+const form = useForm({
+  email: "",
+  password: "",
+  remember: false,
+});
+const adText = ref(`Nice To See You, \nAgain`);
+
+const submit = () => {
+  form
+    .transform((data) => ({
+      ...data,
+      remember: form.remember ? "on" : "",
+    }))
+    // eslint-disable-next-line no-undef
+    .post(route("login"), {
+      onFinish: () => form.reset("password"),
+    });
+};
 </script>
+
+<style lang="scss" scoped>
+// .input_container {
+//     ma
+// }
+.main_container {
+  margin: 6em 0;
+}
+</style>

@@ -10,16 +10,16 @@
       <!-- <inertia-link @click="push('Login')"> Login </inertia-link> -->
       <inertia-link @click="push('Profile')"> Your Profile </inertia-link>
 
-      <button class="w-full text-center" @click="logout()" > Sign out </button>
+      <button class="w-full text-center" @click="logout()">Sign out</button>
     </div>
   </div>
 </template>
 
 <script setup>
-import {Inertia} from '@/utils'
+import { Inertia } from "@/utils";
 const emits = defineEmits(["toggleModal", "toggleForm"]);
 // const close = () => {
-  
+
 // };
 // const toggleForm = (any) => {
 //   this.close();
@@ -30,9 +30,9 @@ const emits = defineEmits(["toggleModal", "toggleForm"]);
 //   // router.push({ name: any });
 // };
 const logout = () => {
-      // eslint-disable-next-line no-undef
-      Inertia.post(route("logout"));
-      emits("toggleModal");
+  // eslint-disable-next-line no-undef
+  Inertia.post(route("logout"));
+  emits("toggleModal");
 };
 </script>
 
@@ -44,7 +44,8 @@ const logout = () => {
   right: 10px;
   z-index: 2;
 
-  a, button {
+  a,
+  button {
     display: block;
     font-size: 0.9em;
     cursor: pointer;
@@ -54,7 +55,8 @@ const logout = () => {
     padding-left: 1rem;
     padding-right: 1rem;
   }
-  a:hover, button:hover {
+  a:hover,
+  button:hover {
     --tw-bg-opacity: 1;
     background-color: rgb(243 244 246 / var(--tw-bg-opacity));
   }

@@ -23,7 +23,7 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
-Route::get('/logins', function () {
+Route::get('/registers', function () {
     return Inertia::render('Login2');
 });
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
