@@ -23,9 +23,9 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
-Route::get('/registers', function () {
-    return Inertia::render('Login2');
-});
+// Route::get('/registers', function () {
+//     return Inertia::render('Login2');
+// });
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboards');
 })->name('dashboard');

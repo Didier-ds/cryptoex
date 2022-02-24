@@ -51,7 +51,7 @@
             >
             <p class="font-semibold">
               Don't have an account ?
-              <inertia-link to="/createaccount"
+              <inertia-link href="/createaccount"
                 ><span class="text-cyan">Sign Up</span></inertia-link
               >
             </p>

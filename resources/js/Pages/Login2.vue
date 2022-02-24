@@ -13,11 +13,12 @@
           <jet-validation-errors class="mb-4" />
           <form @submit.prevent="submit">
             <!-- fullname Input Container -->
-            <div class="input_container mb-8">
+            <div class="input_container">
               <q-input
                 v-model="form.fullname"
                 :rules="[(val) => !!val || 'fullname is required', isValidFullName]"
                 required
+                lazy-rules
                 type="text"
                 borderless
                 input-class="my_input"
@@ -25,11 +26,12 @@
             </div>
 
             <!-- Email Input Container -->
-            <div class="input_container mb-8">
+            <div class="input_container">
               <q-input
                 v-model="form.email"
                 :rules="[(val) => !!val || 'Email is missing', isValidEmail]"
                 required
+                lazy-rules
                 type="email"
                 borderless
                 input-class="my_input"
@@ -37,26 +39,29 @@
             </div>
 
             <!-- Phone Input Container -->
-            <div class="input_container mb-8">
+            <div class="input_container">
               <q-input
                 v-model="form.phone"
                 required
+                lazy-rules
                 type="tel"
                 borderless
                 input-class="my_input"
                 :rules="[(val) => !!val || 'Phone is required']"
                 placeholder="Phone Number">
                 <template #prepend>
-                  <q-icon name="event" />
+                  <!-- <q-icon name="event" /> -->
+                  <p class="work font-semibold text-black text-sm">+234</p>
                 </template>
               </q-input>
             </div>
 
             <!-- password Input Container -->
-            <div class="input_container mb-8">
+            <div class="input_container">
               <q-input
                 v-model="form.password"
                 required
+                lazy-rules
                 :type="isPwd ? 'password' : 'text'"
                 borderless
                 :rules="[isValidPWd]"
@@ -69,10 +74,11 @@
             </div>
 
             <!-- passowrd confirmation Input Container -->
-            <div class="input_container mb-8">
+            <div class="input_container">
               <q-input
                 v-model="form.password_confirmation"
                 required
+                lazy-rules
                 :type="isPwd ? 'password' : 'text'"
                 :rules="confirmPassword(form.password)"
                 borderless
@@ -90,19 +96,19 @@
                 :disabled="form.processing"
                 unelevated
                 class="w-full primary_shadow py-3 work font-medium"
-                label="Login" />
+                label="Create Account" />
             </div>
           </form>
           <div class="other_link_section flex flex-col">
-            <inertia-link
+            <!-- <inertia-link
               to="/forgotpassword"
               class="forgot-password self-end inline-block mb-4 font-semibold text-cyan"
               >Forgot Your Password</inertia-link
-            >
+            > -->
             <p class="font-semibold">
-              Don't have an account ?
-              <inertia-link to="/createaccount"
-                ><span class="text-cyan">Sign Up</span></inertia-link
+              Already have an account ?
+              <inertia-link href="/login"
+                ><span class="text-cyan">Log In</span></inertia-link
               >
             </p>
           </div>
@@ -143,22 +149,17 @@ const form = useForm({
 const adText = ref(`You Deserve Good, \nRates`);
 
 const submit = () => {
-  form
-    .transform((data) => ({
-      ...data,
-      remember: form.remember ? "on" : "",
-    }))
-    // eslint-disable-next-line no-undef
-    .post(route("login"), {
-      onFinish: () => form.reset("password"),
-    });
+  // eslint-disable-next-line no-undef
+  form.post(route("register"), {
+        onFinish: () => form.reset("password", "password_confirmation"),
+      });
 };
 </script>
 
 <style lang="scss" scoped>
-// .input_container {
-//     ma
-// }
+ .input_container {
+     margin-bottom: 2em;
+ }
 .main_container {
   margin: 2em 0;
 }
