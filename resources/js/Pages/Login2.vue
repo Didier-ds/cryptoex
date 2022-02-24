@@ -16,13 +16,9 @@
                             <q-input v-model="form.email" borderless input-class="my_input" placeholder="Email Address" />
                         </div>
                         <div class="input_container mb-8">
-                            <q-input v-model="form.password" :type="isPwd ? 'password' : 'text'" borderless input-class="my_input" placeholder="Password" >
-                                <template v-slot:append>
-                                    <q-icon
-                                        :name="isPwd ? 'visibility_off' : 'visibility'"
-                                        class="cursor-pointer"
-                                        @click="isPwd = !isPwd"
-                                    />
+                            <q-input v-model="form.password" :type="isPwd ? 'password' : 'text'" borderless input-class="my_input relative" placeholder="Password" >
+                                <template #append>
+                                    <EyeIcon :show="!isPwd" @click="isPwd = !isPwd" />
                                 </template>
                             </q-input>
                         </div>
@@ -47,6 +43,7 @@
 
 <script setup>
 import JetValidationErrors from "@/Jetstream/ValidationErrors.vue";
+import EyeIcon from '@/components/reusables_/EyeIcon.vue'
 import Logo from '@/components/reusables_/Logo.vue'
 import {ref, useForm} from '@/utils'
 defineProps({
