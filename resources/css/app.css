@@ -1,3 +1,4 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "quasar/dist/quasar.prod.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

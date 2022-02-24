@@ -1,4 +1,4 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+// const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
     content: [
@@ -8,14 +8,14 @@ module.exports = {
         './resources/views/**/*.blade.php',
         './resources/js/**/*.vue',
     ],
-
+    // prefix: "c-",
     theme: {
         extend: {
-            fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
-            },
+            // fontFamily: {
+            //     sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+            // },
         },
     },
 
-    plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+    //plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 };

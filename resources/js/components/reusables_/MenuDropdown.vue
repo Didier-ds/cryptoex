@@ -7,31 +7,32 @@
       </p>
     </div>
     <div id="menu-dropdown" class="my-2">
-      <inertia-link @click="push('Login')"> Login </inertia-link>
+      <!-- <inertia-link @click="push('Login')"> Login </inertia-link> -->
       <inertia-link @click="push('Profile')"> Your Profile </inertia-link>
 
-      <inertia-link @click="logout()"> Sign out </inertia-link>
+      <button class="w-full text-center" @click="logout()" > Sign out </button>
     </div>
   </div>
 </template>
 
 <script setup>
+import {Inertia} from '@/utils'
 const emits = defineEmits(["toggleModal", "toggleForm"]);
-const close = () => {
-  emit("toggleModal");
-};
-const toggleForm = (any) => {
-  this.close();
-  emit("toggleForm", any);
-};
-const push = () => {
-  this.close();
-  // router.push({ name: any });
-};
+// const close = () => {
+  
+// };
+// const toggleForm = (any) => {
+//   this.close();
+//   emit("toggleForm", any);
+// };
+// const push = () => {
+//   this.close();
+//   // router.push({ name: any });
+// };
 const logout = () => {
-  // store.dispatch('auth/logout').then(() => {
-  //   window.location.reload(true);
-  // })
+      // eslint-disable-next-line no-undef
+      Inertia.post(route("logout"));
+      emits("toggleModal");
 };
 </script>
 
@@ -43,7 +44,7 @@ const logout = () => {
   right: 10px;
   z-index: 2;
 
-  a {
+  a, button {
     display: block;
     font-size: 0.9em;
     cursor: pointer;
@@ -53,7 +54,7 @@ const logout = () => {
     padding-left: 1rem;
     padding-right: 1rem;
   }
-  a:hover {
+  a:hover, button:hover {
     --tw-bg-opacity: 1;
     background-color: rgb(243 244 246 / var(--tw-bg-opacity));
   }
