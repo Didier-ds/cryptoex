@@ -2,7 +2,10 @@
 
 namespace App\Actions\Fortify;
 
+use App\Models\Konstants;
 use App\Models\User;
+use App\Models\RoleManager;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
@@ -27,12 +30,17 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();
-
-        return User::create([
-            'fullname' => $input['fullname'],
-            'email' => $input['email'],
-            'phone' => $input['phone'],
-            'password' => Hash::make($input['password']),
-        ]);
+        return DB::transaction(function () use ($input) {
+            return tap(User::create([
+                'fullname' => $input['fullname'],
+                'email' => $input['email'],
+                'phone' => $input['phone'],
+                'password' => Hash::make($input['password']),
+            ]), function (User $user) {
+                $roleManager = new RoleManager();
+                $roleManager->createRole();
+                $user->assignRole(Konstants::ROLE_USER);
+            });
+        });
     }
-}
+} 
