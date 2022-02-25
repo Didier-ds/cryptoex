@@ -1,6 +1,6 @@
 <template>
     <admin-layout>
-        This is the admin dasboard
+        thiis is the cardlet page
     </admin-layout>
 </template>
 

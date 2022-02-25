@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminDashboardController;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Spatie\Permission\Models\Role;
@@ -29,9 +30,13 @@ Route::get('/', function () {
 //     return Inertia::render('Login2');
 // });
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboards');
+    if(Auth::user()->hasRole('admin')) {
+        return Inertia::render('Admin/Dashboard');
+    } else {
+        return Inertia::render('Dashboards');
+    }
 })->name('dashboard');
-
+// hasRole
 // Route::prefix('admin')->name('admin')->middleware(['auth:sanctum', 'verified'], Role[''])->group(function(){
 //     Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('dashboard.index');
 // });
