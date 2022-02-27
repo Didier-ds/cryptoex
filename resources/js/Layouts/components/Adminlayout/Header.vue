@@ -1,6 +1,8 @@
 <script setup>
 import { onMounted, ref, watch, watchEffect } from 'vue'
+import ProfilePic from "@/components/reusables_/ProfilePic.vue";
 import { Switch } from '@headlessui/vue'
+import { Inertia } from "@/utils";
 import HeaderSearch from '@/components/HeaderSearch.vue'
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 import { useStore } from 'vuex'
@@ -16,6 +18,13 @@ const sideBarToggle = () => {
         store.commit('largeSidebar/toggleSidebarProperties')
     }
 }
+
+const logout = () => {
+  // eslint-disable-next-line no-undef
+  Inertia.post(route("logout"));
+//   emits("toggleModal");
+};
+
 </script>
 
 <template>
@@ -726,11 +735,7 @@ const sideBarToggle = () => {
                             font-medium
                         "
                     >
-                        <img
-                            class="avatar rounded-full"
-                            src="/images/faces/1.jpg"
-                            alt=""
-                        />
+                        <ProfilePic :is-size="'small'"/>
                     </MenuButton>
                 </div>
 
@@ -775,12 +780,14 @@ const sideBarToggle = () => {
                         </MenuItem>
                         <MenuItem v-slot="{ active }">
                             <button
+                            
                                 :class="[
                                     active
                                         ? 'bg-purple-500 text-white'
                                         : 'text-gray-900',
                                     'group flex  items-center w-full px-4 py-2 text-sm',
                                 ]"
+                                @click="logout()"
                             >
                                 Sign Out
                             </button>

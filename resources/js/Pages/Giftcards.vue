@@ -1,10 +1,11 @@
 <template>
-    <div>
+    <main-layout>
         this is the giftcards page
-    </div>
+    </main-layout>
 </template>
 
 <script setup>
+import MainLayout from "@/Layouts/MainLayout.vue";
 
 </script>
 

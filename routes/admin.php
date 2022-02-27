@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\CardsController;
 use Illuminate\Support\Facades\Route;
 
-Route::group(['middleware' => ['role:admin'],'prefix' => 'admin'], function () {
+Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified'],'prefix' => 'admin'], function () {
     Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('dashboard.index');
     Route::get('cardlets', [AdminCardletController::class, 'index'])->name('cardlet.index');
     Route::get('giftcards', [CardsController::class, 'index'])->name('cards.index');

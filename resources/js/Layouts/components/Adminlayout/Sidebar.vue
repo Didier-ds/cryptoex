@@ -6,6 +6,9 @@ import { useStore } from 'vuex'
 let store = useStore()
 // let route = useRoute()
 
+
+
+
 let toggleSubMenu = (e) => {
     // let parent = e.target.dataset.item;
     console.log(e.target)
@@ -75,19 +78,19 @@ let handleWindowResize = () => {
                             </div>
                         </inertia-link>
                         <inertia-link
-                            href="/profile/profileTwo"
+                            href="/admin/cardlets"
                             tag="li"
                             class="nav-item"
                         >
                             <div class="nav-item-hold">
                                 <i class="i-Find-User text-3xl"></i>
-                                <p>Profile</p>
+                                <p>Giftcards</p>
                             </div>
                         </inertia-link>
-                        <inertia-link href="/signIn" tag="li" class="nav-item">
+                        <inertia-link href="/admin/users" tag="li" class="nav-item">
                             <div class="nav-item-hold">
                                 <i class="i-Checked-User text-3xl"></i>
-                                <p>Sign In</p>
+                                <p>Users</p>
                             </div>
                         </inertia-link>
                         <inertia-link href="/signUp" tag="li" class="nav-item">

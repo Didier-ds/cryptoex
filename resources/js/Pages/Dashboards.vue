@@ -9,7 +9,7 @@
         <div class="grid_container my-4 block md:grid gap-4 grid-cols-2">
           <div class="menu_btn_container my-4">
             <inertia-link
-              href="/"
+              href="/giftcards"
               class="action_btn select-none rounded-md flex flex-col justify-center items-center p-4 bg-white border shadow-md giftcard_btn p-ripple lightcyan">
               <div class="card-logo w-16 my-3">
                 <img class="w-full" src="../images/cards/gift.svg" alt="" />

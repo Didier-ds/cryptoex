@@ -17,7 +17,7 @@ class CardsController extends Controller
     {
         //
         $cards = Card::all();
-        return Inertia::render('Admin/Giftcards', ['giftcards' => $cards]);
+        return Inertia::render('Giftcards', ['giftcards' => $cards]);
     }
 
     /**
