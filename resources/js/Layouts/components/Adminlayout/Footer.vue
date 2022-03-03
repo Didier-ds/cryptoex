@@ -12,20 +12,7 @@ export default {}
                             target="_blank"
                             href="https://ui-lib.com/downloads/aatrox-vue-dashboard"
                             style="bottom: 14px; right: 80px"
-                            class="
-                                py-3
-                                px-5
-                                inline-block
-                                bg-green-500
-                                text-white
-                                btn
-                                rounded
-                                font-normal
-                                leading-4
-                                ripple
-                                relative
-                                lg:fixed
-                            "
+                            class="py-3 px-5 inline-block bg-green-500 text-white btn rounded font-normal leading-4 ripple relative lg:fixed"
                             >Get Aatrox Pro</a
                         >
                     </div>

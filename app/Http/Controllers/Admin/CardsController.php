@@ -40,6 +40,7 @@ class CardsController extends Controller
     public function store(Request $request)
     {
         //
+        
     }
 
     /**

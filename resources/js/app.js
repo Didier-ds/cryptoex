@@ -1,13 +1,14 @@
-require("./bootstrap");
+require('./bootstrap')
 
-import { createApp, h } from "vue";
-import { createInertiaApp, Link } from "@inertiajs/inertia-vue3";
-import { InertiaProgress } from "@inertiajs/progress";
-import MaxWidthContainer from "@/components/reusables_/MaxWidthContainer.vue";
-import { Quasar } from "quasar";
-import store from './store';
-import quasarUserOptions from "./quasar-user-options";
-const appName = "Laravel";
+import { createApp, h } from 'vue'
+import { createInertiaApp, Link } from '@inertiajs/inertia-vue3'
+import { InertiaProgress } from '@inertiajs/progress'
+import MaxWidthContainer from '@/components/reusables_/MaxWidthContainer.vue'
+import { Quasar } from 'quasar'
+import store from './store'
+import quasarUserOptions from './quasar-user-options'
+import GoBack from "@/components/reusables_/GoBack.vue";
+const appName = 'Laravel'
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
@@ -18,13 +19,14 @@ createInertiaApp({
             .use(plugin)
             .use(store)
             .use(Quasar, quasarUserOptions)
-            .component("InertiaLink", Link)
-            .component("MaxWidthContainer", MaxWidthContainer)
+            .component('InertiaLink', Link)
+            .component("GoBack", GoBack)
+            .component('MaxWidthContainer', MaxWidthContainer)
             // eslint-disable-next-line no-undef
             .mixin({ methods: { route } })
             .mount(el)
-        );
+        )
     },
-});
+})
 
-InertiaProgress.init({ color: "#00c2ff" });
+InertiaProgress.init({ color: '#00c2ff' })

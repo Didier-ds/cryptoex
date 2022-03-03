@@ -6,9 +6,6 @@ import { useStore } from 'vuex'
 let store = useStore()
 // let route = useRoute()
 
-
-
-
 let toggleSubMenu = (e) => {
     // let parent = e.target.dataset.item;
     console.log(e.target)
@@ -46,8 +43,7 @@ let handleWindowResize = () => {
                         ? 'open'
                         : ''
                 "
-                class="sidebar-left"
-            >
+                class="sidebar-left">
                 <perfect-scrollbar>
                     <ul class="navigation-left">
                         <!-- <div 
@@ -60,8 +56,7 @@ let handleWindowResize = () => {
                         <inertia-link
                             href="/admin/dashboard"
                             tag="li"
-                            class="nav-item"
-                        >
+                            class="nav-item">
                             <div class="nav-item-hold">
                                 <i class="i-Bar-Chart text-3xl"></i>
                                 <p>Dashboard</p>
@@ -70,8 +65,7 @@ let handleWindowResize = () => {
                         <inertia-link
                             href="/admin/cardlets"
                             tag="li"
-                            class="nav-item"
-                        >
+                            class="nav-item">
                             <div class="nav-item-hold">
                                 <i class="i-Wallet text-3xl"></i>
                                 <p>cardlets</p>
@@ -80,14 +74,16 @@ let handleWindowResize = () => {
                         <inertia-link
                             href="/admin/cardlets"
                             tag="li"
-                            class="nav-item"
-                        >
+                            class="nav-item">
                             <div class="nav-item-hold">
                                 <i class="i-Find-User text-3xl"></i>
                                 <p>Giftcards</p>
                             </div>
                         </inertia-link>
-                        <inertia-link href="/admin/users" tag="li" class="nav-item">
+                        <inertia-link
+                            href="/admin/users"
+                            tag="li"
+                            class="nav-item">
                             <div class="nav-item-hold">
                                 <i class="i-Checked-User text-3xl"></i>
                                 <p>Users</p>
@@ -104,8 +100,7 @@ let handleWindowResize = () => {
                             href="https://aatorx-vue-doc.vercel.app/"
                             tag="a"
                             class="nav-item"
-                            target="_blank"
-                        >
+                            target="_blank">
                             <div class="nav-item-hold">
                                 <i class="i-File-Word text-3xl"></i>
                                 <p>Doc</p>

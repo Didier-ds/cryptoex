@@ -1,13 +1,9 @@
 <template>
-    <admin-layout>
-        This is the admin dasboard
-    </admin-layout>
+    <admin-layout> This is the admin dasboard </admin-layout>
 </template>
 
 <script setup>
-import AdminLayout from "@/Layouts/AdminLayout.vue";
+import AdminLayout from '@/Layouts/AdminLayout.vue'
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
