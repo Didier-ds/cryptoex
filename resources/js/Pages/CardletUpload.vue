@@ -20,24 +20,10 @@
                                 class="text-base work font-medium pb-2">
                                 Card Type
                             </label>
-                            <div class="relative">
-                                <div
-                                    class="w-full border text-base work px-4 flex justify-between select-none py-3 capitalize rounded-md shadow outline-none outline-none">
-                                    <p>select card type</p>
-                                    <div>
-                                        <svg
-                                            width="24"
-                                            height="24"
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M7.96967 19.5303C7.7034 19.2641 7.6792 18.8474 7.89705 18.5538L7.96967 18.4697L14.439 12L7.96967 5.53033C7.7034 5.26406 7.6792 4.8474 7.89705 4.55379L7.96967 4.46967C8.23594 4.2034 8.6526 4.1792 8.94621 4.39705L9.03033 4.46967L16.0303 11.4697C16.2966 11.7359 16.3208 12.1526 16.1029 12.4462L16.0303 12.5303L9.03033 19.5303C8.73744 19.8232 8.26256 19.8232 7.96967 19.5303Z"
-                                                fill="black" />
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
+                            <select id="category" v-model="form.type" class="p-2 rounded shadow border bg-white" name="category">
+                                <option disabled value="">Please select Category</option>
+                               <option v-for="category in giftcards" :key="category" :value="category.type">{{category.type}}</option> 
+                            </select>
                             <div class="input_box my-2 flex flex-col">
                                 <label
                                     for="amount"
@@ -46,12 +32,12 @@
                                 >
                                 <input
                                     id="amount"
-                                    v-model="amt"
+                                    v-model="form.amount"
                                     autocomplete="off"
                                     class="hover:ring-2 items-center w-full border-cyan-200 border text-base work px-4 py-3 rounded-md focus:border-cyan-500 focus:shadow-outline outline-none outline-none"
-                                    type="text"
+                                    type="number"
                                     placeholder="Enter Amount"
-                                    @input="filter" />
+                                     />
                             </div>
                         </div>
                     </div>
@@ -62,7 +48,7 @@
                         <div class="my-4">
                             <span class="block work">You will receive</span>
                             <span class="font-bold text-green-800 ibm text-xl"
-                                >&#8358;{{ 0.00 }}</span
+                                >&#8358;{{ AMOUNT_TO_RECEIVE }}</span
                             >
                         </div>
                         <div class="input_box mx-auto my-2">
@@ -73,11 +59,11 @@
                             >
                             <input
                                 id="comment"
+                                v-model="form.comment"
                                 autocomplete="off"
                                 class="w-full border text-base work px-4 py-3 rounded-md focus:border-cyan-500 focus:shadow-outline outline-none outline-none"
                                 type="text"
-                                placeholder="Enter code if not clear"
-                                @input="filter" />
+                                placeholder="Enter code if not clear" />
                         </div>
                         <span class="block py-1 text-base work font-medium">
                             Upload Card or Receipt
@@ -103,12 +89,29 @@
 <script setup>
 import MainLayout from '@/Layouts/MainLayout.vue'
 import BigCard from '@/components/Big-Card.vue'
-import { ref, computed, ExactCardImg } from '@/utils'
+import { computed, ExactCardImg, useForm } from '@/utils'
 const name = window.location.pathname.split('/')[2]
 const imgType = computed(() => {
     return ExactCardImg(name)
 })
-const amt = ref(null)
+const form = useForm({
+    amount: 0,
+    type: '',
+    comment: ''
+})
+
+const AMOUNT_TO_RECEIVE = computed(() => {
+    const selectedCard = props.giftcards.find(card => card.type === form.type)
+    return selectedCard ? selectedCard.rate * form.amount : 0
+    // return selectedCard ? selectedCard.rate * form.amount : 0 
+})
+// const amt = ref(null)
+const props = defineProps({
+    giftcards: {
+        type: Array,
+        default: () => []
+    }
+})
 </script>
 
 <style lang="scss" scoped></style>

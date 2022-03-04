@@ -24841,23 +24841,45 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    giftcards: {
+      type: Array,
+      "default": function _default() {
+        return [];
+      }
+    }
+  },
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
+    var props = __props;
     var name = window.location.pathname.split('/')[2];
     var imgType = (0,_utils__WEBPACK_IMPORTED_MODULE_2__.computed)(function () {
       return (0,_utils__WEBPACK_IMPORTED_MODULE_2__.ExactCardImg)(name);
     });
-    var amt = (0,_utils__WEBPACK_IMPORTED_MODULE_2__.ref)(null);
+    var form = (0,_utils__WEBPACK_IMPORTED_MODULE_2__.useForm)({
+      amount: 0,
+      type: '',
+      comment: ''
+    });
+    var AMOUNT_TO_RECEIVE = (0,_utils__WEBPACK_IMPORTED_MODULE_2__.computed)(function () {
+      var selectedCard = props.giftcards.find(function (card) {
+        return card.type === form.type;
+      });
+      return selectedCard ? selectedCard.rate * form.amount : 0; // return selectedCard ? selectedCard.rate * form.amount : 0 
+    }); // const amt = ref(null)
+
     var __returned__ = {
       name: name,
       imgType: imgType,
-      amt: amt,
+      form: form,
+      AMOUNT_TO_RECEIVE: AMOUNT_TO_RECEIVE,
+      props: props,
       MainLayout: _Layouts_MainLayout_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
       BigCard: _components_Big_Card_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-      ref: _utils__WEBPACK_IMPORTED_MODULE_2__.ref,
       computed: _utils__WEBPACK_IMPORTED_MODULE_2__.computed,
-      ExactCardImg: _utils__WEBPACK_IMPORTED_MODULE_2__.ExactCardImg
+      ExactCardImg: _utils__WEBPACK_IMPORTED_MODULE_2__.ExactCardImg,
+      useForm: _utils__WEBPACK_IMPORTED_MODULE_2__.useForm
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -31260,71 +31282,62 @@ var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "relative"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-full border text-base work px-4 flex justify-between select-none py-3 capitalize rounded-md shadow outline-none outline-none"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "select card type"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
-  width: "24",
-  height: "24",
-  viewBox: "0 0 24 24",
-  fill: "none",
-  xmlns: "http://www.w3.org/2000/svg"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
-  d: "M7.96967 19.5303C7.7034 19.2641 7.6792 18.8474 7.89705 18.5538L7.96967 18.4697L14.439 12L7.96967 5.53033C7.7034 5.26406 7.6792 4.8474 7.89705 4.55379L7.96967 4.46967C8.23594 4.2034 8.6526 4.1792 8.94621 4.39705L9.03033 4.46967L16.0303 11.4697C16.2966 11.7359 16.3208 12.1526 16.1029 12.4462L16.0303 12.5303L9.03033 19.5303C8.73744 19.8232 8.26256 19.8232 7.96967 19.5303Z",
-  fill: "black"
-})])])])], -1
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  disabled: "",
+  value: ""
+}, "Please select Category", -1
 /* HOISTED */
 );
 
-var _hoisted_10 = {
+var _hoisted_10 = ["value"];
+var _hoisted_11 = {
   "class": "input_box my-2 flex flex-col"
 };
 
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "amount",
   "class": "text-base work font-medium pb-2"
 }, "Amount", -1
 /* HOISTED */
 );
 
-var _hoisted_12 = {
+var _hoisted_13 = {
   "class": "file_price_container flex flex-col"
 };
-var _hoisted_13 = {
+var _hoisted_14 = {
   "class": "w-11/12 sm:w-10/12 mx-auto"
 };
-var _hoisted_14 = {
+var _hoisted_15 = {
   "class": "my-4"
 };
 
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "block work"
 }, "You will receive", -1
 /* HOISTED */
 );
 
-var _hoisted_16 = {
+var _hoisted_17 = {
   "class": "font-bold text-green-800 ibm text-xl"
 };
-var _hoisted_17 = {
+var _hoisted_18 = {
   "class": "input_box mx-auto my-2"
 };
 
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "comment",
   "class": "text-base work font-medium"
 }, "Comments", -1
 /* HOISTED */
 );
 
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "block py-1 text-base work font-medium"
 }, " Upload Card or Receipt ", -1
 /* HOISTED */
 );
 
-var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "border-dashed my-4 px-4 py-6 rounded flex flex-col text-center justify-between items-center border-4"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "items-center py-4"
@@ -31349,34 +31362,49 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         name: $setup.name
       }, null, 8
       /* PROPS */
-      , ["img-type", "name"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-        id: "amount",
+      , ["img-type", "name"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+        id: "category",
         "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
-          return $setup.amt = $event;
+          return $setup.form.type = $event;
+        }),
+        "class": "p-2 rounded shadow border bg-white",
+        name: "category"
+      }, [_hoisted_9, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.giftcards, function (category) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
+          key: category,
+          value: category.type
+        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(category.type), 9
+        /* TEXT, PROPS */
+        , _hoisted_10);
+      }), 128
+      /* KEYED_FRAGMENT */
+      ))], 512
+      /* NEED_PATCH */
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $setup.form.type]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+        id: "amount",
+        "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+          return $setup.form.amount = $event;
         }),
         autocomplete: "off",
         "class": "hover:ring-2 items-center w-full border-cyan-200 border text-base work px-4 py-3 rounded-md focus:border-cyan-500 focus:shadow-outline outline-none outline-none",
-        type: "text",
-        placeholder: "Enter Amount",
-        onInput: _cache[1] || (_cache[1] = function () {
-          return _ctx.filter && _ctx.filter.apply(_ctx, arguments);
-        })
-      }, null, 544
-      /* HYDRATE_EVENTS, NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.amt]])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" //file upload section "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_16, "₦" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(0.00), 1
+        type: "number",
+        placeholder: "Enter Amount"
+      }, null, 512
+      /* NEED_PATCH */
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.amount]])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" //file upload section "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_17, "₦" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.AMOUNT_TO_RECEIVE), 1
       /* TEXT */
-      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         id: "comment",
+        "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+          return $setup.form.comment = $event;
+        }),
         autocomplete: "off",
         "class": "w-full border text-base work px-4 py-3 rounded-md focus:border-cyan-500 focus:shadow-outline outline-none outline-none",
         type: "text",
-        placeholder: "Enter code if not clear",
-        onInput: _cache[2] || (_cache[2] = function () {
-          return _ctx.filter && _ctx.filter.apply(_ctx, arguments);
-        })
-      }, null, 32
-      /* HYDRATE_EVENTS */
-      )]), _hoisted_19, _hoisted_20])])])])];
+        placeholder: "Enter code if not clear"
+      }, null, 512
+      /* NEED_PATCH */
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.comment]])]), _hoisted_20, _hoisted_21])])])])];
     }),
     _: 1
     /* STABLE */
