@@ -40,6 +40,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 // hasRole
  Route::middleware(['auth:sanctum', 'verified'])->group(function(){
      Route::get('/giftcards', [CardsController::class, 'index'])->name('card.index');
+     Route::get('/upload/{name}', [CardsController::class, 'isType'])->name('card.isType');
  });
 
 require 'admin.php';

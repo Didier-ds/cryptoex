@@ -139,10 +139,7 @@
 import JetValidationErrors from '@/Jetstream/ValidationErrors.vue'
 import EyeIcon from '@/components/reusables_/EyeIcon.vue'
 import Logo from '@/components/reusables_/Logo.vue'
-import {
-    ref,
-    useForm
-} from '@/utils'
+import { ref, useForm } from '@/utils'
 defineProps({
     canResetPassword: Boolean,
     status: {

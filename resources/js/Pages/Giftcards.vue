@@ -47,7 +47,7 @@
 <script setup>
 import MainLayout from '@/Layouts/MainLayout.vue'
 import Card from '@/components/Card.vue'
-import {computed} from  '@/utils'
+import { computed } from '@/utils'
 const props = defineProps({
     giftcards: {
         type: Array,
@@ -55,16 +55,17 @@ const props = defineProps({
     },
 })
 const newGiftcards = computed(() => {
-    let i;
+    let i
     const giftcards = props.giftcards.map((any) => any.name)
-    const newArr = [];
-    const setObj = {};
-    for(i = 0; i < giftcards.length; i += 1){
-        if(!Object.prototype.hasOwnProperty.call(setObj, giftcards[i])){
-            newArr.push(giftcards[i]);
+    const newArr = []
+    const setObj = {}
+    for (i = 0; i < giftcards.length; i += 1) {
+        if (!Object.prototype.hasOwnProperty.call(setObj, giftcards[i])) {
+            newArr.push(giftcards[i])
             setObj[giftcards[i]] = true
         }
-    } return newArr
+    }
+    return newArr
 })
 </script>
 

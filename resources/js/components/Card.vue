@@ -1,5 +1,5 @@
 <template>
-    <inertia-link class="m-4" :href="'/upload/' + name">
+    <inertia-link class="m-4" :href="role ? '/upload/' + name : 'giftcard/category/' + name">
         <div
             class="card hover:shadow-lg border border-gray-300 justify-center items-center 0 fade-in p-4 w-full lg:w-full bg-white rounded-md"
             :style="{ '--order': index }">
@@ -20,7 +20,7 @@
 </template>
 <script setup>
 import { ExactCardImg } from '@/utils/cards'
-import { computed } from '@/utils'
+import { computed, usePage } from '@/utils'
 
 // const  toggleSide = (any) => {
 //     console.log("me" + any);
@@ -28,6 +28,9 @@ import { computed } from '@/utils'
 // }
 const imgType = computed(() => {
     return ExactCardImg(props.name)
+})
+const role = computed(() => {
+    return usePage().props.value.user.roles[0].name === 'admin' ? false : true
 })
 const props = defineProps({
     name: {
@@ -37,7 +40,8 @@ const props = defineProps({
     index: {
         type: Number,
         default: 0,
-    },
+    }
+    
 })
 </script>
 <style lang="scss" scoped></style>

@@ -10,6 +10,7 @@ Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified'],'prefix
     Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('dashboard.index');
     Route::get('cardlets', [AdminCardletController::class, 'index'])->name('cardlet.index');
     Route::get('giftcards', [CardsController::class, 'index'])->name('cards.index');
+    Route::get('/giftcard/category/{name}', [CardsController::class, 'isType'])->name('card.isType');
     Route::post('login', 'AdminLoginController@login')->name('login.post');
     Route::get('login', [AdminLoginController::class, 'index'])->name('login.index');
 });

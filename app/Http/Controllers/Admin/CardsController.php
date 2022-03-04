@@ -43,6 +43,18 @@ class CardsController extends Controller
         
     }
 
+      /**
+     * get the cards that fit request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+        public function isType(Request $request)
+        {   
+            $cards = Card::where('name', $request->name)->get();
+            return Inertia::render('Admin/GiftcardCategory', ['giftcards' => $cards]);
+        }
+
     /**
      * Display the specified resource.
      *

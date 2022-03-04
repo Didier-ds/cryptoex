@@ -7,7 +7,9 @@ import MaxWidthContainer from '@/components/reusables_/MaxWidthContainer.vue'
 import { Quasar } from 'quasar'
 import store from './store'
 import quasarUserOptions from './quasar-user-options'
-import GoBack from "@/components/reusables_/GoBack.vue";
+import BaseCard from '@/components/Base/BaseCard.vue'
+import BaseBtn from '@/components/Base/BaseBtn.vue'
+import GoBack from '@/components/reusables_/GoBack.vue'
 const appName = 'Laravel'
 
 createInertiaApp({
@@ -20,7 +22,9 @@ createInertiaApp({
             .use(store)
             .use(Quasar, quasarUserOptions)
             .component('InertiaLink', Link)
-            .component("GoBack", GoBack)
+            .component('GoBack', GoBack)
+            .component('BaseCard', BaseCard)
+            .component('BaseBtn', BaseBtn)
             .component('MaxWidthContainer', MaxWidthContainer)
             // eslint-disable-next-line no-undef
             .mixin({ methods: { route } })

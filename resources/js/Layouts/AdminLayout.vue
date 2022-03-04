@@ -26,7 +26,7 @@ let store = useStore()
                         <slot></slot>
                     </div>
 
-                    <Footer />
+                    <!-- <Footer /> -->
                 </div>
             </main>
         </div>

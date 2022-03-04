@@ -72,7 +72,7 @@ let handleWindowResize = () => {
                             </div>
                         </inertia-link>
                         <inertia-link
-                            href="/admin/cardlets"
+                            href="/admin/giftcards"
                             tag="li"
                             class="nav-item">
                             <div class="nav-item-hold">
