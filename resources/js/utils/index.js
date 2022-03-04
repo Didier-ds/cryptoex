@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue'
+import { ref, reactive, watch, computed } from 'vue'
 import { Inertia } from '@inertiajs/inertia'
 import { ExactCardImg } from './cards'
 import { usePage, useForm } from '@inertiajs/inertia-vue3'
@@ -10,6 +10,8 @@ import {
 } from './validate.js'
 export {
     ref,
+    watch,
+    reactive,
     computed,
     usePage,
     Inertia,

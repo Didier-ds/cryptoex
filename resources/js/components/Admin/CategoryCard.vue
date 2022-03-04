@@ -19,7 +19,7 @@
         cursor-pointer
       "
     >
-      <div class="stock_name_container my-2 flex-1 grid grid-cols-2 gap-10">
+      <div class="stock_name_container my-2 flex-1 justify-between w-full grid grid-cols-2 gap-10">
         <div class="text-center">
           <p class="stock_abbr text-gray-500 font-medium">Name</p>
           <p class="stock_fullname text-gray-600">{{name}}</p>
@@ -29,7 +29,7 @@
           <p class="font-medium">{{type}}</p>
         </div>
       </div>
-      <div class="stock_details py-2 flex-1 my-2 grid grid-cols-2 gap-10">
+      <div class="stock_details py-2 flex-1 justify-between w-full my-2 grid grid-cols-2 gap-10">
         <div class="text-center">
           <p class="font-medium text-gray-500">Price Range</p>
           <!-- <p class="font-medium">{{priceRange}}</p> -->

@@ -18,7 +18,7 @@ class CardsController extends Controller
     {
         //
         $cards = Card::all();
-        return Inertia::render('Admin/Giftcards', ['giftcards' => $cards]);
+        return Inertia::render('Admin/UpdateCard', ['giftcards' => $cards]);
     }
 
     /**
@@ -88,6 +88,22 @@ class CardsController extends Controller
     {
         //
     }
+
+
+    public function cardRateChange(Request $request, $uuid)
+    {
+        $request->validate(['rate' => 'required']);
+        $card = Card::where('uuid', $uuid)->first();
+        $card->rate = $request->rate;
+        $card->save();
+        return redirect()->route('cards.index');
+        // if ($card) {
+        //     return response()->json(['status' => 'successful', 'type' => 'card', 'data' => new CardResource($card)], 200);
+        // } else {
+        //     return response()->json(['message' => 'Error! Something went wrong.'], 500);
+        // }
+    }
+
 
     /**
      * Remove the specified resource from storage.

@@ -10,12 +10,18 @@
                     </h2>
                 </div>
             </div>
+            <q-btn color="primary" label="Add Category" />
         <category-card v-for="card in giftcards" :name="card.name" :rate="card.rate" :type="card.type" :key="card"></category-card>
+        <!-- <q-page-sticky position="bottom-right" :offset="[18, 18]">
+            <q-btn fab icon="add" color="primary" />
+          </q-page-sticky> -->
+          
     </admin-layout>
 </template>
 
 <script setup>
 import AdminLayout from '@/Layouts/AdminLayout.vue'
+import Modal from '@/Jetstream/Modal.vue'
 import CategoryCard from '@/components/Admin/CategoryCard.vue'
 defineProps({
     giftcards: {

@@ -30,7 +30,7 @@ const imgType = computed(() => {
     return ExactCardImg(props.name)
 })
 const role = computed(() => {
-    return usePage().props.value.user.roles[0].name === 'admin' ? false : true
+    return usePage().props.value.user.roles ? false : true
 })
 const props = defineProps({
     name: {
