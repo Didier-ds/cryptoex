@@ -9,45 +9,87 @@ use App\Http\Resources\CardletMainResource;
 use App\Http\Resources\Cardletresource;
 use App\Models\Card;
 use App\Models\Cardlet;
+use App\Models\CardletImage;
 use App\Models\Konstants;
 use App\Models\RoleManager;
 use App\Models\User;
 use App\Notifications\CardletNotification;
+// use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 class CardletController extends Controller
 {
-
-
     public function store(Request $request, $cardUuid)
     {
-        
-        // Check Auth
-        $card = Card::where('uuid', $cardUuid)->first();
-        if (!$card) {
-            return  response(ResponseBuilder::genErrorRes(Konstants::MSG_404), Konstants::STATUS_NOT_FOUND);
-        }
-        //save to store
         $user = auth()->user();
-        $cardlet = Cardlet::create(array_merge($request->only('code', 'comment', 'amount'), [
-            'uuid' => Str::uuid(), 'name' => $card->name, 'type' => $card->type,
-            'image' => Helpers::runImageUpload($request->file('image'), 'cardlets'), 'user_id' => $user->id
-        ], Helpers::getTimeStamps()));
-
-        // Notify Admins
-        $admins = User::role(Konstants::ROLE_ADMIN)->get();
-        foreach ($admins as $admin) {
-            $admin->notify(new CardletNotification(Helpers::buildMailData(
-                Konstants::MAIL_CARDLET_C_BODY($user),
-                Konstants::MAIL_CARDLET_C_ACT,
-                Konstants::URL_LOGIN,
-                Konstants::MAIL_LAST
-            )));
+        $card = Card::where('uuid', $cardUuid)->first();
+        $allowedExtension = ['jpg', 'png'];
+        if($request -> hasFile('images')) {
+            $files = $request->file('images');
+            
+            foreach($files as $file){
+                $filename = hexdec(uniqid());
+                $extension = $file->getClientOriginalExtension();
+                $check = in_array($extension, $allowedExtension);
+                if($check){
+                    $cardlet = Cardlet::create([
+                        'uuid' => Str::uuid(), 
+                        'name' => $card->name,
+                        'comment' => $request->comment,
+                        'type' => $card->type,
+                        'user_id' => $user->id,
+                        'amount' => $request->amount
+                    ]);
+                    foreach ($request->$files as $image) {
+                        # code...
+                        $filename = Helpers::runImageUpload($image, 'cardlets');
+                        CardletImage::create([
+                            'cardlet_id' => $cardlet->id,
+                            'filename' => $filename
+                        ]);
+                    }
+                    dd('me');
+                    // Session::flash('success', 'successfull');
+                } else {
+                    dd('error');
+                    // Session::flash('success', 'failed');
+                }
+            }
+        } else {
+            dd('its me');
         }
-        // Return Response
-        // return response()->json(ResponseBuilder::buildRes(new Cardletresource($cardlet)), Konstants::STATUS_OK);
     }
+
+    // public function store(Request $request, $cardUuid)
+    // {
+        
+    //     // Check Auth
+    //     $card = Card::where('uuid', $cardUuid)->first();
+    //     if (!$card) {
+    //         return  response(ResponseBuilder::genErrorRes(Konstants::MSG_404), Konstants::STATUS_NOT_FOUND);
+    //     }
+    //     //save to store
+    //     $user = auth()->user();
+    //     $cardlet = Cardlet::create(array_merge($request->only('code', 'comment', 'amount'), [
+    //         'uuid' => Str::uuid(), 'name' => $card->name, 'type' => $card->type,
+    //         'image' => Helpers::runImageUpload($request->file('image'), 'cardlets'), 'user_id' => $user->id
+    //     ], Helpers::getTimeStamps()));
+
+    //     // Notify Admins
+    //     $admins = User::role(Konstants::ROLE_ADMIN)->get();
+    //     foreach ($admins as $admin) {
+    //         $admin->notify(new CardletNotification(Helpers::buildMailData(
+    //             Konstants::MAIL_CARDLET_C_BODY($user),
+    //             Konstants::MAIL_CARDLET_C_ACT,
+    //             Konstants::URL_LOGIN,
+    //             Konstants::MAIL_LAST
+    //         )));
+    //     }
+    //     // Return Response
+    //     // return response()->json(ResponseBuilder::buildRes(new Cardletresource($cardlet)), Konstants::STATUS_OK);
+    // }
 
 
     public function cardletStatusChaneg(Request $request, $uuid)

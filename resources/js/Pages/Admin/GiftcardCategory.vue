@@ -1,21 +1,25 @@
 <template>
     <admin-layout>
         <div class="flex flex-row justify-between items-center mx-4">
-                <div class="my-1">
-                    <GoBack />
-                </div>
-                <div class="">
-                    <h2 class="text-lg work font-semibold p-ripple">
-                        {{ giftcards[0].name }} Card
-                    </h2>
-                </div>
+            <div class="my-1">
+                <GoBack />
             </div>
-            <q-btn color="primary" label="Add Category" />
-        <category-card v-for="card in giftcards" :name="card.name" :rate="card.rate" :type="card.type" :key="card"></category-card>
+            <div class="">
+                <h2 class="text-lg work font-semibold p-ripple">
+                    {{ giftcards[0].name }} Card
+                </h2>
+            </div>
+        </div>
+        <q-btn color="primary" label="Add Category" />
+        <category-card
+            v-for="card in giftcards"
+            :name="card.name"
+            :rate="card.rate"
+            :type="card.type"
+            :key="card"></category-card>
         <!-- <q-page-sticky position="bottom-right" :offset="[18, 18]">
             <q-btn fab icon="add" color="primary" />
           </q-page-sticky> -->
-          
     </admin-layout>
 </template>
 
@@ -31,6 +35,4 @@ defineProps({
 })
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

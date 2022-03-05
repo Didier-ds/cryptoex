@@ -9,8 +9,8 @@ export default {
     config: {
         brand: {
             primary: '#00C2FF', //'#DE3618',
-            secondary: '#04172a'
-                // ... or all other brand colors
+            secondary: '#04172a',
+            // ... or all other brand colors
         },
         loading: {
             /* look at QuasarConfOptions from the API card */

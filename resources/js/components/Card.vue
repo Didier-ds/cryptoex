@@ -1,5 +1,7 @@
 <template>
-    <inertia-link class="m-4" :href="role ? '/upload/' + name : 'giftcard/category/' + name">
+    <inertia-link
+        class="m-4"
+        :href="role ? '/upload/' + name : 'giftcard/category/' + name">
         <div
             class="card hover:shadow-lg border border-gray-300 justify-center items-center 0 fade-in p-4 w-full lg:w-full bg-white rounded-md"
             :style="{ '--order': index }">
@@ -40,8 +42,7 @@ const props = defineProps({
     index: {
         type: Number,
         default: 0,
-    }
-    
+    },
 })
 </script>
 <style lang="scss" scoped></style>
