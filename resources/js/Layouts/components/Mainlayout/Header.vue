@@ -48,8 +48,8 @@ const toggleModal = () => {
                 class="capitalize select-none flex items-center"
                 @click="toggleModal()">
                 <ProfilePic :is-size="'small'" /><span
-                    class="hidden sm:block font-medium px-2"
-                    >{{ fullname }}</span
+                    class="hidden myHidden font-medium work px-2"
+                    >{{ $page.props.user.fullname }}</span
                 >
                 <div>
                     <svg
@@ -81,7 +81,7 @@ header {
 }
 @media (min-width: 769px) {
     .myHidden {
-        display: none;
+        display: block !important;
     }
 }
 .fade-enter-active,

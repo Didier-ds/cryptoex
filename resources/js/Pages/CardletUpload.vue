@@ -71,7 +71,7 @@
                             </span>
                             <div>
                                 <div
-                                    class="border-dashed my-4 px-4 py-6 rounded flex flex-col text-center justify-between items-center border-4">
+                                    class="border-dashed my-4 px-4 py-4 rounded flex flex-col text-center justify-between items-center border-4">
                                     <div class="items-center py-4">
                                         <img src="@/images/proof.svg" class="mx-auto" />
                                         <p class="py-4 work">
