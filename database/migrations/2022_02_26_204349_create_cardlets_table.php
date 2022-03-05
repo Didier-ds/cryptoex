@@ -18,8 +18,7 @@ return new class extends Migration
             $table->string('uuid')->unique();
             $table->string('name');
             $table->string('type');
-            $table->string('rate');
-            $table->string('code');
+            $table->string('amount');
             $table->bigInteger('user_id')->unsigned();
             $table->string('comment')->default('no comment');
             $table->string('status')->default('pending');

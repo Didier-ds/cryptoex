@@ -17,6 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('uuid')->unique();
             $table->string('name');
+            $table->string('country');
+            $table->string('min');
+            $table->string('max');
             $table->string('type');
             $table->string('rate');
             $table->timestamps();

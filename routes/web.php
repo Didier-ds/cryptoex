@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\CardletController;
 use App\Http\Controllers\CardsController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Auth;
@@ -41,6 +42,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
  Route::middleware(['auth:sanctum', 'verified'])->group(function(){
      Route::get('/giftcards', [CardsController::class, 'index'])->name('card.index');
      Route::get('/upload/{name}', [CardsController::class, 'isType'])->name('card.isType');
+     Route::post('/users/cardlets-make/{Carduuid}', [CardletController::class, 'store']);  // To create cardlet
  });
 
 require 'admin.php';
