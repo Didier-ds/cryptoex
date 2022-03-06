@@ -152,11 +152,18 @@ class CardletController extends Controller
     public function userCardlets()
     {
         $userId = auth()->id();
-        $userCardlets = Cardlet::where('user_id', $userId)->get();
-        return Inertia::render('Transactions', ['cardlets' => $userCardlets]);
-
+        $userCardlets = Cardlet::where('user_id', $userId)->with('images')->get()->map(function($cardlet){
+            $cardlet->image = $cardlet->images();
+            return $cardlet;
+        });
+        //  foreach ($userCardlets as $cardlet => $value) {
+        //      $cardletImages = 
+        //      # code...
+        //  }
+        // dd($userCardlets);
         // return response()->json(
-        //     [
+            return Inertia::render('Transactions', ['cardlets' => $userCardlets]);
+        //     [Cardletresource::collection($userCardlets)
         //         'status' => 'successfull',
         //         'type' => 'cardlet collection',
         //         'data' => Cardletresource::collection($userCardlets)

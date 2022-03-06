@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->bigInteger('cardlet_id')->unsigned();
-            $table->foreign('cardlet_id')->references('id')->on('cardlets');
+            $table->foreign('cardlet_id')->references('id')->on('cardlets')->onDelete('cascade');
             $table->string('filename');
         });
     }

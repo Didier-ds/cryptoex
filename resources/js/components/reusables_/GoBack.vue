@@ -17,7 +17,7 @@
                 fill="#130F26" />
         </svg>
 
-        <span class="px-2 sm:block hidden font-medium">Back</span>
+        <span class="px-2 myHidden hidden font-medium work" >Back</span>
     </div>
 </template>
 <script setup>
@@ -25,7 +25,12 @@ const GO_BACK = () => window.history.back()
 </script>
 <style lang="scss" scoped>
 .back_btn:hover {
-    animation: direct-left 0.7s infinite ease-in-out;
+    animation: direct-left 1s infinite ease-in-out;
+}
+@media (min-width: 769px) {
+    .myHidden {
+        display: block !important;
+    }
 }
 @keyframes direct-left {
     0% {

@@ -19,7 +19,7 @@ class Cardletresource extends JsonResource
                 'code' => $this->code,
                 'satus' => $this->status,
                 'comment' => $this->comment,
-                'image_url' => $this->image
+                'image_url' => $this->images()
             ]
         ];
     }
