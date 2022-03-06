@@ -164,6 +164,7 @@
                         </div>
                     </div>
                 </div>
+                {{file}}
             </form>
         </div>
     </main-layout>
@@ -194,6 +195,7 @@ const form = useForm({
     amount: 0,
     type: '',
     comment: '',
+    images: null
 })
 
 
@@ -211,6 +213,7 @@ const AMOUNT_TO_RECEIVE = computed(() => {
 const handleChange = () => {
       if (file.value.files) {
         const allFiles = file.value.files;
+        form.images = file.value.files;
         for (let singleFile of allFiles) {
           const reader = new FileReader();
           reader.onload = () => {

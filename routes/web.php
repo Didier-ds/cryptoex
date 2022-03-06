@@ -42,6 +42,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
  Route::middleware(['auth:sanctum', 'verified'])->group(function(){
      Route::get('/giftcards', [CardsController::class, 'index'])->name('card.index');
      Route::get('/upload/{name}', [CardsController::class, 'isType'])->name('card.isType');
+     Route::get('/user/transactions', [CardletController::class, 'userCardlets']);  // To create cardlet
      Route::post('/users/cardlets-make/{Carduuid}', [CardletController::class, 'store']);  // To create cardlet
  });
 

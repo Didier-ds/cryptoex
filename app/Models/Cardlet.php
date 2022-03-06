@@ -11,7 +11,7 @@ class Cardlet extends Model
 
     protected $table = "cardlets";
 
-    protected $fillable = ['uuid', 'name', 'type', 'amount', 'status', 'comment', 'image'];
+    protected $fillable = ['uuid', 'name', 'type', 'amount', 'user_id', 'status', 'comment', 'image'];
 
     public function user()
     {

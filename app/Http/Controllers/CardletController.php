@@ -14,35 +14,39 @@ use App\Models\Konstants;
 use App\Models\RoleManager;
 use App\Models\User;
 use App\Notifications\CardletNotification;
-// use Illuminate\Contracts\Session\Session;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\Session;
+// use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
+use Inertia\Inertia;
 
 class CardletController extends Controller
 {
     public function store(Request $request, $cardUuid)
     {
         $user = auth()->user();
+        // dd($user->id);
         $card = Card::where('uuid', $cardUuid)->first();
         $allowedExtension = ['jpg', 'png'];
         if($request -> hasFile('images')) {
             $files = $request->file('images');
-            
+            // dd($files);
+            $cardlet = Cardlet::create([
+                'uuid' => Str::uuid(), 
+                'name' => $card->name,
+                'comment' => $request->comment,
+                'type' => $card->type,
+                'user_id' => auth()->id(),
+                'amount' => $request->amount
+            ]);
             foreach($files as $file){
                 $filename = hexdec(uniqid());
                 $extension = $file->getClientOriginalExtension();
                 $check = in_array($extension, $allowedExtension);
                 if($check){
-                    $cardlet = Cardlet::create([
-                        'uuid' => Str::uuid(), 
-                        'name' => $card->name,
-                        'comment' => $request->comment,
-                        'type' => $card->type,
-                        'user_id' => $user->id,
-                        'amount' => $request->amount
-                    ]);
-                    foreach ($request->$files as $image) {
+                    
+                    foreach ($request->images as $image) {
                         # code...
                         $filename = Helpers::runImageUpload($image, 'cardlets');
                         CardletImage::create([
@@ -50,11 +54,13 @@ class CardletController extends Controller
                             'filename' => $filename
                         ]);
                     }
-                    dd('me');
-                    // Session::flash('success', 'successfull');
+                    // dd('me');
+                   return session()->flash('status', 'Task was successful!');
                 } else {
-                    dd('error');
-                    // Session::flash('success', 'failed');
+                    // dd('error');
+                    // Session
+                    return session()->flash('status', 'Task was unsuccessful!');
+                    //  Session::flash('success', 'failed');
                 }
             }
         } else {
@@ -147,14 +153,16 @@ class CardletController extends Controller
     {
         $userId = auth()->id();
         $userCardlets = Cardlet::where('user_id', $userId)->get();
-        return response()->json(
-            [
-                'status' => 'successfull',
-                'type' => 'cardlet collection',
-                'data' => Cardletresource::collection($userCardlets)
-            ],
-            200
-        );
+        return Inertia::render('Transactions', ['cardlets' => $userCardlets]);
+
+        // return response()->json(
+        //     [
+        //         'status' => 'successfull',
+        //         'type' => 'cardlet collection',
+        //         'data' => Cardletresource::collection($userCardlets)
+        //     ],
+        //     200
+        // );
     }
 
 
