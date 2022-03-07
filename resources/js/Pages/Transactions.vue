@@ -14,13 +14,18 @@
             <div class="my-10 sm:my-4 lg:block mx-4 grid gap-4 grid-cols-2">
                 <div id="giftcards">
                     <h2 class="font-bold work big mb-2">GIFTCARD TRANSACTIONS</h2>
-                
-                        <Empty>You Have No Gift Card Transations</Empty>
+                        <template v-if="!!cardlets.length">
+                            <Cardlet v-for="(cardlet, index) in cardlets" :key="index" />
+                        </template>
+                        
+                        <template v-else>
+                            <Empty>You Have No Gift Card Transations</Empty>
+                        </template>
                 </div>
                 <div id="bitcoins">
                     <h2 class="font-bold work big mb-2 ">BITCOIN TRANSACTIONS</h2>
-                        <template v-if="proofs.length > 0">
-                            <ProofCard :proof="proof" v-for="(proof, index) in proofs" :key="index"/>
+                        <template v-if="proofs.length">
+                            <ProofCard v-for="(proof, index) in proofs" :key="index" :proof="proof"/>
                         </template>
                         
                         <template v-else>
@@ -48,11 +53,19 @@
 <script setup>
 import MainLayout from '@/Layouts/MainLayout';
 import ProofCard from '@/components/ProofCard.vue'
+import Cardlet from '@/components/Cardlet.vue'
 import Empty from '@/components/reusables_/Empty.vue'
 import {ref} from '@/utils'
+
+defineProps({
+    cardlets: {
+        type: Array,
+        default: () => []
+    }
+})
+
 const proofs  = ref([])
-const cardlets = ref([])
- 
+// const cardlets = ref([])
 const myProofs = () => {
             // axios.get('users/proofs').then(response => this.proofs = response.data.data).catch(err => console.log(err))
         }

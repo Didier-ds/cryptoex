@@ -4,9 +4,9 @@
             class="overlay"
             :class="isSideBar ? 'active' : ''"
             @click="toggleSideBar"></div>
-        <SideNav :is-side-bar="isSideBar" @toggle-side-bar="toggleSideBar" />
 
-        <div>
+        <div id="layout">
+        <SideNav :is-side-bar="isSideBar" @toggle-side-bar="toggleSideBar" />
             <main>
                 <Header @toggle-side-bar="toggleSideBar" />
                 <div class="bg-white rounded-lg">
@@ -35,6 +35,13 @@ const toggleSideBar = () => {
 </script>
 
 <style lang="scss" scoped>
+@media (min-width: 769px) {
+    #layout {
+        display: grid;
+        grid-template-columns: minmax(180px, 280px) 1fr,
+    }
+}
+
 input {
     appearance: none !important;
 }
@@ -46,11 +53,11 @@ main {
     // position: relative;
 }
 
-@media (min-width: 769px) {
-    main {
-        margin-left: 325px;
-    }
-}
+// @media (min-width: 769px) {
+//     main {
+//         margin-left: 325px;
+//     }
+// }
 // #view {
 //   width: calc(100vw - 260px);
 //   margin-left: 240px;
@@ -67,7 +74,7 @@ main {
     opacity: 0;
     transition: 0.5s ease-in-out;
 }
-@media (max-width: 768px) {
+@media (max-width: 769px) {
     .overlay.active {
         opacity: 1;
         display: block;

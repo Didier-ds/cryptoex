@@ -40,9 +40,9 @@
                 Cryptomania<br />Exchange
             </p>
         </div>
-        <ul class="link_list">
+        <div class="link_list">
             <!-- :class="$route.path === '/' ? 'selectedLink' : ''" -->
-            <li @click="changeRoute('/')">
+            <inertia-link href="" @click="changeRoute('/')">
                 <div class="link_icon">
                     <svg
                         width="24"
@@ -62,9 +62,9 @@
                     </svg>
                 </div>
                 <span>Overview</span>
-            </li>
+            </inertia-link>
             <!-- :class="$route.path === '/transactions' ? 'selectedLink' : ''" -->
-            <li @click="changeRoute('/transactions')">
+            <inertia-link href="" @click="changeRoute('/transactions')">
                 <div class="link_icon">
                     <svg
                         width="24"
@@ -86,9 +86,9 @@
                     </svg>
                 </div>
                 <span>Transactions</span>
-            </li>
+            </inertia-link>
             <!-- :class="$route.path === '/account-details' ? 'selectedLink' : ''" -->
-            <li @click="changeRoute('/account-details')">
+            <inertia-link href="" @click="changeRoute('/account-details')">
                 <div class="link_icon">
                     <svg
                         width="24"
@@ -109,9 +109,9 @@
                     </svg>
                 </div>
                 <span>Account Details</span>
-            </li>
+            </inertia-link>
             <!-- :class="$route.path === '/profile' ? 'selectedLink' : ''"  -->
-            <li @click="changeRoute('/profile')">
+            <inertia-link href="" @click="changeRoute('/profile')">
                 <div class="link_icon">
                     <svg
                         width="24"
@@ -129,8 +129,8 @@
                     </svg>
                 </div>
                 <span>Settings</span>
-            </li>
-        </ul>
+            </inertia-link>
+        </div>
         <div class="absolute inset-x-0 bottom-0">
             <p class="text-center text-sm font-medium text-grey">
                 Cryptomania Exchange © 2021. <br />
@@ -162,15 +162,11 @@ export default {
 <style lang="scss" scoped>
 #sidebar {
     height: 100vh;
-    width: 280px;
+    width: 100%;
     background-color: white;
-    position: fixed;
-    top: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    left: 0;
-
     transition: 0.5s ease-in-out;
     border-right: 2px solid #f8f9fb;
 }
@@ -185,7 +181,7 @@ export default {
         margin: 12px 0;
         margin-right: 24px !important;
     }
-    li {
+    a {
         display: flex;
         align-items: center;
         padding: 0 1em;
@@ -206,14 +202,18 @@ export default {
             // color: #6c757de2
         }
     }
-    li:hover {
+    a:hover {
         background-color: #f8f9fb;
     }
 }
-@media (max-width: 768px) {
+@media (max-width: 769px) {
     #sidebar {
         z-index: 15;
         transform: translateX(-100%);
+        width: 80%;
+        position:fixed;
+        top: 0;
+        left: 0;
     }
     #sidebar.active {
         transform: translateX(0);
