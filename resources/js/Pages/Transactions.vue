@@ -8,10 +8,11 @@
                 <div class="">
                     <h2 class="text-lg work font-semibold p-ripple" >Transactions</h2>
                 </div>
-                
-            
             </div>
-            <div class="my-10 sm:my-4 lg:block mx-4 grid gap-4 grid-cols-2">
+            <div class=" mx-auto md:grid gap-4 grid-cols-3">
+                <StatusBox v-for="(status, index) in statuses" :key="index" :status = status.status :label = status.label :total = status.total />
+            </div>
+            <div class="my-10 sm:my-4  mx-4 ">
                 <div id="giftcards">
                     <h2 class="font-bold work big mb-2">GIFTCARD TRANSACTIONS</h2>
                         <template v-if="!!cardlets.length">
@@ -22,7 +23,7 @@
                             <Empty>You Have No Gift Card Transations</Empty>
                         </template>
                 </div>
-                <div id="bitcoins">
+                <!-- <div id="bitcoins">
                     <h2 class="font-bold work big mb-2 ">BITCOIN TRANSACTIONS</h2>
                         <template v-if="proofs.length">
                             <ProofCard v-for="(proof, index) in proofs" :key="index" :proof="proof"/>
@@ -32,38 +33,44 @@
                             <Empty>You Have No Bitcoin Transations</Empty>
                         </template>
                         
-                        <!-- <div id="proof-card" class="flex mb-2 p-2 border rounded items-center">
-                            <div  class="flex justify-center h-8 w-8 items-center cursor-pointer mr-2 rounded-2xl bg-green-400 text-white"><i class="pi pi-arrow-down"></i></div>
-                            <div class="flex-grow">
-                                <div class="flex justify-between">
-                                <p class="text_status font-semibold">Successful</p>
-                                <p class="amount_text text-green-400 font-bold">0.00056 BTC</p>
-                            </div>
-                            <div class="flex justify-between">
-                                <p class="data text-sm text-gray-400">oct 2, 2020</p>
-                                <p class="amount_ngn text-sm font-semibold">25,000 NGN</p>
-                            </div>
-                            </div>
-                        </div> -->
-                </div>
+                </div> -->
             </div>
         </div>
     </main-layout>
 </template>
 <script setup>
 import MainLayout from '@/Layouts/MainLayout';
+import StatusBox from '@/components/StatusBox.vue'
 import ProofCard from '@/components/ProofCard.vue'
 import Cardlet from '@/components/Cardlet.vue'
 import Empty from '@/components/reusables_/Empty.vue'
-import {ref} from '@/utils'
+import {ref, computed} from '@/utils'
 
-defineProps({
+const props = defineProps({
     cardlets: {
         type: Array,
         default: () => []
     }
 })
-
+const statuses = [{
+    label: 'Successful',
+    status: 'success',
+    total: computed(() => {
+        return props.cardlets.filter(a => a.status === 'successful').length
+    })
+}, {
+    label: 'Failed',
+    status: 'failed',
+    total: computed(() => {
+        return props.cardlets.filter(a => a.status === 'failed').length
+    })
+}, {
+    label: 'Pending',
+    status: 'pending',
+    total: computed(() => {
+        return props.cardlets.filter(a => a.status === 'pending').length
+    })
+}]
 const proofs  = ref([])
 // const cardlets = ref([])
 const myProofs = () => {

@@ -42,7 +42,7 @@
         </div>
         <div class="link_list">
             <!-- :class="$route.path === '/' ? 'selectedLink' : ''" -->
-            <inertia-link href="" @click="changeRoute('/')">
+            <inertia-link href="/dashboard">
                 <div class="link_icon">
                     <svg
                         width="24"
@@ -64,7 +64,7 @@
                 <span>Overview</span>
             </inertia-link>
             <!-- :class="$route.path === '/transactions' ? 'selectedLink' : ''" -->
-            <inertia-link href="" @click="changeRoute('/transactions')">
+            <inertia-link href="/user/transactions">
                 <div class="link_icon">
                     <svg
                         width="24"
@@ -166,6 +166,7 @@ export default {
     background-color: white;
     display: flex;
     flex-direction: column;
+    position: relative;
     align-items: center;
     transition: 0.5s ease-in-out;
     border-right: 2px solid #f8f9fb;
