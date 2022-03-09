@@ -18,7 +18,7 @@ class CardsController extends Controller
     {
         //
         $cards = Card::all();
-        return Inertia::render('Admin/UpdateCard', ['giftcards' => $cards]);
+        return Inertia::render('Admin/Giftcards', ['giftcards' => $cards]);
     }
 
     /**
@@ -86,7 +86,9 @@ class CardsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //\
+        $cards = Card::all();
+        return Inertia::render('Admin/UpdateCard', ['giftcards' => $cards]);
     }
 
 

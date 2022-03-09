@@ -11,25 +11,10 @@
                     </h2>
                 </div>
             </div>
-            <div class="">
-                <!-- <input
-                    id="input1"
-                    autocomplete="off"
-                    @input="filter"
-                    class="w-full m-4 border-gray-300 border px-4 py-3 work rounded-md focus:shadow outline-none"
-                    type="text"
-                    placeholder="Enter your giftcard" /> -->
-            </div>
+            
             <div
                 v-if="skeleton"
                 class="card-container lg:grid grid-cols-3 gap-4 sm:grid-cols-2 flex flex-wrap">
-                <!-- <Skeleton
-        :style="{ maxWidth: '12em' }"
-        width="100%"
-        height="12em"
-        v-for="i in 12"
-        :key="i"
-      ></Skeleton> -->
             </div>
             <div
                 class="card-container grid sm:grid-cols-4 grid-cols-2 grid flex-wrap">

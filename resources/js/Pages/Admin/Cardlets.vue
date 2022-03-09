@@ -1,6 +1,6 @@
 <template>
     <admin-layout>
-         <p class="font-medium text-xl ">All User Giftcards</p> 
+         <p class="font-medium text-xl ">All Uploaded Giftcards</p> 
          <div class="shadow-lg overflow-hidden border-b border-gray-200 border-dashed sm:rounded-lg m-4">
             <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">

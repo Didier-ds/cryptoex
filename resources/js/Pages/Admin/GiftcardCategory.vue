@@ -10,23 +10,178 @@
                 </h2>
             </div>
         </div>
-        <q-btn color="primary" label="Add Category" />
+        <!-- <q-btn color="primary" label="Add Category" />
         <category-card
             v-for="card in giftcards"
             :name="card.name"
             :rate="card.rate"
             :type="card.type"
             :key="card"></category-card>
-        <!-- <q-page-sticky position="bottom-right" :offset="[18, 18]">
+         <q-page-sticky position="bottom-right" :offset="[18, 18]">
             <q-btn fab icon="add" color="primary" />
           </q-page-sticky> -->
+          <div class="shadow-lg overflow-hidden border-b border-gray-200 border-dashed sm:rounded-lg m-4">
+              <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th
+                                    scope="col"
+                                    class="
+                                                    px-6
+                                                    py-3
+                                                    text-left text-xs
+                                                    font-medium
+                                                    text-gray-500
+                                                    uppercase
+                                                    tracking-wider
+                                                "
+                            >
+                                Name
+                            </th>
+                            <th
+                                    scope="col"
+                                    class="
+                                                    px-6
+                                                    py-3
+                                                    text-left text-xs
+                                                    font-medium
+                                                    text-gray-500
+                                                    uppercase
+                                                    tracking-wider
+                                                "
+                            >
+                                Type
+                            </th>
+                            <th
+                                    scope="col"
+                                    class="
+                                                    px-6
+                                                    py-3
+                                                    text-left text-xs
+                                                    font-medium
+                                                    text-gray-500
+                                                    uppercase
+                                                    tracking-wider
+                                                "
+                            >
+                                Price range
+                            </th>
+                            
+                            <th
+                                    scope="col"
+                                    class="
+                                                    px-6
+                                                    py-3
+                                                    text-left text-xs
+                                                    font-medium
+                                                    text-gray-500
+                                                    uppercase
+                                                    tracking-wider
+                                                "
+                            >
+                                Rate
+                            </th>
+                            
+                           
+                            <th
+                                    scope="col"
+                                    class="relative px-6 py-3"
+                            >
+                                <span class="sr-only">Edit</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody
+                            class="bg-white divide-y divide-gray-200"
+                    >
+                    <tr class="py-2" v-for="giftcard in giftcards" :key="giftcard.id">
+                        <td
+                                class="
+                                                px-6
+                                                py-4
+                                                whitespace-nowrap
+                                                text-sm
+                                                font-medium
+                                                text-gray-900
+                                                capitalize
+                                            "
+                        >
+                            {{ giftcard.name }}
+                        </td>
+                        <td
+                                class="
+                                                px-6
+                                                py-4
+                                                whitespace-nowrap
+                                                text-sm text-gray-500
+                                                capitalize
+                                            "
+                        >
+                            {{ giftcard.type }}
+                        </td>
+                        <td
+                                class="
+                                                px-6
+                                                py-4
+                                                whitespace-nowrap
+                                                text-sm text-gray-500
+                                                capitalize
+                                            "
+                        >
+                            ${{ giftcard.min }}-${{ giftcard.max }}
+                        </td>
+                        <td
+                                class="
+                                                px-6
+                                                py-4
+                                                whitespace-nowrap
+                                                text-sm text-gray-500
+                                                capitalize
+                                            "
+                        >
+                            ${{ giftcard.rate }}
+                        </td>
+                        <!-- <td
+                                class="
+                                                px-6
+                                                py-4
+                                                whitespace-nowrap
+                                                text-sm text-gray-500
+                                                capitalize
+                                            "
+                        >
+                            {{ REPLACE_UNDERSCORE(giftcard.condition) }}
+                        </td> -->
+                       
+                        <td
+                                class="
+                                                px-6
+                                                py-4
+                                                whitespace-nowrap
+                                                text-right text-sm
+                                                flex
+                                                gap-4
+                                                font-medium
+                                            "
+                        >
+                            <a href="route('giftcards.show', giftcard.id)"
+                                    class="text-yellow-600 hover:text-yellow-900">
+                                View
+                            </a>
+                           
+                        </td>
+                    </tr>
+                    </tbody>
+            </table>
+          </div>
+          
     </admin-layout>
 </template>
 
 <script setup>
 import AdminLayout from '@/Layouts/AdminLayout.vue'
-import Modal from '@/Jetstream/Modal.vue'
-import CategoryCard from '@/components/Admin/CategoryCard.vue'
+// import Modal from '@/Jetstream/Modal.vue'
+// import CategoryCard from '@/components/Admin/CategoryCard.vue'
 defineProps({
     giftcards: {
         type: Array,
