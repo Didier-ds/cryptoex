@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cardlet;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -14,9 +15,11 @@ class AdminCardletController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Inertia::render('Admin/Cardlets');
+        $allCardlets = Cardlet::with('images')->get();
+        
+        return Inertia::render('Admin/Cardlets', ['cardlets' => $allCardlets]);
     }
 
     /**
