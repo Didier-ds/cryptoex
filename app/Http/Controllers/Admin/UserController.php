@@ -3,23 +3,23 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Cardlet;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-
-class AdminCardletController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $allCardlets = Cardlet::with('images')->get();
-        
-        return Inertia::render('Admin/Cardlets/Index', ['cardlets' => $allCardlets]);
+        //
+        $users = User::all();
+        return Inertia::render('Admin/Users/Index', ['data' => $users]);
+
     }
 
     /**
@@ -52,8 +52,9 @@ class AdminCardletController extends Controller
     public function show($id)
     {
         //
-        $data = Cardlet::with('cardlet')->where('id', $id)->first();
-        return Inertia::render('Admin/Cardlets/Show', ['data' => $data]);
+        
+        $users = User::with('cardlet')->where('id', $id)->first();
+        return Inertia::render('Admin/Users/Show', ['data' => $users]);
     }
 
     /**

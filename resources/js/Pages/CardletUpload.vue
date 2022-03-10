@@ -24,7 +24,7 @@
                                 <select
                                     id="category"
                                     v-model="form.type"
-                                    class="p-2 py-3 capitalize font-medium rounded shadow border bg-white"
+                                    class="p-2 py-3 capitalize font-medium rounded-md shadow-sm border "
                                     name="category">
                                     <option disabled value="">
                                         Please select Category
@@ -242,4 +242,18 @@ const submit = () => {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+background-position: right 0.5rem center;
+background-repeat: no-repeat;
+background-size: 1.5em 1.5em;
+padding-right: 2.5rem;
+-webkit-print-color-adjust: exact;
+color-adjust: exact;
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+background-color: white;
+}
+</style>

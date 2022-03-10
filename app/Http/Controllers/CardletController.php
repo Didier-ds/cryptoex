@@ -37,6 +37,7 @@ class CardletController extends Controller
                 'name' => $card->name,
                 'comment' => $request->comment,
                 'type' => $card->type,
+                'rate' => $card->rate,
                 'user_id' => auth()->id(),
                 'amount' => $request->amount
             ]);

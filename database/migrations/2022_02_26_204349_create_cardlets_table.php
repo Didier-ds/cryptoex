@@ -18,11 +18,11 @@ return new class extends Migration
             $table->string('uuid')->unique();
             $table->string('name');
             $table->string('type');
+            $table->string('rate');
             $table->string('amount');
             $table->bigInteger('user_id')->unsigned();
-            $table->string('comment')->default('no comment');
+            $table->string('comment')->default('no comment')->nullable();
             $table->string('status')->default('pending');
-            $table->string('image')->default('image-url');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
