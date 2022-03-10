@@ -20,7 +20,7 @@
          <q-page-sticky position="bottom-right" :offset="[18, 18]">
             <q-btn fab icon="add" color="primary" />
           </q-page-sticky> -->
-          <div class="shadow-lg overflow-hidden border-b border-gray-200 border-dashed sm:rounded-lg m-4">
+          <div class="shadow-lg overflow-hidden work border-b border-gray-200 border-dashed sm:rounded-lg m-4">
               <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                         <tr>
@@ -164,10 +164,12 @@
                                                 font-medium
                                             "
                         >
-                            <a href="route('giftcards.show', giftcard.id)"
-                                    class="text-yellow-600 hover:text-yellow-900">
-                                View
-                            </a>
+                            <inertia-link
+                            href="route('products.create')"
+                            class="flex-0  items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                            >
+                                Upgrade
+                            </inertia-link>
                            
                         </td>
                     </tr>

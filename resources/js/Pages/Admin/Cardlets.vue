@@ -1,7 +1,7 @@
 <template>
     <admin-layout>
          <p class="font-medium text-xl ">All Uploaded Giftcards</p> 
-         <div class="shadow-lg overflow-hidden border-b border-gray-200 border-dashed sm:rounded-lg m-4">
+         <div class="shadow-lg overflow-hidden border-b border-gray-200 work border-dashed sm:rounded-lg m-4">
             <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                         <tr>
@@ -192,10 +192,12 @@
                                                 font-medium
                                             "
                         >
-                            <a href="route('cardlets.show', cardlet.id)"
-                                    class="text-yellow-600 hover:text-yellow-900">
-                                View
-                            </a>
+                            <inertia-link
+                            href="route('products.create')"
+                            class="flex-0  items-center px-4 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                            >
+                                View Card
+                            </inertia-link>
                            
                         </td>
                     </tr>

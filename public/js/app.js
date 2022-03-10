@@ -29714,7 +29714,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_2 = {
-  "class": "shadow-lg overflow-hidden border-b border-gray-200 border-dashed sm:rounded-lg m-4"
+  "class": "shadow-lg overflow-hidden border-b border-gray-200 work border-dashed sm:rounded-lg m-4"
 };
 var _hoisted_3 = {
   "class": "min-w-full divide-y divide-gray-200"
@@ -29780,16 +29780,15 @@ var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+var _hoisted_12 = {
   "class": "px-6 py-4 whitespace-nowrap text-right text-sm flex gap-4 font-medium"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "route('cardlets.show', cardlet.id)",
-  "class": "text-yellow-600 hover:text-yellow-900"
-}, " View ")], -1
-/* HOISTED */
-);
+};
+
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" View Card ");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_inertia_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("inertia-link");
+
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["AdminLayout"], null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_5, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.cardlets, function (cardlet) {
@@ -29804,7 +29803,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         /* TEXT */
         ), _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <td\r\n                                class=\"\r\n                                                px-6\r\n                                                py-4\r\n                                                whitespace-nowrap\r\n                                                text-sm text-gray-500\r\n                                                capitalize\r\n                                            \"\r\n                        >\r\n                            {{ REPLACE_UNDERSCORE(cardlet.condition) }}\r\n                        </td> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(cardlet.status), 1
         /* TEXT */
-        ), _hoisted_11, _hoisted_12]);
+        ), _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+          href: "route('products.create')",
+          "class": "flex-0 items-center px-4 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+        }, {
+          "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+            return [_hoisted_13];
+          }),
+          _: 1
+          /* STABLE */
+
+        })])]);
       }), 128
       /* KEYED_FRAGMENT */
       ))])])])];
@@ -29872,7 +29881,7 @@ var _hoisted_4 = {
   "class": "text-lg work font-semibold p-ripple"
 };
 var _hoisted_5 = {
-  "class": "shadow-lg overflow-hidden border-b border-gray-200 border-dashed sm:rounded-lg m-4"
+  "class": "shadow-lg overflow-hidden work border-b border-gray-200 border-dashed sm:rounded-lg m-4"
 };
 var _hoisted_6 = {
   "class": "min-w-full divide-y divide-gray-200"
@@ -29916,18 +29925,16 @@ var _hoisted_11 = {
 var _hoisted_12 = {
   "class": "px-6 py-4 whitespace-nowrap text-sm text-gray-500 capitalize"
 };
-
-var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+var _hoisted_13 = {
   "class": "px-6 py-4 whitespace-nowrap text-right text-sm flex gap-4 font-medium"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "route('giftcards.show', giftcard.id)",
-  "class": "text-yellow-600 hover:text-yellow-900"
-}, " View ")], -1
-/* HOISTED */
-);
+};
+
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Upgrade ");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_GoBack = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("GoBack");
+
+  var _component_inertia_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("inertia-link");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["AdminLayout"], null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -29945,7 +29952,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         /* TEXT */
         ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_12, " $" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(giftcard.rate), 1
         /* TEXT */
-        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <td\r\n                                class=\"\r\n                                                px-6\r\n                                                py-4\r\n                                                whitespace-nowrap\r\n                                                text-sm text-gray-500\r\n                                                capitalize\r\n                                            \"\r\n                        >\r\n                            {{ REPLACE_UNDERSCORE(giftcard.condition) }}\r\n                        </td> "), _hoisted_13]);
+        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <td\r\n                                class=\"\r\n                                                px-6\r\n                                                py-4\r\n                                                whitespace-nowrap\r\n                                                text-sm text-gray-500\r\n                                                capitalize\r\n                                            \"\r\n                        >\r\n                            {{ REPLACE_UNDERSCORE(giftcard.condition) }}\r\n                        </td> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+          href: "route('products.create')",
+          "class": "flex-0 items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+        }, {
+          "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+            return [_hoisted_14];
+          }),
+          _: 1
+          /* STABLE */
+
+        })])]);
       }), 128
       /* KEYED_FRAGMENT */
       ))])])])];
