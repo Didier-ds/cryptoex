@@ -9,8 +9,8 @@
             </div>
             <div class="giftcard_name capitalize">{{ name }} giftcard</div>
             <div class="type ">{{ type }}</div>
-            <div class="amount">${{ amount }}<span class="rate"></span></div>
-            <div class="total">{{ 0 }}</div>
+            <div class="amount">${{ amount }} | <span class="rate text-cyan font-medium work">&#8358;{{ rate }}</span></div>
+            <div class="total font-semibold text-green-800">&#8358;{{ +amount * +rate }}</div>
             <div class="status  flex items-center justify-center "><div class="border rounded-md p-1 px-2 flex items-center gap-2 justify-center bg-gray-50 rounded-lg"><ColorBall :status="status"/>{{ status }}</div></div>
             <div class="date">{{ createdAt.slice(0, 10) }}</div>
         </div>
@@ -46,6 +46,10 @@ const props = defineProps({
         default: ''
     },
     amount: {
+        type: String,
+        default: "0"
+    },
+    rate: {
         type: String,
         default: "0"
     },

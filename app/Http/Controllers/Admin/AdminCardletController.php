@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cardlet;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -52,7 +53,9 @@ class AdminCardletController extends Controller
     public function show($id)
     {
         //
-        $data = Cardlet::with('cardlet')->where('id', $id)->first();
+        $data = Cardlet::with('images')->where('id', $id)->first();
+        $user = User::where('id', $data->user_id)->first();
+        $data->user = $user;
         return Inertia::render('Admin/Cardlets/Show', ['data' => $data]);
     }
 

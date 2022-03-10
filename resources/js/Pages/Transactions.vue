@@ -26,7 +26,7 @@
                         <div>Date</div>
                     </div>
                         <template v-if="!!cardlets.length">
-                            <Cardlet v-for="(cardlet, index) in cardlets" :status="cardlet.status" :name="cardlet.name" :amount="cardlet.amount" :created-at="cardlet.created_at" :type="cardlet.type" :key="index" />
+                            <Cardlet v-for="(cardlet, index) in cardlets" :status="cardlet.status" :name="cardlet.name" :amount="cardlet.amount" :rate="cardlet.rate" :created-at="cardlet.created_at" :type="cardlet.type" :key="index" />
                         </template>
                         
                         <template v-else>
