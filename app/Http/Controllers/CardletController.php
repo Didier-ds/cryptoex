@@ -55,6 +55,15 @@ class CardletController extends Controller
                             'filename' => $filename
                         ]);
                     }
+                    $admins = User::role(Konstants::ROLE_ADMIN)->get();
+                     foreach ($admins as $admin) {
+                         $admin->notify(new CardletNotification(Helpers::buildMailData(
+                             Konstants::MAIL_CARDLET_C_BODY($user),
+                             Konstants::MAIL_CARDLET_C_ACT,
+                             Konstants::URL_LOGIN,
+                             Konstants::MAIL_LAST
+                         )));
+                     }
                     // dd('me');
                     return redirect()->back()->with('success', 'Status Changed Successfully');
                 } else {

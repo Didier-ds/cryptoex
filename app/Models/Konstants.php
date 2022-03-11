@@ -58,18 +58,18 @@ class Konstants
     const MESSAGE_SUCCESS = "Operation performed Successfully!";
 
     // Mails Related constants
-    const MAIL_CARDLET_C_ACT = 'View Cardlet';
+    const MAIL_CARDLET_C_ACT = 'View Giftcard';
     const MAIL_LAST = 'Regards,';
     public static function MAIL_CARDLET_C_BODY(User $user): string
     {
-        return "A redeemable Cryptomania cardlet has been created by $user->fullname. Review and" .
+        return "A redeemable giftcard has been uploaded by $user->fullname. Review and" .
             " respond appropriately";
     }
 
     const MAIL_CARDLET_U_ACT = 'View New Status';
     public static function MAIL_CARDLET_U_BODY(Cardlet $cardlet): string
     {
-        return  "The status of Your $cardlet->name  $cardlet->type cardlet has been reviewed and " .
+        return  "The status of Your $cardlet->name  $cardlet->type giftcard has been reviewed and " .
             "updated by Cryptomania Exchange.";
     }
 
