@@ -17,6 +17,7 @@ class CardsController extends Controller
     public function index()
     {
         //
+        
         $cards = Card::all();
         return Inertia::render('Admin/Giftcards', ['giftcards' => $cards]);
     }

@@ -11,6 +11,7 @@ Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified'],'prefix
     Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('dashboard.index');
     Route::get('cardlets', [AdminCardletController::class, 'index'])->name('cardlet.index');
     Route::get('cardlets/{id}', [AdminCardletController::class, 'show'])->name('cardlet.show');
+    Route::patch('cardlets/{id}', [AdminCardletController::class, 'update'])->name('cardlet.update');
     Route::get('giftcards', [CardsController::class, 'index'])->name('cards.index');
     Route::get('users', [UserController::class, 'index'])->name('users.index');
     Route::get('users/{user_id}', [UserController::class, 'show'])->name('users.show');
