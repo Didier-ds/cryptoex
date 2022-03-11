@@ -6,7 +6,9 @@
             @click="toggleSideBar"></div>
 
         <div id="layout">
-        <SideNav :is-side-bar="isSideBar" @toggle-side-bar="toggleSideBar" />
+            <SideNav
+                :is-side-bar="isSideBar"
+                @toggle-side-bar="toggleSideBar" />
             <main>
                 <Header @toggle-side-bar="toggleSideBar" />
                 <div class="bg-white rounded-lg">
@@ -38,7 +40,7 @@ const toggleSideBar = () => {
 @media (min-width: 769px) {
     #layout {
         display: grid;
-        grid-template-columns: minmax(180px, 280px) 1fr,
+        grid-template-columns: minmax(180px, 280px) 1fr;
     }
 }
 

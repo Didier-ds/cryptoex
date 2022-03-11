@@ -212,7 +212,7 @@ export default {
         z-index: 15;
         transform: translateX(-100%);
         width: 80%;
-        position:fixed;
+        position: fixed;
         top: 0;
         left: 0;
     }

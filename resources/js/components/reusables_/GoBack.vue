@@ -17,7 +17,7 @@
                 fill="#130F26" />
         </svg>
 
-        <span class="px-2 myHidden hidden font-medium work" >Back</span>
+        <span class="px-2 myHidden hidden font-medium work">Back</span>
     </div>
 </template>
 <script setup>

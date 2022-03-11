@@ -10,7 +10,8 @@
                 </div>
             </div>
             <form @submit.prevent="submit">
-                <div class="upload_container md:grid grid-cols-2 grey">
+                <div
+                    class="upload_container items-center md:grid grid-cols-2 grey">
                     <!-- Card categories and amount section -->
                     <div class="card_form_container flex flex-col">
                         <div class="w-11/12 sm:w-10/12 mx-auto">
@@ -24,7 +25,8 @@
                                 <select
                                     id="category"
                                     v-model="form.type"
-                                    class="p-2 py-3 capitalize font-medium rounded-md shadow-sm border "
+                                    required
+                                    class="p-2 py-3 capitalize font-medium rounded-md shadow-sm border"
                                     name="category">
                                     <option disabled value="">
                                         Please select Category
@@ -44,20 +46,12 @@
                                     >
                                     <input
                                         id="amount"
+                                        required
                                         v-model="form.amount"
                                         autocomplete="off"
-                                        class="hover:ring-2 items-center w-full border-cyan-200 border text-base work px-4 py-3 rounded-md focus:border-cyan-500 focus:shadow-outline outline-none outline-none"
+                                        class="items-center w-full border-cyan-200 border text-base work px-4 py-3 rounded-md focus:border-cyan-500 focus:shadow-outline outline-none outline-none"
                                         type="number"
                                         placeholder="Enter Amount" />
-                                </div>
-                                <div class="my-4 p-3 rounded bg-green-100/50">
-                                    <span class="block work"
-                                        >You will receive</span
-                                    >
-                                    <span
-                                        class="font-bold text-green-800 ibm text-xl"
-                                        >&#8358;{{ AMOUNT_TO_RECEIVE }}</span
-                                    >
                                 </div>
                             </div>
                         </div>
@@ -65,6 +59,16 @@
                     <!-- //file upload section -->
                     <div class="file_price_container flex flex-col">
                         <div class="w-11/12 sm:w-10/12 mx-auto">
+                            <div class="my-4 rounded">
+                                <span
+                                    class="block text-base work font-medium pb-1"
+                                    >You will receive</span
+                                >
+                                <span
+                                    class="font-bold text-green-800 ibm text-xl"
+                                    >&#8358;{{ AMOUNT_TO_RECEIVE }}</span
+                                >
+                            </div>
                             <div class="input_box mx-auto my-2">
                                 <label
                                     for="comment"
@@ -96,19 +100,11 @@
                                             <div
                                                 class="flex justify-center top-0 right-0 absolute h-4 w-4 p-0.5 z-10 items-center cursor-pointer rounded-2xl bg-red-500 text-white"
                                                 @click="deleteImg(index)">
-                                                <svg
-                                                    width="24"
-                                                    height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M6 18L18 6M6 6L18 18"
-                                                        stroke="#fff"
-                                                        stroke-width="2"
-                                                        stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg>
+                                                <q-icon
+                                                    round
+                                                    size=".8em"
+                                                    color="white"
+                                                    name="close" />
                                             </div>
                                             <img
                                                 class="w-full border hover:shadow-lg shadow-md rounded border-cyan-500"
@@ -116,34 +112,30 @@
                                                 @click="cropImage(index)" />
                                         </div>
                                     </div>
-                                    <div v-else class="items-center py-4">
-                                        <img
-                                            src="@/images/proof.svg"
-                                            class="mx-auto" />
-                                        <p class="py-4 work">
-                                            Kindly Upload a Picture of Your
-                                            Giftcard
-                                        </p>
-                                        <div>
-                                            <label for="image"
-                                                bg-cyan
-                                                flex
-                                                justify-center
-                                                h-8
-                                                w-8
-                                                items-center
-                                                cursor-pointer
-                                                rounded-2xl
-                                                text-white
-                                                work
+                                    <div  class="items-center py-2">
+                                        <div v-show="!allImages.length" >
+                                            <img
+                                                src="@/images/proof.svg"
+                                                class="mx-auto w-14" />
+                                            <p class="py-2 work">
+                                                Click Button Below to Upload Picture
+                                                of Your Giftcard
+                                            </p>
+                                        </div>
+                                        <div >
+                                            <label
+                                                for="image"
+                                                class="bg-cyan flex mx-auto justify-center h-8 w-8 items-center cursor-pointer rounded-2xl text-white work"
                                                 ><q-icon
                                                     round
-                                                    color="primary"
+                                                    size="1.5em"
+                                                    color="white"
                                                     name="add"
                                             /></label>
                                             <input
                                                 id="image"
                                                 ref="file"
+                                                required
                                                 name="image"
                                                 type="file"
                                                 accept="image/*"
@@ -154,32 +146,34 @@
                                     </div>
                                 </div>
                             </div>
-                            <div>
+                            <div class="flex">
                                 <q-btn
                                     label="Upload"
                                     color="secondary"
                                     type="submit"
-                                    class="font-medium" />
+                                    class="font-medium mx-auto" />
                             </div>
                         </div>
                     </div>
                 </div>
-                {{file}}
             </form>
         </div>
+        <SuccessModal  v-if="isUploadedSuccessfully"/>
     </main-layout>
 </template>
 
 <script setup>
 import MainLayout from '@/Layouts/MainLayout.vue'
 import BigCard from '@/components/Big-Card.vue'
+import SuccessModal from '@/components/SuccessModal.vue'
 import { ref, computed, ExactCardImg, useForm } from '@/utils'
-
+import { useQuasar } from 'quasar'
+const $q = useQuasar()
 const file = ref(null)
 const name = window.location.pathname.split('/')[2]
-const allImages = ref([]);
+const allImages = ref([])
 let SELECTED_CARD_UUID = null
-
+const isUploadedSuccessfully = ref(false)
 const props = defineProps({
     giftcards: {
         type: Array,
@@ -192,13 +186,11 @@ const imgType = computed(() => {
 })
 
 const form = useForm({
-    amount: 0,
+    amount: null,
     type: '',
     comment: '',
-    images: null
+    images: null,
 })
-
-
 
 const AMOUNT_TO_RECEIVE = computed(() => {
     const selectedCard = props.giftcards.find((card) => card.type === form.type)
@@ -207,22 +199,25 @@ const AMOUNT_TO_RECEIVE = computed(() => {
     // return selectedCard ? selectedCard.rate * form.amount : 0
 })
 
-// const amt = ref(null)
-
+const deleteImg = (index) => {
+    allImages.value.splice(index, 1)
+    file.value.files.splice(index, 1)
+    handleChange()
+}
 
 const handleChange = () => {
-      if (file.value.files) {
-        const allFiles = file.value.files;
-        form.images = file.value.files;
+    if (file.value.files) {
+        const allFiles = file.value.files
+        form.images = file.value.files
         for (let singleFile of allFiles) {
-          const reader = new FileReader();
-          reader.onload = () => {
-            allImages.value.push(reader.result);
-          };
-          reader.readAsDataURL(singleFile);
+            const reader = new FileReader()
+            reader.onload = () => {
+                allImages.value.push(reader.result)
+            }
+            reader.readAsDataURL(singleFile)
         }
-      }
     }
+}
 
 const submit = () => {
     form.transform((data) => ({
@@ -230,13 +225,15 @@ const submit = () => {
     }))
         // eslint-disable-next-line no-undef
         .post(`/users/cardlets-make/${SELECTED_CARD_UUID}`, {
-            onFinish: () => {
-                form.reset('rate')
-                // $q.notify({
-                //         type: 'positive',
-                //         message: 'Card Rate Updated',
-                //         position: 'top-right'
-                //         });
+            onSuccess: () => {
+                form.reset()
+                allImages.value = []
+                isUploadedSuccessfully.value = ref(true)
+                $q.notify({
+                    type: 'positive',
+                    message: 'GiftCard Uploaded',
+                    position: 'top-right',
+                })
             },
         })
 }
@@ -245,15 +242,15 @@ const submit = () => {
 <style lang="scss" scoped>
 select {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-background-position: right 0.5rem center;
-background-repeat: no-repeat;
-background-size: 1.5em 1.5em;
-padding-right: 2.5rem;
--webkit-print-color-adjust: exact;
-color-adjust: exact;
--webkit-appearance: none;
--moz-appearance: none;
-appearance: none;
-background-color: white;
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: white;
 }
 </style>

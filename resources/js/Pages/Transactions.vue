@@ -1,39 +1,61 @@
 <template>
     <main-layout>
-        <div id="Transactions-page" class="flex-grow md:py-2 py-10 px-6 md:px-2">
+        <div
+            id="Transactions-page"
+            class="flex-grow md:py-2 py-10 px-6 md:px-2">
             <div class="flex flex-row justify-between items-center mx-4">
-                <div class=" my-1">
-                    <GoBack />    
+                <div class="my-1">
+                    <GoBack />
                 </div>
                 <div class="">
-                    <h2 class="text-lg work font-semibold p-ripple" >Transactions</h2>
+                    <h2 class="text-lg work font-semibold p-ripple">
+                        Transactions
+                    </h2>
                 </div>
             </div>
-            <div class=" mx-auto md:grid gap-4 grid-cols-3">
-                <StatusBox v-for="(status, index) in statuses" :key="index" :status = status.status :label = status.label :total = status.total />
+            <div class="mx-auto md:grid gap-4 grid-cols-3">
+                <StatusBox
+                    v-for="(status, index) in statuses"
+                    :key="index"
+                    :status="status.status"
+                    :label="status.label"
+                    :total="status.total" />
             </div>
-            <div class="my-10 sm:my-4 ">
+            <div class="my-10 sm:my-4">
                 <div id="giftcards">
-                    <h2 class="font-bold work big mb-2">GIFTCARD TRANSACTIONS</h2>
-                    <div class="max-w-4xl   mx-auto " :class="{'border p-2 shadow-lg rounded': tablet}" >
-                        <div v-if="tablet" class="grid_section border-b py-4 p-2 ">
-                        <div></div>
-                        <div>Giftcard</div>
-                        <div>Type</div>
-                        <div>Amount | <span>rate</span></div>
-                        <div>NGN</div>
-                        <div>Status</div>
-                        <div>Date</div>
-                    </div>
+                    <h2 class="font-bold work big mb-2">
+                        GIFTCARD TRANSACTIONS
+                    </h2>
+                    <div
+                        class="max-w-4xl mx-auto"
+                        :class="{ 'border p-2 shadow-lg rounded': tablet }">
+                        <div
+                            v-if="tablet"
+                            class="grid_section border-b py-4 p-2">
+                            <div></div>
+                            <div>Giftcard</div>
+                            <div>Type</div>
+                            <div>Amount | <span>rate</span></div>
+                            <div>NGN</div>
+                            <div>Status</div>
+                            <div>Date</div>
+                        </div>
                         <template v-if="!!cardlets.length">
-                            <Cardlet v-for="(cardlet, index) in cardlets" :status="cardlet.status" :name="cardlet.name" :amount="cardlet.amount" :rate="cardlet.rate" :created-at="cardlet.created_at" :type="cardlet.type" :key="index" />
+                            <Cardlet
+                                v-for="(cardlet, index) in cardlets"
+                                :status="cardlet.status"
+                                :name="cardlet.name"
+                                :amount="cardlet.amount"
+                                :rate="cardlet.rate"
+                                :created-at="cardlet.created_at"
+                                :type="cardlet.type"
+                                :key="index" />
                         </template>
-                        
+
                         <template v-else>
                             <Empty>You Have No Gift Card Transations</Empty>
                         </template>
                     </div>
-                    
                 </div>
                 <!-- <div id="bitcoins">
                     <h2 class="font-bold work big mb-2 ">BITCOIN TRANSACTIONS</h2>
@@ -51,52 +73,54 @@
     </main-layout>
 </template>
 <script setup>
-import MainLayout from '@/Layouts/MainLayout';
+import MainLayout from '@/Layouts/MainLayout'
 import StatusBox from '@/components/StatusBox.vue'
 // import ProofCard from '@/components/ProofCard.vue'
 import Cardlet from '@/components/Cardlet.vue'
 import Empty from '@/components/reusables_/Empty.vue'
-import { tablet, computed} from '@/utils'
+import { tablet, computed } from '@/utils'
 
 const props = defineProps({
     cardlets: {
         type: Array,
-        default: () => []
-    }
+        default: () => [],
+    },
 })
-const statuses = [{
-    label: 'Successful',
-    status: 'success',
-    total: computed(() => {
-        return props.cardlets.filter(a => a.status === 'successful').length
-    })
-}, {
-    label: 'Failed',
-    status: 'failed',
-    total: computed(() => {
-        return props.cardlets.filter(a => a.status === 'failed').length
-    })
-}, {
-    label: 'Pending',
-    status: 'pending',
-    total: computed(() => {
-        return props.cardlets.filter(a => a.status === 'pending').length
-    })
-}]
-
+const statuses = [
+    {
+        label: 'Successful',
+        status: 'success',
+        total: computed(() => {
+            return props.cardlets.filter((a) => a.status === 'success').length
+        }),
+    },
+    {
+        label: 'Failed',
+        status: 'failed',
+        total: computed(() => {
+            return props.cardlets.filter((a) => a.status === 'failed').length
+        }),
+    },
+    {
+        label: 'Pending',
+        status: 'pending',
+        total: computed(() => {
+            return props.cardlets.filter((a) => a.status === 'pending').length
+        }),
+    },
+]
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 .grid_section {
     display: grid;
-    grid-template-columns: .3fr 1fr 1fr 1fr .5fr 1fr .5fr;
+    grid-template-columns: 0.3fr 1fr 1fr 1fr 0.5fr 1fr 0.5fr;
     text-align: center;
 
     div {
         font-weight: 500;
         text-transform: capitalize;
-        font-family: "Work Sans", sans-serif;
+        font-family: 'Work Sans', sans-serif;
     }
 }
 </style>
-

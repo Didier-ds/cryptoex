@@ -1,4 +1,4 @@
-import { ref, reactive, watch, computed } from 'vue'
+import { ref, reactive, watch, computed, onMounted, onUnmounted } from 'vue'
 import { Inertia } from '@inertiajs/inertia'
 import { ExactCardImg } from './cards'
 import { usePage, useForm } from '@inertiajs/inertia-vue3'
@@ -15,6 +15,8 @@ export {
     reactive,
     tablet,
     computed,
+    onMounted,
+    onUnmounted,
     usePage,
     Inertia,
     useForm,

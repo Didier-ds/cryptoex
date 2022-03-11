@@ -56,11 +56,11 @@ class CardletController extends Controller
                         ]);
                     }
                     // dd('me');
-                   return session()->flash('status', 'Task was successful!');
+                    return redirect()->back()->with('success', 'Status Changed Successfully');
                 } else {
                     // dd('error');
                     // Session
-                    return session()->flash('status', 'Task was unsuccessful!');
+                    return redirect()->back()->with('error', 'Please Something Went Wrong');
                     //  Session::flash('success', 'failed');
                 }
             }

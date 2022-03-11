@@ -4,14 +4,7 @@
             <div class="bg-white shadow overflow-hidden work sm:rounded-lg">
                 <div class="px-4 py-5 sm:px-6">
                     <h3
-                        class="
-                            text-lg
-                            leading-6
-                            font-medium
-                            text-gray-900
-                            capitalize
-                        "
-                    >
+                        class="text-lg leading-6 font-medium text-gray-900 capitalize">
                         User Information
                     </h3>
                     <p class="mt-1 max-w-2xl text-sm text-gray-500">
@@ -56,19 +49,11 @@
                                 {{ data.created_at.slice(0, 10) }}
                             </dd>
                         </div>
-                       
                     </dl>
                 </div>
                 <div class="px-4 py-5 sm:px-6">
                     <h3
-                        class="
-                            text-lg
-                            leading-6
-                            font-medium
-                            text-gray-900
-                            capitalize
-                        "
-                    >
+                        class="text-lg leading-6 font-medium text-gray-900 capitalize">
                         Uploaded Cards
                     </h3>
                     <p class="mt-1 max-w-2xl text-sm text-gray-500">
@@ -76,153 +61,70 @@
                     </p>
                 </div>
                 <div class="p-2">
-                   <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th
                                     scope="col"
-                                    class="
-                                                    px-2
-                                                    py-3
-                                                    text-left text-xs
-                                                    font-medium
-                                                    text-gray-500
-                                                    uppercase
-                                                    tracking-wider
-                                                "
-                            >
-                                Name
-                            </th>
-                            <th
+                                    class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Name
+                                </th>
+                                <th
                                     scope="col"
-                                    class="
-                                                    px-2
-                                                    py-3
-                                                    text-left text-xs
-                                                    font-medium
-                                                    text-gray-500
-                                                    uppercase
-                                                    tracking-wider
-                                                "
-                            >
-                                Type
-                            </th>
-                            <th
+                                    class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Type
+                                </th>
+                                <th
                                     scope="col"
-                                    class="
-                                                    px-2
-                                                    py-3
-                                                    text-left text-xs
-                                                    font-medium
-                                                    text-gray-500
-                                                    uppercase
-                                                    tracking-wider
-                                                "
-                            >
-                                Price | <span class="text-cyan font-medium">Rate</span>
-                            </th>
-                            
-                            <th
+                                    class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Price |
+                                    <span class="text-cyan font-medium"
+                                        >Rate</span
+                                    >
+                                </th>
+
+                                <th
                                     scope="col"
-                                    class="
-                                                    px-2
-                                                    py-3
-                                                    text-left text-xs
-                                                    font-medium
-                                                    text-gray-500
-                                                    uppercase
-                                                    tracking-wider
-                                                "
-                            >
-                                Rate
-                            </th>
-                            <th
+                                    class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Rate
+                                </th>
+                                <th
                                     scope="col"
-                                    class="
-                                                    px-2
-                                                    py-3
-                                                    text-left text-xs
-                                                    font-medium
-                                                    text-gray-500
-                                                    uppercase
-                                                    tracking-wider
-                                                "
-                            >
-                                Status
-                            </th>
-                            <th
+                                    class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Status
+                                </th>
+                                <th
                                     scope="col"
-                                    class="
-                                                    px-2
-                                                    py-3
-                                                    text-left text-xs
-                                                    font-medium
-                                                    text-gray-500
-                                                    uppercase
-                                                    tracking-wider
-                                                "
-                            >
-                                Amount
-                            </th>
-                            <th
-                                    scope="col"
-                                    class="relative px-2 py-3"
-                            >
-                                <span class="sr-only">Edit</span>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody
-                            class="bg-white divide-y divide-gray-200"
-                    >
-                    <tr class="py-2" v-for="cardlet in data.cardlet" :key="cardlet.id">
-                        <td
-                                class="
-                                                px-2
-                                                py-4
-                                                whitespace-nowrap
-                                                text-sm
-                                                font-medium
-                                                text-gray-900
-                                                capitalize
-                                            "
-                        >
-                            {{ cardlet.name }}
-                        </td>
-                        <td
-                                class="
-                                                px-2
-                                                py-4
-                                                whitespace-nowrap
-                                                text-sm text-gray-500
-                                                capitalize
-                                            "
-                        >
-                            {{ cardlet.type }}
-                        </td>
-                        <td
-                                class="
-                                                px-2
-                                                py-4
-                                                whitespace-nowrap
-                                                text-sm text-gray-500
-                                                capitalize
-                                            "
-                        >
-                            ${{ cardlet.amount }}
-                        </td>
-                        <td
-                                class="
-                                                px-2
-                                                py-4
-                                                whitespace-nowrap
-                                                text-sm text-gray-500
-                                                capitalize
-                                            "
-                        >
-                            {{ 270 }}
-                        </td>
-                        <!-- <td
+                                    class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Amount
+                                </th>
+                                <th scope="col" class="relative px-2 py-3">
+                                    <span class="sr-only">Edit</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr
+                                class="py-2"
+                                v-for="cardlet in data.cardlet"
+                                :key="cardlet.id">
+                                <td
+                                    class="px-2 py-4 whitespace-nowrap text-sm font-medium text-gray-900 capitalize">
+                                    {{ cardlet.name }}
+                                </td>
+                                <td
+                                    class="px-2 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">
+                                    {{ cardlet.type }}
+                                </td>
+                                <td
+                                    class="px-2 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">
+                                    ${{ cardlet.amount }}
+                                </td>
+                                <td
+                                    class="px-2 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">
+                                    {{ 270 }}
+                                </td>
+                                <!-- <td
                                 class="
                                                 px-2
                                                 py-4
@@ -233,52 +135,26 @@
                         >
                             {{ REPLACE_UNDERSCORE(cardlet.condition) }}
                         </td> -->
-                        <td
-                                class="
-                                                px-2
-                                                py-4
-                                                whitespace-nowrap
-                                                text-sm text-gray-500
-                                                capitalize
-                                            "
-                        >
-                            {{ cardlet.status }}
-                        </td>
-                        <td
-                                class="
-                                                px-2
-                                                py-4
-                                                whitespace-nowrap
-                                                text-sm text-gray-500
-                                                capitalize
-                                            "
-                        >
-                            &#8358;{{ 6000 }}
-                        </td>
-                        <td
-                                class="
-                                                py-4
-                                                whitespace-nowrap
-                                                text-right text-sm
-                                                flex
-                                                gap-4
-                                                font-medium
-                                            "
-                        >
-                            <inertia-link
-                            href="route('products.create')"
-                            class="flex-0  items-center px-4 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                            >
-                                View Card
-                            </inertia-link>
-                           
-                        </td>
-                    </tr>
-                    </tbody>
+                                <td
+                                    class="px-2 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">
+                                    {{ cardlet.status }}
+                                </td>
+                                <td
+                                    class="px-2 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">
+                                    &#8358;{{ 6000 }}
+                                </td>
+                                <td
+                                    class="py-4 whitespace-nowrap text-right text-sm flex gap-4 font-medium">
+                                    <inertia-link
+                                        href="route('products.create')"
+                                        class="flex-0 items-center px-4 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                        View Card
+                                    </inertia-link>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
-
-                
             </div>
         </section>
     </admin-layout>
@@ -289,11 +165,9 @@ import AdminLayout from '@/Layouts/AdminLayout.vue'
 defineProps({
     data: {
         type: Object,
-        default: () => {}
-    }
+        default: () => {},
+    },
 })
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
