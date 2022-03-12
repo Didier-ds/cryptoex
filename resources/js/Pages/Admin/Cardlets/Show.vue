@@ -5,6 +5,7 @@
             <p class="font-medium work text-lg capitalize">
                 {{ data.name }} giftcard
             </p>
+            <!-- {{data.images}} -->
             <div class="py-2 flex gap-2">
                 <button
                     @click="CHANGE_STATUS('success')"
@@ -25,6 +26,15 @@
                         Add New Product
                     </inertia-link> -->
             </div>
+        </div>
+        <div>
+             <q-img
+                v-for="image in data.images"
+                :key="image"
+                :src="image"
+                spinner-color="white"
+                style="height: 140px; max-width: 150px"
+                />          
         </div>
         <section class="max-w-4xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
             <div class="bg-white shadow overflow-hidden work sm:rounded-lg">
@@ -87,7 +97,7 @@
                                 Status
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900">
-                                <q-badge :color="statusColor">
+                                <q-badge :color="STATUS_COLOR">
                                     {{ data.status }}
                                 </q-badge>
                             </dd>
@@ -151,7 +161,7 @@
 <script setup>
 import AdminLayout from '@/Layouts/AdminLayout.vue'
 import ColorBall from '@/components/reusables_/ColorBall.vue'
-import { Inertia, computed } from '@/utils'
+import { Inertia, computed, statusColor } from '@/utils'
 import { useQuasar } from 'quasar'
 const $q = useQuasar()
 const props = defineProps({
@@ -160,23 +170,7 @@ const props = defineProps({
         default: () => {},
     },
 })
-const statusColor = computed(() => {
-    let color
-    switch (props.data.status) {
-        case 'pending':
-            color = 'orange'
-            break
-        case 'success':
-            color = 'green'
-            break
-        case 'failed':
-            color = 'red'
-            break
-        default:
-            color = 'orange'
-    }
-    return color
-})
+const STATUS_COLOR = computed(() => statusColor(props.data.status))
 const CHANGE_STATUS = (status) => {
     const data = { status }
     Inertia.visit(route('cardlet.update', props.data.uuid), {

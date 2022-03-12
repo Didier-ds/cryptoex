@@ -28,6 +28,7 @@ class CardletNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+            ->subject($this->noticeData['subject'])
             ->line($this->noticeData['body'])
             ->action($this->noticeData['action'], $this->noticeData['url'])
             ->line($this->noticeData['last']);

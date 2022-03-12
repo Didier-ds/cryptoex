@@ -28,8 +28,8 @@ class Helpers
         return ['created_at' => Carbon::now(), 'updated' => Carbon::now()];
     }
 
-    public static function buildMailData(string $body, string $act, string $url, string $last): array
+    public static function buildMailData(string $subject, string $body, string $act, string $url, string $last): array
     {
-        return ['body' => $body, 'action' => $act, 'url' => $url, 'last' => $last];
+        return ['subject' => $subject, 'body' => $body, 'action' => $act, 'url' => $url, 'last' => $last];
     }
 }

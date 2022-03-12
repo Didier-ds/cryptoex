@@ -76,8 +76,10 @@
                             {{ REPLACE_UNDERSCORE(cardlet.condition) }}
                         </td> -->
                         <td
-                            class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">
-                            {{ cardlet.status }}
+                            class="px-2 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">
+                            <q-badge :color="statusColor(cardlet.status)">
+                                    {{ cardlet.status }}
+                                </q-badge>
                         </td>
                         <td
                             class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">
@@ -100,12 +102,15 @@
 
 <script setup>
 import AdminLayout from '@/Layouts/AdminLayout.vue'
+import {statusColor} from '@/utils'
 defineProps({
     cardlets: {
         type: Array,
         default: () => {},
     },
 })
+// const STATUS_COLOR = computed(() => statusColor(props.cardlets.status))
+
 </script>
 
 <style lang="scss" scoped></style>

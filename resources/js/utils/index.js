@@ -9,9 +9,27 @@ import {
     isValidPWd,
     confirmPassword,
 } from './validate.js'
+const statusColor = (status) => {
+    let color
+    switch (status) {
+        case 'pending':
+            color = 'orange'
+            break
+        case 'success':
+            color = 'green'
+            break
+        case 'failed':
+            color = 'red'
+            break
+        default:
+            color = 'orange'
+    }
+    return color
+}
 export {
     ref,
     watch,
+    statusColor,
     reactive,
     tablet,
     computed,

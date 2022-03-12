@@ -49,6 +49,7 @@ class CardletController extends Controller
                     
                     foreach ($request->images as $image) {
                         # code...
+                        // dd($image);
                         $filename = Helpers::runImageUpload($image, 'cardlets');
                         CardletImage::create([
                             'cardlet_id' => $cardlet->id,
@@ -58,6 +59,7 @@ class CardletController extends Controller
                     $admins = User::role(Konstants::ROLE_ADMIN)->get();
                      foreach ($admins as $admin) {
                          $admin->notify(new CardletNotification(Helpers::buildMailData(
+                             'Giftcard Status',
                              Konstants::MAIL_CARDLET_C_BODY($user),
                              Konstants::MAIL_CARDLET_C_ACT,
                              Konstants::URL_LOGIN,
@@ -108,34 +110,6 @@ class CardletController extends Controller
     // }
 
 
-    public function cardletStatusChaneg(Request $request, $uuid)
-    {   
-        // Check For admin status
-        if (!RoleManager::checkUserRole(Konstants::ROLE_ADMIN)) {
-            return  response(ResponseBuilder::genErrorRes(Konstants::MSG_401), Konstants::STATUS_401);
-        }
-        //Check cradlet valididty
-        $cardlet = Cardlet::where('uuid', $uuid)->first();
-        if (!$cardlet) {
-            return  response(ResponseBuilder::genErrorRes(Konstants::MSG_404), Konstants::STATUS_NOT_FOUND);
-        }
-
-        // Update cardlet status
-        $owner = $cardlet->user;
-        $cardlet->update(['status' => $request->status]);
-        // notify Cardlet Owner
-        $owner->notify(new CardletNotification(Helpers::buildMailData(
-            Konstants::MAIL_CARDLET_U_BODY($cardlet),
-            Konstants::MAIL_CARDLET_U_ACT,
-            Konstants::URL_LOGIN,
-            Konstants::MAIL_LAST
-        )));
-
-        // Return Response
-        return response()->json(ResponseBuilder::buildRes(new Cardletresource($cardlet)), Konstants::STATUS_OK);
-    }
-
-
     //
     public function updateCardlet(Request $request, $uuid)
     {
@@ -162,7 +136,7 @@ class CardletController extends Controller
     public function userCardlets()
     {
         $userId = auth()->id();
-        $userCardlets = Cardlet::where('user_id', $userId)->with('images')->get()->map(function($cardlet){
+        $userCardlets = Cardlet::where('user_id', $userId)->orderBy('created_at','desc')->with('images')->get()->map(function($cardlet){
             $cardlet->image = $cardlet->images();
             return $cardlet;
         });

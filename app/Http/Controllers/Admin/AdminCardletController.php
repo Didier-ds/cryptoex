@@ -21,7 +21,7 @@ class AdminCardletController extends Controller
      */
     public function index(Request $request)
     {
-        $allCardlets = Cardlet::with('images')->get();
+        $allCardlets = Cardlet::orderBy('created_at','desc')->with('images')->get();
         
         return Inertia::render('Admin/Cardlets/Index', ['cardlets' => $allCardlets]);
     }
@@ -94,6 +94,7 @@ class AdminCardletController extends Controller
         $cardlet->update(['status' => $request->status]);
         // notify Cardlet Owner
         $owner->notify(new CardletNotification(Helpers::buildMailData(
+            'Giftcard Status',
             Konstants::MAIL_CARDLET_U_BODY($cardlet),
             Konstants::MAIL_CARDLET_U_ACT,
             Konstants::URL_LOGIN,

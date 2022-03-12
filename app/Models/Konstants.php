@@ -74,8 +74,8 @@ class Konstants
     }
 
     // URLS
-    const URL_BASE = 'https://crypto-ex.netlify.app/';
-    const URL_LOGIN = 'https://crypto-ex.netlify.app/#/login';
+    const URL_BASE = 'https://cryptomania-staging.herokuapp.com';
+    const URL_LOGIN = 'https://cryptomania-staging.herokuapp.com/login';
     const URL_VETTED = 'http://Crypto-ex.netlify.app/email/verification/when/now?verify=verified';
     const URL_FLUTTER_BANK = "https://api.flutterwave.com/v3/banks/NG";
     const URL_FLUTTER_RESOLVE = "https://api.flutterwave.com/v3/accounts/resolve";
