@@ -6,18 +6,18 @@ import { Inertia } from '@/utils'
 import HeaderSearch from '@/components/HeaderSearch.vue'
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 import { useStore } from 'vuex'
-
+defineEmits(['toggleSideBar'])
 let store = useStore()
 
-const sideBarToggle = () => {
-    let sidenav = store.state.largeSidebar.sidebarToggleProperties.isSideNavOpen
+// const sideBarToggle = () => {
+//     let sidenav = store.state.largeSidebar.sidebarToggleProperties.isSideNavOpen
 
-    if (sidenav == false) {
-        store.commit('largeSidebar/toggleSidebarProperties')
-    } else {
-        store.commit('largeSidebar/toggleSidebarProperties')
-    }
-}
+//     if (sidenav == false) {
+//         store.commit('largeSidebar/toggleSidebarProperties')
+//     } else {
+//         store.commit('largeSidebar/toggleSidebarProperties')
+//     }
+// }
 
 const logout = () => {
     // eslint-disable-next-line no-undef
@@ -65,7 +65,7 @@ const logout = () => {
             </div>
             <div class="mx-0 sm:mx-3">
                 <button
-                    @click="sideBarToggle"
+                    @click="$emit('toggleSideBar')"
                     class="menu-toggle cursor-pointer text-gray-500 align-middle focus:outline-none"
                     type="button">
                     <svg

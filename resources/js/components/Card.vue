@@ -3,9 +3,9 @@
         class="m-4"
         :href="role ? '/upload/' + uuid : 'giftcard/category/' + uuid">
         <div
-            class="card hover:shadow-lg border border-gray-300 justify-center items-center 0 fade-in p-4 w-full lg:w-full bg-white rounded-md"
+            class="card shadow-md border border-gray-300 flex-col flex justify-center items-center 0 fade-in p-2 w-full lg:w-full bg-white rounded-md"
             :style="{ '--order': index }">
-            <div class="card-logo w-8 my-3">
+            <div class="card-logo w-8 my-2">
                 <img
                     class="w-full"
                     :src="filename"

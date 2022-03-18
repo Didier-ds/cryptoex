@@ -209,7 +209,7 @@ input {
 }
 
 .card {
-    height: 5em;
+    height: 100%;
     transition: .2s ease-in-out;
     background-size: 7em;
     background-position: right bottom;
@@ -325,6 +325,7 @@ input {
 .card-title {
     font-size: 1.1rem;
 }
+
 .card-header {
     padding: 1rem 1.25rem;
     @apply border-b;
@@ -333,9 +334,11 @@ input {
 .ui-lib-br {
     border-radius: 10px;
 }
+
 .ui-lib-shadow {
     box-shadow: 0 4px 20px 1px rgb(0 0 0 / 6%), 0 1px 4px rgb(0 0 0 / 8%);
 }
+
 // button components
 .btn {
     &.btn-sm {
@@ -347,6 +350,7 @@ input {
         line-height: 1rem;
     }
 }
+
 .badge-top-container {
     position: relative;
     span.badge-count {

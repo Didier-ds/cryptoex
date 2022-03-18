@@ -1,23 +1,29 @@
 <script setup>
 import { useStore } from 'vuex'
+import {ref, tablet, computed} from '@/utils'
 import Header from './components/Adminlayout/Header.vue'
 import Sidebar from './components/Adminlayout/Sidebar.vue'
 import Footer from './components/Adminlayout/Footer.vue'
 
 let store = useStore()
+const isMobile = computed(() => {
+    return tablet ? true : false
+})
+const isSideBar = ref(isMobile.value)
+const toggleSideBar = () => {
+    isSideBar.value = !isSideBar.value
+}
 </script>
 
 <template>
     <div class="app-admin-wrap-layout-2">
-        <Header />
-        <Sidebar />
+        <Header @toggle-side-bar="toggleSideBar"/>
+        <Sidebar 
+                :is-side-bar="isSideBar"
+                @toggle-side-bar="toggleSideBar"/>
+        
         <div
-            :class="
-                store.state.largeSidebar.sidebarToggleProperties
-                    .isSideNavOpen === true
-                    ? ''
-                    : 'full'
-            "
+            :class="isSideBar ? '' : 'full'"
             class="main-content-wrap">
             <main>
                 <div

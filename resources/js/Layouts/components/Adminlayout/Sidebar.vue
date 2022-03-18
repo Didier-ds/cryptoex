@@ -5,7 +5,11 @@ import { useStore } from 'vuex'
 
 let store = useStore()
 // let route = useRoute()
-
+defineProps({
+        isSideBar: {
+            type: Boolean,
+        }
+    },)
 let toggleSubMenu = (e) => {
     // let parent = e.target.dataset.item;
     console.log(e.target)
@@ -37,12 +41,7 @@ let handleWindowResize = () => {
     <div class="side-content-wrap">
         <div class="side-content-wrap">
             <div
-                :class="
-                    store.state.largeSidebar.sidebarToggleProperties
-                        .isSideNavOpen === true
-                        ? 'open'
-                        : ''
-                "
+                :class="isSideBar ? 'open' : ''"
                 class="sidebar-left">
                 <perfect-scrollbar>
                     <ul class="navigation-left">
