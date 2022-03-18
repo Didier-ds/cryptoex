@@ -44,7 +44,7 @@
                         </inertia-link>
                         <div
                             id="live_chat"
-                            class="action_btn justify-center items-center flex no-wrap flex-row rounded-md px-2">
+                            class="action_btn justify-center items-center flex no-wrap flex-row rounded-md px-2 py-4">
                             <div class="card_logo mx-4">
                                 <img
                                     class="w-full"
