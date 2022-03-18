@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminCardletController;
+use App\Http\Controllers\Admin\AdminCardNameController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\CardsController;
@@ -14,6 +15,7 @@ Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified'],'prefix
     Route::patch('cardlets/{id}', [AdminCardletController::class, 'update'])->name('cardlet.update');
     Route::get('giftcards', [CardsController::class, 'index'])->name('cards.index');
     Route::get('giftcards/create', [CardsController::class, 'create'])->name('cards.create');
+    Route::post('cardname/create', [AdminCardNameController::class, 'store'])->name('cardnames.store');
     Route::post('giftcards/create', [CardsController::class, 'store'])->name('cards.store');
     Route::get('users', [UserController::class, 'index'])->name('users.index');
     Route::get('users/{user_id}', [UserController::class, 'show'])->name('users.show');

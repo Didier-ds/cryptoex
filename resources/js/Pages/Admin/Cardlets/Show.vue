@@ -37,7 +37,8 @@
                         :key="image"
                         :src="image.filename"
                         @click="SHOW_IMAGE_MODAL(image.filename)"
-                        spinner-color="white"
+                        spinner-color="secondary"
+                        class="border shadow rounded m-2"
                         style="height: 140px; max-width: 150px" />
                 </div>
                 <div class="px-4 py-5 sm:px-6 border-t border-gray-200">

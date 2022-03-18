@@ -14,5 +14,8 @@ class Card extends Model
         'name',
         'type',
         'rate',
+        'country',
+        'min',
+        'max'
     ];
 }

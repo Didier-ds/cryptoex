@@ -13,17 +13,20 @@
                 <p class="font-medium p-4 work text-lg capitalize">
                     Create A New giftcard
                 </p>
-                <div class="p-4 grid grid-cols-2 space-x-4">
-                    <q-input v-model="form.name" standout type="text" outlined label="Giftcard Name"/>
-                    <q-input v-model="form.type" type="text" outlined label="Category"/>
-                </div>
-                <div class="p-4 grid grid-cols-2 space-x-4">
-                    <q-input v-model="form.rate" standout type="text" outlined label="Rate"/>
-                    <q-input v-model="form.country" type="text" outlined label="Country"/>
-                </div>
-                <div class="p-4 grid grid-cols-2 space-x-4">
-                    <q-input v-model="form.min" standout type="text" outlined label="Min"/>
-                    <q-input v-model="form.max" type="text" outlined label="Max"/>
+                <JetValidationErrors class="px-2"/>
+                <div class="">
+                    <div class=" grid sm:grid-cols-2 ">
+                        <q-input v-model="form.name" class="m-2" standout type="text" outlined label="Giftcard Name"/>
+                        <q-input v-model="form.filename" class="m-2" type="text" outlined label="Type"/>
+                    </div>
+                    <!-- <div class=" grid sm:grid-cols-2 ">
+                        <q-input v-model="form.rate" class="m-2" standout type="text" outlined label="Rate"/>
+                        <q-input v-model="form.country" class="m-2" type="text" outlined label="Country"/>
+                    </div>
+                    <div class=" grid sm:grid-cols-2 ">
+                        <q-input v-model="form.min" class="m-2" standout type="text" outlined label="Min"/>
+                        <q-input v-model="form.max" class="m-2" type="text" outlined label="Max"/>
+                    </div> -->
                 </div>
                 <div class="flex p-4">
                     <q-btn color="primary" label="Submit" type="submit" :disabled="form.processing" class="mx-auto" no-cap/>
@@ -35,32 +38,36 @@
 
 <script setup>
 import AdminLayout from '@/Layouts/AdminLayout'
+import JetValidationErrors from '@/Jetstream/ValidationErrors.vue'
 import {useForm} from '@/utils'
-import { useQuasar } from 'quasar'
-const $q = useQuasar()
+ import { useQuasar } from 'quasar'
+ const $q = useQuasar()
 const form = useForm({
     name: '',
-    type:'',
-    rate: '',
-    country: '',
-    min: '',
-    max: ''
+    filename:'',
+    // rate: '',
+    // country: '',
+    // min: '',
+    // max: ''
 })
 
 const submit = () => {
+    form.filename = `https://drive.google.com/uc?id=${form.filename}`
     form.transform((data) => ({
         ...data,
     }))
+    
         // eslint-disable-next-line no-undef
-        .patch(`/admin/update/giftcards/${form.uuid}`, {
-            onFinish: () => {
-                form.reset('rate')
+        .post(`/admin/cardname/create`, {
+            onSuccess: () => {
+                form.reset()
                 $q.notify({
                     type: 'positive',
-                    message: 'Card Rate Updated',
+                    message: 'Card Created',
                     position: 'top-right',
                 })
             },
+            onError: errors => {console.log(errors)},
         })
 }
 </script>

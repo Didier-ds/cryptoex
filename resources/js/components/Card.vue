@@ -1,14 +1,14 @@
 <template>
     <inertia-link
         class="m-4"
-        :href="role ? '/upload/' + name : 'giftcard/category/' + name">
+        :href="role ? '/upload/' + uuid : 'giftcard/category/' + uuid">
         <div
             class="card hover:shadow-lg border border-gray-300 justify-center items-center 0 fade-in p-4 w-full lg:w-full bg-white rounded-md"
             :style="{ '--order': index }">
             <div class="card-logo w-8 my-3">
                 <img
                     class="w-full"
-                    :src="'/images/cards/' + imgType + '.png'"
+                    :src="filename"
                     alt="" />
             </div>
             <div class="card-details text-center mx-2 text-white">
@@ -43,6 +43,14 @@ const props = defineProps({
         type: Number,
         default: 0,
     },
+    filename: {
+        type: String,
+        default: '',
+    },
+    uuid: {
+        type: String,
+        default: ''
+    }
 })
 </script>
 <style lang="scss" scoped></style>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Card;
+use App\Models\CardName;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -17,7 +18,7 @@ class CardsController extends Controller
     {
         //
         
-        $cards = Card::all();
+        $cards = CardName::all();
         return Inertia::render('Giftcards', ['giftcards' => $cards]);
     }
 

@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CardRequest;
 use App\Models\Card;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -40,7 +40,7 @@ class CardsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CardRequest $request)
     {
         //
         Card::create([
@@ -52,6 +52,7 @@ class CardsController extends Controller
             'max' => $request->max,
             'country' => $request->country,
         ]);
+        return redirect()->back()->with('success', 'Card Created successfully');
     }
 
       /**

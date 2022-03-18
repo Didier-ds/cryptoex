@@ -18,9 +18,11 @@
             <div
                 class="card-container grid sm:grid-cols-4 grid-cols-2 grid flex-wrap">
                 <Card
-                    v-for="(name, index) in newGiftcards"
+                    v-for="(card, index) in giftcards"
                     :key="index"
-                    :name="name"
+                    :name="card.name"
+                    :filename="card.filename"
+                    :uuid="card.uuid"
                     :index="index" />
             </div>
         </div>
@@ -31,26 +33,26 @@
 <script setup>
 import MainLayout from '@/Layouts/MainLayout.vue'
 import Card from '@/components/Card.vue'
-import { computed } from '@/utils'
-const props = defineProps({
+// import { computed } from '@/utils'
+defineProps({
     giftcards: {
         type: Array,
         default: () => [],
     },
 })
-const newGiftcards = computed(() => {
-    let i
-    const giftcards = props.giftcards.map((any) => any.name)
-    const newArr = []
-    const setObj = {}
-    for (i = 0; i < giftcards.length; i += 1) {
-        if (!Object.prototype.hasOwnProperty.call(setObj, giftcards[i])) {
-            newArr.push(giftcards[i])
-            setObj[giftcards[i]] = true
-        }
-    }
-    return newArr
-})
+// const newGiftcards = computed(() => {
+//     let i
+//     const giftcards = props.giftcards.map((any) => any.name)
+//     const newArr = []
+//     const setObj = {}
+//     for (i = 0; i < giftcards.length; i += 1) {
+//         if (!Object.prototype.hasOwnProperty.call(setObj, giftcards[i])) {
+//             newArr.push(giftcards[i])
+//             setObj[giftcards[i]] = true
+//         }
+//     }
+//     return newArr
+// })
 </script>
 
 <style lang="scss" scoped></style>
