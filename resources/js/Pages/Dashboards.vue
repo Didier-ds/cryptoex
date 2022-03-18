@@ -44,18 +44,18 @@
                         </inertia-link>
                         <div
                             id="live_chat"
-                            class="action_btn justify-center items-center flex flex-row rounded-md  px-2 ">
-                            <div class="card_logo mx-4 ">
+                            class="action_btn justify-center items-center flex no-wrap flex-row rounded-md px-2">
+                            <div class="card_logo mx-4">
                                 <img
                                     class="w-full"
                                     :src="'./images/cards/24.svg'"
                                     alt="" />
                             </div>
                             <div class="live_chat_text">
-                                <span class="block font-medium sm:text-base">
+                                <span class="block font-medium text-tiny sm:text-base">
                                     Chat With One of Our Agents Now
                                 </span>
-                                <span class="block text-tiny sm:text-sm">
+                                <span class="block text-xs sm:text-tiny">
                                     Typically Responds Within 5mins
                                 </span>
                             </div>
@@ -80,7 +80,6 @@
 <script setup>
 import MainLayout from '@/Layouts/MainLayout.vue'
 import Empty from '@/components/reusables_/Empty.vue'
-
 </script>
 
 <style lang="scss" scoped>

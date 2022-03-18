@@ -4,21 +4,20 @@
             <div class="my-1">
                 <GoBack />
             </div>
-            
-            <div class="flex justify-between work gap-4 items-center">
-            <p class="font-medium work text-lg capitalize">
-                {{ giftcards[0].name }} giftcard
-            </p>
-            <!-- {{data.images}} -->
-            <div class="py-2 flex gap-2">
-                <inertia-link
-                    href=""
-                    class="flex-0 items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                    Create Category
-                </inertia-link>
 
+            <div class="flex justify-between work gap-4 items-center">
+                <p class="font-medium work text-lg capitalize">
+                    {{ giftcards[0].name }} giftcard
+                </p>
+                <!-- {{data.images}} -->
+                <div class="py-2 flex gap-2">
+                    <inertia-link
+                        href=""
+                        class="flex-0 items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        Create Category
+                    </inertia-link>
+                </div>
             </div>
-        </div>
         </div>
         <!-- <q-btn color="primary" label="Add Category" />
         <category-card
@@ -98,7 +97,9 @@
                         <td
                             class="px-6 py-4 whitespace-nowrap text-right text-sm flex gap-4 font-medium">
                             <inertia-link
-                                :href="route('cards.cardRateChange', giftcard.uuid)"
+                                :href="
+                                    route('cards.cardRateChange', giftcard.uuid)
+                                "
                                 class="flex-0 items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                                 Upgrade
                             </inertia-link>

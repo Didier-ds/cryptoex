@@ -1,6 +1,6 @@
 <script setup>
 import { useStore } from 'vuex'
-import {ref, tablet, computed} from '@/utils'
+import { ref, tablet, computed } from '@/utils'
 import Header from './components/Adminlayout/Header.vue'
 import Sidebar from './components/Adminlayout/Sidebar.vue'
 import Footer from './components/Adminlayout/Footer.vue'
@@ -17,14 +17,10 @@ const toggleSideBar = () => {
 
 <template>
     <div class="app-admin-wrap-layout-2">
-        <Header @toggle-side-bar="toggleSideBar"/>
-        <Sidebar 
-                :is-side-bar="isSideBar"
-                @toggle-side-bar="toggleSideBar"/>
-        
-        <div
-            :class="isSideBar ? '' : 'full'"
-            class="main-content-wrap">
+        <Header @toggle-side-bar="toggleSideBar" />
+        <Sidebar :is-side-bar="isSideBar" @toggle-side-bar="toggleSideBar" />
+
+        <div :class="isSideBar ? '' : 'full'" class="main-content-wrap">
             <main>
                 <div
                     class="main-content-wrap flex flex-col flex-grow print-area pt-10">

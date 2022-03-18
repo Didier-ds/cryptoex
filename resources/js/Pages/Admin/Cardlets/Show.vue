@@ -27,9 +27,10 @@
                     </inertia-link> -->
             </div>
         </div>
-        
+
         <section class="max-w-4xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
-            <div class="bg-white border shadow overflow-hidden work sm:rounded-lg">
+            <div
+                class="bg-white border shadow overflow-hidden work sm:rounded-lg">
                 <div class="px-4 py-5 sm:px-6">
                     <!-- {{data.images}} -->
                     <q-img
@@ -157,7 +158,10 @@
                     </dl>
                 </div>
             </div>
-            <ImageModal :show="showModal" @close="CLOSE_MODAL" :img="modalImage"/>
+            <ImageModal
+                :show="showModal"
+                @close="CLOSE_MODAL"
+                :img="modalImage" />
         </section>
     </admin-layout>
 </template>
@@ -168,7 +172,7 @@ import ColorBall from '@/components/reusables_/ColorBall.vue'
 import ImageModal from '@/components/reusables_/ImageModal.vue'
 import { Inertia, computed, statusColor } from '@/utils'
 import { useQuasar } from 'quasar'
-import {ref} from 'vue'
+import { ref } from 'vue'
 const $q = useQuasar()
 const props = defineProps({
     data: {
@@ -176,14 +180,14 @@ const props = defineProps({
         default: () => {},
     },
 })
-const modalImage = ref(null);
+const modalImage = ref(null)
 const showModal = ref(false)
 const SHOW_IMAGE_MODAL = (img) => {
     modalImage.value = img
-    showModal.value = true;
+    showModal.value = true
 }
 const CLOSE_MODAL = () => {
-    showModal.value = false;
+    showModal.value = false
 }
 const STATUS_COLOR = computed(() => statusColor(props.data.status))
 const CHANGE_STATUS = (status) => {

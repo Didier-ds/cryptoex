@@ -5,7 +5,7 @@
         :closeable="closeable"
         @close="close">
         <div class="image_container h-full w-full bg-white">
-            <img :src="img" alt="big-image"/>
+            <img :src="img" alt="big-image" />
         </div>
     </modal>
 </template>
@@ -16,20 +16,20 @@ const emits = defineEmits(['close'])
 defineProps({
     img: {
         type: String,
-        default: ''
-    }, 
+        default: '',
+    },
     show: {
-            type: Boolean,
-            default: false,
-        },
-        maxWidth: {
-            type: String,
-            default: '2xl',
-        },
-        closeable: {
-            type: Boolean,
-            default: true,
-        },
+        type: Boolean,
+        default: false,
+    },
+    maxWidth: {
+        type: String,
+        default: '2xl',
+    },
+    closeable: {
+        type: Boolean,
+        default: true,
+    },
 })
 
 const close = () => {
@@ -39,7 +39,6 @@ const close = () => {
 
 <style lang="scss" scoped>
 .image_container {
-    
 }
 img {
     width: 100%;

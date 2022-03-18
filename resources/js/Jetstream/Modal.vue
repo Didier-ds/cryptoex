@@ -109,6 +109,6 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 .big-zindex {
-    z-index: 100
+    z-index: 100;
 }
 </style>

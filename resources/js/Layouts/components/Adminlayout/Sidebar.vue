@@ -6,10 +6,10 @@ import { useStore } from 'vuex'
 let store = useStore()
 // let route = useRoute()
 defineProps({
-        isSideBar: {
-            type: Boolean,
-        }
-    },)
+    isSideBar: {
+        type: Boolean,
+    },
+})
 let toggleSubMenu = (e) => {
     // let parent = e.target.dataset.item;
     console.log(e.target)
@@ -40,9 +40,7 @@ let handleWindowResize = () => {
 <template>
     <div class="side-content-wrap">
         <div class="side-content-wrap">
-            <div
-                :class="isSideBar ? 'open' : ''"
-                class="sidebar-left">
+            <div :class="isSideBar ? 'open' : ''" class="sidebar-left">
                 <perfect-scrollbar>
                     <ul class="navigation-left">
                         <!-- <div 

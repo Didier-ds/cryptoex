@@ -2,10 +2,7 @@
     <div
         class="card_big card shadow-md mx-auto flex flex-col justify-center bg-white items-center border fade-in m-4 p-4 h-40 rounded-md">
         <div class="card-logo w-16 my-3">
-            <img
-                class="w-full"
-                :src="filename"
-                alt="" />
+            <img class="w-full" :src="filename" alt="" />
         </div>
         <div class="card-details text-center text-white">
             <p class="relative block work text-black text-lg font-normal">
@@ -26,8 +23,8 @@ defineProps({
     },
     filename: {
         type: String,
-        default:'/images/cards/logo.png'
-    }
+        default: '/images/cards/logo.png',
+    },
 })
 </script>
 
