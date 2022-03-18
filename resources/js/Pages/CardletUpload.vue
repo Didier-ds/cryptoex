@@ -112,17 +112,17 @@
                                                 @click="cropImage(index)" />
                                         </div>
                                     </div>
-                                    <div  class="items-center py-2">
-                                        <div v-show="!allImages.length" >
+                                    <div class="items-center py-2">
+                                        <div v-show="!allImages.length">
                                             <img
                                                 src="@/images/proof.svg"
                                                 class="mx-auto w-14" />
                                             <p class="py-2 work">
-                                                Click Button Below to Upload Picture
-                                                of Your Giftcard
+                                                Click Button Below to Upload
+                                                Picture of Your Giftcard
                                             </p>
                                         </div>
-                                        <div >
+                                        <div>
                                             <label
                                                 for="image"
                                                 class="bg-cyan flex mx-auto justify-center h-8 w-8 items-center cursor-pointer rounded-2xl text-white work"
@@ -158,7 +158,7 @@
                 </div>
             </form>
         </div>
-        <SuccessModal  v-if="isUploadedSuccessfully"/>
+        <SuccessModal v-if="isUploadedSuccessfully" />
     </main-layout>
 </template>
 

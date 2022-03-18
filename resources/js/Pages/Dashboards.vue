@@ -12,7 +12,7 @@
                     <div class="menu_btn_container my-4">
                         <inertia-link
                             href="/giftcards"
-                            class="action_btn select-none rounded-md flex flex-col justify-center items-center p-4 bg-white border shadow-md giftcard_btn p-ripple lightcyan">
+                            class="action_btn select-none rounded-md flex flex-col justify-center items-center bg-white p-4 border shadow-md giftcard_btn p-ripple lightcyan">
                             <div class="card-logo w-16 my-3">
                                 <img
                                     class="w-full"
@@ -28,7 +28,7 @@
                         </inertia-link>
                         <inertia-link
                             href="/"
-                            class="action_btn select-none rounded-md flex flex-col justify-center dark items-center p-4 bg-white border shadow-md bitcoin_btn p-ripple lightcyan">
+                            class="action_btn select-none rounded-md flex flex-col justify-center dark items-center p-4 border shadow-md bitcoin_btn p-ripple lightcyan">
                             <div class="card-logo w-16 my-3">
                                 <img
                                     class="w-full"
@@ -44,8 +44,8 @@
                         </inertia-link>
                         <div
                             id="live_chat"
-                            class="action_btn justify-center items-center flex flex-row rounded-md py-4 px-2 bg-white">
-                            <div class="card_logo mx-4 my-3">
+                            class="action_btn justify-center items-center flex flex-row rounded-md  px-2 ">
+                            <div class="card_logo mx-4 ">
                                 <img
                                     class="w-full"
                                     :src="'./images/cards/24.svg'"
@@ -79,6 +79,8 @@
 
 <script setup>
 import MainLayout from '@/Layouts/MainLayout.vue'
+import Empty from '@/components/reusables_/Empty.vue'
+
 </script>
 
 <style lang="scss" scoped>
@@ -87,7 +89,7 @@ import MainLayout from '@/Layouts/MainLayout.vue'
     font-family: 'DM Sans', sans-serif;
 }
 .card_logo {
-    max-width: 6rem;
+    max-width: 5rem;
 }
 @media (max-width: 425px) {
     .card_logo {

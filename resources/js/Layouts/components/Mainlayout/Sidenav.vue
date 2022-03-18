@@ -111,7 +111,7 @@
                 <span>Account Details</span>
             </inertia-link>
             <!-- :class="$route.path === '/profile' ? 'selectedLink' : ''"  -->
-            <inertia-link href="" @click="changeRoute('/profile')">
+            <inertia-link :href="route('account.index')">
                 <div class="link_icon">
                     <svg
                         width="24"

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CardRequest;
 use App\Models\Card;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -19,7 +20,7 @@ class CardsController extends Controller
         //
         
         $cards = Card::all();
-        return Inertia::render('Admin/Giftcards', ['giftcards' => $cards]);
+        return Inertia::render('Admin/Giftcards/Index', ['giftcards' => $cards]);
     }
 
     /**
@@ -30,6 +31,7 @@ class CardsController extends Controller
     public function create()
     {
         //
+        return Inertia::render('Admin/Giftcards/Create');
     }
 
     /**
@@ -41,7 +43,15 @@ class CardsController extends Controller
     public function store(Request $request)
     {
         //
-        
+        Card::create([
+            'uuid' => Str::uuid(),
+            'name' => $request->name,
+            'type' => $request->type,
+            'rate' => $request->rate,
+            'min' => $request->min, 
+            'max' => $request->max,
+            'country' => $request->country,
+        ]);
     }
 
       /**
@@ -53,7 +63,7 @@ class CardsController extends Controller
         public function isType(Request $request)
         {   
             $cards = Card::where('name', $request->name)->get();
-            return Inertia::render('Admin/GiftcardCategory', ['giftcards' => $cards]);
+            return Inertia::render('Admin/Giftcards/Show', ['giftcards' => $cards]);
         }
 
     /**

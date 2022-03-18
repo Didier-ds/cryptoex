@@ -3,7 +3,7 @@
         <transition leave-active-class="duration-200">
             <div
                 v-show="show"
-                class="fixed inset-0 overflow-y-auto px-4 py-6 sm:px-0 z-50"
+                class="fixed inset-0 big-zindex overflow-y-auto px-4 py-6 sm:px-0 z-50"
                 scroll-region>
                 <transition
                     enter-active-class="ease-out duration-300"
@@ -107,3 +107,8 @@ export default defineComponent({
     },
 })
 </script>
+<style lang="scss" scoped>
+.big-zindex {
+    z-index: 100
+}
+</style>
