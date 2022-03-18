@@ -51,8 +51,9 @@ class CardsController extends Controller
      */
     public function isType(Request $request)
     {   
-        $cards = Card::where('name', $request->name)->get();
-        return Inertia::render('CardletUpload', ['giftcards' => $cards]);
+        $cardname = CardName::where('uuid', $request->uuid)->first();
+        $cards = Card::where('name', $cardname->name)->get();
+        return Inertia::render('CardletUpload', ['categories' => $cards, 'cardname' => $cardname]);
     }
 
     /**

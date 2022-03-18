@@ -5,7 +5,7 @@
                 <GoBack />
                 <div class="">
                     <h2 class="text-lg work font-semibold capitalize p-ripple">
-                        {{ name }} Card
+                        {{ cardname.name }} Card
                     </h2>
                 </div>
             </div>
@@ -15,7 +15,7 @@
                     <!-- Card categories and amount section -->
                     <div class="card_form_container flex flex-col">
                         <div class="w-11/12 sm:w-10/12 mx-auto">
-                            <BigCard :img-type="imgType" :name="name" />
+                            <BigCard :img-type="imgType" :name="cardname.name" :filename="cardname.filename" />
                             <div class="input_box my-2 flex flex-col">
                                 <label
                                     for="type"
@@ -32,7 +32,7 @@
                                         Please select Category
                                     </option>
                                     <option
-                                        v-for="category in giftcards"
+                                        v-for="category in categories"
                                         :key="category"
                                         :value="category.type">
                                         {{ category.type }}
@@ -175,10 +175,14 @@ const allImages = ref([])
 let SELECTED_CARD_UUID = null
 const isUploadedSuccessfully = ref(false)
 const props = defineProps({
-    giftcards: {
+    categories: {
         type: Array,
         default: () => [],
     },
+    cardname: {
+        type: Object,
+        default: () => {}
+    }
 })
 
 const imgType = computed(() => {
@@ -193,7 +197,7 @@ const form = useForm({
 })
 
 const AMOUNT_TO_RECEIVE = computed(() => {
-    const selectedCard = props.giftcards.find((card) => card.type === form.type)
+    const selectedCard = props.categories.find((card) => card.type === form.type)
     SELECTED_CARD_UUID = selectedCard ? selectedCard.uuid : null
     return selectedCard ? selectedCard.rate * form.amount : 0
     // return selectedCard ? selectedCard.rate * form.amount : 0

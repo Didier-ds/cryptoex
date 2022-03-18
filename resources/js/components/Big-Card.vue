@@ -4,7 +4,7 @@
         <div class="card-logo w-16 my-3">
             <img
                 class="w-full"
-                :src="'/images/cards/' + imgType + '.png'"
+                :src="filename"
                 alt="" />
         </div>
         <div class="card-details text-center text-white">
@@ -24,6 +24,10 @@ defineProps({
         type: String,
         default: '',
     },
+    filename: {
+        type: String,
+        default:'/images/cards/logo.png'
+    }
 })
 </script>
 
