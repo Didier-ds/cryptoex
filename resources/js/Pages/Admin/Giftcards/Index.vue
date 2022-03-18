@@ -34,39 +34,32 @@
             <div
                 class="card-container grid sm:grid-cols-4 grid-cols-2 grid flex-wrap">
                 <Card
-                    v-for="(name, index) in newGiftcards"
+                    v-for="(category, index) in categories"
                     :key="index"
-                    :name="name"
+                    :filename="category.filename"
+                    :name="category.name"
+                    :uuid="category.uuid"
                     :index="index" />
             </div>
         </div>
-        <!-- {{ newGiftcards }} -->
+        <!-- {{ categories }} -->
     </admin-layout>
 </template>
 
 <script setup>
 import AdminLayout from '@/Layouts/AdminLayout.vue'
 import Card from '@/components/Card.vue'
-import { computed } from '@/utils'
-const props = defineProps({
-    giftcards: {
+defineProps({
+    categories: {
         type: Array,
         default: () => [],
     },
-})
-const newGiftcards = computed(() => {
-    let i
-    const giftcards = props.giftcards.map((any) => any.name)
-    const newArr = []
-    const setObj = {}
-    for (i = 0; i < giftcards.length; i += 1) {
-        if (!Object.prototype.hasOwnProperty.call(setObj, giftcards[i])) {
-            newArr.push(giftcards[i])
-            setObj[giftcards[i]] = true
-        }
+    cardname: {
+        type: Object,
+        default: () => {}
     }
-    return newArr
 })
+
 </script>
 
 <style lang="scss" scoped></style>

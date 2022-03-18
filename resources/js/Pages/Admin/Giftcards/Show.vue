@@ -7,7 +7,7 @@
 
             <div class="flex justify-between work gap-4 items-center">
                 <p class="font-medium work text-lg capitalize">
-                    {{ giftcards[0].name }} giftcard
+                    {{ cardname.name }} giftcard
                 </p>
                 <!-- {{data.images}} -->
                 <div class="py-2 flex gap-2">
@@ -21,7 +21,7 @@
         </div>
         <!-- <q-btn color="primary" label="Add Category" />
         <category-card
-            v-for="card in giftcards"
+            v-for="card in categories"
             :name="card.name"
             :rate="card.rate"
             :type="card.type"
@@ -64,23 +64,23 @@
                 <tbody class="bg-white divide-y divide-gray-200">
                     <tr
                         class="py-2"
-                        v-for="giftcard in giftcards"
-                        :key="giftcard.id">
+                        v-for="category in categories"
+                        :key="category.id">
                         <td
                             class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 capitalize">
-                            {{ giftcard.name }}
+                            {{ category.name }}
                         </td>
                         <td
                             class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">
-                            {{ giftcard.type }}
+                            {{ category.type }}
                         </td>
                         <td
                             class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">
-                            ${{ giftcard.min }}-${{ giftcard.max }}
+                            ${{ category.min }}-${{ category.max }}
                         </td>
                         <td
                             class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">
-                            ${{ giftcard.rate }}
+                            ${{ category.rate }}
                         </td>
                         <!-- <td
                                 class="
@@ -98,7 +98,7 @@
                             class="px-6 py-4 whitespace-nowrap text-right text-sm flex gap-4 font-medium">
                             <inertia-link
                                 :href="
-                                    route('cards.cardRateChange', giftcard.uuid)
+                                    route('cards.update', category.uuid)
                                 "
                                 class="flex-0 items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                                 Upgrade
@@ -116,10 +116,14 @@ import AdminLayout from '@/Layouts/AdminLayout.vue'
 // import Modal from '@/Jetstream/Modal.vue'
 // import CategoryCard from '@/components/Admin/CategoryCard.vue'
 defineProps({
-    giftcards: {
+    categories: {
         type: Array,
         default: () => [],
     },
+    cardname: {
+        type: Object,
+        default: () => {}
+    }
 })
 </script>
 
