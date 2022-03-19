@@ -17,6 +17,8 @@ class ReceiptTypeController extends Controller
     public function index()
     {
         //
+        dd(ReceiptType::all());
+        
     }
 
     /**
