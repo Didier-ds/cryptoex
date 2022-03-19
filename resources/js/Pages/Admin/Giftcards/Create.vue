@@ -25,21 +25,21 @@
                             type="text"
                             outlined
                             label="Giftcard Name" />
-                        <!-- <q-input
-                            v-model="form.filename"
+                        <q-input
+                            v-model="form.currency"
                             class="m-2"
                             type="text"
                             outlined
-                            label="Type" /> -->
-                    </div>
-                    <!-- <div class=" grid sm:grid-cols-2 ">
-                        <q-input v-model="form.rate" class="m-2" standout type="text" outlined label="Rate"/>
-                        <q-input v-model="form.country" class="m-2" type="text" outlined label="Country"/>
+                            label="currency" /> 
                     </div>
                     <div class=" grid sm:grid-cols-2 ">
-                        <q-input v-model="form.min" class="m-2" standout type="text" outlined label="Min"/>
-                        <q-input v-model="form.max" class="m-2" type="text" outlined label="Max"/>
-                    </div> -->
+                        <q-input v-model="form.symbol" class="m-2" standout type="text" outlined label="symbol"/>
+                        <q-input v-model="form.country_code" class="m-2" type="text" outlined label="Country_code"/>
+                    </div>
+                    <div class=" grid sm:grid-cols-2 ">
+                        <q-input v-model="form.icon_url" class="m-2" standout type="text" outlined label="icon_url"/>
+                        <q-input v-model="form.asset_type" class="m-2" type="text" outlined label="assset type"/>
+                    </div> 
                 </div>
                 <div class="flex p-4">
                     <q-btn
@@ -63,11 +63,11 @@ import { useQuasar } from 'quasar'
 const $q = useQuasar()
 const form = useForm({
     name: '',
-    // filename: '',
-    // rate: '',
-    // country: '',
-    // min: '',
-    // max: ''
+    currency: '',
+    asset_type: '',
+    country_code: '',
+    symbol: '',
+    icon_url: ''
 })
 
 const submit = () => {
