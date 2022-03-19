@@ -25,12 +25,12 @@
                             type="text"
                             outlined
                             label="Giftcard Name" />
-                        <q-input
+                        <!-- <q-input
                             v-model="form.filename"
                             class="m-2"
                             type="text"
                             outlined
-                            label="Type" />
+                            label="Type" /> -->
                     </div>
                     <!-- <div class=" grid sm:grid-cols-2 ">
                         <q-input v-model="form.rate" class="m-2" standout type="text" outlined label="Rate"/>
@@ -63,7 +63,7 @@ import { useQuasar } from 'quasar'
 const $q = useQuasar()
 const form = useForm({
     name: '',
-    filename: '',
+    // filename: '',
     // rate: '',
     // country: '',
     // min: '',
@@ -71,18 +71,18 @@ const form = useForm({
 })
 
 const submit = () => {
-    form.filename = `https://drive.google.com/uc?id=${form.filename}`
+    // form.filename = `https://drive.google.com/uc?id=${form.filename}`
     form.transform((data) => ({
         ...data,
     }))
 
         // eslint-disable-next-line no-undef
-        .post(`/admin/cardname/create`, {
+        .post(`/admin/receipt/create`, {
             onSuccess: () => {
                 form.reset()
                 $q.notify({
                     type: 'positive',
-                    message: 'Card Created',
+                    message: 'Receipt Created',
                     position: 'top-right',
                 })
             },

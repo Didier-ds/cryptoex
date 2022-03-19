@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminCardNameController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\CardsController;
+use App\Http\Controllers\Admin\ReceiptTypeController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,7 @@ Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified'],'prefix
     Route::get('giftcards', [CardsController::class, 'index'])->name('cards.index');
     Route::get('giftcards/create', [CardsController::class, 'create'])->name('cards.create');
     Route::post('cardname/create', [AdminCardNameController::class, 'store'])->name('cardnames.store');
+    Route::post('receipt/create', [ReceiptTypeController::class, 'store'])->name('receipt.store');
     Route::post('giftcards/create', [CardsController::class, 'store'])->name('cards.store');
     Route::get('users', [UserController::class, 'index'])->name('users.index');
     Route::get('users/{user_id}', [UserController::class, 'show'])->name('users.show');
