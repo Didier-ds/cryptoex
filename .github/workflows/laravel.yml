@@ -34,4 +34,4 @@ jobs:
         ftp-server: ${{ secrets.server }}
         ftp-username: ${{ secrets.username}}
         ftp-password: ${{ secrets.password}}
-        server_dir: /home5/app/public_html/
+        local-dir: /home5/app/public_html/
