@@ -31,7 +31,7 @@ jobs:
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@3.1.1
       with:
-        server: ${{ secrets.server }}
-        username: ${{ secrets.username}}
-        password: ${{ secrets.password}}
+        ftp-server: ${{ secrets.server }}
+        ftp-username: ${{ secrets.username}}
+        ftp-password: ${{ secrets.password}}
         server_dir: /home5/app/public_html/
