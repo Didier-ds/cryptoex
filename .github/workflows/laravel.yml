@@ -23,7 +23,7 @@ jobs:
     - name: Create zipped vendor directory
       uses: montudor/action-zip@v0.1.0
       with:
-      args: zip -qq -r ./vendor.zip ./vendor
+        args: zip -qq -r ./vendor.zip ./vendor
     - name: Generate key
       run: php artisan key:generate
     - name: Directory Permissions
