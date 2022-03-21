@@ -35,3 +35,6 @@ jobs:
         username: ${{ secrets.username}}
         password: ${{ secrets.password}}
         server-dir: /home5/app/public_html/
+        exclude: |
+          **/vendor*
+          **/.git*/**
