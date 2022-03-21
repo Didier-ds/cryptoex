@@ -20,6 +20,10 @@ jobs:
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Install Dependencies
       run: composer install --ignore-platform-reqs
+    - name: Create zipped vendor directory
+      uses: montudor/action-zip@v0.1.0
+      with:
+      args: zip -qq -r ./vendor.zip ./vendor
     - name: Generate key
       run: php artisan key:generate
     - name: Directory Permissions
