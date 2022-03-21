@@ -34,15 +34,15 @@
             <div
                 class="card-container grid sm:grid-cols-4 grid-cols-2 grid flex-wrap">
                 <Card
-                    v-for="(category, index) in categories"
+                    v-for="(card, index) in cardnames"
                     :key="index"
-                    :filename="category.filename"
-                    :name="category.name"
-                    :uuid="category.uuid"
+                    :filename="card.filename"
+                    :name="card.name"
+                    :uuid="card.uuid"
                     :index="index" />
             </div>
         </div>
-        <!-- {{ categories }} -->
+        <!-- {{ cardnames }} -->
     </admin-layout>
 </template>
 
@@ -50,7 +50,7 @@
 import AdminLayout from '@/Layouts/AdminLayout.vue'
 import Card from '@/components/Card.vue'
 defineProps({
-    categories: {
+    cardnames: {
         type: Array,
         default: () => [],
     },

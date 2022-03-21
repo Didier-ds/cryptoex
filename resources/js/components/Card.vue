@@ -3,8 +3,8 @@
         class="m-4"
         :href="role ? '/upload/' + uuid : 'giftcard/category/' + uuid">
         <div
-            class="card shadow-md border border-gray-300 flex-col flex justify-center items-center 0 fade-in p-2 w-full lg:w-full bg-white rounded-md"
-            :style="{ '--order': index }">
+            class="card bg-gray-50 flex-col border-gray-100 border flex justify-center items-center 0 p-2 w-full lg:w-full  rounded-md"
+            >
             <div class="card-logo w-8 my-2">
                 <img class="w-full" :src="filename" alt="" />
             </div>
@@ -50,4 +50,8 @@ const props = defineProps({
     },
 })
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.card {
+    min-height: 8em;
+}
+</style>

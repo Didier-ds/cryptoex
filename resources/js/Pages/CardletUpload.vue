@@ -38,7 +38,7 @@
                                         v-for="category in categories"
                                         :key="category"
                                         :value="category.type">
-                                        {{ category.type }}
+                                        {{ category.country }} {{ category.type }} ({{category.min}} - {{category.max}})
                                     </option>
                                 </select>
                                 <div class="input_box my-2 flex flex-col">

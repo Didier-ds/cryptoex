@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CardRequest;
 use App\Models\Card;
 use App\Models\CardName;
+use App\Models\Currencies;
+use App\Models\ReceiptType;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -20,8 +22,8 @@ class CardsController extends Controller
     {
         //
         
-        $cards = CardName::all();
-        return Inertia::render('Admin/Giftcards/Index', ['categories' => $cards]);
+        $cardnames = CardName::all();
+        return Inertia::render('Admin/Giftcards/Index', ['cardnames' => $cardnames]);
     }
 
     /**
@@ -32,7 +34,10 @@ class CardsController extends Controller
     public function create()
     {
         //
-        return Inertia::render('Admin/Giftcards/Create');
+        $cardnames = CardName::all();
+        $receiptTypes = ReceiptType::all();
+        $currencies = Currencies::all();
+        return Inertia::render('Admin/Giftcards/Create', ['cardnames' => $cardnames, 'receipt_types' => $receiptTypes, 'currencies' => $currencies]);
     }
 
     /**

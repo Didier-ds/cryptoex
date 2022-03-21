@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('uuid')->unique();
             $table->string('name');
             $table->string('country');
-            $table->string('min');
-            $table->string('max');
+            $table->string('min')->nullable();
+            $table->string('max')->nullable();
             $table->string('type');
             $table->string('rate');
             $table->timestamps();

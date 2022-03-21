@@ -10,6 +10,7 @@ class Currencies extends Model
     use HasFactory;
     protected $table = 'currencies';
     protected $fillable = [
+        'uuid',
         'name',
         'asset_type',
         'country_code',

@@ -25,7 +25,7 @@ class CardRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'type' => 'required|string|unique:cards',
+            'type' => 'required|string',
             'country' => 'required|string',
             'rate' => 'required|string',
             'min' => 'required|string',

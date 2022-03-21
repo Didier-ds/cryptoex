@@ -50,7 +50,7 @@ class CardletController extends Controller
                     foreach ($request->images as $image) {
                         # code...
                         // dd($image);
-                        $filename = Helpers::runImageUpload($image, 'cardlets');
+                        $_COOKIE
                         CardletImage::create([
                             'cardlet_id' => $cardlet->id,
                             'filename' => $filename

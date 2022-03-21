@@ -6,6 +6,7 @@ use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use App\Models\ReceiptType;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class ReceiptTypeController extends Controller
 {
@@ -17,8 +18,9 @@ class ReceiptTypeController extends Controller
     public function index()
     {
         //
-        dd(ReceiptType::all());
-        
+        // dd(ReceiptType::all());
+        return Inertia::render('Admin/Create/Receipt');
+
     }
 
     /**
