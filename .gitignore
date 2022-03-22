@@ -5,6 +5,7 @@
 /storage/*.key
 /vendor
 vendor.zip
+Procfile
 .env
 .env.backup
 .phpunit.result.cache
