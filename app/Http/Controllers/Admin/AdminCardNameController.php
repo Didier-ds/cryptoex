@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\CardName;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class AdminCardNameController extends Controller
 {
@@ -17,6 +18,7 @@ class AdminCardNameController extends Controller
     public function index()
     {
         //
+        return Inertia::render('Admin/Create/Vendor');
     }
 
     /**

@@ -17,8 +17,10 @@ Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified'],'prefix
     Route::patch('cardlets/{id}', [AdminCardletController::class, 'update'])->name('cardlet.update');
     Route::get('giftcards', [CardsController::class, 'index'])->name('cards.index');
     Route::get('giftcards/create', [CardsController::class, 'create'])->name('cards.create');
+    Route::get('cardname/create', [AdminCardNameController::class, 'index'])->name('cardnames.index');
     Route::post('cardname/create', [AdminCardNameController::class, 'store'])->name('cardnames.store');
     Route::get('receipt/create', [ReceiptTypeController::class, 'index'])->name('receipt.index');
+    Route::post('receipt/create', [ReceiptTypeController::class, 'store'])->name('receipt.store');
 
     Route::post('currency/create', [CurrencyController::class, 'store'])->name('currency.store');
     Route::post('giftcards/create', [CardsController::class, 'store'])->name('cards.store');
