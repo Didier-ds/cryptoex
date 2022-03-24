@@ -13,9 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('accouts', function (Blueprint $table) {
+        Schema::create('accounts', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('uuid')->unique();
+            $table->string('bank_name');
+            $table->string('account_number');
+            $table->string('account_name');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 

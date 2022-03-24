@@ -50,7 +50,6 @@ class CardletController extends Controller
                     foreach ($request->images as $image) {
                         # code...
                         // dd($image);
-                        $_COOKIE
                         CardletImage::create([
                             'cardlet_id' => $cardlet->id,
                             'filename' => $filename

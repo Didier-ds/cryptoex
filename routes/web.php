@@ -48,8 +48,13 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
      Route::post('/users/cardlets-make/{Carduuid}', [CardletController::class, 'store']);  // To create cardlet
      Route::get('/user/profile', [UserAccountController::class, 'index'])->name('account.index');
      Route::get('/get-banks', [UserBankDetailsController::class, 'getBanks'])->name('bank.getBanks');
-     Route::get('/user/bank-account', [UserBankDetailsController::class, 'index'])->name('bank.index');
+     Route::get('/user/bank-account', [UserBankDetailsController::class, 'create'])->name('bank.create');
 
- });
+    });
+    
+Route::middleware(['bank_account_check', 'auth:sanctum', 'verified'])->group(function(){
+    Route::get('/giftcards', [CardsController::class, 'index'])->name('card.index');
+    Route::get('/upload/{uuid}', [CardsController::class, 'isType'])->name('card.isType');
+});
 
 require 'admin.php';

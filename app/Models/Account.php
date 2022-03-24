@@ -10,6 +10,12 @@ class Account extends Model
     use HasFactory;
     protected $table = "accounts";
     protected $guarded = [];
+    protected $fillable = [
+        'uuid',
+        'bank_name',
+        'account_number',
+        'account_name'
+    ];
 
     public function user()
     {

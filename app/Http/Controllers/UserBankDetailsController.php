@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\ResponseBuilder;
+use App\Models\Account;
 use App\Models\Konstants;
 use Illuminate\Http\Request;
+use App\Http\Requests\AccountRequest;
 use Illuminate\Support\Facades\Http;
 use Inertia\Inertia;
+use Illuminate\Support\Str;
+
 
 class UserBankDetailsController extends Controller
 {
@@ -20,7 +24,6 @@ class UserBankDetailsController extends Controller
         //
       
         // return response()->json($banks, Konstants::STATUS_OK);
-        return Inertia::render('BankForm');
     }
 
     /**
@@ -31,6 +34,8 @@ class UserBankDetailsController extends Controller
     public function create()
     {
         //
+        return Inertia::render('BankForm');
+
     }
 
     /**
@@ -58,9 +63,16 @@ class UserBankDetailsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AccountRequest $request)
     {
         //
+        Account::create([
+            'uuid' => Str::uuid(),
+            'bank_name' => $request->bank_name,
+            'account_number' => $request->account_number,
+            'account_name' => $request->account_name,
+        ]);
+        return redirect()-back();
     }
 
     /**
