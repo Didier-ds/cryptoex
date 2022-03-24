@@ -21,7 +21,7 @@ Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified'],'prefix
     Route::post('cardname/create', [AdminCardNameController::class, 'store'])->name('cardnames.store');
     Route::get('receipt/create', [ReceiptTypeController::class, 'index'])->name('receipt.index');
     Route::post('receipt/create', [ReceiptTypeController::class, 'store'])->name('receipt.store');
-
+    Route::get('currency/create', [CurrencyController::class, 'index'])->name('currency.index');
     Route::post('currency/create', [CurrencyController::class, 'store'])->name('currency.store');
     Route::post('giftcards/create', [CardsController::class, 'store'])->name('cards.store');
     Route::get('users', [UserController::class, 'index'])->name('users.index');

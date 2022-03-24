@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\AccountController;
+use App\Http\Controllers\UserAccountController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\CardletController;
 use App\Http\Controllers\CardsController;
+use App\Http\Controllers\UserBankDetailsController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -45,7 +46,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
      Route::get('/upload/{uuid}', [CardsController::class, 'isType'])->name('card.isType');
      Route::get('/user/transactions', [CardletController::class, 'userCardlets']);  // To get user cardlet
      Route::post('/users/cardlets-make/{Carduuid}', [CardletController::class, 'store']);  // To create cardlet
-     Route::get('/user/profile', [AccountController::class, 'index'])->name('account.index');
+     Route::get('/user/profile', [UserAccountController::class, 'index'])->name('account.index');
+     Route::get('/get-banks', [UserBankDetailsController::class, 'getBanks'])->name('bank.getBanks');
+     Route::get('/user/bank-account', [UserBankDetailsController::class, 'index'])->name('bank.index');
 
  });
 

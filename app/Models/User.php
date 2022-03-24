@@ -66,4 +66,9 @@ class User extends Authenticatable //implements MustVerifyEmail
     {
         return $this->hasMany(Cardlet::class);
     }
+
+    public function bankDetails()
+    {
+        return $this->hasMany(Account::class);
+    }
 }

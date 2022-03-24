@@ -7,6 +7,7 @@ use App\Helpers\Helpers;
 use App\Http\Controllers\Controller;
 use App\Models\Currencies;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class CurrencyController extends Controller
 {
@@ -18,6 +19,7 @@ class CurrencyController extends Controller
     public function index()
     {
         //
+        return Inertia::render('Admin/Create/Currency');
     }
 
     /**
