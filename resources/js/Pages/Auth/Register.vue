@@ -17,7 +17,8 @@
                     <jet-validation-errors class="mb-4" />
                     <form @submit.prevent="submit">
                         <!-- fullname Input Container -->
-                        <div class="input_container border rounded focus-within:shadow focus-within:border-cyan">
+                        <div
+                            class="input_container border rounded focus-within:shadow focus-within:border-cyan">
                             <q-input
                                 v-model="form.fullname"
                                 :rules="[
@@ -33,7 +34,8 @@
                         </div>
 
                         <!-- Email Input Container -->
-                        <div class="input_container border rounded focus-within:shadow focus-within:border-cyan">
+                        <div
+                            class="input_container border rounded focus-within:shadow focus-within:border-cyan">
                             <q-input
                                 v-model="form.email"
                                 :rules="[
@@ -49,7 +51,8 @@
                         </div>
 
                         <!-- Phone Input Container -->
-                        <div class="input_container border rounded focus-within:shadow focus-within:border-cyan">
+                        <div
+                            class="input_container border rounded focus-within:shadow focus-within:border-cyan">
                             <q-input
                                 v-model="form.phone"
                                 required
@@ -70,7 +73,8 @@
                         </div>
 
                         <!-- password Input Container -->
-                        <div class="input_container border rounded focus-within:shadow focus-within:border-cyan">
+                        <div
+                            class="input_container border rounded focus-within:shadow focus-within:border-cyan">
                             <q-input
                                 v-model="form.password"
                                 required
@@ -89,7 +93,8 @@
                         </div>
 
                         <!-- passowrd confirmation Input Container -->
-                        <div class="input_container border rounded focus-within:shadow focus-within:border-cyan">
+                        <div
+                            class="input_container border rounded focus-within:shadow focus-within:border-cyan">
                             <q-input
                                 v-model="form.password_confirmation"
                                 required

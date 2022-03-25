@@ -52,7 +52,8 @@
                                     alt="" />
                             </div>
                             <div class="live_chat_text">
-                                <span class="block font-medium text-tiny sm:text-base">
+                                <span
+                                    class="block font-medium text-tiny sm:text-base">
                                     Chat With One of Our Agents Now
                                 </span>
                                 <span class="block text-xs sm:text-tiny">

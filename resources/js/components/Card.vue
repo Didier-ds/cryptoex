@@ -3,8 +3,7 @@
         class="m-4"
         :href="role ? '/upload/' + uuid : 'giftcard/category/' + uuid">
         <div
-            class="card bg-white flex-col shadow flex justify-center items-center 0 p-2 w-full lg:w-full  rounded-md"
-            >
+            class="card bg-white flex-col shadow flex justify-center items-center 0 p-2 w-full lg:w-full rounded-md">
             <div class="card-logo w-8 my-2">
                 <img class="w-full" :src="filename" alt="" />
             </div>

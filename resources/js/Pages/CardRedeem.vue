@@ -21,12 +21,23 @@
                         <p class="font-medium work mb-2">Select Country</p>
                         <div class="country_options grid grid-cols-2">
                             <button
-v-for="country in allCountries" :key="country" class="flex rounded-sm p-2 white-space-1 sm:p-4 select-none relative" :class="{
-                            'shadow-wide': country.selected,
-                            'border ': !country.selected,
-                            'bg-white': country.selected,
-                          }">
-                          <span class="capitalize text-md font-medium">{{country.type}}</span></button>
+                                v-for="country in allCountries"
+                                :key="country"
+                                class="flex text-md work uppercase font-semibold justify-between items-center rounded-sm p-2 white-space-1 sm:p-4 select-none relative"
+                                :class="{
+                                    'shadow-wide': country.selected,
+                                    'border ': !country.selected,
+                                    'bg-white': country.selected,
+                                }">
+                                <div class="w-6">
+                                    <img
+                                        :src="country.icon_url"
+                                        class="w-full"
+                                        :alt="country.type" />
+                                </div>
+                                <p class=" ">{{ country.type }}</p>
+                                <p>{{ country.symbol }}</p>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -39,7 +50,7 @@ v-for="country in allCountries" :key="country" class="flex rounded-sm p-2 white-
 import MainLayout from '@/Layouts/MainLayout.vue'
 import GreenCheck from '@/components/reusables_/GreenCheck.vue'
 import BigCard from '@/components/Big-Card.vue'
-import {ref, onMounted}from '@/utils'
+import { ref, onMounted } from '@/utils'
 const props = defineProps({
     categories: {
         type: Array,
@@ -54,8 +65,10 @@ const allCountries = ref([])
 const recreateData = () => {
     props.categories.map((category) => {
         const newObj = {
-            type: category.country,
-            selected: false
+            type: category.currency.currency,
+            icon_url: category.currency.icon_url,
+            symbol: category.currency.symbol,
+            selected: false,
         }
         allCountries.value.push(newObj)
     })
@@ -63,9 +76,7 @@ const recreateData = () => {
 
 onMounted(() => {
     recreateData()
-}) 
+})
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

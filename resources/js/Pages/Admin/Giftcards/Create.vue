@@ -20,84 +20,102 @@
                     <div class="grid sm:grid-cols-2">
                         <div>
                             <label
-                                    for="type"
-                                    class="text-base work font-medium pb-2">
-                                    Card Type
-                                </label>
-                                <select
-                                    id="category"
-                                    v-model="form.name"
-                                    required
-                                    class="p-2 py-3 capitalize font-medium rounded-md shadow-sm border"
-                                    name="category">
-                                    <option disabled value="">
-                                        Please select giftcard
-                                    </option>
-                                    <option
-                                        v-for="card in cardnames"
-                                        :key="card"
-                                        :value="card.name">
-                                        {{ card.name }}
-                                    </option>
-                                </select>
+                                for="type"
+                                class="text-base work font-medium pb-2">
+                                Card Type
+                            </label>
+                            <select
+                                id="category"
+                                v-model="form.name"
+                                required
+                                class="p-2 py-3 capitalize font-medium rounded-md shadow-sm border"
+                                name="category">
+                                <option disabled value="">
+                                    Please select giftcard
+                                </option>
+                                <option
+                                    v-for="card in cardnames"
+                                    :key="card"
+                                    :value="card.name">
+                                    {{ card.name }}
+                                </option>
+                            </select>
                         </div>
                         <div>
                             <label
-                                    for="type"
-                                    class="text-base work font-medium pb-2">
-                                    Card country
-                                </label>
-                                <select
-                                    id="category"
-                                    v-model="form.country"
-                                    required
-                                    class="p-2 py-3 uppercase font-medium rounded-md shadow-sm border"
-                                    name="category">
-                                    <option disabled value="">
-                                        Please select country
-                                    </option>
-                                    <option
-                                        v-for="currency in currencies"
-                                        :key="currency"
-                                        class="uppercase"
-                                        :value="currency.currency">
-                                        {{ currency.currency }}
-                                    </option>
-                                </select>
-                        </div> 
-                    </div>
-                    <div class=" grid sm:grid-cols-2 ">
-                        <div>
-                            <label
-                                    for="type"
-                                    class="text-base work font-medium pb-2">
-                                    Card Receipt
-                                </label>
-                                <select
-                                    id="category"
-                                    v-model="form.type"
-                                    required
-                                    class="p-2 py-3 capitalize font-medium rounded-md shadow-sm border"
-                                    name="category">
-                                    <option disabled value="">
-                                        Please select type
-                                    </option>
-                                    <option
-                                        v-for="receipt in receipt_types"
-                                        :key="receipt"
-                                        :value="receipt.name">
-                                        {{ receipt.name }}
-                                    </option>
-                                </select>
+                                for="type"
+                                class="text-base work font-medium pb-2">
+                                Card country
+                            </label>
+                            <select
+                                id="category"
+                                v-model="form.country"
+                                required
+                                class="p-2 py-3 uppercase font-medium rounded-md shadow-sm border"
+                                name="category">
+                                <option disabled value="">
+                                    Please select country
+                                </option>
+                                <option
+                                    v-for="currency in currencies"
+                                    :key="currency"
+                                    class="uppercase"
+                                    :value="currency.currency">
+                                    {{ currency.currency }}
+                                </option>
+                            </select>
                         </div>
                     </div>
-                    <div class=" grid sm:grid-cols-2 ">
-                     <q-input v-model="form.rate" class="m-2" standout type="number" outlined label="rate"/> 
-                     <q-input v-model="form.min" class="m-2" standout type="number" outlined label="min"/> 
-                     <q-input v-model="form.max" class="m-2" standout type="number" outlined label="max"/> 
+                    <div class="grid sm:grid-cols-2">
+                        <div>
+                            <label
+                                for="type"
+                                class="text-base work font-medium pb-2">
+                                Card Receipt
+                            </label>
+                            <select
+                                id="category"
+                                v-model="form.type"
+                                required
+                                class="p-2 py-3 capitalize font-medium rounded-md shadow-sm border"
+                                name="category">
+                                <option disabled value="">
+                                    Please select type
+                                </option>
+                                <option
+                                    v-for="receipt in receipt_types"
+                                    :key="receipt"
+                                    :value="receipt.name">
+                                    {{ receipt.name }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="grid sm:grid-cols-2">
+                        <q-input
+                            v-model="form.rate"
+                            class="m-2"
+                            standout
+                            type="number"
+                            outlined
+                            label="rate" />
+                        <q-input
+                            v-model="form.min"
+                            class="m-2"
+                            standout
+                            type="number"
+                            outlined
+                            label="min" />
+                        <q-input
+                            v-model="form.max"
+                            class="m-2"
+                            standout
+                            type="number"
+                            outlined
+                            label="max" />
 
                         <!-- <q-input @update:model-value="val => { form.image = val[0] }" class="m-2" standout type="file" @change="handleChange" outlined label="icon_url"/> -->
-                    </div> 
+                    </div>
                 </div>
                 <div class="flex p-4">
                     <q-btn
@@ -125,22 +143,22 @@ const form = useForm({
     country: '',
     rate: '',
     min: '',
-    max: ''
+    max: '',
 })
 
 defineProps({
     cardnames: {
         type: Array,
-        default: () => []
+        default: () => [],
     },
     currencies: {
         type: Array,
-        default: () => []
+        default: () => [],
     },
     receipt_types: {
         type: Array,
-        default: () => []
-    }
+        default: () => [],
+    },
 })
 
 const submit = () => {

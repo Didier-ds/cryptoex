@@ -91,13 +91,19 @@
                                 </select>
                         </div>
                     </div> -->
-                    <div class=" grid sm:grid-cols-2 ">
-                     <q-input v-model="form.name" class="m-2" standout type="text" outlined label="name"/> 
-                     <!-- <q-input v-model="form.min" class="m-2" standout type="number" outlined label="min"/> 
+                    <div class="grid sm:grid-cols-2">
+                        <q-input
+                            v-model="form.name"
+                            class="m-2"
+                            standout
+                            type="text"
+                            outlined
+                            label="name" />
+                        <!-- <q-input v-model="form.min" class="m-2" standout type="number" outlined label="min"/> 
                      <q-input v-model="form.max" class="m-2" standout type="number" outlined label="max"/>  -->
 
                         <!-- <q-input @update:model-value="val => { form.image = val[0] }" class="m-2" standout type="file" @change="handleChange" outlined label="icon_url"/> -->
-                    </div> 
+                    </div>
                 </div>
                 <div class="flex p-4">
                     <q-btn
@@ -131,16 +137,16 @@ const form = useForm({
 defineProps({
     cardnames: {
         type: Array,
-        default: () => []
+        default: () => [],
     },
     currencies: {
         type: Array,
-        default: () => []
+        default: () => [],
     },
     receipt_types: {
         type: Array,
-        default: () => []
-    }
+        default: () => [],
+    },
 })
 
 const submit = () => {

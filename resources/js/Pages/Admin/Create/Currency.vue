@@ -17,17 +17,63 @@
                 </p>
                 <JetValidationErrors class="px-2" />
                 <div class="p-4">
-                    
-                    <div class=" grid sm:grid-cols-2 ">
-                    <q-input v-model="form.name" class="m-2" standout type="text" outlined label="name"/> 
+                    <div class="grid sm:grid-cols-2">
+                        <q-input
+                            v-model="form.name"
+                            class="m-2"
+                            standout
+                            type="text"
+                            outlined
+                            label="name" />
 
-                     <q-input v-model="form.symbol" class="m-2" standout type="text" outlined label="symbol"/> 
-                     <q-input v-model="form.currency" class="m-2" standout type="text" outlined label="currency"/> 
-                     <q-input v-model="form.country_code" class="m-2" standout type="text" outlined label="code"/> 
-                     <q-input v-model="form.asset_type" class="m-2" standout type="text" outlined label="asset"/> 
-                     <q-input v-model="form.currency" class="m-2" standout type="text" outlined label="currency"/> 
-                    <q-input @update:model-value="val => { form.image = val[0] }" class="m-2" standout type="file" @change="handleChange" outlined label="icon_url"/> 
-                    </div> 
+                        <q-input
+                            v-model="form.symbol"
+                            class="m-2"
+                            standout
+                            type="text"
+                            outlined
+                            label="symbol" />
+                        <q-input
+                            v-model="form.currency"
+                            class="m-2"
+                            standout
+                            type="text"
+                            outlined
+                            label="currency" />
+                        <q-input
+                            v-model="form.country_code"
+                            class="m-2"
+                            standout
+                            type="text"
+                            outlined
+                            label="code" />
+                        <q-input
+                            v-model="form.asset_type"
+                            class="m-2"
+                            standout
+                            type="text"
+                            outlined
+                            label="asset" />
+                        <q-input
+                            v-model="form.currency"
+                            class="m-2"
+                            standout
+                            type="text"
+                            outlined
+                            label="currency" />
+                        <q-input
+                            @update:model-value="
+                                (val) => {
+                                    form.image = val[0]
+                                }
+                            "
+                            class="m-2"
+                            standout
+                            type="file"
+                            @change="handleChange"
+                            outlined
+                            label="icon_url" />
+                    </div>
                 </div>
                 <div class="flex p-4">
                     <q-btn
@@ -55,22 +101,22 @@ const form = useForm({
     country_code: '',
     symbol: '',
     currency: '',
-    image: ''
+    image: '',
 })
 
 defineProps({
     cardnames: {
         type: Array,
-        default: () => []
+        default: () => [],
     },
     currencies: {
         type: Array,
-        default: () => []
+        default: () => [],
     },
     receipt_types: {
         type: Array,
-        default: () => []
-    }
+        default: () => [],
+    },
 })
 
 const submit = () => {

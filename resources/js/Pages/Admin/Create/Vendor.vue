@@ -91,13 +91,25 @@
                                 </select>
                         </div>
                     </div> -->
-                    <div class=" grid sm:grid-cols-2 ">
-                     <q-input v-model="form.name" class="m-2" standout type="text" outlined label="name"/> 
-                      <q-input v-model="form.filename" class="m-2" standout type="text" outlined label="id"/> 
-                     <!-- <q-input v-model="form.max" class="m-2" standout type="number" outlined label="max"/>  -->
+                    <div class="grid sm:grid-cols-2">
+                        <q-input
+                            v-model="form.name"
+                            class="m-2"
+                            standout
+                            type="text"
+                            outlined
+                            label="name" />
+                        <q-input
+                            v-model="form.filename"
+                            class="m-2"
+                            standout
+                            type="text"
+                            outlined
+                            label="id" />
+                        <!-- <q-input v-model="form.max" class="m-2" standout type="number" outlined label="max"/>  -->
 
                         <!-- <q-input @update:model-value="val => { form.image = val[0] }" class="m-2" standout type="file" @change="handleChange" outlined label="icon_url"/> -->
-                    </div> 
+                    </div>
                 </div>
                 <div class="flex p-4">
                     <q-btn
@@ -121,7 +133,7 @@ import { useQuasar } from 'quasar'
 const $q = useQuasar()
 const form = useForm({
     name: '',
-    filename: ''
+    filename: '',
     // type: '',
     // country: '',
     // rate: '',
@@ -132,20 +144,22 @@ const form = useForm({
 defineProps({
     cardnames: {
         type: Array,
-        default: () => []
+        default: () => [],
     },
     currencies: {
         type: Array,
-        default: () => []
+        default: () => [],
     },
     receipt_types: {
         type: Array,
-        default: () => []
-    }
+        default: () => [],
+    },
 })
 
 const submit = () => {
-    form.filename = `https://drive.google.com/uc?id=${form.filename.split("/")[5]}`
+    form.filename = `https://drive.google.com/uc?id=${
+        form.filename.split('/')[5]
+    }`
     form.transform((data) => ({
         ...data,
     }))

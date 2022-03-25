@@ -40,7 +40,7 @@ const toggleSideBar = () => {
 @media (min-width: 769px) {
     #layout {
         display: grid;
-        
+
         grid-template-columns: minmax(180px, 280px) 1fr;
     }
 }
