@@ -49,7 +49,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
      Route::get('/user/profile', [UserAccountController::class, 'index'])->name('account.index');
      Route::get('/get-banks', [UserBankDetailsController::class, 'getBanks'])->name('bank.getBanks');
      Route::get('/user/bank-account', [UserBankDetailsController::class, 'create'])->name('bank.create');
-
+     Route::post('/user/bank-account', [UserBankDetailsController::class, 'store'])->name('bank.store');
     });
     
 Route::middleware(['bank_account_check', 'auth:sanctum', 'verified'])->group(function(){

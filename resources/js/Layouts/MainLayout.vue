@@ -1,5 +1,5 @@
 <template>
-    <div id="main" class="relative">
+    <div id="main" class="relative bg-gray-50">
         <div
             class="overlay"
             :class="isSideBar ? 'active' : ''"
@@ -11,7 +11,7 @@
                 @toggle-side-bar="toggleSideBar" />
             <main>
                 <Header @toggle-side-bar="toggleSideBar" />
-                <div class="bg-white rounded-lg">
+                <div class="bg-gray-50 rounded-lg">
                     <slot></slot>
                 </div>
             </main>

@@ -25,7 +25,7 @@ class BankVetRequest extends FormRequest
     {
         return [
             'account_bank' => 'required|string',
-            'account_number' => 'required|string',
+            'account_number' => 'required|string|unique:accounts',
         ];
     }
 }

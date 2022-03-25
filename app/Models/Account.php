@@ -14,7 +14,8 @@ class Account extends Model
         'uuid',
         'bank_name',
         'account_number',
-        'account_name'
+        'account_name',
+        'user_id'
     ];
 
     public function user()

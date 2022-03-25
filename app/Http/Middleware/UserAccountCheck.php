@@ -18,10 +18,11 @@ class UserAccountCheck
      */
     public function handle(Request $request, Closure $next)
     {
+        $prev_url = $request->path();
         $userId = auth()->id();
         $accounts = Account::where('user_id', $userId)->get();
         if(count($accounts) == 0) {
-            return redirect('/user/bank-account');
+            return redirect()->route('bank.create', ['prev_url' => $prev_url]);
         }
         return $next($request);
     }

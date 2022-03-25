@@ -7,7 +7,9 @@ use App\Models\Account;
 use App\Models\Konstants;
 use Illuminate\Http\Request;
 use App\Http\Requests\AccountRequest;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\URL;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
 
@@ -65,14 +67,20 @@ class UserBankDetailsController extends Controller
      */
     public function store(AccountRequest $request)
     {
-        //
-        Account::create([
-            'uuid' => Str::uuid(),
-            'bank_name' => $request->bank_name,
-            'account_number' => $request->account_number,
-            'account_name' => $request->account_name,
-        ]);
-        return redirect()-back();
+         Account::create([
+             'uuid' => Str::uuid(),
+             'bank_name' => $request->bank_name,
+             'account_number' => $request->account_number,
+             'account_name' => $request->account_name,
+             'user_id' => auth()->id(),
+         ]);
+        $redirect_url = $request->query('prev_url');
+        // dd($redirect_url);
+        if(is_null($redirect_url)) {
+            $name = app('router')->getRoutes()->match(app('request')->create($redirect_url))->getName();
+            return redirect()->route($name);
+        }
+        return redirect()->route('dashboard');
     }
 
     /**
