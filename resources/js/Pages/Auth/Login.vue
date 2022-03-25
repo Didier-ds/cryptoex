@@ -1,7 +1,9 @@
 <template>
     <div class="py-4">
         <max-width-container>
-            <Logo />
+            <div class="my-8 md:my-10">
+                <Logo />
+            </div>
             <div class="main_container">
                 <div class="ads_container">
                     <p class="whitespace-pre">{{ adText }}</p>
@@ -48,7 +50,7 @@
                     <div class="other_link_section flex flex-col">
                         <inertia-link
                             to="/forgotpassword"
-                            class="forgot-password self-end inline-block mb-4 font-semibold text-cyan"
+                            class="forgot-password self-end inline-block mb-8 font-semibold text-cyan"
                             >Forgot Your Password</inertia-link
                         >
                         <p class="font-semibold">
@@ -102,7 +104,12 @@ const submit = () => {
 // .input_container {
 //     ma
 // }
-.main_container {
-    margin: 6em 0;
-}
+    .main_container {
+        margin: 4em 0;
+    }
+    @media(max-width: 769px){
+        .main_container {
+        margin: 8em 0;
+      }
+    }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="flex items-center select-none flex-row">
+    <div class="flex items-center work uppercase select-none flex-row">
         <div>
             <svg
                 width="44"
