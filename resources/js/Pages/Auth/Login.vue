@@ -16,14 +16,14 @@
                     </div>
                     <jet-validation-errors class="mb-4" />
                     <form @submit.prevent="submit">
-                        <div class="input_container mb-8">
+                        <div class="input_container border rounded focus-within:shadow focus-within:border-cyan mb-8">
                             <q-input
                                 v-model="form.email"
                                 borderless
                                 input-class="my_input"
                                 placeholder="Email Address" />
                         </div>
-                        <div class="input_container mb-8">
+                        <div class="input_container border rounded focus-within:shadow focus-within:border-cyan mb-8">
                             <q-input
                                 v-model="form.password"
                                 :type="isPwd ? 'password' : 'text'"
@@ -43,7 +43,7 @@
                                 type="submit"
                                 :disabled="form.processing"
                                 unelevated
-                                class="w-full primary_shadow py-3 work font-medium"
+                                class="w-full primary_shadow  py-3 work font-semibold"
                                 label="Login" />
                         </div>
                     </form>

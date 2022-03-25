@@ -1,6 +1,6 @@
 <template>
     <div
-        class="card_big card mx-auto flex flex-col justify-center bg-white items-center fade-in m-4 p-4 h-40 rounded-md">
+        class="card_big shadow card mx-auto flex flex-col justify-center bg-white items-center fade-in m-4 p-4 h-40 rounded-md">
         <div class="card-logo w-16 my-3">
             <img class="w-full" :src="filename" alt="" />
         </div>

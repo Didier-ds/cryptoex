@@ -53,7 +53,7 @@ class CardsController extends Controller
     {   
         $cardname = CardName::where('uuid', $request->uuid)->first();
         $cards = Card::where('name', $cardname->name)->get();
-        return Inertia::render('CardletUpload', ['categories' => $cards, 'cardname' => $cardname]);
+        return Inertia::render('CardRedeem', ['categories' => $cards, 'cardname' => $cardname]);
     }
 
     /**

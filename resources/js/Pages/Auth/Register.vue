@@ -1,7 +1,9 @@
 <template>
     <div class="py-4 pt-6">
         <max-width-container>
-            <Logo />
+            <div class="mb-8 md:my-0">
+                <Logo />
+            </div>
             <div class="main_container">
                 <div class="ads_container">
                     <p class="whitespace-pre">{{ adText }}</p>
@@ -15,7 +17,7 @@
                     <jet-validation-errors class="mb-4" />
                     <form @submit.prevent="submit">
                         <!-- fullname Input Container -->
-                        <div class="input_container">
+                        <div class="input_container border rounded focus-within:shadow focus-within:border-cyan">
                             <q-input
                                 v-model="form.fullname"
                                 :rules="[
@@ -31,7 +33,7 @@
                         </div>
 
                         <!-- Email Input Container -->
-                        <div class="input_container">
+                        <div class="input_container border rounded focus-within:shadow focus-within:border-cyan">
                             <q-input
                                 v-model="form.email"
                                 :rules="[
@@ -47,7 +49,7 @@
                         </div>
 
                         <!-- Phone Input Container -->
-                        <div class="input_container">
+                        <div class="input_container border rounded focus-within:shadow focus-within:border-cyan">
                             <q-input
                                 v-model="form.phone"
                                 required
@@ -68,7 +70,7 @@
                         </div>
 
                         <!-- password Input Container -->
-                        <div class="input_container">
+                        <div class="input_container border rounded focus-within:shadow focus-within:border-cyan">
                             <q-input
                                 v-model="form.password"
                                 required
@@ -87,7 +89,7 @@
                         </div>
 
                         <!-- passowrd confirmation Input Container -->
-                        <div class="input_container">
+                        <div class="input_container border rounded focus-within:shadow focus-within:border-cyan">
                             <q-input
                                 v-model="form.password_confirmation"
                                 required
@@ -114,7 +116,7 @@
                                 label="Create Account" />
                         </div>
                     </form>
-                    <div class="other_link_section flex flex-col">
+                    <div class="other_link_section mt-8 flex flex-col">
                         <!-- <inertia-link
               to="/forgotpassword"
               class="forgot-password self-end inline-block mb-4 font-semibold text-cyan"
