@@ -3,11 +3,12 @@
     <Listbox v-model="selectedCategory">
       <div class="relative mt-1">
         <ListboxButton
-          class="relative w-full py-2 pl-3 pr-10 text-left bg-white rounded border shadow cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-cyan focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm"
+          class="relative w-full py-3 pl-3 pr-10 text-left bg-white rounded border shadow cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-cyan focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm"
         >
           <span class="flex uppercase font-semibold items-center work truncate ">
-              
-                           {{selectedCategory.type}}
+              <template v-if="selectedCategory != null">{{selectedCategory.type}}</template>
+              <template v-else>--</template>
+                           
           </span>
           <span
             class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none"
@@ -22,11 +23,11 @@
           leave-to-class="opacity-0"
         >
           <ListboxOptions
-            class="absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+            class="absolute w-full py-1 mt-1 overflow-auto z-10 text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
           >
             <ListboxOption
               v-slot="{ active, selected }"
-              v-for="category in categories"
+              v-for="(category, index) in allCategories"
               :key="category.type"
               :value="category"
               as="template"
@@ -62,7 +63,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import {
   Listbox,
   ListboxLabel,
@@ -72,12 +73,26 @@ import {
 } from '@headlessui/vue'
 import { CheckIcon, SelectorIcon } from '@heroicons/vue/solid'
 
- defineProps({
+const props = defineProps({
     categories : {
         type: Array,
         default: () => []
+    },
+    selectedCategory: {
+        type: Object,
+        default: null
     }
 })
 
-const selectedCategory = ref({type:'--'})
+const allCategories = ref([])
+const selectedCategory = ref(null)
+const emits = defineEmits(['isSelectedCategory'])
+
+watch(selectedCategory, () => {
+    emits('isSelectedCategory', selectedCategory.value) //props.categories.findIndex(a => a.type === selectedCategory.value.type)
+})
+watch(() => props.categories, () => {
+    allCategories.value = props.categories
+    selectedCategory.value = null
+})
 </script>

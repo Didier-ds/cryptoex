@@ -23,7 +23,7 @@
                             <div class="md:grid grid-cols-2 my-4 gap-2">
                                 <div class="mb-4 country_select_container">
                                     <p class="font-medium work mb-2">Select Country</p>
-                                    <CountrySelect :countries="allCountries" @is-selected-country="isSelectedCountry"/>
+                                    <CountrySelect :countries="filteredCountries" :selectedCountry="selectedCountry" @is-selected-country="isSelectedCountry"/>
                                     <!-- <div class="country_options grid grid-cols-2">
                                         <button
                                             v-for="(country, index) in allCountries"
@@ -48,10 +48,41 @@
                                 </div>
                                 <div class="mb-4 country_select_container">
                                     <p class="font-medium work mb-2">Select Category</p>
-                                    <CategorySelect :categories="allCategories"/>                                    
+                                    <CategorySelect :categories="filteredCategories" :selectedCategory="selectedCategory" @is-selected-category="isSelectedCategory"/>                                    
                                 </div>
                             </div>
-                            <div class="mb-4 category_select_container">
+                            <div class="md:grid grid-cols-2 my-4 gap-2">
+                                <div class="mb-4 country_select_container">
+                                    <p class="font-medium work mb-2">Select Price Range</p>
+                                    <CategorySelect :countries="allPricerange" @is-selected-country="isSelectedCountry"/>
+                                    <!-- <div class="country_options grid grid-cols-2">
+                                        <button
+                                            v-for="(country, index) in allCountries"
+                                            :key="country"
+                                            v-ripple:primary
+                                            @click="isSelectedCountry(index)"
+                                            class="flex relative border text-md work option_btn bg-white uppercase  justify-between items-center rounded-sm p-2 white-space-1 sm:p-4 select-none relative"
+                                            :class="{
+                                                'text-gray-600 font-medium' : !country.isSelected,
+                                                'bg-white font-semibold text-black border-cyan shadow-md': country.isSelected,
+                                            }">
+                                            <div class="w-">
+                                                <img
+                                                    :src="country.icon_url"
+                                                    class="w-full"
+                                                    :alt="country.type" />
+                                            </div>
+                                            <p class=" ">{{ country.type }}</p>
+                                            <p>{{ country.symbol }}</p>
+                                        </button>
+                                    </div> -->
+                                </div>
+                                <!-- <div class="mb-4 country_select_container">
+                                    <p class="font-medium work mb-2">Select Category</p>
+                                    <CategorySelect :categories="allCategories"/>                                    
+                                </div> -->
+                            </div>
+                            <!-- <div class="mb-4 category_select_container">
                                 <p class="font-medium work mb-2">Select Category</p>
                                 <div class="country_options grid grid-cols-2">
                                     <button
@@ -67,7 +98,7 @@
                                         <p class=" ">{{ category.type }}</p>
                                     </button>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </template>
                     <template v-if="step === 1">
@@ -102,7 +133,7 @@ import GreenCheck from '@/components/reusables_/GreenCheck.vue'
 import BigCard from '@/components/Big-Card.vue'
 import CountrySelect from '@/components/CountrySelectDropdown.vue'
 import CategorySelect from '@/components/CategorySelectDropdown.vue'
-import { ref, onMounted, watch } from '@/utils'
+import { ref, useForm, onMounted, computed, watch } from '@/utils'
 
 const step=ref(0)
 function OPTION_OBJ (type) {
@@ -110,7 +141,9 @@ function OPTION_OBJ (type) {
     this.isSelected = false
 };
 
-
+const form = useForm({
+    country: ''
+})
 const AMOUNT = ref(0) 
 const props = defineProps({
     categories: {
@@ -122,76 +155,112 @@ const props = defineProps({
         default: () => {},
     },
 })
-const allCountries = ref([])
-const selectedCountry = ref(null)
-const allCategories = ref([])
-const recreateColor = () => {
+const filteredCategories = ref([])
+const filteredCountries = computed(() => {
+    const filteredResult = []
     const setObj = {}
-    props.categories.map((category) => {
-        if (!Object.prototype.hasOwnProperty.call(setObj, category.currency.currency)){
-        const newObj = {
-            type: category.currency.currency,
-            icon_url: category.currency.icon_url,
-            symbol: category.currency.symbol,
-            isSelected: false,
-        }
-        allCountries.value.push(newObj)
-        setObj[newObj.type] = true}
-    })
+     props.categories.map((category) => {
+         if (!Object.prototype.hasOwnProperty.call(setObj, category.currency.currency)){
+         const newObj = {
+             type: category.currency.currency,
+             icon_url: category.currency.icon_url,
+             symbol: category.currency.symbol,
+             // isSelected: false,
+         }
+         filteredResult.push(newObj)
+         setObj[newObj.type] = true}
+     })
+     return filteredResult;
+})
+
+const isSelectedCountry = (index) => {
+    form.country = filteredCountries.value[index].type;
 }
 
-const RECREATE_DATA = async (oldVal, newVal, type) => {
-    // startLoader();
-  const newArr = [];
-  await new Promise((resolve) =>
-    setTimeout(() => {
-      resolve(
-        oldVal.map((product) => {
-           const newObj = new OPTION_OBJ(product[type]);
-          newArr.push(newObj);
-        }),
-        (newVal.value = newArr)
-      );
-    }, 1000)
-  );
-//   startLoader();
-}
-// const newGiftcards = computed(() => {
-//     let i
-//     const giftcards = props.giftcards.map((any) => any.name)
-//     const newArr = []
+watch(() => form.country, () => {
+    
+    const foundCategories = props.categories.filter(
+     (card) => card.country === form.country
+   );
+//    console.log(foundCategories)
+   filteredCategories.value = foundCategories
+})
+// const allCountries = ref([])
+// const allCategories = ref([])
+// const selectedCountry = ref(null)
+// const selectedCategory = ref(null)
+// const allPricerange = ref([])
+// const recreateColor = () => {
 //     const setObj = {}
-//     for (i = 0; i < giftcards.length; i += 1) {
-//         if (!Object.prototype.hasOwnProperty.call(setObj, giftcards[i])) {
-//             newArr.push(giftcards[i])
-//             setObj[giftcards[i]] = true
+//     props.categories.map((category) => {
+//         if (!Object.prototype.hasOwnProperty.call(setObj, category.currency.currency)){
+//         const newObj = {
+//             type: category.currency.currency,
+//             icon_url: category.currency.icon_url,
+//             symbol: category.currency.symbol,
+//             // isSelected: false,
 //         }
-//     }
-//     return newArr
+//         allCountries.value.push(newObj)
+//         setObj[newObj.type] = true}
+//     })
+// }
+
+// const RECREATE_DATA = async (oldVal, newVal, type) => {
+//     // startLoader();
+//   const newArr = [];
+//   await new Promise((resolve) =>
+//     setTimeout(() => {
+//       resolve(
+//         oldVal.map((product) => {
+//            const newObj = new OPTION_OBJ(product[type]);
+//           newArr.push(newObj);
+//         }),
+//         (newVal.value = newArr)
+//       );
+//     }, 1000)
+//   );
+// //   startLoader();
+// }
+
+
+// // triggers when user selects country
+// const isSelectedCountry = (index) => {
+// //   allCountries.value.forEach((c) => {
+// //     c.isSelected = false;
+// //   });
+// //   allCountries.value[index].isSelected = true;
+//   selectedCountry.value = allCountries.value[index];
+//   selectedCategory.value = null
+// };
+// const isSelectedCategory = (index) => {
+// //   allCategories.value.forEach((c) => {
+// //     c.isSelected = false;
+// //   });
+// //   allCategories.value[index].isSelected = true;
+//   selectedCategory.value = allCategories.value[index];
+// };
+
+// const filterCategory = (val) => {
+
+// }
+// watch(selectedCountry, () => {
+//     const foundCategories = props.categories.filter(
+//     (card) => card.country === selectedCountry.value.type
+//   );
+//   allCategories.value = foundCategories
+//     // RECREATE_DATA(foundCategories, allCategories, "type");
+// })
+// watch(selectedCategory, () => {
+//     const foundPricerange = props.categories.filter(
+//     (card) => card.category === selectedCategory.value && card.country === selectedCountry.value
+//   );
+//   allPricerange.value = foundPricerange
+//     // RECREATE_DATA(foundPricerange, allPricerange, "type");
+// })
+// onMounted(() => {
+//     recreateColor()
 // })
 
-// triggers when user selects country
-const isSelectedCountry = (index) => {
-  allCountries.value.forEach((c) => {
-    c.isSelected = false;
-  });
-  allCountries.value[index].isSelected = true;
-  selectedCountry.value = allCountries.value[index].type;
-};
-
-
-const filterCategory = (val) => {
-
-}
-watch(selectedCountry, () => {
-    const foundCategories = props.categories.filter(
-    (card) => card.country === selectedCountry.value
-  );
-    RECREATE_DATA(foundCategories, allCategories, "type");
-})
-onMounted(() => {
-    recreateColor()
-})
 </script>
 
 <style lang="scss" scoped>

@@ -3,17 +3,23 @@
     <Listbox v-model="selectedCountry">
       <div class="relative mt-1">
         <ListboxButton
-          class="relative w-full py-2 pl-3 pr-10 text-left bg-white rounded border shadow cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-cyan focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm"
+          class="relative w-full py-3 pl-3 pr-10 text-left bg-white rounded border shadow cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-cyan focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm"
         >
           <span class="flex uppercase font-semibold items-center work truncate ">
-              <div class="mr-4">
+              <template v-if="selectedCountry === null">
+                        <p class="px-2">--</p>
+              </template>
+              <template v-else>
+                        <div class="mr-4">
                             <img
-                                :src="selectedCountry.icon_url"
+                                :src="countries[selectedCountry].icon_url"
                                 class="w-full"
-                                :alt="selectedCountry.type" />
+                                :alt="countries[selectedCountry].type" />
                         </div>
-                        <p class="mr-4">{{ selectedCountry.type }}</p>
-                        <p>{{ selectedCountry.symbol }}</p>
+                        <p class="mr-4">{{ countries[selectedCountry].type }}</p>
+                        <p>{{ countries[selectedCountry].symbol }}</p>
+              </template>
+              
           </span>
           <span
             class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none"
@@ -28,19 +34,19 @@
           leave-to-class="opacity-0"
         >
           <ListboxOptions
-            class="absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+            class="absolute w-full py-1 mt-1 z-10 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
           >
             <ListboxOption
               v-slot="{ active, selected }"
-              v-for="country in countries"
+              v-for="(country, index) in countries"
               :key="country.type"
-              :value="country"
+              :value="index"
               as="template"
             >
               <li
                 :class="[
                   active ? 'text-black bg-gray-100' : 'text-gray-800',
-                  'cursor-default select-none relative flex py-2 pr-10 pl-4',
+                  'cursor-default select-none relative flex py-2 pr-10 text-sm pl-4',
                 ]"
               >
                 <span
@@ -91,14 +97,16 @@ const props = defineProps({
     countries : {
         type: Array,
         default: () => []
+    },
+    selectedCountry: {
+        type: Object,
+        default: null
     }
 })
 const emits = defineEmits(['isSelectedCountry'])
 
-const selectedCountry = ref({type:'--', icon_url: '', symbol: ''})
+const selectedCountry = ref(props.selectedCountry)
 watch(selectedCountry, () => {
-    const num = props.countries.findIndex(a => a.type === selectedCountry.value.type)
-    console.log(num, selectedCountry)
-    emits('isSelectedCountry', num)
+    emits('isSelectedCountry', selectedCountry.value )// props.countries.findIndex(a => a.type === selectedCountry.value.type)
 })
 </script>
