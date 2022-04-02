@@ -23,82 +23,19 @@
                             <div class="md:grid grid-cols-2 my-4 gap-2">
                                 <div class="mb-4 country_select_container">
                                     <p class="font-medium work mb-2">Select Country</p>
-                                    <CountrySelect :countries="filteredCountries" :selectedCountry="selectedCountry" @is-selected-country="isSelectedCountry"/>
-                                    <!-- <div class="country_options grid grid-cols-2">
-                                        <button
-                                            v-for="(country, index) in allCountries"
-                                            :key="country"
-                                            v-ripple:primary
-                                            @click="isSelectedCountry(index)"
-                                            class="flex relative border text-md work option_btn bg-white uppercase  justify-between items-center rounded-sm p-2 white-space-1 sm:p-4 select-none relative"
-                                            :class="{
-                                                'text-gray-600 font-medium' : !country.isSelected,
-                                                'bg-white font-semibold text-black border-cyan shadow-md': country.isSelected,
-                                            }">
-                                            <div class="w-">
-                                                <img
-                                                    :src="country.icon_url"
-                                                    class="w-full"
-                                                    :alt="country.type" />
-                                            </div>
-                                            <p class=" ">{{ country.type }}</p>
-                                            <p>{{ country.symbol }}</p>
-                                        </button>
-                                    </div> -->
+                                    <CountrySelect :countries="filteredCountries" :selected-country="selectedCountry" @is-selected-country="isSelectedCountry"/>
                                 </div>
                                 <div class="mb-4 country_select_container">
                                     <p class="font-medium work mb-2">Select Category</p>
-                                    <CategorySelect :categories="filteredCategories" :selectedCategory="selectedCategory" @is-selected-category="isSelectedCategory"/>                                    
+                                    <CategorySelect :categories="filteredCategories" @is-selected-category="isSelectedCategory"/>                                    
                                 </div>
                             </div>
                             <div class="md:grid grid-cols-2 my-4 gap-2">
                                 <div class="mb-4 country_select_container">
                                     <p class="font-medium work mb-2">Select Price Range</p>
-                                    <CategorySelect :countries="allPricerange" @is-selected-country="isSelectedCountry"/>
-                                    <!-- <div class="country_options grid grid-cols-2">
-                                        <button
-                                            v-for="(country, index) in allCountries"
-                                            :key="country"
-                                            v-ripple:primary
-                                            @click="isSelectedCountry(index)"
-                                            class="flex relative border text-md work option_btn bg-white uppercase  justify-between items-center rounded-sm p-2 white-space-1 sm:p-4 select-none relative"
-                                            :class="{
-                                                'text-gray-600 font-medium' : !country.isSelected,
-                                                'bg-white font-semibold text-black border-cyan shadow-md': country.isSelected,
-                                            }">
-                                            <div class="w-">
-                                                <img
-                                                    :src="country.icon_url"
-                                                    class="w-full"
-                                                    :alt="country.type" />
-                                            </div>
-                                            <p class=" ">{{ country.type }}</p>
-                                            <p>{{ country.symbol }}</p>
-                                        </button>
-                                    </div> -->
+                                    <PriceRangeSelect :price-ranges="filteredPriceRanges" @is-selected-price-range="isSelectedPriceRange"/>
                                 </div>
-                                <!-- <div class="mb-4 country_select_container">
-                                    <p class="font-medium work mb-2">Select Category</p>
-                                    <CategorySelect :categories="allCategories"/>                                    
-                                </div> -->
                             </div>
-                            <!-- <div class="mb-4 category_select_container">
-                                <p class="font-medium work mb-2">Select Category</p>
-                                <div class="country_options grid grid-cols-2">
-                                    <button
-                                        v-for="(category, index) in allCategories"
-                                        :key="category"
-                                        v-ripple:primary
-                                        @click="isSelectedCategory(index)"
-                                        class="relative border text-center text-md  work option_btn bg-white uppercase rounded-sm p-2 white-space-1 sm:p-4 select-none relative"
-                                        :class="{
-                                            'text-gray-600 font-medium' : !category.isSelected,
-                                            'bg-white font-semibold text-black border-cyan  shadow-md': category.isSelected,
-                                        }">
-                                        <p class=" ">{{ category.type }}</p>
-                                    </button>
-                                </div>
-                            </div> -->
                         </div>
                     </template>
                     <template v-if="step === 1">
@@ -129,20 +66,17 @@
 
 <script setup>
 import MainLayout from '@/Layouts/MainLayout.vue'
-import GreenCheck from '@/components/reusables_/GreenCheck.vue'
+// import GreenCheck from '@/components/reusables_/GreenCheck.vue'
 import BigCard from '@/components/Big-Card.vue'
 import CountrySelect from '@/components/CountrySelectDropdown.vue'
 import CategorySelect from '@/components/CategorySelectDropdown.vue'
+import PriceRangeSelect from '@/components/PriceRangeSelectDropdown.vue'
 import { ref, useForm, onMounted, computed, watch } from '@/utils'
 
 const step=ref(0)
-function OPTION_OBJ (type) {
-    this.type = type;
-    this.isSelected = false
-};
-
 const form = useForm({
-    country: ''
+    country: '',
+    category: ''
 })
 const AMOUNT = ref(0) 
 const props = defineProps({
@@ -156,6 +90,7 @@ const props = defineProps({
     },
 })
 const filteredCategories = ref([])
+const filteredPriceRanges = ref([])
 const filteredCountries = computed(() => {
     const filteredResult = []
     const setObj = {}
@@ -176,6 +111,9 @@ const filteredCountries = computed(() => {
 const isSelectedCountry = (index) => {
     form.country = filteredCountries.value[index].type;
 }
+const isSelectedCategory = (index) => {
+    form.category = filteredCategories.value[index].type;
+}
 
 watch(() => form.country, () => {
     
@@ -184,6 +122,13 @@ watch(() => form.country, () => {
    );
 //    console.log(foundCategories)
    filteredCategories.value = foundCategories
+})
+
+watch(() => form.category, () => {
+    const foundPriceRanges = props.categories.filter(
+     (card) => card.country === form.country && card.type === form.category
+   );
+   filteredPriceRanges.value = foundPriceRanges
 })
 // const allCountries = ref([])
 // const allCategories = ref([])
