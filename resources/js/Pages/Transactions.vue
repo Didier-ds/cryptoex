@@ -2,8 +2,8 @@
     <main-layout>
         <div
             id="Transactions-page"
-            class="flex-grow md:py-2 py-10 px-6 md:px-2">
-            <div class="flex flex-row justify-between items-center mx-4">
+            class="">
+            <div class="flex flex-row justify-between items-center px-4">
                 <div class="my-1">
                     <GoBack />
                 </div>
@@ -13,7 +13,7 @@
                     </h2>
                 </div>
             </div>
-            <div class="mx-auto md:grid gap-4 grid-cols-3">
+            <div class="mx-auto md:grid gap-4 grid-cols-3 px-4">
                 <StatusBox
                     v-for="(status, index) in statuses"
                     :key="index"
@@ -21,7 +21,7 @@
                     :label="status.label"
                     :total="status.total" />
             </div>
-            <div class="my-10 sm:my-4">
+            <div class="my-10 p-4">
                 <div id="giftcards">
                     <h2 class="font-bold work big mb-2">
                         GIFTCARD TRANSACTIONS

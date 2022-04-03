@@ -42,7 +42,7 @@
         </div>
         <div class="link_list">
             <!-- :class="$route.path === '/' ? 'selectedLink' : ''" -->
-            <inertia-link href="/dashboard">
+            <inertia-link href="/">
                 <div class="link_icon">
                     <svg
                         width="24"
