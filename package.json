@@ -9,7 +9,8 @@
         "prod": "yarn run production",
         "production": "mix --production",
         "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix resources/js",
-        "format": "prettier resources/js  --write "
+        "format": "prettier resources/js  --write ",
+        "deploy": "git push && git ftp push"
     },
     "devDependencies": {
         "@headlessui/vue": "^1.5.0",
