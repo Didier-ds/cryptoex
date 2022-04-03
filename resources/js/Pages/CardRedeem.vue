@@ -35,6 +35,21 @@
                                     <p class="font-medium work mb-2">Select Price Range</p>
                                     <PriceRangeSelect :price-ranges="filteredPriceRanges" @is-selected-price-range="isSelectedPriceRange"/>
                                 </div>
+                                <div class="mb-4 country_select_container">
+                                    <p class="font-medium work mb-2">Amount</p>
+                                    <input :min="priceRange.min" :max="priceRange.max" v-model="form.amount" class="w-full py-3 pl-3 pr-10 text-left bg-white rounded border shadow font-medium cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75  focus-visible:ring-offset-2  sm:text-sm" type="number"/>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <p class="font-medium work">We will Pay You</p>
+                                <p class="font-bold leading-loose text-green-800 ibm text-2xl">&#8358;{{new Intl.NumberFormat('en-US').format(TOTAL_AMOUNT)}}</p>
+                            </div>
+                            <div class="my-4 w-full">
+                                <button
+                                    v-ripple
+                                    class="px-4 w-full mx-auto md:w-8/12 py-3 relative shadow-lg bg-cyan rounded text-white font-medium">
+                                    Next
+                                </button>
                             </div>
                         </div>
                     </template>
@@ -72,11 +87,19 @@ import CountrySelect from '@/components/CountrySelectDropdown.vue'
 import CategorySelect from '@/components/CategorySelectDropdown.vue'
 import PriceRangeSelect from '@/components/PriceRangeSelectDropdown.vue'
 import { ref, useForm, onMounted, computed, watch } from '@/utils'
+import { isNull } from 'util';
 
 const step=ref(0)
+const priceRange = ref({
+    min: null,
+    max: null
+})
 const form = useForm({
     country: '',
-    category: ''
+    category: '',
+    priceRange: '',
+    rate: null,
+    amount: null
 })
 const AMOUNT = ref(0) 
 const props = defineProps({
@@ -112,15 +135,22 @@ const isSelectedCountry = (index) => {
     form.country = filteredCountries.value[index].type;
 }
 const isSelectedCategory = (index) => {
-    form.category = filteredCategories.value[index].type;
+     form.category = index != null ? filteredCategories.value[index].type : null
 }
 
+const isSelectedPriceRange = (index) => {
+    const {min, max, rate} = index != null ? filteredCategories.value[index] : {min:null, max: null, rate: null}
+    form.rate = rate;
+    priceRange.value = {min, max}
+}
+
+const TOTAL_AMOUNT = computed(() => {
+    return form.rate * form.amount
+})
 watch(() => form.country, () => {
-    
     const foundCategories = props.categories.filter(
      (card) => card.country === form.country
    );
-//    console.log(foundCategories)
    filteredCategories.value = foundCategories
 })
 
@@ -130,81 +160,6 @@ watch(() => form.category, () => {
    );
    filteredPriceRanges.value = foundPriceRanges
 })
-// const allCountries = ref([])
-// const allCategories = ref([])
-// const selectedCountry = ref(null)
-// const selectedCategory = ref(null)
-// const allPricerange = ref([])
-// const recreateColor = () => {
-//     const setObj = {}
-//     props.categories.map((category) => {
-//         if (!Object.prototype.hasOwnProperty.call(setObj, category.currency.currency)){
-//         const newObj = {
-//             type: category.currency.currency,
-//             icon_url: category.currency.icon_url,
-//             symbol: category.currency.symbol,
-//             // isSelected: false,
-//         }
-//         allCountries.value.push(newObj)
-//         setObj[newObj.type] = true}
-//     })
-// }
-
-// const RECREATE_DATA = async (oldVal, newVal, type) => {
-//     // startLoader();
-//   const newArr = [];
-//   await new Promise((resolve) =>
-//     setTimeout(() => {
-//       resolve(
-//         oldVal.map((product) => {
-//            const newObj = new OPTION_OBJ(product[type]);
-//           newArr.push(newObj);
-//         }),
-//         (newVal.value = newArr)
-//       );
-//     }, 1000)
-//   );
-// //   startLoader();
-// }
-
-
-// // triggers when user selects country
-// const isSelectedCountry = (index) => {
-// //   allCountries.value.forEach((c) => {
-// //     c.isSelected = false;
-// //   });
-// //   allCountries.value[index].isSelected = true;
-//   selectedCountry.value = allCountries.value[index];
-//   selectedCategory.value = null
-// };
-// const isSelectedCategory = (index) => {
-// //   allCategories.value.forEach((c) => {
-// //     c.isSelected = false;
-// //   });
-// //   allCategories.value[index].isSelected = true;
-//   selectedCategory.value = allCategories.value[index];
-// };
-
-// const filterCategory = (val) => {
-
-// }
-// watch(selectedCountry, () => {
-//     const foundCategories = props.categories.filter(
-//     (card) => card.country === selectedCountry.value.type
-//   );
-//   allCategories.value = foundCategories
-//     // RECREATE_DATA(foundCategories, allCategories, "type");
-// })
-// watch(selectedCategory, () => {
-//     const foundPricerange = props.categories.filter(
-//     (card) => card.category === selectedCategory.value && card.country === selectedCountry.value
-//   );
-//   allPricerange.value = foundPricerange
-//     // RECREATE_DATA(foundPricerange, allPricerange, "type");
-// })
-// onMounted(() => {
-//     recreateColor()
-// })
 
 </script>
 
