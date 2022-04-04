@@ -13,7 +13,7 @@
                     </h2>
                 </div>
             </div>
-            <div class="mx-auto md:grid gap-4 grid-cols-3 px-4">
+            <div class="mx-4 md:grid gap-4 grid-cols-3 px-4">
                 <StatusBox
                     v-for="(status, index) in statuses"
                     :key="index"

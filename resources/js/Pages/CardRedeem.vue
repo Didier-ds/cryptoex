@@ -44,32 +44,50 @@
                                 <p class="font-medium work">We will Pay You</p>
                                 <p class="font-bold leading-loose text-green-800 ibm text-2xl">&#8358;{{new Intl.NumberFormat('en-US').format(TOTAL_AMOUNT)}}</p>
                             </div>
-                            <div class="my-4 w-full">
+                        </div>
+                    </template>
+                    <template v-if="step === 1">
+                        <div class="">
+                            <p class="text-xl text-center">You’re selling <span class="text-cyan uppercase">{{form.category}} {{form.country}} {{cardname.name}} ${{form.amount}}</span> for &#8358;{{new Intl.NumberFormat('en-US').format(TOTAL_AMOUNT)}}</p>
+                        </div>
+                        <div class="border-dashed my-4 px-4 py-4 rounded flex flex-col text-center justify-between items-center border-2">
+                            <q-icon name="cloud_upload" style="color: #ccc; font-size: 5em;"/>
+                            <p class="font-medium work leading-4 text-xl">Drag and Drop an Image Here</p>
+                            <p class="font-light work">Or Click Here</p>
+                        </div>
+                    </template>
+                    <template v-if="step === 2">
+                        <div class="border-dashed work bg-white border shadow-lg rounded-lg p-4">
+                            <p class="font-medium text-center my-2">Transaction Summary</p>
+                            <div class="grid divide-y border-dashed">
+                                <div class="flex justify-between  py-3   items-center">
+                                    <p class="text-gray-600 ">Giftcard</p>
+                                    <p class="font-medium capitalize">{{cardname.name}}</p>
+                                </div>
+                                <div class="flex justify-between  py-3 border-dashed  items-center">
+                                    <p class="text-gray-600 ">Currency</p>
+                                    <p class="font-medium flex items-center uppercase"><img :src="selectedCountry.icon_url" class="px-2"/>{{selectedCountry.type}}</p>
+                                </div>
+                                <div class="flex justify-between  py-3 border-dashed  items-center">
+                                    <p class="text-gray-600 ">Card type</p>
+                                    <p class="font-medium flex uppercase">{{form.category}}</p>
+                                </div>
+                                <div class="flex justify-between  py-3 border-dashed  items-center">
+                                    <p class="text-gray-600 ">Processing Time</p>
+                                    <p class="font-medium flex uppercase">Usually within 10 Mins and may vary</p>
+                                </div>
+                            </div>
+                            <div></div>
+                        </div>
+                    </template>
+                    <div class="my-4 w-full">
                                 <button
                                     v-ripple
+                                    @click="step++"
                                     class="px-4 w-full mx-auto md:w-8/12 py-3 block relative shadow-lg bg-cyan rounded text-white font-medium">
                                     Next
                                 </button>
                             </div>
-                        </div>
-                    </template>
-                    <template v-if="step === 1">
-                        <div>
-                            <!-- <span class="block text-base text-center work font-medium pb-1">You will receive</span> -->
-                            <div class="rounded bg-white p-2 ">
-                                <div class="">
-                                    <span class="work font-medium">$</span>
-                                    <input type="number" name="amount" v-model="AMOUNT" class="work outline-none text-lg font-medium"/>
-                                </div>
-                                <hr class="my-4"/>
-                                <div class="grid grid-cols-2 md:grid-cols-4">
-                                    <div v-for="i in 4" :key="i" class="p-2">
-                                        <button  class="bg-gray-50 work font-medium w-full rounded text-center  p-1">${{i++}}0</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </template>
                 </section>
                 <aside class="p-4 h-full">
                     <div class=" bg-white h-full w-full shadow-wide rounded"></div>
@@ -90,6 +108,7 @@ import { ref, useForm, onMounted, computed, watch } from '@/utils'
 import { isNull } from 'util';
 
 const step=ref(0)
+const selectedCountry = ref(null)
 const priceRange = ref({
     min: null,
     max: null
@@ -133,6 +152,7 @@ const filteredCountries = computed(() => {
 
 const isSelectedCountry = (index) => {
     form.country = filteredCountries.value[index].type;
+    selectedCountry.value = filteredCountries.value[index]
 }
 const isSelectedCategory = (index) => {
      form.category = index != null ? filteredCategories.value[index].type : null
