@@ -16,11 +16,22 @@ class UserAccountController extends Controller
      */
     public function index()
     {
+        return Inertia::render('Profile');
+    }
+
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function banks()
+    {
         //
         $userId = auth()->id();
         $userAccounts = Account::where('user_id', $userId)->orderBy('created_at','desc')->get();
         // echo `${$userAccounts}`;
-        return Inertia::render('Profile', ['banks' => $userAccounts]);
+        return Inertia::render('BankInfo', ['banks' => $userAccounts]);
     }
 
     /**
