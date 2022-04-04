@@ -48,7 +48,7 @@
                     </template>
                     <template v-if="step === 1">
                         <div class="">
-                            <p class="text-xl text-center">You’re selling <span class="text-cyan uppercase">{{form.category}} {{form.country}} {{cardname.name}} ${{form.amount}}</span> for &#8358;{{new Intl.NumberFormat('en-US').format(TOTAL_AMOUNT)}}</p>
+                            <p class="text-xl text-center">You’re selling <span class="text-primary uppercase">{{form.category}} {{form.country}} {{cardname.name}} ${{form.amount}}</span> for &#8358;{{new Intl.NumberFormat('en-US').format(TOTAL_AMOUNT)}}</p>
                         </div>
                         <div class="border-dashed my-4 px-4 py-4 rounded flex flex-col text-center justify-between items-center border-2">
                             <q-icon name="cloud_upload" style="color: #ccc; font-size: 5em;"/>
@@ -76,6 +76,7 @@
                                     <p class="text-gray-600 ">Processing Time</p>
                                     <p class="font-medium flex uppercase">Usually within 10 Mins and may vary</p>
                                 </div>
+                                <div></div>
                             </div>
                             <div></div>
                         </div>
@@ -84,7 +85,7 @@
                                 <button
                                     v-ripple
                                     @click="step++"
-                                    class="px-4 w-full mx-auto md:w-8/12 py-3 block relative shadow-lg bg-cyan rounded text-white font-medium">
+                                    class="px-4 w-full mx-auto md:w-8/12 py-3 block relative shadow-lg bg-primary rounded text-white font-medium">
                                     Next
                                 </button>
                             </div>

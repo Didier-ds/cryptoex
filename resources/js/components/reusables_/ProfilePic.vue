@@ -28,10 +28,10 @@ const size = computed(() => {
         case 'small':
             return 'h-12 w-12 '
         case 'mid':
-            return 'h-24 w-24 text-xl'
+            return 'h-16 w-16 text-xl'
 
         case 'big':
-            return 'h-32 h-32 text-2xl'
+            return 'h-20 h-20 text-2xl'
 
         default:
             return 'h-12 h-12'

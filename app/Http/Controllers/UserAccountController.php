@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Account;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -15,7 +17,10 @@ class UserAccountController extends Controller
     public function index()
     {
         //
-        return Inertia::render('Profile');
+        $userId = auth()->id();
+        $userAccounts = Account::where('user_id', $userId)->orderBy('created_at','desc')->get();
+        // echo `${$userAccounts}`;
+        return Inertia::render('Profile', ['banks' => $userAccounts]);
     }
 
     /**
