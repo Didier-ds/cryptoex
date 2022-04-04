@@ -67,17 +67,17 @@
                                 <div class="grid md:grid-cols-2 gap-4">
                                     <div class="input__container">
                                         <label class="work" for="fullname">Fullname</label>
-                                        <input type="text" class="border p-2 rounded-md w-full focus:border-cyan focus:shadow outline-none bg-white "/>
+                                        <input type="text" :placeholder="$page.props.user.fullname" class="border p-2 rounded-md w-full focus:border-cyan focus:shadow outline-none bg-white "/>
                                     </div>
                                 </div>
                                 <div class="grid md:grid-cols-2 gap-4">
                                     <div class="input__container">
                                         <label class="work" for="fullname">Email Address:</label>
-                                        <input type="text" class="border p-2 rounded-md w-full focus:border-cyan focus:shadow outline-none bg-white "/>
+                                        <input type="text" :placeholder="$page.props.user.email" class="border p-2 rounded-md w-full focus:border-cyan focus:shadow outline-none bg-white "/>
                                     </div>
                                     <div class="input__container">
                                         <label class="work" for="fullname">Phone Number:</label>
-                                        <input type="text" class="border p-2 rounded-md w-full focus:border-cyan focus:shadow outline-none bg-white "/>
+                                        <input type="text" :placeholder="$page.props.user.phone" class="border p-2 rounded-md w-full focus:border-cyan focus:shadow outline-none bg-white "/>
                                     </div>
                                 </div>
                                 <div class="flex justify-end">
