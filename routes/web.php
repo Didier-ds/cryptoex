@@ -46,7 +46,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
      Route::get('/upload/{uuid}', [CardsController::class, 'isType'])->name('card.isType');
      Route::get('/user/transactions', [CardletController::class, 'userCardlets']);  // To get user cardlet
      Route::post('/users/cardlets-make/{Carduuid}', [CardletController::class, 'store']);  // To create cardlet
-     Route::get('/user/profile', [UserAccountController::class, 'index'])->name('account.index');
+     Route::get('/settings/profile', [UserAccountController::class, 'index'])->name('account.index');
      Route::get('/settings/banks', [UserAccountController::class, 'banks'])->name('account.banks');
      Route::get('/get-banks', [UserBankDetailsController::class, 'getBanks'])->name('bank.getBanks');
      Route::get('/user/bank-account', [UserBankDetailsController::class, 'create'])->name('bank.create');
