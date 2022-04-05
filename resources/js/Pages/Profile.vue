@@ -1,33 +1,48 @@
 <template>
     <settings-layout>
             <p class="font-medium text-gray-500 my-2">Personal Information</p>
-            <div class="grid md:grid-cols-2 gap-4">
-                <div class="input__container">
-                    <label class="work" for="fullname">Fullname</label>
-                    <input type="text" :placeholder="$page.props.user.fullname" class="border p-2 rounded-md w-full focus:border-cyan focus:shadow outline-none bg-white "/>
+            <form @submit.prevent="submit">
+               <div class="grid md:grid-cols-2 gap-4">
+                    <div class="input__container">
+                        <label class="work" for="fullname">Fullname</label>
+                        <input type="text" required v-model="form.fullname" :placeholder="$page.props.user.fullname" class="border p-2 rounded-md w-full focus:border-cyan focus:shadow outline-none bg-white "/>
+                    </div>
                 </div>
-            </div>
-            <div class="grid md:grid-cols-2 gap-4">
-                <div class="input__container">
-                    <label class="work" for="fullname">Email Address:</label>
-                    <input type="text" :placeholder="$page.props.user.email" class="border p-2 rounded-md w-full focus:border-cyan focus:shadow outline-none bg-white "/>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="input__container">
+                        <label class="work" for="fullname">Email Address:</label>
+                        <input type="text" required v-model="form.email" :placeholder="$page.props.user.email" class="border p-2 rounded-md w-full focus:border-cyan focus:shadow outline-none bg-white "/>
+                    </div>
+                    <div class="input__container">
+                        <label class="work" for="fullname">Phone Number:</label>
+                        <input type="text" required v-model="form.phone" :placeholder="$page.props.user.phone" class="border p-2 rounded-md w-full focus:border-cyan focus:shadow outline-none bg-white "/>
+                    </div>
                 </div>
-                <div class="input__container">
-                    <label class="work" for="fullname">Phone Number:</label>
-                    <input type="text" :placeholder="$page.props.user.phone" class="border p-2 rounded-md w-full focus:border-cyan focus:shadow outline-none bg-white "/>
-                </div>
-            </div>
-            <div class="flex justify-end">
-                <button
-                    class="px-4 py-2 shadow-lg bg-primary rounded text-white font-medium">
-                    Save Changes
-                </button> 
-            </div>
+                <div class="flex justify-end">
+                    <button
+                        class="px-4 py-2 shadow-lg bg-primary rounded text-white font-medium">
+                        Save Changes
+                    </button> 
+                </div> 
+            </form>
+            
     </settings-layout>
 </template>
 
 <script setup>
 import SettingsLayout from '@/Layouts/SettingsLayout.vue'
+import {useForm} from '@/utils'
+const form = useForm({
+    fullname: null,
+    email: null,
+    phone: null
+})
+
+const submit = () => {
+    form.put(route('user-profile-information.update'), {
+        onSuccess: () => form.reset()
+    })
+}
 </script>
 
 <style lang="scss" scoped>

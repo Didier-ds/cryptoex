@@ -1,6 +1,6 @@
 <template>
     <main-layout>
-        <div id="view">
+        <div id="view" class="max-w-4xl mx-auto">
             <div class="flex flex-col py-2 px-4 px-6">
                 <h2 class="text-lg pt-4 work big font-bold capitalize">
                     Hello, {{ $page.props.user.fullname }}
@@ -106,7 +106,7 @@ import Empty from '@/components/reusables_/Empty.vue'
 
 @media (min-width: 768px) {
     .big {
-        font-size: 1.25rem;
+        font-size: 1.125rem;
     }
 }
 .hour_circle {
