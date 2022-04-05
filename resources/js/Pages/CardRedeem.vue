@@ -76,7 +76,27 @@
                                     <p class="text-gray-600 ">Processing Time</p>
                                     <p class="font-medium flex uppercase">Usually within 10 Mins and may vary</p>
                                 </div>
-                                <div></div>
+                                <div class="flex justify-between  py-3 border-dashed  items-center">
+                                    <p class="text-gray-600 ">Card Value</p>
+                                    <p class="font-medium flex uppercase">${{form.amount}}</p>
+                                </div>
+                                <div class="flex justify-between  py-3 border-dashed  items-center">
+                                    <p class="text-gray-600 ">Card Value</p>
+                                    <p class="font-medium flex uppercase">${{form.amount}}</p>
+                                </div>
+                                <div class="py-3 border-dashed">
+                                    <p class="text-gray-600 mb-2">Bank Account</p>
+                                    <div class="rounded work flex bg-gray-50 rounded p-2">
+                                        <div class="m-4">
+                                            <q-icon name="account_balance" style="color: #ccc; font-size: 2em;"/>
+                                        </div>
+                                        <div class="pl-2">
+                                            <p class="font-medium ">{{banks[0].account_name}}</p>
+                                            <p class="">{{banks[0].account_number}}</p>
+                                            <p class="text-sm text-gray-700">{{banks[0].bank_name}}</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div></div>
                         </div>
@@ -131,6 +151,10 @@ const props = defineProps({
         type: Object,
         default: () => {},
     },
+    banks: {
+        type: Array,
+        default: () => []
+    }
 })
 const filteredCategories = ref([])
 const filteredPriceRanges = ref([])

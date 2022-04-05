@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Account;
 use App\Models\Card;
 use App\Models\CardName;
 use App\Models\Currencies;
@@ -52,6 +53,8 @@ class CardsController extends Controller
      */
     public function isType(Request $request)
     {   
+        $userId = auth()->id();
+        $userAccounts = Account::where('user_id', $userId)->orderBy('created_at','desc')->get();
         $cardname = CardName::where('uuid', $request->uuid)->first();
         $cards = Card::where('name', $cardname->name)->get();
         $cards = collect($cards);
@@ -67,7 +70,7 @@ class CardsController extends Controller
                 'currency' => Currencies::where('currency', $card->country)->first()
             ];
         });
-        return Inertia::render('CardRedeem', ['categories' => $cards, 'cardname' => $cardname]);
+        return Inertia::render('CardRedeem', ['categories' => $cards, 'cardname' => $cardname, 'banks' => $userAccounts]);
     }
 
     /**

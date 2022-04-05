@@ -4,7 +4,7 @@
         <div class="md:grid grid-cols-2 ">
             <div class=""></div>
             <div>
-                <div v-if="banks.length" class="border border work flex rounded p-4" v-for="bank in banks" :key="bank">
+                <div v-if="banks.length" class="border work flex rounded p-4" v-for="bank in banks" :key="bank">
                     <div class="m-4">
                         <q-icon name="account_balance" style="color: #ccc; font-size: 2em;"/>
                     </div>
