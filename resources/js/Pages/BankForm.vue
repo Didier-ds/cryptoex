@@ -42,6 +42,13 @@
                                     type="tel"
                                     class="p-2 w-full md:w-10/12 focus:outline-none rounded border bg-white my-2 focus:border-cyan focus:shadow-md" />
                             </div>
+                            <div class="input_box">
+                                <label class="font-medium">Account Name</label>
+                                <input
+                                    v-model="form.account_name"
+                                    type="text"
+                                    class="p-2 w-full md:w-10/12 focus:outline-none rounded border bg-white my-2 focus:border-cyan focus:shadow-md" />
+                            </div>
                             <!-- <div class="input_box">
                                 <label class="font-medium">Phone</label>
                                 <input type="text" v-model=""/>
