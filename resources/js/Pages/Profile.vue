@@ -12,10 +12,12 @@
                     <div class="input__container">
                         <label class="work" for="fullname">Email Address:</label>
                         <input type="text" required v-model="form.email" :placeholder="$page.props.user.email" class="border p-2 rounded-md w-full focus:border-cyan focus:shadow outline-none bg-white "/>
+                        <jet-input-error :message="form.errors.email" class="mt-2" />
                     </div>
                     <div class="input__container">
                         <label class="work" for="fullname">Phone Number:</label>
                         <input type="text" required v-model="form.phone" :placeholder="$page.props.user.phone" class="border p-2 rounded-md w-full focus:border-cyan focus:shadow outline-none bg-white "/>
+                        <jet-input-error :message="form.errors.phone" class="mt-2" />
                     </div>
                 </div>
                 <div class="flex justify-end">
@@ -31,6 +33,8 @@
 
 <script setup>
 import SettingsLayout from '@/Layouts/SettingsLayout.vue'
+import JetInputError from '@/Jetstream/InputError.vue'
+
 import {useForm} from '@/utils'
 const form = useForm({
     fullname: null,
@@ -40,6 +44,7 @@ const form = useForm({
 
 const submit = () => {
     form.put(route('user-profile-information.update'), {
+        errorBag: 'updateProfileInformation',
         onSuccess: () => form.reset()
     })
 }
