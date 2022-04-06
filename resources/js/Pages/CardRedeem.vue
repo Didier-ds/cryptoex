@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="mb-4 country_select_container">
                                     <p class="font-medium work mb-2">Amount</p>
-                                    <input :min="priceRange.min" :max="priceRange.max" v-model="form.amount" class="w-full py-3 pl-3 pr-10 text-left bg-white rounded border shadow font-medium cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75  focus-visible:ring-offset-2  sm:text-sm" type="number"/>
+                                    <input v-model="form.amount" :min="priceRange.min" :max="priceRange.max" class="w-full py-3 pl-3 pr-10 text-left bg-white rounded border shadow font-medium cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75  focus-visible:ring-offset-2  sm:text-sm" type="number"/>
                                 </div>
                             </div>
                             <div class="text-center">
@@ -100,17 +100,34 @@
                         <div class="">
                             <p class="text-base text-center capitalize work py-4 text-center">Upload a Screenshot Containing your Giftcard of the <span class="text-primary uppercase">{{form.category}} {{form.country}} {{cardname.name}} ${{form.amount}}</span> for confirmation</p>
                         </div>
-                        <div class="border-dashed my-4 px-4 py-4 rounded bg-white flex flex-col text-center justify-between items-center border-2">
+                        <ul v-show="files.length" class="grid grid-cols-4">
+                            <li v-for="file of files" class="p-2" :key="file.id">
+                                <div class="w-full h-full p-2 rounded border">
+                                    <img :src="file.url" class="w-full my-auto"/>
+                                </div>
+                                
+                                </li>
+                        </ul>
+                        <div :data-active="isDropzoneActive" @drop.prevent="addFiles" @dragenter.prevent="setActive" @dragover.prevent="setActive" @dragleave.prevent="setInactive"  class="border-dashed my-4 px-4 py-4 rounded bg-white flex flex-col text-center justify-between items-center border-2">
                             <q-icon name="cloud_upload" style="color: #ccc; font-size: 5em;"/>
-                            <p class="font-medium work leading-4 py-4">Drag and Drop or <span class="text-primary ">Browse</span></p>
+                            <p class="font-medium work leading-4 py-4">Drag and Drop or <label class="text-primary inline" for="image">Browse</label></p>
+                                <input
+                                    id="image"
+                                    ref="file"
+                                    name="image"
+                                    type="file"
+                                    accept="image/*"
+                                    hidden
+                                    @change="preview"
+                                    />
                         </div>
                     </template>
                     
                     <div class="my-4 w-full">
                                 <button
                                     v-ripple
-                                    @click="step++"
-                                    class="px-4 w-full mx-auto md:w-8/12 py-3 block relative shadow-lg bg-primary rounded text-white font-medium">
+                                    class="px-4 w-full mx-auto md:w-8/12 py-3 block relative shadow-lg bg-primary rounded text-white font-medium"
+                                    @click="step++">
                                     Next
                                 </button>
                             </div>
@@ -131,9 +148,24 @@ import CountrySelect from '@/components/CountrySelectDropdown.vue'
 import CategorySelect from '@/components/CategorySelectDropdown.vue'
 import PriceRangeSelect from '@/components/PriceRangeSelectDropdown.vue'
 import { ref, useForm, onMounted, computed, watch } from '@/utils'
-import { isNull } from 'util';
+import useDropzone from '@/utils/Dropzone.js'
+// import { isNull } from 'util';
+
+const isDropzoneActive = ref(false)
+
+const { files, addFiles } = useDropzone()
+
+const setActive = () => {
+    isDropzoneActive.value = true
+}
+
+const setInactive = () => {
+    isDropzoneActive.value
+}
+
 
 const step=ref(0)
+// const isDropZoneActive = ref(false)
 const selectedCountry = ref(null)
 const priceRange = ref({
     min: null,
