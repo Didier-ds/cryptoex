@@ -9,7 +9,7 @@
                     </h2>
                 </div>
             </div>
-            <div class="md:grid main_container">
+            <div class="">
                 <section class="max-w-xl w-full mx-auto p-4">
                     <template v-if="step === 0">
                         <div class="flex flex-col items-center justify-center">
@@ -47,16 +47,6 @@
                         </div>
                     </template>
                     <template v-if="step === 1">
-                        <div class="">
-                            <p class="text-xl text-center">You’re selling <span class="text-primary uppercase">{{form.category}} {{form.country}} {{cardname.name}} ${{form.amount}}</span> for &#8358;{{new Intl.NumberFormat('en-US').format(TOTAL_AMOUNT)}}</p>
-                        </div>
-                        <div class="border-dashed my-4 px-4 py-4 rounded flex flex-col text-center justify-between items-center border-2">
-                            <q-icon name="cloud_upload" style="color: #ccc; font-size: 5em;"/>
-                            <p class="font-medium work leading-4 text-xl">Drag and Drop an Image Here</p>
-                            <p class="font-light work">Or Click Here</p>
-                        </div>
-                    </template>
-                    <template v-if="step === 2">
                         <div class="border-dashed work bg-white border shadow-lg rounded-lg p-4">
                             <p class="font-medium text-center my-2">Transaction Summary</p>
                             <div class="grid divide-y border-dashed">
@@ -77,12 +67,16 @@
                                     <p class="font-medium flex uppercase">Usually within 10 Mins and may vary</p>
                                 </div>
                                 <div class="flex justify-between  py-3 border-dashed  items-center">
-                                    <p class="text-gray-600 ">Card Value</p>
+                                    <p class="text-gray-600 ">Card Price</p>
                                     <p class="font-medium flex uppercase">${{form.amount}}</p>
                                 </div>
                                 <div class="flex justify-between  py-3 border-dashed  items-center">
-                                    <p class="text-gray-600 ">Card Value</p>
-                                    <p class="font-medium flex uppercase">${{form.amount}}</p>
+                                    <p class="text-gray-600 ">Rate</p>
+                                    <p class="font-medium flex uppercase">&#8358;{{form.rate}}</p>
+                                </div>
+                                <div class="flex justify-between  py-3 border-dashed  items-center">
+                                    <p class="text-gray-600 ">Amount</p>
+                                    <p class="font-bold text-base flex uppercase text-green-800 ibm ">&#8358;{{new Intl.NumberFormat('en-US').format(TOTAL_AMOUNT)}}</p>
                                 </div>
                                 <div class="py-3 border-dashed">
                                     <p class="text-gray-600 mb-2">Bank Account</p>
@@ -97,10 +91,21 @@
                                         </div>
                                     </div>
                                 </div>
+                                
                             </div>
                             <div></div>
                         </div>
                     </template>
+                    <template v-if="step === 2">
+                        <div class="">
+                            <p class="text-base text-center capitalize work py-4 text-center">Upload a Screenshot Containing your Giftcard of the <span class="text-primary uppercase">{{form.category}} {{form.country}} {{cardname.name}} ${{form.amount}}</span> for confirmation</p>
+                        </div>
+                        <div class="border-dashed my-4 px-4 py-4 rounded bg-white flex flex-col text-center justify-between items-center border-2">
+                            <q-icon name="cloud_upload" style="color: #ccc; font-size: 5em;"/>
+                            <p class="font-medium work leading-4 py-4">Drag and Drop or <span class="text-primary ">Browse</span></p>
+                        </div>
+                    </template>
+                    
                     <div class="my-4 w-full">
                                 <button
                                     v-ripple
@@ -110,9 +115,9 @@
                                 </button>
                             </div>
                 </section>
-                <aside class="p-4 h-full">
+                <!-- <aside class="p-4 h-full">
                     <div class=" bg-white h-full w-full shadow-wide rounded"></div>
-                </aside>
+                </aside> -->
             </div>
         </div>
     </main-layout>
@@ -210,7 +215,7 @@ watch(() => form.category, () => {
 
 <style lang="scss" scoped>
 .main_container {
-    grid-template-columns: 1fr 25em;
+    // grid-template-columns: 1fr 25em;
 }
 .option_btn:nth-child(odd) {
   margin-right: 1em;
