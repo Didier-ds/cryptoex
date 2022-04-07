@@ -3,6 +3,7 @@ import { Inertia } from '@inertiajs/inertia'
 import { ExactCardImg } from './cards'
 import { usePage, useForm } from '@inertiajs/inertia-vue3'
 import { tablet } from './breakpoints.js'
+import loader from './Loading.js'
 import {
     isValidEmail,
     isValidFullName,
@@ -37,6 +38,7 @@ export {
     onUnmounted,
     usePage,
     Inertia,
+    loader,
     useForm,
     ExactCardImg,
     isValidEmail,

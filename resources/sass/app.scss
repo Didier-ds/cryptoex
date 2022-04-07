@@ -12,10 +12,6 @@ body {
     font-family: "Work Sans", sans-serif;
 }
 
-.card-container .card {
-    //background-image: url('/img/card-back.svg')
-}
-
 .upload {
     background-image: url("/img/card-back.svg");
 }
@@ -108,10 +104,6 @@ input::-webkit-inner-spin-button {
 
 .ibm {
     font-family: "IBM Plex Mono", monospace;
-}
-
-* {
-    transition: .15s ease-in-out;
 }
 
 .modal {
@@ -253,19 +245,6 @@ input {
     100% {
         opactity: 1;
         transform: translateY(0);
-    }
-}
-
-.rotate {
-    animation: rotate 0.35s ease-in;
-}
-
-@keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
     }
 }
 

@@ -3,9 +3,9 @@ export default function() {
 
     const files = ref([])
 
-    const addFiles = (e) => {
+    const addFiles = (newFiles) => {
 
-        let newUploadableFiles = [...e.dataTransfer.files]
+        let newUploadableFiles = [...newFiles]
             .map((file) => new UploadableFile(file))
             .filter((file) => !fileExists(file.id))
         files.value = files.value.concat(newUploadableFiles)
