@@ -6,11 +6,9 @@
             class="card bg-white flex-col shadow flex justify-center items-center 0 p-2 w-full lg:w-full rounded-md">
             <div class="card-logo w-8 my-2">
                 <!-- <img class="w-full" :src="filename" alt="" /> -->
-                <q-img
-                    :src="filename"
-                    >
+                <q-img :src="filename">
                     <template v-slot:loading>
-                    <q-spinner-tail color="secondary" size="1rem"/>
+                        <q-spinner-tail color="secondary" size="1rem" />
                     </template>
                 </q-img>
             </div>

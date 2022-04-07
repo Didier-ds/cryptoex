@@ -1,8 +1,6 @@
 <template>
     <main-layout>
-        <div
-            id="Transactions-page"
-            class="">
+        <div id="Transactions-page" class="">
             <div class="flex flex-row justify-between items-center px-4">
                 <div class="my-1">
                     <GoBack />

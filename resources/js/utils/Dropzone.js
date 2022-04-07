@@ -1,10 +1,8 @@
-import { ref } from 'vue';
-export default function() {
-
+import { ref } from 'vue'
+export default function () {
     const files = ref([])
 
     const addFiles = (newFiles) => {
-
         let newUploadableFiles = [...newFiles]
             .map((file) => new UploadableFile(file))
             .filter((file) => !fileExists(file.id))

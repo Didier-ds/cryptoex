@@ -3,11 +3,9 @@
         class="card_big shadow card mx-auto flex flex-col justify-center bg-white items-center m-2 w-full p-4 h-40 rounded-md">
         <div class="card-logo w-16 my-3">
             <!-- <img class="w-full" :src="filename" alt="" /> -->
-            <q-img
-                :src="filename"
-                >
+            <q-img :src="filename">
                 <template v-slot:loading>
-                <q-spinner-tail color="secondary" size="1rem"/>
+                    <q-spinner-tail color="secondary" size="1rem" />
                 </template>
             </q-img>
         </div>

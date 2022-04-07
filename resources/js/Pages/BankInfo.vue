@@ -1,25 +1,45 @@
 <template>
     <settings-layout>
-        <p class="font-medium text-lg text-gray-500 work my-4">Bank Information</p>
-        <div class="md:grid grid-cols-2 ">
+        <p class="font-medium text-lg text-gray-500 work my-4">
+            Bank Information
+        </p>
+        <div class="md:grid grid-cols-2">
             <div class=""></div>
             <div>
-                <div v-if="banks.length" class="border work flex rounded p-4" v-for="bank in banks" :key="bank">
+                <div
+                    v-if="banks.length"
+                    class="border work flex rounded p-4"
+                    v-for="bank in banks"
+                    :key="bank">
                     <div class="m-4">
-                        <q-icon name="account_balance" style="color: #ccc; font-size: 2em;"/>
+                        <q-icon
+                            name="account_balance"
+                            style="color: #ccc; font-size: 2em" />
                     </div>
                     <div class="pl-2">
-                        <p class="font-semibold text-base">{{bank.account_name}}</p>
-                        <p class="">{{bank.account_number}}</p>
-                        <p class="text-sm text-gray-700">{{bank.bank_name}}</p>
+                        <p class="font-semibold text-base">
+                            {{ bank.account_name }}
+                        </p>
+                        <p class="">{{ bank.account_number }}</p>
+                        <p class="text-sm text-gray-700">
+                            {{ bank.bank_name }}
+                        </p>
                     </div>
-                    
                 </div>
-                <inertia-link v-else href="/user/bank-account" class="border block font-medium text-primary work flex rounded p-4">
+                <inertia-link
+                    v-else
+                    href="/user/bank-account"
+                    class="border block font-medium text-primary work flex rounded p-4">
                     Add Bank Account
                 </inertia-link>
                 <div class="bg-gray-50 work my-2 p-3 rounded">
-                    if you need to change your saved bank account, Kindly reach out to <a class="text-primary text-xs" href = "mailto:support@cryptomaniaexchange.com" >support@cryptomaniaexchange.com</a>
+                    if you need to change your saved bank account, Kindly reach
+                    out to
+                    <a
+                        class="text-primary text-xs"
+                        href="mailto:support@cryptomaniaexchange.com"
+                        >support@cryptomaniaexchange.com</a
+                    >
                 </div>
             </div>
         </div>
@@ -31,11 +51,9 @@ import SettingsLayout from '@/Layouts/SettingsLayout.vue'
 defineProps({
     banks: {
         type: Object,
-        default: () => {}
-    }
+        default: () => {},
+    },
 })
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
