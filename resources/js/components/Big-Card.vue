@@ -1,11 +1,18 @@
 <template>
     <div
-        class="card_big shadow card mx-auto flex flex-col justify-center bg-white items-center fade-in m-2 w-full p-4 h-40 rounded-md">
+        class="card_big shadow card mx-auto flex flex-col justify-center bg-white items-center m-2 w-full p-4 h-40 rounded-md">
         <div class="card-logo w-16 my-3">
-            <img class="w-full" :src="filename" alt="" />
+            <!-- <img class="w-full" :src="filename" alt="" /> -->
+            <q-img
+                :src="filename"
+                >
+                <template v-slot:loading>
+                <q-spinner-tail color="secondary" size="1rem"/>
+                </template>
+            </q-img>
         </div>
-        <div class="card-details text-center text-white">
-            <p class="relative block work text-black text-lg font-normal">
+        <div class="text-base text-center text-white">
+            <p class="relative block work text-black font-medium">
                 {{ name }}
             </p>
         </div>
