@@ -63,9 +63,7 @@
                                             @is-selected-country="
                                                 isSelectedCountry
                                             " />
-                                        <div class="input-errors" v-for="error of v$.country.$errors" :key="error.$uid">
-                                            <div class="error-msg">{{ error.$message }}</div>
-                                        </div>
+                                       <div v-if="v$.country.$error" class="text-red-600 work text-xs pt-1">Country field is required.</div>
                                     </div>
                                     <div class="mb-4 country_select_container">
                                         <p class="font-medium work mb-2">
@@ -77,9 +75,7 @@
                                             @is-selected-category="
                                                 isSelectedCategory
                                             " />
-                                        <div class="input-errors" v-for="error of v$.category.$errors" :key="error.$uid">
-                                            <div class="error-msg">{{ error.$message }}</div>
-                                        </div>
+                                       <div v-if="v$.category.$error" class="text-red-600 work text-xs pt-1">Category field is required.</div>
                                     </div>
                                 </div>
                                 <div class="md:grid grid-cols-2 my-4 gap-2">
@@ -93,9 +89,8 @@
                                             @is-selected-price-range="
                                                 isSelectedPriceRange
                                             " />
-                                        <div class="input-errors" v-for="error of v$.priceRange.$errors" :key="error.$uid">
-                                            <div class="error-msg">{{ error.$message }}</div>
-                                        </div>
+                                       <div v-if="v$.rate.$error" class="text-red-600 work text-xs pt-1">Please Select Price Range</div>
+
                                     </div>
                                     <div class="mb-4 country_select_container">
                                         <p class="font-medium work mb-2">
@@ -107,9 +102,8 @@
                                             :max="priceRange.max"
                                             class="w-full py-3 pl-3 pr-10 text-left bg-white rounded border shadow font-medium cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 sm:text-sm"
                                             type="number" />
-                                        <div class="input-errors" v-for="error of v$.amount.$errors" :key="error.$uid">
-                                            <div class="error-msg">{{ error.$message }}</div>
-                                        </div>
+                                       <div v-if="v$.amount.$error" class="text-red-600 work text-xs pt-1">Amount field is required.</div>
+
                                     </div>
                                 </div>
                                 <div class="text-center">
@@ -130,7 +124,7 @@
                                 <button
                                     v-ripple
                                     class="px-4 w-full mx-auto md:w-8/12 py-3 block relative shadow-lg bg-primary rounded text-white font-medium"
-                                    @click="nextStep">
+                                    @click="moveToTwo">
                                     Next
                                 </button>
                             </div>
@@ -347,7 +341,7 @@ const priceRange = ref({
 const form = useForm({
     country: '',
     category: '',
-    priceRange: '',
+    // priceRange: '',
     rate: null,
     amount: null,
 })
@@ -380,6 +374,11 @@ const setInactive = () => {
     isDropzoneActive.value
 }
 
+const moveToTwo = async () => {
+    const isFormCorrect = await v$.value.$validate()
+    if(isFormCorrect) {return nextStep() }
+    return false
+}
 // function to increment currentStep value
 const nextStep = async () => {
     if (currentStep.value >= 2) {
@@ -457,7 +456,7 @@ watch(
 const rules = {
       country: { required }, // Matches state.firstName
       category: { required },
-      priceRange: { required },
+    //   priceRange: { required },
       amount: { required },
       rate: { required }
     }
