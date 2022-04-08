@@ -57,8 +57,8 @@
                                         <p class="font-medium work mb-2">
                                             Country
                                         </p>
-                                        <CountrySelect
-                                            :countries="filteredCountries"
+                                        <CountryDropdown
+                                            :countries="myFilteredCountries"
                                             :selected-country="selectedCountry"
                                             @is-selected-country="
                                                 isSelectedCountry
@@ -71,7 +71,7 @@
                                         <p class="font-medium work mb-2">
                                             Category
                                         </p>
-                                        <CategorySelect
+                                        <CategoryDropdown
                                             :categories="filteredCategories"
                                             :selected-category="selectedCategory"
                                             @is-selected-category="
@@ -87,7 +87,7 @@
                                         <p class="font-medium work mb-2">
                                             Price Range
                                         </p>
-                                        <PriceRangeSelect
+                                        <PricerangeDropdown
                                             :price-ranges="filteredPriceRanges"
                                             :selected-price-range = "selectedPriceRange"
                                             @is-selected-price-range="
@@ -155,9 +155,9 @@
                                         <p
                                             class="font-medium flex items-center uppercase">
                                             <img
-                                                :src="filteredCountries[selectedCountry].icon_url"
+                                                :src="myFilteredCountries[selectedCountry].icon_url"
                                                 class="px-2" />{{
-                                                filteredCountries[selectedCountry].type
+                                                myFilteredCountries[selectedCountry].type
                                             }}
                                         </p>
                                     </div>
@@ -267,7 +267,7 @@
                             </ul>
                             <div
                                 :data-active="isDropzoneActive"
-                                @drop.prevent="dropZoneFiles"
+                                @drop.prevent="dropFiles"
                                 @dragenter.prevent="setActive"
                                 @dragover.prevent="setActive"
                                 @dragleave.prevent="setInactive"
@@ -291,7 +291,7 @@
                                     accept="image/*"
                                     multiple
                                     hidden
-                                    @change="pushFiles" />
+                                    @change="inputFiles" />
                             </div>
                         </template>
                     </template>
@@ -315,10 +315,8 @@
 <script setup>
 import MainLayout from '@/Layouts/MainLayout.vue'
 // import GreenCheck from '@/components/reusables_/GreenCheck.vue'
-import BigCard from '@/components/Big-Card.vue'
-import CountrySelect from '@/components/CountrySelectDropdown.vue'
-import CategorySelect from '@/components/CategorySelectDropdown.vue'
-import PriceRangeSelect from '@/components/PriceRangeSelectDropdown.vue'
+import {CountryDropdown, CategoryDropdown, PricerangeDropdown, BigCard } from '@/components/CardUploadComponents'
+import useFilter from '@/components/CardUploadComponents/utils'
 import useVuelidate from '@vuelidate/core'
 import { required } from '@vuelidate/validators'
 import { ref, useForm, onMounted, computed, watch, loader } from '@/utils'
@@ -340,9 +338,6 @@ const props = defineProps({
     },
 })
 
-const selectedCountry = ref(null)
-const selectedCategory = ref(null)
-const selectedPriceRange = ref(null)
 
 const priceRange = ref({
     min: null,
@@ -357,11 +352,7 @@ const form = useForm({
     amount: null,
 })
 
-const AMOUNT = ref(0)
 
-const filteredCategories = ref([])
-
-const filteredPriceRanges = ref([])
 
 //loader spinner toggler
 const { isLoading, toggleLoader } = loader()
@@ -372,19 +363,14 @@ const currentStep = ref(0)
 const isDropzoneActive = ref(false)
 
 // dropzone import
-const { files, addFiles } = useDropzone()
+const { files, inputFiles, dropFiles } = useDropzone()
 
-// function to gets files when user upload using browse click
-const pushFiles = (e) => {
-    console.table(e.target.files)
-    addFiles(e.target.files)
-}
+// select dropdonw filters
+const {selectedCategory, selectedCountry, filteredPriceRanges, filteredCategories, selectedPriceRange, filteredCountries} = useFilter()
 
-// function to gets files when user drags and drop image
-const dropZoneFiles = (e) => {
-    console.table(e.dataTransfer.files)
-    addFiles(e.dataTransfer.files)
-}
+const myFilteredCountries = computed(() => {return filteredCountries(props.categories)})
+
+
 
 const setActive = () => {
     isDropzoneActive.value = true
@@ -415,32 +401,11 @@ const prevStep = () => {
     currentStep.value--
 }
 
-const filteredCountries = computed(() => {
-    const filteredResult = []
-    const setObj = {}
-    props.categories.map((category) => {
-        if (
-            !Object.prototype.hasOwnProperty.call(
-                setObj,
-                category.currency.currency
-            )
-        ) {
-            const newObj = {
-                type: category.currency.currency,
-                icon_url: category.currency.icon_url,
-                symbol: category.currency.symbol,
-                // isSelected: false,
-            }
-            filteredResult.push(newObj)
-            setObj[newObj.type] = true
-        }
-    })
-    return filteredResult
-})
+
 
 // triggers when user selects country
 const isSelectedCountry = (index) => {
-    form.country = filteredCountries.value[index].type
+    form.country = myFilteredCountries.value[index].type
     selectedCountry.value = index
 }
 

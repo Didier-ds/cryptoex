@@ -119,7 +119,7 @@
 <script setup>
 import MainLayout from '@/Layouts/MainLayout.vue'
 import GreenCheck from '@/components/reusables_/GreenCheck.vue'
-import BigCard from '@/components/Big-Card.vue'
+// import BigCard from '@/components/Big-Card.vue'
 import { ref, onMounted, watch } from '@/utils'
 const step = ref(0)
 function OPTION_OBJ(type) {

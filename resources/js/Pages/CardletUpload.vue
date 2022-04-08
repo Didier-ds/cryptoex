@@ -171,7 +171,7 @@
 
 <script setup>
 import MainLayout from '@/Layouts/MainLayout.vue'
-import BigCard from '@/components/Big-Card.vue'
+// import BigCard from '@/components/Big-Card.vue'
 import SuccessModal from '@/components/SuccessModal.vue'
 import { ref, computed, ExactCardImg, useForm } from '@/utils'
 import { useQuasar } from 'quasar'
