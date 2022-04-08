@@ -123,14 +123,26 @@
                             <div class="my-4 w-full">
                                 <button
                                     v-ripple
-                                    class="px-4 w-full mx-auto md:w-8/12 py-3 block relative shadow-lg bg-primary rounded text-white font-medium"
+                                    class="px-4 w-full mx-auto md:w-8/12 py-3 block work relative shadow-lg bg-primary rounded text-white font-medium"
                                     @click="moveToTwo">
                                     Next
                                 </button>
                             </div>
                         </template>
                         <template v-if="currentStep === 1">
-                            <div
+                            <CardInfoConfirmation 
+                            :card-name="cardname.name" 
+                            :card-type="form.category"
+                            :currency-image-url="myFilteredCountries[selectedCountry].icon_url" 
+                            :currency-type="myFilteredCountries[selectedCountry].type" 
+                            :acc-number="banks[0].account_number"
+                            :acc-name="banks[0].account_name"
+                            :bank-name="banks[0].bank_name"
+                            :price="+form.amount"
+                            :rate="+form.rate"
+                            :total-amount="new Intl.NumberFormat('en-US').format(TOTAL_AMOUNT)"
+                            />
+                            <!-- <div
                                 class="border-dashed work bg-white border shadow-lg rounded-lg p-4">
                                 <p class="font-medium text-center my-2">
                                     Transaction Summary
@@ -229,6 +241,14 @@
                                     </div>
                                 </div>
                                 <div></div>
+                            </div> -->
+                            <div class="my-4 w-full">
+                                <button
+                                    v-ripple
+                                    class="px-4 w-full mx-auto md:w-8/12 work py-3 block relative shadow-lg bg-primary rounded text-white font-medium"
+                                    @click="nextStep">
+                                    Confirm
+                                </button>
                             </div>
                         </template>
                         <template v-if="currentStep === 2">
@@ -287,16 +307,24 @@
                                     hidden
                                     @change="inputFiles" />
                             </div>
+                            <div class="my-4 w-full">
+                                <button
+                                    v-ripple
+                                    class="px-4 w-full mx-auto md:w-8/12 py-3 block work relative shadow-lg bg-primary rounded text-white font-medium"
+                                    @click="moveToTwo">
+                                    Submit
+                                </button>
+                            </div>
                         </template>
                     </template>
-                    <div class="my-4 w-full">
+                    <!-- <div class="my-4 w-full">
                         <button
                             v-ripple
                             class="px-4 w-full mx-auto md:w-8/12 py-3 block relative shadow-lg bg-primary rounded text-white font-medium"
                             @click="nextStep">
                             Next
                         </button>
-                    </div>
+                    </div> -->
                 </section>
                 <!-- <aside class="p-4 h-full">
                     <div class=" bg-white h-full w-full shadow-wide rounded"></div>
@@ -309,12 +337,14 @@
 <script setup>
 import MainLayout from '@/Layouts/MainLayout.vue'
 // import GreenCheck from '@/components/reusables_/GreenCheck.vue'
-import {CountryDropdown, CategoryDropdown, PricerangeDropdown, BigCard } from '@/components/CardUploadComponents'
+import {CountryDropdown, CategoryDropdown, PricerangeDropdown, BigCard, CardInfoConfirmation } from '@/components/CardUploadComponents'
 import useFilter from '@/components/CardUploadComponents/utils'
 import useVuelidate from '@vuelidate/core'
 import { required } from '@vuelidate/validators'
-import { ref, useForm, onMounted, computed, watch, loader } from '@/utils'
+import { ref, useForm, onMounted,  computed, watch, loader } from '@/utils'
+// import { onBeforeUnmount } from 'vue'
 import useDropzone from '@/utils/Dropzone.js'
+// import useBack from '@/utils/BackSteps.js'
 // import { isNull } from 'util';
 
 const props = defineProps({
@@ -359,6 +389,8 @@ const isDropzoneActive = ref(false)
 // dropzone import
 const { files, inputFiles, dropFiles } = useDropzone()
 
+// const { handleBackEvent, unhandleBackEvent } = useBack()
+
 // select dropdonw filters
 const {selectedCategory, selectedCountry, filteredPriceRanges, filteredCategories, selectedPriceRange, filteredCountries} = useFilter()
 
@@ -388,7 +420,8 @@ const nextStep = async () => {
     await new Promise((resolve) => {
         setTimeout(() => {
             resolve(currentStep.value++)
-        }, 2000)
+            window.scrollTo(0, 0)
+        }, 1000)
     })
     toggleLoader()
 }
@@ -462,6 +495,15 @@ const rules = {
     }
 
 const v$ = useVuelidate(rules, form)
+
+// onMounted(() => {
+//     handleBackEvent(prevStep)
+// })
+
+// onBeforeUnmount(() => {
+//     alert('me')
+//     unhandleBackEvent(prevStep)
+// })
 </script>
 
 <style lang="scss" scoped>
