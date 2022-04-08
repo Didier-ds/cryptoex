@@ -55,7 +55,7 @@
                                 <div class="md:grid grid-cols-2 my-4 gap-2">
                                     <div class="mb-4 country_select_container">
                                         <p class="font-medium work mb-2">
-                                            Select Country
+                                            Country
                                         </p>
                                         <CountrySelect
                                             :countries="filteredCountries"
@@ -69,7 +69,7 @@
                                     </div>
                                     <div class="mb-4 country_select_container">
                                         <p class="font-medium work mb-2">
-                                            Select Category
+                                            Category
                                         </p>
                                         <CategorySelect
                                             :categories="filteredCategories"
@@ -85,7 +85,7 @@
                                 <div class="md:grid grid-cols-2 my-4 gap-2">
                                     <div class="mb-4 country_select_container">
                                         <p class="font-medium work mb-2">
-                                            Select Price Range
+                                            Price Range
                                         </p>
                                         <PriceRangeSelect
                                             :price-ranges="filteredPriceRanges"

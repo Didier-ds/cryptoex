@@ -7,7 +7,7 @@
                     <span
                         class="flex uppercase font-semibold items-center work truncate">
                         <template v-if="selectedCountry === null">
-                            <p class="px-2">--</p>
+                            <p class=""><span class="text-gray-600">Select Country</span></p>
                         </template>
                         <template v-else>
                             <div class="mr-4">
