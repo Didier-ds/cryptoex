@@ -19,14 +19,14 @@
                     :label="status.label"
                     :total="status.total" />
             </div>
-            <div class="my-10 p-4">
+            <div class="py-10 p-4">
                 <div id="giftcards">
                     <h2 class="font-bold work big mb-2">
                         GIFTCARD TRANSACTIONS
                     </h2>
                     <div
-                        class="max-w-4xl mx-auto"
-                        :class="{ 'border p-2 shadow-lg rounded': tablet }">
+                        class="max-w-4xl mx-auto "
+                        :class="{ 'border p-2 shadow-lg bg-white rounded': tablet }">
                         <div
                             v-if="tablet"
                             class="grid_section border-b py-4 p-2">

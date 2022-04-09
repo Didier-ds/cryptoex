@@ -27,6 +27,7 @@
                     </h2>
                 </div>
             </div>
+            <JetValidationErrors />
             <div class="">
                 <section class="max-w-xl w-full mx-auto p-4">
                     <template v-if="isLoading">
@@ -142,106 +143,7 @@
                             :rate="+form.rate"
                             :total-amount="new Intl.NumberFormat('en-US').format(TOTAL_AMOUNT)"
                             />
-                            <!-- <div
-                                class="border-dashed work bg-white border shadow-lg rounded-lg p-4">
-                                <p class="font-medium text-center my-2">
-                                    Transaction Summary
-                                </p>
-                                <div class="grid divide-y border-dashed">
-                                    <div
-                                        class="flex justify-between py-3 items-center">
-                                        <p class="text-gray-600">Giftcard</p>
-                                        <p class="font-medium capitalize">
-                                            {{ cardname.name }}
-                                        </p>
-                                    </div>
-                                    <div
-                                        class="flex justify-between py-3 border-dashed items-center">
-                                        <p class="text-gray-600">Currency</p>
-                                        <p
-                                            class="font-medium flex items-center uppercase">
-                                            <img
-                                                :src="myFilteredCountries[selectedCountry].icon_url"
-                                                class="px-2" />{{
-                                                myFilteredCountries[selectedCountry].type
-                                            }}
-                                        </p>
-                                    </div>
-                                    <div
-                                        class="flex justify-between py-3 border-dashed items-center">
-                                        <p class="text-gray-600">Card type</p>
-                                        <p class="font-medium flex uppercase">
-                                            {{ form.category }}
-                                        </p>
-                                    </div>
-                                    <div
-                                        class="flex justify-between py-3 border-dashed items-center">
-                                        <p class="text-gray-600">
-                                            Processing Time
-                                        </p>
-                                        <p class="font-medium flex uppercase">
-                                            Usually within 10 Mins and may vary
-                                        </p>
-                                    </div>
-                                    <div
-                                        class="flex justify-between py-3 border-dashed items-center">
-                                        <p class="text-gray-600">Card Price</p>
-                                        <p class="font-medium flex uppercase">
-                                            ${{ form.amount }}
-                                        </p>
-                                    </div>
-                                    <div
-                                        class="flex justify-between py-3 border-dashed items-center">
-                                        <p class="text-gray-600">Rate</p>
-                                        <p class="font-medium flex uppercase">
-                                            &#8358;{{ form.rate }}
-                                        </p>
-                                    </div>
-                                    <div
-                                        class="flex justify-between py-3 border-dashed items-center">
-                                        <p class="text-gray-600">Amount</p>
-                                        <p
-                                            class="font-bold text-base flex uppercase text-green-800 ibm">
-                                            &#8358;{{
-                                                new Intl.NumberFormat(
-                                                    'en-US'
-                                                ).format(TOTAL_AMOUNT)
-                                            }}
-                                        </p>
-                                    </div>
-                                    <div class="py-3 border-dashed">
-                                        <p class="text-gray-600 mb-2">
-                                            Bank Account
-                                        </p>
-                                        <div
-                                            class="rounded work flex bg-gray-50 rounded p-2">
-                                            <div class="m-4">
-                                                <q-icon
-                                                    name="account_balance"
-                                                    style="
-                                                        color: #ccc;
-                                                        font-size: 2em;
-                                                    " />
-                                            </div>
-                                            <div class="pl-2">
-                                                <p class="font-medium">
-                                                    {{ banks[0].account_name }}
-                                                </p>
-                                                <p class="">
-                                                    {{
-                                                        banks[0].account_number
-                                                    }}
-                                                </p>
-                                                <p
-                                                    class="text-sm text-gray-700">
-                                                    {{ banks[0].bank_name }}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div></div>
-                            </div> -->
+                           
                             <div class="my-4 w-full">
                                 <button
                                     v-ripple
@@ -327,6 +229,7 @@
 <script setup>
 import MainLayout from '@/Layouts/MainLayout.vue'
 // import GreenCheck from '@/components/reusables_/GreenCheck.vue'
+import JetValidationErrors from '@/Jetstream/ValidationErrors.vue'
 import SuccessModal from '@/components/SuccessModal.vue'
 import { useQuasar } from 'quasar'
 import {CountryDropdown, CategoryDropdown, PricerangeDropdown, BigCard, CardInfoConfirmation } from '@/components/CardUploadComponents'
@@ -520,6 +423,13 @@ const submit = () => {
                 $q.notify({
                     type: 'positive',
                     message: 'GiftCard Uploaded',
+                    position: 'top-right',
+                })
+            },
+            onError: () => {
+                $q.notify({
+                    type: 'negative',
+                    message: 'Something Went Wrong',
                     position: 'top-right',
                 })
             },

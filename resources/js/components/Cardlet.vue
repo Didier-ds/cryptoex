@@ -29,7 +29,7 @@
         <div
             v-else
             id="cardlet"
-            class="flex justify-between mb-2 border shadow-md rounded p-2 items-center">
+            class="flex justify-between bg-white mb-2 border shadow-md rounded p-2 items-center">
             <div class="cardlet_property flex items-center">
                 <div class="cardlet_box image rounded-md">
                     <img
