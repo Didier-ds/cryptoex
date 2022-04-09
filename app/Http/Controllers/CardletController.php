@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Helpers;
 use App\Helpers\ResponseBuilder;
+use App\Http\Requests\CardletImageRequest;
 use App\Http\Requests\CardletRequest;
 use App\Http\Resources\CardletMainResource;
 use App\Http\Resources\Cardletresource;
@@ -23,93 +24,41 @@ use Inertia\Inertia;
 
 class CardletController extends Controller
 {
-    public function store(Request $request, $cardUuid)
+    public function store(CardletRequest $request, $cardUuid)
     {
-        $user = auth()->user();
-        // dd($user->id);
         $card = Card::where('uuid', $cardUuid)->first();
-        $allowedExtension = ['jpg', 'png'];
+        $user = auth()->user();
+         $newCardlet = Cardlet::create([
+             'uuid' => Str::uuid(), 
+             'name' => $card->name,
+             'comment' => $request->comment,
+             'type' => $card->type,
+             'rate' => $card->rate,
+             'user_id' => auth()->id(),
+             'amount' => $request->amount
+         ]);
         if($request -> hasFile('images')) {
-            $files = $request->file('images');
-            // dd($files);
-            $cardlet = Cardlet::create([
-                'uuid' => Str::uuid(), 
-                'name' => $card->name,
-                'comment' => $request->comment,
-                'type' => $card->type,
-                'rate' => $card->rate,
-                'user_id' => auth()->id(),
-                'amount' => $request->amount
-            ]);
-            foreach($files as $file){
-                $filename = hexdec(uniqid());
-                $extension = $file->getClientOriginalExtension();
-                $check = in_array($extension, $allowedExtension);
-                if($check){
-                    
-                    foreach ($request->images as $image) {
-                        # code...
-                        // dd($image);
-                        CardletImage::create([
-                            'cardlet_id' => $cardlet->id,
-                            'filename' => $filename
-                        ]);
-                    }
+             $files = $request->file('images');
+                foreach($files as $file){
+                    $this->uploadCardletImages($file, $newCardlet->id);
                     $admins = User::role(Konstants::ROLE_ADMIN)->get();
-                     foreach ($admins as $admin) {
-                         $admin->notify(new CardletNotification(Helpers::buildMailData(
-                             'Giftcard Status',
-                             Konstants::MAIL_CARDLET_C_BODY($user),
-                             Konstants::MAIL_CARDLET_C_ACT,
-                             Konstants::URL_LOGIN,
-                             Konstants::MAIL_LAST
-                         )));
-                     }
-                    // dd('me');
-                    return redirect()->back()->with('success', 'Status Changed Successfully');
-                } else {
-                    // dd('error');
-                    // Session
-                    return redirect()->back()->with('error', 'Please Something Went Wrong');
-                    //  Session::flash('success', 'failed');
+                    foreach ($admins as $admin) {
+                        $admin->notify(new CardletNotification(Helpers::buildMailData(
+                            'Giftcard Status',
+                            Konstants::MAIL_CARDLET_C_BODY($user),
+                            Konstants::MAIL_CARDLET_C_ACT,
+                            Konstants::URL_LOGIN,
+                            Konstants::MAIL_LAST
+                        )));
+                    }
                 }
-            }
-        } else {
-            dd('its me');
-        }
+                return redirect()->back()->with('success', 'Status Changed Successfully');
+                } else {
+                     return redirect()->back()->with('error', 'Please Something Went Wrong');
+     }
     }
 
-    // public function store(Request $request, $cardUuid)
-    // {
-        
-    //     // Check Auth
-    //     $card = Card::where('uuid', $cardUuid)->first();
-    //     if (!$card) {
-    //         return  response(ResponseBuilder::genErrorRes(Konstants::MSG_404), Konstants::STATUS_NOT_FOUND);
-    //     }
-    //     //save to store
-    //     $user = auth()->user();
-    //     $cardlet = Cardlet::create(array_merge($request->only('code', 'comment', 'amount'), [
-    //         'uuid' => Str::uuid(), 'name' => $card->name, 'type' => $card->type,
-    //         'image' => Helpers::runImageUpload($request->file('image'), 'cardlets'), 'user_id' => $user->id
-    //     ], Helpers::getTimeStamps()));
-
-    //     // Notify Admins
-    //     $admins = User::role(Konstants::ROLE_ADMIN)->get();
-    //     foreach ($admins as $admin) {
-    //         $admin->notify(new CardletNotification(Helpers::buildMailData(
-    //             Konstants::MAIL_CARDLET_C_BODY($user),
-    //             Konstants::MAIL_CARDLET_C_ACT,
-    //             Konstants::URL_LOGIN,
-    //             Konstants::MAIL_LAST
-    //         )));
-    //     }
-    //     // Return Response
-    //     // return response()->json(ResponseBuilder::buildRes(new Cardletresource($cardlet)), Konstants::STATUS_OK);
-    // }
-
-
-    //
+    
     public function updateCardlet(Request $request, $uuid)
     {
         $user = auth()->user();
@@ -184,5 +133,14 @@ class CardletController extends Controller
             'count' => count($allCardlets),
             'data' => CardletMainResource::collection($allCardlets)
         ], 200);
+    }
+
+    public function uploadCardletImages($img, int $cardletId) {
+        $filename = Helpers::runImageUpload($img, 'cardlets');
+        CardletImage::create([
+            'cardlet_id' => $cardletId,
+            'filename' => $filename
+        ]);
+        
     }
 }

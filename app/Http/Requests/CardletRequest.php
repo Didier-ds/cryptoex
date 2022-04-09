@@ -24,10 +24,9 @@ class CardletRequest extends FormRequest
     public function rules()
     {
         return [
-            'code' => 'required|string|unique:cardlets',
-            'comment' => 'required|string',
+            'amount' => 'required|numeric',
             'images' => 'required|array|min:1|max:5',
-            'images.*' => 'required|string|mimes:jpeg,png,jpg,svg|max:1024'
+            'images.*' => 'required|mimes:jpeg,png,jpg|max:1024'
         ];
     }
 }

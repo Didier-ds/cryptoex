@@ -311,7 +311,7 @@
                                 <button
                                     v-ripple
                                     class="px-4 w-full mx-auto md:w-8/12 py-3 block work relative shadow-lg bg-primary rounded text-white font-medium"
-                                    @click="moveToTwo">
+                                    @click="uploadImage">
                                     Submit
                                 </button>
                             </div>
@@ -347,6 +347,7 @@ import useDropzone from '@/utils/Dropzone.js'
 // import useBack from '@/utils/BackSteps.js'
 // import { isNull } from 'util';
 
+let SELECTED_CARD_UUID = null
 const props = defineProps({
     categories: {
         type: Array,
@@ -372,6 +373,7 @@ const form = useForm({
     country: '',
     category: '',
     // priceRange: '',
+    images: null,
     rate: null,
     amount: null,
 })
@@ -455,6 +457,7 @@ const isSelectedPriceRange = (index) => {
             : { min: null, max: null, rate: null }
     form.rate = rate
     selectedPriceRange.value = index
+    SELECTED_CARD_UUID = filteredCategories.value[index].uuid
     priceRange.value = { min, max }
 }
 
@@ -504,6 +507,29 @@ const v$ = useVuelidate(rules, form)
 //     alert('me')
 //     unhandleBackEvent(prevStep)
 // })
+const uploadImage = () => {
+    form.images = files.value.map(file => {return file.file})
+    submit()
+}
+
+const submit = () => {
+    form.transform((data) => ({
+        ...data,
+    }))
+        // eslint-disable-next-line no-undef
+        .post(`/users/cardlets-make/${SELECTED_CARD_UUID}`, {
+            onSuccess: () => {
+                form.reset()
+                // allImages.value = []
+                // isUploadedSuccessfully.value = ref(true)
+                // $q.notify({
+                //     type: 'positive',
+                //     message: 'GiftCard Uploaded',
+                //     position: 'top-right',
+                // })
+            },
+        })
+}
 </script>
 
 <style lang="scss" scoped>
