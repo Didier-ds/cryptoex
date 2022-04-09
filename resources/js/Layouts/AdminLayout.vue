@@ -56,8 +56,8 @@ const toggleSideBar = () => {
         @media screen and (max-width: 991px) {
             width: 100%;
             margin-left: 0px;
-            padding-right: 16px;
-            padding-left: 16px;
+            padding-right: 4px;
+            padding-left: 4px;
         }
     }
 }
