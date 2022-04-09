@@ -317,26 +317,18 @@
                             </div>
                         </template>
                     </template>
-                    <!-- <div class="my-4 w-full">
-                        <button
-                            v-ripple
-                            class="px-4 w-full mx-auto md:w-8/12 py-3 block relative shadow-lg bg-primary rounded text-white font-medium"
-                            @click="nextStep">
-                            Next
-                        </button>
-                    </div> -->
                 </section>
-                <!-- <aside class="p-4 h-full">
-                    <div class=" bg-white h-full w-full shadow-wide rounded"></div>
-                </aside> -->
             </div>
         </div>
+        <SuccessModal v-if="isUploadedSuccessfully" />
     </main-layout>
 </template>
 
 <script setup>
 import MainLayout from '@/Layouts/MainLayout.vue'
 // import GreenCheck from '@/components/reusables_/GreenCheck.vue'
+import SuccessModal from '@/components/SuccessModal.vue'
+import { useQuasar } from 'quasar'
 import {CountryDropdown, CategoryDropdown, PricerangeDropdown, BigCard, CardInfoConfirmation } from '@/components/CardUploadComponents'
 import useFilter from '@/components/CardUploadComponents/utils'
 import useVuelidate from '@vuelidate/core'
@@ -348,6 +340,9 @@ import useDropzone from '@/utils/Dropzone.js'
 // import { isNull } from 'util';
 
 let SELECTED_CARD_UUID = null
+const $q = useQuasar()
+const isUploadedSuccessfully = ref(false)
+
 const props = defineProps({
     categories: {
         type: Array,
@@ -520,13 +515,13 @@ const submit = () => {
         .post(`/users/cardlets-make/${SELECTED_CARD_UUID}`, {
             onSuccess: () => {
                 form.reset()
-                // allImages.value = []
-                // isUploadedSuccessfully.value = ref(true)
-                // $q.notify({
-                //     type: 'positive',
-                //     message: 'GiftCard Uploaded',
-                //     position: 'top-right',
-                // })
+                files.value = []
+                isUploadedSuccessfully.value = ref(true)
+                $q.notify({
+                    type: 'positive',
+                    message: 'GiftCard Uploaded',
+                    position: 'top-right',
+                })
             },
         })
 }
