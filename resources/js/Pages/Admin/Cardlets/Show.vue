@@ -156,7 +156,49 @@
                             </dd>
                         </div>
                     </dl>
+                    
                 </div>
+                <div class="px-4 py-5 sm:px-6">
+                    <h3
+                        class="text-lg leading-6 font-medium text-gray-900 capitalize">
+                        Bank Information
+                    </h3>
+                    <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                        Information about the Bank
+                    </p>
+                </div>
+                <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
+                     <dl class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3">
+                        <!-- name -->
+                        <div class="sm:col-span-1">
+                            <dt class="text-sm font-medium text-gray-500">
+                                Account Name
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900">
+                                {{ data.user.bank_details[0].account_name }}
+                            </dd>
+                        </div>
+                        <!-- email -->
+                        <div class="sm:col-span-1">
+                            <dt class="text-sm font-medium text-gray-500">
+                                Account Number
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900">
+                                {{ data.user.bank_details[0].account_number }}
+                            </dd>
+                        </div>
+                        <!-- bank name -->
+                        <div class="sm:col-span-1">
+                            <dt class="text-sm font-medium text-gray-500">
+                                Bank Name
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900">
+                                {{ data.user.bank_details[0].bank_name }}
+                            </dd>
+                        </div>
+                    </dl>
+                </div>
+                   
             </div>
             <ImageModal
                 :show="showModal"
