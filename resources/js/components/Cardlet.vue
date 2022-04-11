@@ -37,18 +37,18 @@
                         :src="'/images/cards/' + imgType + '.png'"
                         alt="" />
                 </div>
-                <div class="cardlet_details capitalize mx-4">
+                <div class="cardlet_details  capitalize mx-4">
                     <p class="work font-medium capitalize">
                         {{ name }} giftcard
                     </p>
+                    <p class="font-medium work">${{ amount }}</p>
+                </div>
+            </div>
+            <div class="cardlet_price  text-right">
+                <div class="status flex items-center justify-between">
                     <p class="text-tiny work text-gray-600 font-medium">
                         {{ createdAt.slice(0, 10) }}
                     </p>
-                </div>
-            </div>
-            <div class="cardlet_price text-right">
-                <p class="font-medium work">${{ amount }}</p>
-                <div class="status flex items-center justify-center">
                     <div
                         class="border rounded-md p-0.5 px-1 flex items-center gap-2 text-xs font-medium work justify-center bg-gray-50 rounded-lg">
                         <ColorBall :status="status" :size="'sm'" />{{ status }}

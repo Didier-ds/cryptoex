@@ -17,11 +17,15 @@ export default function() {
         files.value = files.value.concat(newUploadableFiles)
     }
 
+    const removeFile = (file) => {
+        const index = files.value.indexOf(file)
+        if (index > -1) files.value.splice(index, 1)
+    }
     const fileExists = (otherId) => {
         return files.value.some(({ id }) => id === otherId)
     }
 
-    return { files, inputFiles, dropFiles }
+    return { files, inputFiles, dropFiles, removeFile }
 }
 class UploadableFile {
     constructor(file) {

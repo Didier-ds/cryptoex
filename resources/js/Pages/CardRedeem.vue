@@ -171,14 +171,17 @@
                             <ul v-show="files.length" class="grid grid-cols-4">
                                 <li
                                     v-for="file of files"
-                                    class="p-2"
+                                    class="p-2 text-center"
                                     :key="file.id">
                                     <div
-                                        class="w-full h-full p-2 rounded border">
+                                        class="h-16 md:w-32 md:h-32 m-auto p-2 rounded border">
                                         <img
                                             :src="file.url"
-                                            class="w-full my-auto" />
+                                            class="w-full h-full my-auto" />
                                     </div>
+                                    <button @click="removeFile(file)">
+                                        <q-icon name="delete" color="negative" size="sm"/>
+                                    </button>
                                 </li>
                             </ul>
                             <div
@@ -237,10 +240,8 @@ import useFilter from '@/components/CardUploadComponents/utils'
 import useVuelidate from '@vuelidate/core'
 import { required } from '@vuelidate/validators'
 import { ref, useForm, onMounted,  computed, watch, loader } from '@/utils'
-// import { onBeforeUnmount } from 'vue'
 import useDropzone from '@/utils/Dropzone.js'
-// import useBack from '@/utils/BackSteps.js'
-// import { isNull } from 'util';
+
 
 let SELECTED_CARD_UUID = null
 const $q = useQuasar()
@@ -287,7 +288,7 @@ const currentStep = ref(0)
 const isDropzoneActive = ref(false)
 
 // dropzone import
-const { files, inputFiles, dropFiles } = useDropzone()
+const { files, inputFiles, dropFiles, removeFile } = useDropzone()
 
 // const { handleBackEvent, unhandleBackEvent } = useBack()
 
