@@ -84,10 +84,6 @@ const form = useForm({
 })
 
 defineProps({
-    cardnames: {
-        type: Array,
-        default: () => [],
-    },
     
 })
 
@@ -98,12 +94,12 @@ const submit = () => {
     }))
 
         // eslint-disable-next-line no-undef
-        .post(`/admin/currency/create`, {
+        .post(`/admin/btc-vendors/create`, {
             onSuccess: () => {
                 form.reset()
                 $q.notify({
                     type: 'positive',
-                    message: 'Receipt Created',
+                    message: 'vendors Created',
                     position: 'top-right',
                 })
             },

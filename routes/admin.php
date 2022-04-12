@@ -32,6 +32,7 @@ Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified'],'prefix
     Route::get('/giftcard/category/{uuid}', [CardsController::class, 'isType'])->name('card.isType');
     Route::get('btc-vendors', [BtcVendorController::class, 'index'])->name('btc-vendors.index');
     Route::get('/btc-vendors/create', [BtcVendorController::class, 'create'])->name('btc-vendors.create');
+    Route::post('/btc-vendors/create', [BtcVendorController::class, 'store'])->name('btc-vendors.store');
 
 
     Route::post('login', 'AdminLoginController@login')->name('login.post');

@@ -13,13 +13,14 @@
             </div>
             <div class="max-w-lg mx-auto p-4 ">
                 <div class="flex py-4 mb-2">
-                            <div class="w-6 mr-1 h-2 bg-primary"></div>
-                            <div class="w-6 mr-1 h-2 bg-cyan-200"></div>
-                            <div class="w-6 mr-1 h-2 bg-cyan-200"></div>
-                        </div>
+                    <div class="w-6 mr-1 h-2 bg-primary"></div>
+                    <div class="w-6 mr-1 h-2 bg-cyan-200"></div>
+                    <div class="w-6 mr-1 h-2 bg-cyan-200"></div>
+                </div>
+                {{selectedVendor}}
                 <div class="mb-4">
                     <label for="assets" class="work font-medium leading-8">Wallet type</label>
-                    <AssetsDropdown />
+                    <AssetsDropdown @is-selected-vendor="isSelectedVendor" />
                 </div>
                  <div class="mb-4">
                     <label for="assets" class="work font-medium leading-8">Amount (in USD)</label>
@@ -54,6 +55,17 @@
 <script setup>
 import MainLayout from '@/Layouts/MainLayout'
 import { AssetsDropdown } from "../components/CryptoTradeComponents";
+import {ref} from '@/utils';
+const props = defineProps({
+    vendors : {
+        type: Array,
+        default: () => []
+    }
+})
+const selectedVendor = ref(null);
+const isSelectedVendor = (val) => {
+    selectedVendor.value = props.vendors[val - 1]
+}
 </script>
 
 <style lang="scss" scoped>

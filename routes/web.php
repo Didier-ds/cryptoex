@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserAccountController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\BtcTradeReceiptController;
 use App\Http\Controllers\CardletController;
 use App\Http\Controllers\CardsController;
 use App\Http\Controllers\UserBankDetailsController;
@@ -56,9 +57,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
 Route::middleware(['bank_account_check', 'auth:sanctum', 'verified'])->group(function(){
     Route::get('/giftcards', [CardsController::class, 'index'])->name('card.index');
     Route::get('/upload/{uuid}', [CardsController::class, 'isType'])->name('card.isType');
-    Route::get('/trade-crypto', function () {
-            return Inertia::render('CryptoTrade');
-    });
+    Route::get('/trade-crypto', [BtcTradeReceiptController::class, 'create'])->name('btc-receipt.create');
 });
 
 require 'admin.php';
