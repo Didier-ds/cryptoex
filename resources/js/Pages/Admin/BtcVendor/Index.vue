@@ -1,5 +1,15 @@
 <template>
     <admin-layout>
+        <div class="flex flex-row justify-between items-center mx-4">
+                <div class="my-1">
+                    <GoBack />
+                </div>
+                <inertia-link
+                    :href="route('btc-vendors.create')"
+                    class="flex-0 items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    Create Vendor
+                </inertia-link>
+            </div>
         <p class="font-medium text-xl">All Bitcoin Vendor</p>
         <div
             class="shadow-lg overflow-hidden border-b border-gray-200 work border-dashed sm:rounded-lg m-4">

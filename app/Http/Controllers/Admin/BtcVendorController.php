@@ -29,6 +29,7 @@ class BtcVendorController extends Controller
     public function create()
     {
         //
+        return Inertia::render('Admin/BtcVendor/Create');
     }
 
     /**

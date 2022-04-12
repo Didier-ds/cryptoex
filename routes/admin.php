@@ -30,7 +30,9 @@ Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified'],'prefix
     Route::get('/update/giftcards', [CardsController::class, 'update'])->name('cards.update');
     Route::patch('update/giftcards/{uuid}', [CardsController::class, 'cardRateChange'])->name('cards.cardRateChange');
     Route::get('/giftcard/category/{uuid}', [CardsController::class, 'isType'])->name('card.isType');
-    Route::get('btc-vendors', [BtcVendorController::class, 'index'])->name('cards.index');
+    Route::get('btc-vendors', [BtcVendorController::class, 'index'])->name('btc-vendors.index');
+    Route::get('/btc-vendors/create', [BtcVendorController::class, 'create'])->name('btc-vendors.create');
+
 
     Route::post('login', 'AdminLoginController@login')->name('login.post');
     Route::get('login', [AdminLoginController::class, 'index'])->name('login.index');
