@@ -142,6 +142,11 @@
 <script>
 // import {useRouter} from 'vue-router'
 export default {
+    props: {
+        isSideBar: {
+            type: Boolean,
+        },
+    },
     setup(props, context) {
         // const router = useRouter()
         return {
@@ -150,11 +155,6 @@ export default {
                 context.emit('toggleSideBar')
             },
         }
-    },
-    props: {
-        isSideBar: {
-            type: Boolean,
-        },
     },
 }
 </script>

@@ -6,9 +6,9 @@
                 <div class="input__container">
                     <label class="work" for="fullname">Fullname</label>
                     <input
+                        v-model="form.fullname"
                         type="text"
                         required
-                        v-model="form.fullname"
                         :placeholder="$page.props.user.fullname"
                         class="border p-2 rounded-md w-full focus:border-cyan focus:shadow outline-none bg-white" />
                 </div>
@@ -17,9 +17,9 @@
                 <div class="input__container">
                     <label class="work" for="fullname">Email Address:</label>
                     <input
+                        v-model="form.email"
                         type="text"
                         required
-                        v-model="form.email"
                         :placeholder="$page.props.user.email"
                         class="border p-2 rounded-md w-full focus:border-cyan focus:shadow outline-none bg-white" />
                     <jet-input-error
@@ -29,9 +29,9 @@
                 <div class="input__container">
                     <label class="work" for="fullname">Phone Number:</label>
                     <input
+                        v-model="form.phone"
                         type="text"
                         required
-                        v-model="form.phone"
                         :placeholder="$page.props.user.phone"
                         class="border p-2 rounded-md w-full focus:border-cyan focus:shadow outline-none bg-white" />
                     <jet-input-error

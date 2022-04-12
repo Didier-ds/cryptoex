@@ -41,13 +41,13 @@
                         <template v-if="!!cardlets.length">
                             <Cardlet
                                 v-for="(cardlet, index) in cardlets"
+                                :key="index"
                                 :status="cardlet.status"
                                 :name="cardlet.name"
                                 :amount="cardlet.amount"
                                 :rate="cardlet.rate"
                                 :created-at="cardlet.created_at"
-                                :type="cardlet.type"
-                                :key="index" />
+                                :type="cardlet.type" />
                         </template>
 
                         <template v-else>

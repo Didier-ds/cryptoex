@@ -68,14 +68,14 @@
                                         ) in allCategories"
                                         :key="category"
                                         v-ripple:primary
-                                        @click="isSelectedCategory(index)"
                                         class="relative border text-center text-md work option_btn bg-white uppercase rounded-sm p-2 white-space-1 sm:p-4 select-none relative"
                                         :class="{
                                             'text-gray-600 font-medium':
                                                 !category.isSelected,
                                             'bg-white font-semibold text-black border-cyan  shadow-md':
                                                 category.isSelected,
-                                        }">
+                                        }"
+                                        @click="isSelectedCategory(index)">
                                         <p class=" ">{{ category.type }}</p>
                                     </button>
                                 </div>
@@ -89,9 +89,9 @@
                                 <div class="">
                                     <span class="work font-medium">$</span>
                                     <input
+                                        v-model="AMOUNT"
                                         type="number"
                                         name="amount"
-                                        v-model="AMOUNT"
                                         class="work outline-none text-lg font-medium" />
                                 </div>
                                 <hr class="my-4" />
@@ -118,7 +118,7 @@
 
 <script setup>
 import MainLayout from '@/Layouts/MainLayout.vue'
-import GreenCheck from '@/components/reusables_/GreenCheck.vue'
+// import GreenCheck from '@/components/reusables_/GreenCheck.vue'
 // import BigCard from '@/components/Big-Card.vue'
 import { ref, onMounted, watch } from '@/utils'
 const step = ref(0)

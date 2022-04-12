@@ -4,7 +4,7 @@
         <div class="card-logo w-16 my-3">
             <!-- <img class="w-full" :src="filename" alt="" /> -->
             <q-img :src="filename">
-                <template v-slot:loading>
+                <template #loading>
                     <q-spinner-tail color="secondary" size="1rem" />
                 </template>
             </q-img>

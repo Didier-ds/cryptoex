@@ -37,8 +37,8 @@
                     <ListboxOptions
                         class="absolute w-full py-1 mt-1 z-10 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                         <ListboxOption
-                            v-slot="{ active, selected }"
                             v-for="(country, index) in countries"
+                            v-slot="{ active, selected }"
                             :key="country.type"
                             :value="index"
                             as="template">

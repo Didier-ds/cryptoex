@@ -29,8 +29,8 @@
                     <ListboxOptions
                         class="absolute w-full py-1 mt-1 overflow-auto z-10 text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                         <ListboxOption
-                            v-slot="{ active, selected }"
                             v-for="(priceRange, index) in priceRanges"
+                            v-slot="{ active, selected }"
                             :key="priceRange.type"
                             :value="index"
                             as="template">

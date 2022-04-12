@@ -56,6 +56,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
 Route::middleware(['bank_account_check', 'auth:sanctum', 'verified'])->group(function(){
     Route::get('/giftcards', [CardsController::class, 'index'])->name('card.index');
     Route::get('/upload/{uuid}', [CardsController::class, 'isType'])->name('card.isType');
+    Route::get('/trade-crypto', function () {
+            return Inertia::render('CryptoTrade');
+    });
 });
 
 require 'admin.php';

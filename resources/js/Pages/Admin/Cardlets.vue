@@ -45,9 +45,9 @@
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
                     <tr
-                        class="py-2"
                         v-for="cardlet in cardlets"
-                        :key="cardlet.id">
+                        :key="cardlet.id"
+                        class="py-2">
                         <td
                             class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 capitalize">
                             {{ cardlet.name }}

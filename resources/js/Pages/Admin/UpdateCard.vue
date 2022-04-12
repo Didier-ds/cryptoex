@@ -33,16 +33,16 @@
                         <div class="m-2">
                             <p>Please Select your giftcard category</p>
                             <select
-                                v-model="form.category"
                                 id="category"
+                                v-model="form.category"
                                 name="category">
                                 <option value="" selected>
                                     --Please Select your giftcard category--
                                 </option>
                                 <option
-                                    :value="category.type"
                                     v-for="category in categories"
-                                    :key="category">
+                                    :key="category"
+                                    :value="category.type">
                                     {{ category.type }}
                                 </option>
                             </select>

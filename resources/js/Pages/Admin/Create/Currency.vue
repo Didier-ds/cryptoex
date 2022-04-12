@@ -62,17 +62,17 @@
                             outlined
                             label="currency" />
                         <q-input
+                            class="m-2"
+                            standout
+                            type="file"
+                            outlined
+                            label="icon_url"
                             @update:model-value="
                                 (val) => {
                                     form.image = val[0]
                                 }
                             "
-                            class="m-2"
-                            standout
-                            type="file"
-                            @change="handleChange"
-                            outlined
-                            label="icon_url" />
+                            @change="handleChange" />
                     </div>
                 </div>
                 <div class="flex p-4">

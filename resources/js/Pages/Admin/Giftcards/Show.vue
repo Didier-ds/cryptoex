@@ -63,9 +63,9 @@
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
                     <tr
-                        class="py-2"
                         v-for="category in categories"
-                        :key="category.id">
+                        :key="category.id"
+                        class="py-2">
                         <td
                             class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 capitalize">
                             {{ category.name }}

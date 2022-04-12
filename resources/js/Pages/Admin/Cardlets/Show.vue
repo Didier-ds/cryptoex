@@ -8,14 +8,14 @@
             <!-- {{data.images}} -->
             <div class="py-2 flex gap-2">
                 <button
-                    @click="CHANGE_STATUS('success')"
-                    class="flex-0 items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    class="flex-0 items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                    @click="CHANGE_STATUS('success')">
                     Accept Card
                 </button>
 
                 <button
-                    @click="CHANGE_STATUS('failed')"
-                    class="flex-0 items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                    class="flex-0 items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                    @click="CHANGE_STATUS('failed')">
                     Reject Card
                 </button>
 
@@ -37,10 +37,10 @@
                         v-for="image in data.images"
                         :key="image"
                         :src="image.filename"
-                        @click="SHOW_IMAGE_MODAL(image.filename)"
                         spinner-color="secondary"
                         class="border shadow rounded m-2"
-                        style="height: 140px; max-width: 150px" />
+                        style="height: 140px; max-width: 150px"
+                        @click="SHOW_IMAGE_MODAL(image.filename)" />
                 </div>
                 <div class="px-4 py-5 sm:px-6 border-t border-gray-200">
                     <h3
@@ -202,8 +202,8 @@
             </div>
             <ImageModal
                 :show="showModal"
-                @close="CLOSE_MODAL"
-                :img="modalImage" />
+                :img="modalImage"
+                @close="CLOSE_MODAL" />
         </section>
     </admin-layout>
 </template>

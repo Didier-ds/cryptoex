@@ -3,7 +3,7 @@
         <div>
             <div class="flex flex-row justify-between items-center px-4">
                 <!-- <GoBack /> -->
-                <button @click="prevStep" class="back_btn cursor-default rounded bg-gray-100 sm:bg-transparent sm:hover:bg-gray-100 p-2 select-none flex items-center">
+                <button class="back_btn cursor-default rounded bg-gray-100 sm:bg-transparent sm:hover:bg-gray-100 p-2 select-none flex items-center" @click="prevStep">
                     <svg
                         width="24"
                         height="24"
@@ -171,8 +171,8 @@
                             <ul v-show="files.length" class="grid grid-cols-4">
                                 <li
                                     v-for="file of files"
-                                    class="p-2 text-center"
-                                    :key="file.id">
+                                    :key="file.id"
+                                    class="p-2 text-center">
                                     <div
                                         class="h-16 md:w-32 md:h-32 m-auto p-2 rounded border">
                                         <img
@@ -186,11 +186,11 @@
                             </ul>
                             <div
                                 :data-active="isDropzoneActive"
+                                class="border-dashed my-4 px-4 py-4 rounded bg-white flex flex-col text-center justify-between items-center border-2"
                                 @drop.prevent="dropFiles"
                                 @dragenter.prevent="setActive"
                                 @dragover.prevent="setActive"
-                                @dragleave.prevent="setInactive"
-                                class="border-dashed my-4 px-4 py-4 rounded bg-white flex flex-col text-center justify-between items-center border-2">
+                                @dragleave.prevent="setInactive">
                                 <q-icon
                                     name="cloud_upload"
                                     style="color: #ccc; font-size: 5em" />

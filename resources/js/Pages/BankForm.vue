@@ -13,8 +13,8 @@
             </div>
             <div class="flex items-center justify-center my-10">
                 <form
-                    @submit.prevent="submit"
-                    class="my-4 box_container bg-white max-w-xl mx-auto p-6 shadow-lg rounded border">
+                    class="my-4 box_container bg-white max-w-xl mx-auto p-6 shadow-lg rounded border"
+                    @submit.prevent="submit">
                     <h2 class="work font-bold text-lg">
                         Add Account Information
                     </h2>

@@ -65,9 +65,9 @@ const logout = () => {
             </div>
             <div class="mx-0 sm:mx-3">
                 <button
-                    @click="$emit('toggleSideBar')"
                     class="menu-toggle cursor-pointer text-gray-500 align-middle focus:outline-none"
-                    type="button">
+                    type="button"
+                    @click="$emit('toggleSideBar')">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         class="h-6 w-6"

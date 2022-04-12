@@ -7,10 +7,10 @@
             <div class=""></div>
             <div>
                 <div
-                    v-if="banks.length"
-                    class="border work flex rounded p-4"
                     v-for="bank in banks"
-                    :key="bank">
+                    v-if="banks.length"
+                    :key="bank"
+                    class="border work flex rounded p-4">
                     <div class="m-4">
                         <q-icon
                             name="account_balance"

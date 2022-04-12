@@ -53,8 +53,8 @@
                                     >
                                     <input
                                         id="amount"
-                                        required
                                         v-model="form.amount"
+                                        required
                                         autocomplete="off"
                                         class="items-center w-full border-cyan-200 border text-base work px-4 py-3 rounded-md focus:border-cyan-500 focus:shadow-outline outline-none outline-none"
                                         type="number"

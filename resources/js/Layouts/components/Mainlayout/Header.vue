@@ -69,9 +69,9 @@ const toggleModal = () => {
         </div>
         <transition name="fade">
             <MenuDropDown
+                v-if="isDrop"
                 @toggle-form="toggleForm"
-                @toggle-modal="toggleModal"
-                v-if="isDrop" />
+                @toggle-modal="toggleModal" />
         </transition>
     </header>
 </template>
