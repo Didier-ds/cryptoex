@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\CardsController;
 use App\Http\Controllers\Admin\CurrencyController;
 use App\Http\Controllers\Admin\ReceiptTypeController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\BtcVendorController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified'],'prefix' => 'admin'], function () {
@@ -29,6 +30,8 @@ Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified'],'prefix
     Route::get('/update/giftcards', [CardsController::class, 'update'])->name('cards.update');
     Route::patch('update/giftcards/{uuid}', [CardsController::class, 'cardRateChange'])->name('cards.cardRateChange');
     Route::get('/giftcard/category/{uuid}', [CardsController::class, 'isType'])->name('card.isType');
+    Route::get('btc-vendors', [BtcVendorController::class, 'index'])->name('cards.index');
+
     Route::post('login', 'AdminLoginController@login')->name('login.post');
     Route::get('login', [AdminLoginController::class, 'index'])->name('login.index');
 });
