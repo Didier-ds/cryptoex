@@ -9,8 +9,8 @@
         <div id="menu-dropdown" class="my-2">
             <!-- <inertia-link @click="push('Login')"> Login </inertia-link> -->
             <inertia-link @click="push('Profile')"> Your Profile </inertia-link>
-
-            <button class="w-full text-center" @click="logout()">
+            <inertia-link @click="push('Profile')"> Settings </inertia-link>
+            <button class="w-full text-white bg-red font-medium text-center" @click="logout()">
                 Sign out
             </button>
         </div>

@@ -17,7 +17,8 @@
                     </p>
                 </div>
                 <inertia-link
-                    class="bg-cyan my-4 rounded work py-2 px-6 text-white font-medium shadow-md"
+                v-ripple
+                    class="bg-primary relative my-4 rounded work py-2 px-6 text-white font-medium shadow-md"
                     href="/">
                     Trade More
                 </inertia-link>
