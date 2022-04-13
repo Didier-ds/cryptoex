@@ -42,10 +42,7 @@
                         <p class="font-medium work">We will Pay You</p>
                         <p
                             class="font-bold leading-loose text-green-800 ibm text-2xl">
-                            &#8358;{{
-                                new Intl.NumberFormat('en-US').format(
-                                    TOTAL_AMOUNT
-                                )
+                            &#8358;{{ TOTAL_AMOUNT
                             }}
                         </p>
                     </div>
@@ -54,7 +51,7 @@
                             v-ripple
                             class="px-4 w-full mx-auto md:w-8/12 work py-3 block relative shadow-lg bg-primary rounded text-white font-medium"
                             @click="currentStep++">
-                            Confirm
+                            Proceed
                         </button>
                     </div>
                 </template>
@@ -76,7 +73,7 @@
                             flat
                             no-caps />
                     </div>
-                    <div v-if="preview" class="w-16 h-16 my-4 rounded overflow-hidden ">
+                    <div v-if="preview" class="w-16 h-16 m-4 rounded overflow-hidden ">
                         <q-img :src="preview" />
                     </div> 
                     <q-file
@@ -96,6 +93,40 @@
                             <q-icon name="cloud_upload" />
                         </template>
                     </q-file>
+                    <div class="my-4 w-full">
+                        <button
+                            v-ripple
+                            class="px-4 w-full mx-auto md:w-8/12 work py-3 block relative shadow-lg bg-primary rounded text-white font-medium"
+                            @click="currentStep++">
+                            Proceed
+                        </button>
+                    </div>
+                </template>
+                <template v-if="currentStep === 2">
+                    <div class="border-dashed work bg-white border shadow-lg rounded-lg p-4">
+                        <div class="mb-4">
+                            <p class="uppercase work font-medium">Wallet Address</p>
+                            <p class="text-gray-900 font-light text-sm work">{{selectedVendor.address}}</p>
+                        </div>
+                        <div class="mb-4">
+                            <p class="uppercase work font-medium">Amount to receive</p>
+                            <p class="text-gray-900 font-light text-sm work">&#8358;{{TOTAL_AMOUNT}}</p>
+                        </div>
+                        <div class="">
+                            <p class="uppercase work font-medium">Amount to credit</p>
+                            <!-- {{userBanks}} -->
+                            <p class="text-gray-900 font-light text-sm work">{{userBanks[0].account_number}}</p>
+                            <p class="text-gray-900 font-light text-sm work"><span class="uppercase work font-medium">{{ userBanks[0].account_name }}</span>, {{ userBanks[0].bank_name }}</p>
+                        </div>
+                    </div>
+                    <div class="my-4 w-full">
+                        <button
+                            v-ripple
+                            class="px-4 w-full mx-auto md:w-8/12 work py-3 block relative shadow-lg bg-primary rounded text-white font-medium"
+                            @click="currentStep++">
+                            Upload
+                        </button>
+                    </div>
                 </template>
             </div>
         </div>
@@ -111,6 +142,10 @@ const props = defineProps({
         type: Array,
         default: () => [],
     },
+    userBanks: {
+        type: Array,
+        default: () => []
+    }
 })
 const image = ref(null)
 const preview = computed(() => {
@@ -125,7 +160,8 @@ const form = useForm({
     image: null,
 })
 const TOTAL_AMOUNT = computed(() => {
-    return form.amount * (selectedVendor.value ? selectedVendor.value.rate : 0)
+    return new Intl.NumberFormat('en-US').format(form.amount * (selectedVendor.value ? selectedVendor.value.rate : 0))
+
 })
 const selectedVendor = ref(null)
 const isSelectedVendor = (val) => {
