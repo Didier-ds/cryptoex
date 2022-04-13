@@ -1,12 +1,12 @@
 import { ref } from 'vue'
-export default function() {
+export default function () {
     const files = ref([])
 
     // function to gets files when user upload using browse click
     const inputFiles = (e) => {
-            addFiles(e.target.files)
-        }
-        // function to gets files when user drags and drop image
+        addFiles(e.target.files)
+    }
+    // function to gets files when user drags and drop image
     const dropFiles = (e) => {
         addFiles(e.dataTransfer.files)
     }

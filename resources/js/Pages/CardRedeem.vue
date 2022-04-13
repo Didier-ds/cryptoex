@@ -3,7 +3,9 @@
         <div>
             <div class="flex flex-row justify-between items-center px-4">
                 <!-- <GoBack /> -->
-                <button class="back_btn cursor-default rounded bg-gray-100 sm:bg-transparent sm:hover:bg-gray-100 p-2 select-none flex items-center" @click="prevStep">
+                <button
+                    class="back_btn cursor-default rounded bg-gray-100 sm:bg-transparent sm:hover:bg-gray-100 p-2 select-none flex items-center"
+                    @click="prevStep">
                     <svg
                         width="24"
                         height="24"
@@ -19,7 +21,9 @@
                             fill="#130F26" />
                     </svg>
 
-                    <span class="px-2 myHidden hidden font-medium work">Back</span>
+                    <span class="px-2 myHidden hidden font-medium work"
+                        >Back</span
+                    >
                 </button>
                 <div class="">
                     <h2 class="text-lg work font-semibold capitalize p-ripple">
@@ -64,7 +68,11 @@
                                             @is-selected-country="
                                                 isSelectedCountry
                                             " />
-                                       <div v-if="v$.country.$error" class="text-red-600 work text-xs pt-1">Country field is required.</div>
+                                        <div
+                                            v-if="v$.country.$error"
+                                            class="text-red-600 work text-xs pt-1">
+                                            Country field is required.
+                                        </div>
                                     </div>
                                     <div class="mb-4 country_select_container">
                                         <p class="font-medium work mb-2">
@@ -72,11 +80,17 @@
                                         </p>
                                         <CategoryDropdown
                                             :categories="filteredCategories"
-                                            :selected-category="selectedCategory"
+                                            :selected-category="
+                                                selectedCategory
+                                            "
                                             @is-selected-category="
                                                 isSelectedCategory
                                             " />
-                                       <div v-if="v$.category.$error" class="text-red-600 work text-xs pt-1">Category field is required.</div>
+                                        <div
+                                            v-if="v$.category.$error"
+                                            class="text-red-600 work text-xs pt-1">
+                                            Category field is required.
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="md:grid grid-cols-2 my-4 gap-2">
@@ -86,12 +100,17 @@
                                         </p>
                                         <PricerangeDropdown
                                             :price-ranges="filteredPriceRanges"
-                                            :selected-price-range = "selectedPriceRange"
+                                            :selected-price-range="
+                                                selectedPriceRange
+                                            "
                                             @is-selected-price-range="
                                                 isSelectedPriceRange
                                             " />
-                                       <div v-if="v$.rate.$error" class="text-red-600 work text-xs pt-1">Please Select Price Range</div>
-
+                                        <div
+                                            v-if="v$.rate.$error"
+                                            class="text-red-600 work text-xs pt-1">
+                                            Please Select Price Range
+                                        </div>
                                     </div>
                                     <div class="mb-4 country_select_container">
                                         <p class="font-medium work mb-2">
@@ -103,8 +122,11 @@
                                             :max="priceRange.max"
                                             class="w-full py-3 pl-3 pr-10 text-left bg-white rounded border shadow font-medium cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 sm:text-sm"
                                             type="number" />
-                                       <div v-if="v$.amount.$error" class="text-red-600 work text-xs pt-1">Amount field is required.</div>
-
+                                        <div
+                                            v-if="v$.amount.$error"
+                                            class="text-red-600 work text-xs pt-1">
+                                            Amount field is required.
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="text-center">
@@ -131,19 +153,27 @@
                             </div>
                         </template>
                         <template v-if="currentStep === 1">
-                            <CardInfoConfirmation 
-                            :card-name="cardname.name" 
-                            :card-type="form.category"
-                            :currency-image-url="myFilteredCountries[selectedCountry].icon_url" 
-                            :currency-type="myFilteredCountries[selectedCountry].type" 
-                            :acc-number="banks[0].account_number"
-                            :acc-name="banks[0].account_name"
-                            :bank-name="banks[0].bank_name"
-                            :price="+form.amount"
-                            :rate="+form.rate"
-                            :total-amount="new Intl.NumberFormat('en-US').format(TOTAL_AMOUNT)"
-                            />
-                           
+                            <CardInfoConfirmation
+                                :card-name="cardname.name"
+                                :card-type="form.category"
+                                :currency-image-url="
+                                    myFilteredCountries[selectedCountry]
+                                        .icon_url
+                                "
+                                :currency-type="
+                                    myFilteredCountries[selectedCountry].type
+                                "
+                                :acc-number="banks[0].account_number"
+                                :acc-name="banks[0].account_name"
+                                :bank-name="banks[0].bank_name"
+                                :price="+form.amount"
+                                :rate="+form.rate"
+                                :total-amount="
+                                    new Intl.NumberFormat('en-US').format(
+                                        TOTAL_AMOUNT
+                                    )
+                                " />
+
                             <div class="my-4 w-full">
                                 <button
                                     v-ripple
@@ -180,7 +210,10 @@
                                             class="w-full h-full my-auto" />
                                     </div>
                                     <button @click="removeFile(file)">
-                                        <q-icon name="delete" color="negative" size="sm"/>
+                                        <q-icon
+                                            name="delete"
+                                            color="negative"
+                                            size="sm" />
                                     </button>
                                 </li>
                             </ul>
@@ -235,13 +268,18 @@ import MainLayout from '@/Layouts/MainLayout.vue'
 import JetValidationErrors from '@/Jetstream/ValidationErrors.vue'
 import SuccessModal from '@/components/SuccessModal.vue'
 import { useQuasar } from 'quasar'
-import {CountryDropdown, CategoryDropdown, PricerangeDropdown, BigCard, CardInfoConfirmation } from '@/components/CardUploadComponents'
+import {
+    CountryDropdown,
+    CategoryDropdown,
+    PricerangeDropdown,
+    BigCard,
+    CardInfoConfirmation,
+} from '@/components/CardUploadComponents'
 import useFilter from '@/components/CardUploadComponents/utils'
 import useVuelidate from '@vuelidate/core'
 import { required } from '@vuelidate/validators'
-import { ref, useForm, onMounted,  computed, watch, loader } from '@/utils'
+import { ref, useForm, onMounted, computed, watch, loader } from '@/utils'
 import useDropzone from '@/utils/Dropzone.js'
-
 
 let SELECTED_CARD_UUID = null
 const $q = useQuasar()
@@ -262,7 +300,6 @@ const props = defineProps({
     },
 })
 
-
 const priceRange = ref({
     min: null,
     max: null,
@@ -276,8 +313,6 @@ const form = useForm({
     rate: null,
     amount: null,
 })
-
-
 
 //loader spinner toggler
 const { isLoading, toggleLoader } = loader()
@@ -293,11 +328,18 @@ const { files, inputFiles, dropFiles, removeFile } = useDropzone()
 // const { handleBackEvent, unhandleBackEvent } = useBack()
 
 // select dropdonw filters
-const {selectedCategory, selectedCountry, filteredPriceRanges, filteredCategories, selectedPriceRange, filteredCountries} = useFilter()
+const {
+    selectedCategory,
+    selectedCountry,
+    filteredPriceRanges,
+    filteredCategories,
+    selectedPriceRange,
+    filteredCountries,
+} = useFilter()
 
-const myFilteredCountries = computed(() => {return filteredCountries(props.categories)})
-
-
+const myFilteredCountries = computed(() => {
+    return filteredCountries(props.categories)
+})
 
 const setActive = () => {
     isDropzoneActive.value = true
@@ -309,7 +351,9 @@ const setInactive = () => {
 
 const moveToTwo = async () => {
     const isFormCorrect = await v$.value.$validate()
-    if(isFormCorrect) {return nextStep() }
+    if (isFormCorrect) {
+        return nextStep()
+    }
     return false
 }
 // function to increment currentStep value
@@ -328,13 +372,11 @@ const nextStep = async () => {
 }
 
 const prevStep = () => {
-    if(currentStep.value <= 0) {
+    if (currentStep.value <= 0) {
         return false
-    } 
+    }
     currentStep.value--
 }
-
-
 
 // triggers when user selects country
 const isSelectedCountry = (index) => {
@@ -385,16 +427,15 @@ watch(
     }
 )
 
-
 // form validation
 
 const rules = {
-      country: { required }, // Matches state.firstName
-      category: { required },
+    country: { required }, // Matches state.firstName
+    category: { required },
     //   priceRange: { required },
-      amount: { required },
-      rate: { required }
-    }
+    amount: { required },
+    rate: { required },
+}
 
 const v$ = useVuelidate(rules, form)
 
@@ -407,7 +448,9 @@ const v$ = useVuelidate(rules, form)
 //     unhandleBackEvent(prevStep)
 // })
 const uploadImage = () => {
-    form.images = files.value.map(file => {return file.file})
+    form.images = files.value.map((file) => {
+        return file.file
+    })
     submit()
 }
 

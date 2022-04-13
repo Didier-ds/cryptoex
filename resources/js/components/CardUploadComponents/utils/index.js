@@ -1,7 +1,6 @@
 import { ref } from 'vue'
 
-export default function() {
-
+export default function () {
     const selectedCountry = ref(null)
     const selectedCategory = ref(null)
     const selectedPriceRange = ref(null)
@@ -13,10 +12,12 @@ export default function() {
         const filteredResult = []
         const setObj = {}
         categories.map((category) => {
-            if (!Object.prototype.hasOwnProperty.call(
+            if (
+                !Object.prototype.hasOwnProperty.call(
                     setObj,
                     category.currency.currency
-                )) {
+                )
+            ) {
                 const newObj = {
                     type: category.currency.currency,
                     icon_url: category.currency.icon_url,
@@ -29,5 +30,12 @@ export default function() {
         })
         return filteredResult
     }
-    return { selectedCategory, selectedCountry, selectedPriceRange, filteredCategories, filteredCountries, filteredPriceRanges }
+    return {
+        selectedCategory,
+        selectedCountry,
+        selectedPriceRange,
+        filteredCategories,
+        filteredCountries,
+        filteredPriceRanges,
+    }
 }

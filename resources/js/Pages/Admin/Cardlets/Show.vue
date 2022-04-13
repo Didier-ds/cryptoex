@@ -156,7 +156,6 @@
                             </dd>
                         </div>
                     </dl>
-                    
                 </div>
                 <div class="px-4 py-5 sm:px-6">
                     <h3
@@ -168,7 +167,7 @@
                     </p>
                 </div>
                 <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
-                     <dl class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3">
+                    <dl class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3">
                         <!-- name -->
                         <div class="sm:col-span-1">
                             <dt class="text-sm font-medium text-gray-500">
@@ -198,7 +197,6 @@
                         </div>
                     </dl>
                 </div>
-                   
             </div>
             <ImageModal
                 :show="showModal"

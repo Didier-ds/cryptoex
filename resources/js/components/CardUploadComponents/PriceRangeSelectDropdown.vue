@@ -6,12 +6,14 @@
                     class="relative w-full py-3 pl-3 pr-10 text-left bg-white rounded border shadow cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-cyan focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
                     <span
                         class="flex uppercase font-semibold items-center work truncate">
-                        <template v-if="selectedPriceRange === null" ><span class="text-gray-600">Select Price Range</span></template>
+                        <template v-if="selectedPriceRange === null"
+                            ><span class="text-gray-600"
+                                >Select Price Range</span
+                            ></template
+                        >
                         <template v-else
                             >{{ priceRanges[selectedPriceRange].min }} -
-                            {{
-                                priceRanges[selectedPriceRange].max
-                            }}</template
+                            {{ priceRanges[selectedPriceRange].max }}</template
                         >
                     </span>
                     <span

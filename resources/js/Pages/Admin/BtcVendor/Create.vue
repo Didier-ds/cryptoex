@@ -41,7 +41,7 @@
                             type="number"
                             outlined
                             label="asset" />
-                        
+
                         <q-input
                             class="m-2"
                             standout
@@ -83,9 +83,7 @@ const form = useForm({
     image: '',
 })
 
-defineProps({
-    
-})
+defineProps({})
 
 const submit = () => {
     // form.filename = `https://drive.google.com/uc?id=${form.filename}`

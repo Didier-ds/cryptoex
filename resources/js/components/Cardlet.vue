@@ -37,14 +37,14 @@
                         :src="'/images/cards/' + imgType + '.png'"
                         alt="" />
                 </div>
-                <div class="cardlet_details  capitalize mx-4">
+                <div class="cardlet_details capitalize mx-4">
                     <p class="work font-medium capitalize">
                         {{ name }} giftcard
                     </p>
                     <p class="font-medium work">${{ amount }}</p>
                 </div>
             </div>
-            <div class="cardlet_price  text-right">
+            <div class="cardlet_price text-right">
                 <div class="status flex items-center justify-between">
                     <p class="text-tiny work text-gray-600 font-medium">
                         {{ createdAt.slice(0, 10) }}

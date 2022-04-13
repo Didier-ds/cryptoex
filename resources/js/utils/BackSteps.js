@@ -1,4 +1,4 @@
-export default function() {
+export default function () {
     const handleBackEvent = (callback) => {
         window.addEventListener('popstate', callback())
     }
