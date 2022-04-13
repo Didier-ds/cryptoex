@@ -51,7 +51,7 @@
 import SettingsLayout from '@/Layouts/SettingsLayout.vue'
 defineProps({
     banks: {
-        type: Object,
+        type: Array,
         default: () => [],
     },
 })

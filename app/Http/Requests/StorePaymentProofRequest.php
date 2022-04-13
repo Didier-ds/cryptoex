@@ -13,7 +13,7 @@ class StorePaymentProofRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,6 +25,8 @@ class StorePaymentProofRequest extends FormRequest
     {
         return [
             //
+            'amount' => 'required|numeric',
+            'image' => 'required|mimes:jpeg,png,jpg|max:1024'
         ];
     }
 }

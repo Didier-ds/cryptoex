@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\UserAccountController;
 use App\Http\Controllers\Admin\AdminDashboardController;
-use App\Http\Controllers\BtcTradeReceiptController;
+use App\Http\Controllers\BtcTransferProofController;
 use App\Http\Controllers\CardletController;
 use App\Http\Controllers\CardsController;
 use App\Http\Controllers\UserBankDetailsController;
@@ -45,7 +45,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
  Route::middleware(['auth:sanctum', 'verified'])->group(function(){
      Route::get('/giftcards', [CardsController::class, 'index'])->name('card.index');
      Route::get('/upload/{uuid}', [CardsController::class, 'isType'])->name('card.isType');
-     Route::get('/user/transactions', [CardletController::class, 'userCardlets']);  // To get user cardlet
+     Route::post('user/btc-transfer-proof-make/{uuid}', [BtcTransferProofController::class, 'store'])->name('proof.store');// To upload user btc transfer proof
+     Route::get('/user/transactions', [CardsController::class, 'index']);  
      Route::post('/users/cardlets-make/{Carduuid}', [CardletController::class, 'store']);  // To create cardlet
      Route::get('/settings/profile', [UserAccountController::class, 'index'])->name('account.index');
      Route::get('/settings/banks', [UserAccountController::class, 'banks'])->name('account.banks');
@@ -57,7 +58,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
 Route::middleware(['bank_account_check', 'auth:sanctum', 'verified'])->group(function(){
     Route::get('/giftcards', [CardsController::class, 'index'])->name('card.index');
     Route::get('/upload/{uuid}', [CardsController::class, 'isType'])->name('card.isType');
-    Route::get('/trade-crypto', [BtcTradeReceiptController::class, 'create'])->name('btc-receipt.create');
+    Route::get('/trade-crypto', [BtcTransferProofController::class, 'create'])->name('btc-receipt.create');
 });
 
 require 'admin.php';

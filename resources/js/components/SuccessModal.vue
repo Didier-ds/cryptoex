@@ -12,14 +12,14 @@
                         Successfull!!!
                     </h2>
                     <p class="text-lg work">
-                        Your Giftcard Has Been sent, You will credited once it
+                        Your <span><slot></slot></span> Has Been sent, You will credited once it
                         has been reviewed
                     </p>
                 </div>
                 <inertia-link
                     class="bg-cyan my-4 rounded work py-2 px-6 text-white font-medium shadow-md"
-                    href="/giftcards">
-                    Trade Again
+                    href="/">
+                    Trade More
                 </inertia-link>
                 <inertia-link
                     class="border-cyan-500 border border-3 my-4 rounded work py-2 px-6 text-cyan font-medium shadow-md"
@@ -37,10 +37,13 @@ import {
     clearAllBodyScrollLocks,
 } from 'body-scroll-lock'
 import { ref, onMounted, onUnmounted } from '@/utils'
-const redirect = (any) => {
-    // this.showSuccess.val = !this.showSuccess.val;
-    // this.$router.push({ name: any });
-}
+
+// defineProps([''])
+
+// const redirect = (any) => {
+//     // this.showSuccess.val = !this.showSuccess.val;
+//     // this.$router.push({ name: any });
+// }
 const SUCCESSMODAL = ref(null)
 onMounted(() => {
     disableBodyScroll(SUCCESSMODAL.value)

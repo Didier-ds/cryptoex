@@ -258,7 +258,7 @@
                 </section>
             </div>
         </div>
-        <SuccessModal v-if="isUploadedSuccessfully" />
+        <success-modal v-if="isUploadedSuccessfully">Giftcard</success-modal>
     </main-layout>
 </template>
 
