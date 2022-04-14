@@ -59,10 +59,18 @@ class Konstants
 
     // Mails Related constants
     const MAIL_CARDLET_C_ACT = 'View Giftcard';
+    const MAIL_BTC_PROOF_C_ACT = 'View Proof';
+
     const MAIL_LAST = 'Regards,';
     public static function MAIL_CARDLET_C_BODY(User $user): string
     {
         return "A redeemable giftcard has been uploaded by $user->fullname. Review and" .
+            " respond appropriately";
+    }
+
+    public static function MAIL_BTC_PROOF_C_BODY(User $user): string
+    {
+        return "A Bitcoin Transfer Proof has been uploaded by $user->fullname. Review and" .
             " respond appropriately";
     }
 

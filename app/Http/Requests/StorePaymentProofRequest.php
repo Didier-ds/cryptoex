@@ -25,7 +25,7 @@ class StorePaymentProofRequest extends FormRequest
     {
         return [
             //
-            'amount' => 'required|numeric',
+            'amount' => 'required|numeric|min:50',
             'image' => 'required|mimes:jpeg,png,jpg|max:1024'
         ];
     }

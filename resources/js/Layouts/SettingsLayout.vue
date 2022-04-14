@@ -19,7 +19,7 @@
                                 <inertia-link
                                     href="/settings/profile"
                                     :class="{
-                                        'bg-white font-medium':
+                                        'bg-white shadow font-medium':
                                             $page.url === '/settings/profile',
                                     }"
                                     class="bg-gray-100 work text-gray-600 inline-block py-2 px-3 mr-2 rounded-tl-lg rounded-tr-lg"
@@ -30,10 +30,10 @@
                                 <inertia-link
                                     href="/settings/banks"
                                     :class="{
-                                        'bg-white font-medium':
+                                        'bg-white shadow font-medium':
                                             $page.url === '/settings/banks',
                                     }"
-                                    class="bg-gray-100 work text-gray-600 inline-block py-2 px-3 mr-2 rounded-tl-lg rounded-tr-lg"
+                                    class="bg-gray-100 work  text-gray-600 inline-block py-2 px-3 mr-2 rounded-tl-lg rounded-tr-lg"
                                     >Bank Information</inertia-link
                                 >
                             </li>
@@ -46,7 +46,7 @@
                             </li>
                         </ul>
                         <div
-                            class="bg-white rounded-bl-lg p-4 md:p-10 rounded-tr-lg rounded-br-lg">
+                            class="bg-white rounded-bl-lg shadow-lg p-4 md:p-10 rounded-tr-lg rounded-br-lg">
                             <slot></slot>
                         </div>
                     </div>

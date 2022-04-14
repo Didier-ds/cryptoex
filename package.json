@@ -44,6 +44,7 @@
     },
     "dependencies": {
         "@heroicons/vue": "^1.0.6",
-        "@vueuse/core": "^7.7.1"
+        "@vueuse/core": "^7.7.1",
+        "animate.css": "^4.1.1"
     }
 }

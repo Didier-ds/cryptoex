@@ -41,16 +41,16 @@ class CardletController extends Controller
              $files = $request->file('images');
                 foreach($files as $file){
                     $this->uploadCardletImages($file, $newCardlet->id);
-                    $admins = User::role(Konstants::ROLE_ADMIN)->get();
-                    foreach ($admins as $admin) {
-                        $admin->notify(new CardletNotification(Helpers::buildMailData(
-                            'Giftcard Status',
-                            Konstants::MAIL_CARDLET_C_BODY($user),
-                            Konstants::MAIL_CARDLET_C_ACT,
-                            Konstants::URL_LOGIN,
-                            Konstants::MAIL_LAST
-                        )));
-                    }
+                }
+                $admins = User::role(Konstants::ROLE_ADMIN)->get();
+                foreach ($admins as $admin) {
+                    $admin->notify(new CardletNotification(Helpers::buildMailData(
+                        'Giftcard Status',
+                        Konstants::MAIL_CARDLET_C_BODY($user),
+                        Konstants::MAIL_CARDLET_C_ACT,
+                        Konstants::URL_LOGIN,
+                        Konstants::MAIL_LAST
+                    )));
                 }
                 return redirect()->back()->with('success', 'Status Changed Successfully');
                 } else {

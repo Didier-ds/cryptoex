@@ -11,6 +11,9 @@
                     </h2>
                 </div>
             </div>
+           
+                    <JetValidationErrors />
+              
             <div class="max-w-lg mx-auto p-4">
                 <div class="flex py-4 mb-2">
                     <div class="w-6 mr-1 h-2 bg-primary"></div>
@@ -49,6 +52,7 @@
                     <div class="my-4 w-full">
                         <button
                             v-ripple
+                            :disabled="TOTAL_AMOUNT <= 0"
                             class="px-4 w-full mx-auto md:w-8/12 work py-3 block relative shadow-lg bg-primary rounded text-white font-medium"
                             @click="nextStep">
                             Proceed
@@ -132,6 +136,7 @@
                     <div class="my-4 w-full">
                         <button
                             v-ripple
+                            :disabled="form.processing"
                             class="px-4 w-full mx-auto md:w-8/12 work py-3 block relative shadow-lg bg-primary rounded text-white font-medium"
                             @click="nextStep">
                             Upload
@@ -147,6 +152,7 @@
 <script setup>
 import MainLayout from '@/Layouts/MainLayout'
 import { AssetsDropdown } from '../components/CryptoTradeComponents'
+import JetValidationErrors from '@/Jetstream/ValidationErrors.vue'
 import SuccessModal from '@/components/SuccessModal.vue'
 import { ref, computed, useForm } from '@/utils'
 import { useQuasar } from 'quasar'

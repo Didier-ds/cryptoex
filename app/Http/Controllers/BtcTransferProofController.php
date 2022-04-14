@@ -6,6 +6,9 @@ use App\Helpers\Helpers;
 use App\Http\Requests\StorePaymentProofRequest;
 use App\Models\BtcTransferProof;
 use App\Models\BtcVendor;
+use App\Models\Konstants;
+use App\Models\User;
+use App\Notifications\CardletNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
@@ -45,6 +48,7 @@ class BtcTransferProofController extends Controller
         //
         $vendor = BtcVendor::where('uuid', $vendor_uuid)->first();
         $filename = Helpers::runImageUpload($request->image, 'payment_proofs');
+        $user = auth()->user();
         BtcTransferProof::create([
             'uuid' => Str::uuid(),
             'vendor_name' => $vendor->name,
@@ -53,6 +57,16 @@ class BtcTransferProofController extends Controller
             'filename' => $filename,
             'user_id' => auth()->id(),
         ]);
+        $admins = User::role(Konstants::ROLE_ADMIN)->get();
+                foreach ($admins as $admin) {
+                    $admin->notify(new CardletNotification(Helpers::buildMailData(
+                        'Bitcoin Proof Status',
+                        Konstants::MAIL_BTC_PROOF_C_BODY($user),
+                        Konstants::MAIL_BTC_PROOF_C_ACT,
+                        Konstants::URL_LOGIN,
+                        Konstants::MAIL_LAST
+                    )));
+                }
         return redirect()->back()->with('success', 'Proof Uploaded Successfully');
 
     }

@@ -46,7 +46,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
      Route::get('/giftcards', [CardsController::class, 'index'])->name('card.index');
      Route::get('/upload/{uuid}', [CardsController::class, 'isType'])->name('card.isType');
      Route::post('user/btc-transfer-proof-make/{uuid}', [BtcTransferProofController::class, 'store'])->name('proof.store');// To upload user btc transfer proof
-     Route::get('/user/transactions', [CardsController::class, 'index']);  
+     Route::get('/user/transactions', [CardletController::class, 'userCardlets']);  
      Route::post('/users/cardlets-make/{Carduuid}', [CardletController::class, 'store']);  // To create cardlet
      Route::get('/settings/profile', [UserAccountController::class, 'index'])->name('account.index');
      Route::get('/settings/banks', [UserAccountController::class, 'banks'])->name('account.banks');

@@ -16,7 +16,7 @@ const toggleModal = () => {
 const logout = () => {
     // eslint-disable-next-line no-undef
     Inertia.post(route('logout'))
-    emits('toggleModal')
+    // emits('toggleModal')
 }
 // const toggleSideBar = () => {
 
