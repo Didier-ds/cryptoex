@@ -27,7 +27,7 @@
                             </div>
                         </inertia-link>
                         <inertia-link
-                            href="/trade-crypto"
+                            href="/sell-bitcoin"
                             class="action_btn select-none rounded-md flex flex-col justify-center dark items-center p-4 border shadow-md bitcoin_btn p-ripple lightcyan">
                             <div class="card-logo w-16 my-3">
                                 <img
