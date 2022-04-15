@@ -1,8 +1,8 @@
 <template>
     <admin-layout>
-        <p class="font-medium text-xl">All Users</p>
+        <p class="font-medium text-xl p-2">All Users</p>
         <div
-            class="shadow-lg overflow-hidden border-b border-gray-200 work border-dashed sm:rounded-lg m-4">
+            class="shadow-lg overflow-x-scroll border-b border-gray-200 work border-dashed sm:rounded-lg m-4">
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                     <tr>

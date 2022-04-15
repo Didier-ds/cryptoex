@@ -12,12 +12,12 @@
                         Successfull!!!
                     </h2>
                     <p class="text-lg work">
-                        Your <span><slot></slot></span> Has Been sent, You will credited once it
-                        has been reviewed
+                        Your <span><slot></slot></span> Has Been sent, You will
+                        credited once it has been reviewed
                     </p>
                 </div>
                 <inertia-link
-                v-ripple
+                    v-ripple
                     class="bg-primary relative my-4 rounded work py-2 px-6 text-white font-medium shadow-md"
                     href="/">
                     Trade More

@@ -146,7 +146,6 @@
                             <div class="my-4 w-full">
                                 <button
                                     v-ripple
-                                    
                                     class="px-4 w-full mx-auto md:w-8/12 py-3 block work relative shadow-lg bg-primary rounded text-white font-medium"
                                     @click="moveToTwo">
                                     Next

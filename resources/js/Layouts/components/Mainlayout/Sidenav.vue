@@ -42,9 +42,7 @@
         </div>
         <div class="link_list">
             <!-- :class="$route.path === '/' ? 'selectedLink' : ''" -->
-            <inertia-link
-                :class="{'active': $page.url === '/'}"
-             href="/">
+            <inertia-link :class="{ active: $page.url === '/' }" href="/">
                 <div class="link_icon">
                     <svg
                         width="24"
@@ -67,8 +65,8 @@
             </inertia-link>
             <!-- :class="$route.path === '/transactions' ? 'selectedLink' : ''" -->
             <inertia-link
-                :class="{'active': $page.url === '/user/transactions'}"
-             href="/user/transactions">
+                :class="{ active: $page.url === '/user/transactions' }"
+                href="/user/transactions">
                 <div class="link_icon">
                     <svg
                         width="24"
@@ -93,8 +91,9 @@
             </inertia-link>
             <!-- :class="$route.path === '/account-details' ? 'selectedLink' : ''" -->
             <inertia-link
-                :class="{'active': $page.url === ''}"
-             href="" @click="changeRoute('/account-details')">
+                :class="{ active: $page.url === '' }"
+                href=""
+                @click="changeRoute('/account-details')">
                 <div class="link_icon">
                     <svg
                         width="24"
@@ -118,8 +117,8 @@
             </inertia-link>
             <!-- :class="$route.path === '/profile' ? 'selectedLink' : ''"  -->
             <inertia-link
-                :class="{'active': $page.url.startsWith('/settings')}"
-             :href="route('account.index')">
+                :class="{ active: $page.url.startsWith('/settings') }"
+                :href="route('account.index')">
                 <div class="link_icon">
                     <svg
                         width="24"
@@ -214,7 +213,7 @@ export default {
     a:hover {
         background-color: #f8f9fb;
     }
-     a.active {
+    a.active {
         background-color: var(--q-primary);
         color: white;
         margin-left: 1.5em;

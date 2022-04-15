@@ -1,64 +1,92 @@
-<script setup>
-import { useStore } from 'vuex'
-import { ref, tablet, computed } from '@/utils'
-import Header from './components/Adminlayout/Header.vue'
-import Sidebar from './components/Adminlayout/Sidebar.vue'
-import Footer from './components/Adminlayout/Footer.vue'
+<template>
+    <div id="main" class="relative bg-gray-50">
+        <div
+            class="overlay"
+            :class="isSideBar ? 'active' : ''"
+            @click="toggleSideBar"></div>
 
-let store = useStore()
-const isMobile = computed(() => {
-    return tablet ? true : false
-})
-const isSideBar = ref(isMobile.value)
+        <div id="layout">
+            <SideNav
+                :is-side-bar="isSideBar"
+                @toggle-side-bar="toggleSideBar" />
+            <main class="overflow-x-hidden">
+                <Header @toggle-side-bar="toggleSideBar" />
+                <div class="bg-gray-50 rounded-lg">
+                    <slot></slot>
+                </div>
+            </main>
+        </div>
+
+        <!-- <Toast class="custom" /> -->
+        <!-- <Footer /> -->
+        <!-- 
+    <Spinner v-if="isLoading" />
+    <SuccessModal :isSuccess="isSuccess" /> -->
+        <!-- <AccountForm @FormClickAway = "ClickAway" v-if="isShowForm"/> -->
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import Header from './components/Mainlayout/Header.vue'
+import SideNav from './components/Adminlayout/Sidebar.vue'
+const isSideBar = ref(false)
 const toggleSideBar = () => {
     isSideBar.value = !isSideBar.value
 }
 </script>
 
-<template>
-    <div class="app-admin-wrap-layout-2">
-        <Header @toggle-side-bar="toggleSideBar" />
-        <Sidebar :is-side-bar="isSideBar" @toggle-side-bar="toggleSideBar" />
-
-        <div :class="isSideBar ? '' : 'full'" class="main-content-wrap">
-            <main>
-                <div
-                    class="main-content-wrap flex flex-col flex-grow print-area pt-10">
-                    <div>
-                        <slot></slot>
-                    </div>
-
-                    <!-- <Footer /> -->
-                </div>
-            </main>
-        </div>
-    </div>
-</template>
-
 <style lang="scss" scoped>
-.app-admin-wrap-layout-2 {
-    width: 100%;
-    height: 100%;
-    .main-content-wrap {
-        width: calc(100% - 120px);
-        margin-left: 90px;
-        // min-height: 100vh;
-        margin-top: 80px;
-        transition: all 0.24s ease-in-out;
-        .main-content-body {
-            min-height: calc(100vh - 80px);
-        }
-        &.full {
-            width: 100%;
-            margin-left: 0px;
-            transition: all 0.24s ease-in-out;
-        }
-        @media screen and (max-width: 991px) {
-            width: 100%;
-            margin-left: 0px;
-            padding-right: 4px;
-            padding-left: 4px;
-        }
+@media (min-width: 769px) {
+    #layout {
+        display: grid;
+
+        grid-template-columns: minmax(180px, 280px) 1fr;
     }
+}
+#layout {
+    min-height: 100vh;
+}
+input {
+    appearance: none !important;
+}
+
+main {
+    transition: 0.5s ease-in-out;
+    // margin-top: 40px;
+    // margin-bottom: 50px;
+    // position: relative;
+}
+
+// @media (min-width: 769px) {
+//     main {
+//         margin-left: 325px;
+//     }
+// }
+// #view {
+//   width: calc(100vw - 260px);
+//   margin-left: 240px;
+//   padding: 1rem 1.2rem;
+// }
+.overlay {
+    background-color: #00000045;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+}
+@media (max-width: 769px) {
+    .overlay.active {
+        opacity: 1;
+        display: block;
+    }
+    // #view {
+    //   width: 100%;
+    //   margin-left: 0px;
+    // }
 }
 </style>

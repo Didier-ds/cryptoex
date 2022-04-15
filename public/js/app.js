@@ -281,6 +281,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 var appName = 'Laravel';
+
 (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.createInertiaApp)({
   title: function title(_title) {
     return "".concat(_title, " - ").concat(appName);
@@ -327,10 +328,9 @@ var appName = 'Laravel';
       }
     }).mount(el);
   }
-});
-_inertiajs_progress__WEBPACK_IMPORTED_MODULE_3__.InertiaProgress.init({
-  color: '#00c2ff'
-});
+}); // InertiaProgress.init({ color: '#00c2ff' });
+
+quasar__WEBPACK_IMPORTED_MODULE_7__.LoadingBar.start();
 
 /***/ }),
 
@@ -386,10 +386,11 @@ __webpack_require__.r(__webpack_exports__);
 
  // To be used on app.use(Quasar, { ... })
 
+var primary = '#00C2FF';
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   config: {
     brand: {
-      primary: '#00C2FF',
+      primary: primary,
       //'#DE3618',
       secondary: '#04172a' // ... or all other brand colors
 
@@ -399,11 +400,16 @@ __webpack_require__.r(__webpack_exports__);
     },
     notify: {
       /* look at QuasarConfOptions from the API card */
+    },
+    loadingBar: {
+      size: '3px',
+      color: 'primary'
     }
   },
   plugins: {
     Loading: quasar__WEBPACK_IMPORTED_MODULE_3__.Loading,
-    Notify: quasar__WEBPACK_IMPORTED_MODULE_3__.Notify
+    Notify: quasar__WEBPACK_IMPORTED_MODULE_3__.Notify,
+    LoadingBar: quasar__WEBPACK_IMPORTED_MODULE_3__.LoadingBar
   }
 });
 

@@ -880,7 +880,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)($props.isSideBar ? 'active' : '')
   }, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" :class=\"$route.path === '/' ? 'selectedLink' : ''\" "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
-      'active': _ctx.$page.url === '/'
+      active: _ctx.$page.url === '/'
     }),
     href: "/"
   }, {
@@ -894,7 +894,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , ["class"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" :class=\"$route.path === '/transactions' ? 'selectedLink' : ''\" "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
-      'active': _ctx.$page.url === '/user/transactions'
+      active: _ctx.$page.url === '/user/transactions'
     }),
     href: "/user/transactions"
   }, {
@@ -908,7 +908,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , ["class"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" :class=\"$route.path === '/account-details' ? 'selectedLink' : ''\" "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
-      'active': _ctx.$page.url === ''
+      active: _ctx.$page.url === ''
     }),
     href: "",
     onClick: _cache[0] || (_cache[0] = function ($event) {
@@ -925,7 +925,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , ["class"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" :class=\"$route.path === '/profile' ? 'selectedLink' : ''\"  "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
-      'active': _ctx.$page.url.startsWith('/settings')
+      active: _ctx.$page.url.startsWith('/settings')
     }),
     href: _ctx.route('account.index')
   }, {
@@ -1632,7 +1632,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "header[data-v-db50f4b8] {\n  z-index: 5;\n}\n@media (min-width: 769px) {\n.myHidden[data-v-db50f4b8] {\n    display: block !important;\n}\n}\n.disabled[data-v-db50f4b8], .disabled *[data-v-db50f4b8], [disabled][data-v-db50f4b8], [disabled] *[data-v-db50f4b8] {\n  outline: 0 !important;\n  cursor: default !important;\n  opacity: 1 !important;\n}\n.fade-enter-active[data-v-db50f4b8],\n.fade-leave-active[data-v-db50f4b8] {\n  transition: 0.2s ease-in-out;\n}\n.fade-enter[data-v-db50f4b8], .fade-leave-to[data-v-db50f4b8] {\n  opacity: 0;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "header[data-v-db50f4b8] {\n  z-index: 5;\n}\n@media (min-width: 769px) {\n.myHidden[data-v-db50f4b8] {\n    display: block !important;\n}\n}\n.disabled[data-v-db50f4b8],\n.disabled *[data-v-db50f4b8],\n[disabled][data-v-db50f4b8],\n[disabled] *[data-v-db50f4b8] {\n  outline: 0 !important;\n  cursor: default !important;\n  opacity: 1 !important;\n}\n.fade-enter-active[data-v-db50f4b8],\n.fade-leave-active[data-v-db50f4b8] {\n  transition: 0.2s ease-in-out;\n}\n.fade-enter[data-v-db50f4b8], .fade-leave-to[data-v-db50f4b8] {\n  opacity: 0;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

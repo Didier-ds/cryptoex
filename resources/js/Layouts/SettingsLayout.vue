@@ -33,7 +33,7 @@
                                         'bg-white shadow font-medium':
                                             $page.url === '/settings/banks',
                                     }"
-                                    class="bg-gray-100 work  text-gray-600 inline-block py-2 px-3 mr-2 rounded-tl-lg rounded-tr-lg"
+                                    class="bg-gray-100 work text-gray-600 inline-block py-2 px-3 mr-2 rounded-tl-lg rounded-tr-lg"
                                     >Bank Information</inertia-link
                                 >
                             </li>

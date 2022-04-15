@@ -1,8 +1,7 @@
 <template>
-    <transition 
-                enter-active-class="animate__animated  animate__shakeX" 
-                leave-active-class="animate__animated  animate__fadeOut"
-                >
+    <transition
+        enter-active-class="animate__animated  animate__shakeX"
+        leave-active-class="animate__animated  animate__fadeOut">
         <div v-if="hasErrors">
             <ul
                 class="mt-3 border border-red-300 rounded work list-disc p-2 w-fit bg-red-100/50 max-w-lg mx-auto list-inside text-xs text-red-600">

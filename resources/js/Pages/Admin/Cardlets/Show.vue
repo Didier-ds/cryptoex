@@ -1,7 +1,7 @@
 <template>
     <admin-layout>
         <!-- {{data}} -->
-        <div class="flex justify-between work items-center">
+        <div class="flex justify-between work items-center p-4">
             <p class="font-medium work text-lg capitalize">
                 {{ data.name }} giftcard
             </p>
