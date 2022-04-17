@@ -1,5 +1,5 @@
 <template>
-    <div id="sidebar" class="work" :class="isSideBar ? 'active' : ''">
+    <div id="sidebar" class="work " :class="isSideBar ? 'active' : ''">
         <div
             class="flex justify-center my-5 items-center uppercase select-none flex-row">
             <div>
@@ -41,7 +41,7 @@
             </p>
         </div>
         
-            <div class="w-full mt-[5em]">
+            <div class="w-full text-base mt-[5em]">
                 <Disclosure v-slot="{ open }">
                     <DisclosureButton
                     class="flex justify-between w-full py-2  font-medium text-left  focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75"

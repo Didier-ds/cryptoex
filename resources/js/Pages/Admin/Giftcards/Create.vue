@@ -116,6 +116,13 @@
 
                         <!-- <q-input @update:model-value="val => { form.image = val[0] }" class="m-2" standout type="file" @change="handleChange" outlined label="icon_url"/> -->
                     </div>
+                    <div class="q-mt-xl">
+                        <q-range
+                        name="price_range"
+                        v-model="range"
+                        label-always
+                        />
+                    </div>
                 </div>
                 <div class="flex p-4">
                     <q-btn
@@ -145,7 +152,10 @@ const form = useForm({
     min: '',
     max: '',
 })
-
+const range = ref({
+        min: 10,
+        max: 50
+      })
 defineProps({
     cardnames: {
         type: Array,

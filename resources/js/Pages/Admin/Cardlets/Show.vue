@@ -77,15 +77,23 @@
                                 Rate
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900">
-                                {{ data.rate }}
+                                &#8358;{{ data.rate }}
+                            </dd>
+                        </div>
+                        <div class="sm:col-span-1">
+                            <dt class="text-sm font-medium text-gray-500">
+                                Price
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900">
+                                ${{ data.amount }}
                             </dd>
                         </div>
                         <div class="sm:col-span-1">
                             <dt class="text-sm font-medium text-gray-500">
                                 Amount
                             </dt>
-                            <dd class="mt-1 text-sm text-gray-900">
-                                {{ data.amount }}
+                            <dd class="mt-1 text-sm font-medium text-gray-900">
+                                &#8358;{{ data.amount * data.rate }}
                             </dd>
                         </div>
                         <div class="sm:col-span-1">
@@ -137,15 +145,6 @@
                                 {{ data.user.fullname }}
                             </dd>
                         </div>
-                        <!-- email -->
-                        <div class="sm:col-span-1">
-                            <dt class="text-sm font-medium text-gray-500">
-                                Email
-                            </dt>
-                            <dd class="mt-1 text-sm text-gray-900">
-                                {{ data.user.email }}
-                            </dd>
-                        </div>
                         <!-- phone -->
                         <div class="sm:col-span-1">
                             <dt class="text-sm font-medium text-gray-500">
@@ -155,6 +154,16 @@
                                 {{ data.user.phone }}
                             </dd>
                         </div>
+                        <!-- email -->
+                        <div class="sm:col-span-1">
+                            <dt class="text-sm font-medium text-gray-500">
+                                Email
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900">
+                                {{ data.user.email }}
+                            </dd>
+                        </div>
+                        
                     </dl>
                 </div>
                 <div class="px-4 py-5 sm:px-6">

@@ -1,8 +1,13 @@
 <template>
     <admin-layout>
-        <p class="font-medium text-xl p-2">All Uploaded Giftcards</p>
+        <div class="flex flex-row justify-between items-center mx-4">
+                <div class="my-1">
+                    <GoBack />
+                </div>
+                <p class="font-medium text-xl p-2">All Uploaded Giftcards</p>
+            </div>
         <div
-            class="shadow-lg overflow-x-scroll border-b border-gray-200 work border-dashed sm:rounded-lg p-2">
+            class="shadow-lg overflow-x-scroll border border-gray-200 work border-dashed rounded-lg m-4">
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                     <tr>
@@ -19,8 +24,7 @@
                         <th
                             scope="col"
                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Price |
-                            <span class="text-cyan font-medium">Rate</span>
+                            Price 
                         </th>
 
                         <th
@@ -57,11 +61,11 @@
                             {{ cardlet.type }}
                         </td>
                         <td
-                            class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">
+                            class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 font-medium capitalize">
                             ${{ cardlet.amount }}
                         </td>
                         <td
-                            class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">
+                            class="px-6 py-4 whitespace-nowrap text-sm text-gray-800  capitalize">
                             &#8358;{{ cardlet.rate }}
                         </td>
                         <!-- <td
@@ -82,7 +86,7 @@
                             </q-badge>
                         </td>
                         <td
-                            class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">
+                            class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 font-medium capitalize">
                             &#8358;{{ +cardlet.amount * +cardlet.rate }}
                         </td>
                         <td
@@ -96,6 +100,25 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+        <div>
+            <div
+                v-for="cardlet in cardlets" :key="cardlet.id"
+                        class="border work m-4 bg-white shadow p-3 rounded ">
+                <div></div>
+                <div>
+                    <div class="flex items-center pb-1 justify-between">
+                        <p class="font-medium text-base">{{cardlet.name}}</p>
+                        <p class="font-semibold">${{cardlet.amount}}</p>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <q-badge :color="statusColor(cardlet.status)">
+                            {{ cardlet.status }}
+                        </q-badge>
+                        <p class="texdt-gray-600 text-sm">{{cardlet.created_at.slice(0, 10)}}</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </admin-layout>
 </template>
