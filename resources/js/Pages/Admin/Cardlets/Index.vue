@@ -102,9 +102,9 @@
             </table>
         </div>
         <div>
-            <div
+            <inertia-link :href="route('cardlet.show', cardlet.id)"
                 v-for="cardlet in cardlets" :key="cardlet.id"
-                        class="border work m-4 bg-white shadow p-3 rounded ">
+                        class="border block work m-4 bg-white shadow p-3 rounded ">
                 <div></div>
                 <div>
                     <div class="flex items-center pb-1 justify-between">
@@ -115,10 +115,10 @@
                         <q-badge :color="statusColor(cardlet.status)">
                             {{ cardlet.status }}
                         </q-badge>
-                        <p class="texdt-gray-600 text-sm">{{cardlet.created_at.slice(0, 10)}}</p>
+                        <p class="text-gray-700 text-sm">{{cardlet.created_at.slice(0, 10)}}</p>
                     </div>
                 </div>
-            </div>
+            </inertia-link>
         </div>
     </admin-layout>
 </template>
