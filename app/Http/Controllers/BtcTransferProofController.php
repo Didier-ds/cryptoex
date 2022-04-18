@@ -97,6 +97,23 @@ class BtcTransferProofController extends Controller
         //
     }
 
+
+    /**
+     * Display a listing of the resource to admin.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function admin_show($id)
+    {
+        //
+        $data = BtcTransferProof::where('id', $id)->first();
+        $user = User::where('id', $data->user_id)->with('bankDetails')->first();
+        $data->user = $user;
+        return Inertia::render('Admin/BtcTransferProof/Show', ['data' => $data]);
+
+    }
+
+
     /**
      * Show the form for editing the specified resource.
      *
