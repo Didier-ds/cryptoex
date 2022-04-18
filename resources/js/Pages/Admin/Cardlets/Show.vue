@@ -1,7 +1,10 @@
 <template>
     <admin-layout>
         <!-- {{data}} -->
-        <div class="flex justify-between work items-center p-4">
+        <div class="m-4 inline-block">
+                    <GoBack />
+                </div>
+        <div class="flex justify-between px-2 lg:px-8 max-w-4xl mx-auto work items-center p-4">
             <p class="font-medium work text-lg capitalize">
                 {{ data.name }} giftcard
             </p>
@@ -9,13 +12,13 @@
             <div class="py-2 flex gap-2">
                 <button
                     class="flex-0 items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                    @click="CHANGE_STATUS('success')">
+                    @click="CHANGE_STATUS('paid')">
                     Accept Card
                 </button>
 
                 <button
                     class="flex-0 items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-                    @click="CHANGE_STATUS('failed')">
+                    @click="CHANGE_STATUS('cancelled')">
                     Reject Card
                 </button>
 

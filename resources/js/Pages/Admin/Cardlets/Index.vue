@@ -5,7 +5,7 @@
                 <div class="my-1">
                     <GoBack />
                 </div>
-                <p class="font-medium text-xl p-2">All Uploaded Giftcards</p>
+                <p class="font-medium text-xl p-2">Uploaded Giftcards</p>
             </div>
             <div class="flex work justify-end mx-4">
                 <Menu as="div" class="relative inline-block text-left">
@@ -29,8 +29,21 @@
                         <MenuItems
                             class="absolute right-0 w-56 z-10 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                             <div class="px-1 py-1">
+                                <MenuItem  v-slot="{ active }">
+                                    <inertia-link
+                                        href="/admin/cardlets"
+                                        :class="[
+                                            active
+                                                ? 'bg-violet-500 text-white'
+                                                : 'text-gray-900',
+                                            'group block rounded-md capitalize items-center w-full px-2 py-2 text-sm',
+                                        ]">
+                                        All giftcards
+                                    </inertia-link>
+                                </MenuItem>
                                  <MenuItem v-for="(status, index) in statuses" v-slot="{ active }" :key="index">
                                     <inertia-link
+                                    :href="'?status='+status"
                                         :class="[
                                             active
                                                 ? 'bg-violet-500 text-white'

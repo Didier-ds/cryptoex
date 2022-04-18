@@ -21,10 +21,10 @@ class AdminCardletController extends Controller
      */
     public function index(Request $request)
     {
-        $type = $request->query('type');
+        $status = $request->query('status');
         $allCardlets = [];
-        if($type){
-            $allCardlets = Cardlet::Where('status', $type)->get();
+        if($status){
+            $allCardlets = Cardlet::Where('status', $status)->get();
         } else {
             $allCardlets = Cardlet::orderBy('created_at','desc')->with('images')->get();
         }

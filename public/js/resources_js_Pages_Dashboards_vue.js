@@ -1182,11 +1182,11 @@ var statusColor = function statusColor(status) {
       color = 'orange';
       break;
 
-    case 'success':
+    case 'paid':
       color = 'green';
       break;
 
-    case 'failed':
+    case 'cancelled':
       color = 'red';
       break;
 
