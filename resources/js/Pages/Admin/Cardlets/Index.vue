@@ -6,7 +6,7 @@
                 </div>
                 <p class="font-medium text-xl p-2">All Uploaded Giftcards</p>
             </div>
-        <div
+        <div v-if="tablet"
             class="shadow-lg overflow-x-scroll border border-gray-200 work border-dashed rounded-lg m-4">
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
@@ -101,7 +101,7 @@
                 </tbody>
             </table>
         </div>
-        <div>
+        <div v-else>
             <inertia-link :href="route('cardlet.show', cardlet.id)"
                 v-for="cardlet in cardlets" :key="cardlet.id"
                         class="border block work m-4 bg-white shadow p-3 rounded ">
@@ -112,10 +112,10 @@
                         <p class="font-semibold">${{cardlet.amount}}</p>
                     </div>
                     <div class="flex items-center justify-between">
+                        <p class="text-gray-700 text-sm">{{cardlet.created_at.slice(0, 10)}}</p>
                         <q-badge :color="statusColor(cardlet.status)">
                             {{ cardlet.status }}
                         </q-badge>
-                        <p class="text-gray-700 text-sm">{{cardlet.created_at.slice(0, 10)}}</p>
                     </div>
                 </div>
             </inertia-link>
@@ -125,7 +125,7 @@
 
 <script setup>
 import AdminLayout from '@/Layouts/AdminLayout.vue'
-import { statusColor } from '@/utils'
+import { statusColor, tablet } from '@/utils'
 defineProps({
     cardlets: {
         type: Array,

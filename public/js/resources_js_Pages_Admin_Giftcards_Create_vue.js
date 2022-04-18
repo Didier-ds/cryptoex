@@ -244,16 +244,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       type: '',
       country: '',
       rate: '',
-      min: '',
-      max: ''
+      min: 50,
+      max: 100
     });
-    var range = ref({
-      min: 10,
-      max: 50
+    var range = (0,_utils__WEBPACK_IMPORTED_MODULE_2__.ref)({
+      min: 50,
+      max: 100
     });
 
     var submit = function submit() {
       // form.filename = `https://drive.google.com/uc?id=${form.filename}`
+      var _range$value = range.value,
+          min = _range$value.min,
+          max = _range$value.max;
+      form.min = min;
+      form.max = max;
       form.transform(function (data) {
         return _objectSpread({}, data);
       }) // eslint-disable-next-line no-undef
@@ -284,6 +289,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       AdminLayout: _Layouts_AdminLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
       JetValidationErrors: _Jetstream_ValidationErrors_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
       useForm: _utils__WEBPACK_IMPORTED_MODULE_2__.useForm,
+      ref: _utils__WEBPACK_IMPORTED_MODULE_2__.ref,
       useQuasar: quasar__WEBPACK_IMPORTED_MODULE_3__.useQuasar
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
@@ -965,64 +971,90 @@ var _hoisted_6 = {
 var _hoisted_7 = {
   "class": "grid sm:grid-cols-2"
 };
+var _hoisted_8 = {
+  "class": "mb-2"
+};
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "type",
-  "class": "text-base work font-medium pb-2"
+  "class": "block my-1 work font-medium pb-2"
 }, " Card Type ", -1
 /* HOISTED */
 );
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
   disabled: "",
   value: ""
 }, " Please select giftcard ", -1
 /* HOISTED */
 );
 
-var _hoisted_10 = ["value"];
+var _hoisted_11 = ["value"];
+var _hoisted_12 = {
+  "class": "mb-2"
+};
 
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "type",
-  "class": "text-base work font-medium pb-2"
+  "class": "block my-1 work font-medium pb-2"
 }, " Card country ", -1
 /* HOISTED */
 );
 
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
   disabled: "",
   value: ""
 }, " Please select country ", -1
 /* HOISTED */
 );
 
-var _hoisted_13 = ["value"];
-var _hoisted_14 = {
+var _hoisted_15 = ["value"];
+var _hoisted_16 = {
   "class": "grid sm:grid-cols-2"
 };
+var _hoisted_17 = {
+  "class": "mb-2"
+};
 
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "type",
-  "class": "text-base work font-medium pb-2"
+  "class": "block my-1 work font-medium pb-2"
 }, " Card Receipt ", -1
 /* HOISTED */
 );
 
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
   disabled: "",
   value: ""
 }, " Please select type ", -1
 /* HOISTED */
 );
 
-var _hoisted_17 = ["value"];
-var _hoisted_18 = {
-  "class": "grid sm:grid-cols-2"
+var _hoisted_20 = ["value"];
+var _hoisted_21 = {
+  "class": "mb-2"
 };
-var _hoisted_19 = {
+
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "type",
+  "class": "my-1 work font-medium pb-2"
+}, " Card Rate ", -1
+/* HOISTED */
+);
+
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "my-1 work font-medium"
+}, "Card Price Range", -1
+/* HOISTED */
+);
+
+var _hoisted_24 = {
   "class": "q-mt-xl"
 };
-var _hoisted_20 = {
+var _hoisted_25 = {
+  "class": "grid grid-cols-2"
+};
+var _hoisted_26 = {
   "class": "flex p-4"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -1041,7 +1073,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         onSubmit: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)($setup.submit, ["prevent"])
       }, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["JetValidationErrors"], {
         "class": "px-2"
-      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
         id: "category",
         "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
           return $setup.form.name = $event;
@@ -1049,18 +1081,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         required: "",
         "class": "p-2 py-3 capitalize font-medium rounded-md shadow-sm border",
         name: "category"
-      }, [_hoisted_9, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.cardnames, function (card) {
+      }, [_hoisted_10, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.cardnames, function (card) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
           key: card,
           value: card.name
         }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(card.name), 9
         /* TEXT, PROPS */
-        , _hoisted_10);
+        , _hoisted_11);
       }), 128
       /* KEYED_FRAGMENT */
       ))], 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $setup.form.name]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $setup.form.name]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
         id: "category",
         "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
           return $setup.form.country = $event;
@@ -1068,19 +1100,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         required: "",
         "class": "p-2 py-3 uppercase font-medium rounded-md shadow-sm border",
         name: "category"
-      }, [_hoisted_12, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.currencies, function (currency) {
+      }, [_hoisted_14, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.currencies, function (currency) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
           key: currency,
           "class": "uppercase",
           value: currency.currency
         }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(currency.currency), 9
         /* TEXT, PROPS */
-        , _hoisted_13);
+        , _hoisted_15);
       }), 128
       /* KEYED_FRAGMENT */
       ))], 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $setup.form.country]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $setup.form.country]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
         id: "category",
         "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
           return $setup.form.type = $event;
@@ -1088,63 +1120,65 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         required: "",
         "class": "p-2 py-3 capitalize font-medium rounded-md shadow-sm border",
         name: "category"
-      }, [_hoisted_16, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.receipt_types, function (receipt) {
+      }, [_hoisted_19, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.receipt_types, function (receipt) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
           key: receipt,
           value: receipt.name
         }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(receipt.name), 9
         /* TEXT, PROPS */
-        , _hoisted_17);
+        , _hoisted_20);
       }), 128
       /* KEYED_FRAGMENT */
       ))], 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $setup.form.type]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_input, {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $setup.form.type]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_input, {
         modelValue: $setup.form.rate,
         "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
           return $setup.form.rate = $event;
         }),
-        "class": "m-2",
-        standout: "",
+        "class": "px-2 border rounded",
         type: "number",
-        outlined: "",
+        dense: "",
+        borderless: "",
         label: "rate"
       }, null, 8
       /* PROPS */
-      , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_input, {
-        modelValue: $setup.form.min,
+      , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <q-input @update:model-value=\"val => { form.image = val[0] }\" class=\"m-2\" standout type=\"file\" @change=\"handleChange\" outlined label=\"icon_url\"/> ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_range, {
+        name: "price_range",
+        modelValue: $setup.range,
         "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
-          return $setup.form.min = $event;
+          return $setup.range = $event;
         }),
-        "class": "m-2",
-        standout: "",
+        min: 0,
+        max: 1000,
+        "label-always": ""
+      }, null, 8
+      /* PROPS */
+      , ["modelValue"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_input, {
+        modelValue: $setup.range.min,
+        "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+          return $setup.range.min = $event;
+        }),
+        "class": "m-2 px-2 border rounded",
         type: "number",
-        outlined: "",
+        dense: "",
+        borderless: "",
         label: "min"
       }, null, 8
       /* PROPS */
       , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_input, {
-        modelValue: $setup.form.max,
-        "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
-          return $setup.form.max = $event;
+        modelValue: $setup.range.max,
+        "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
+          return $setup.range.max = $event;
         }),
-        "class": "m-2",
-        standout: "",
+        "class": "m-2 px-2 border rounded",
         type: "number",
-        outlined: "",
+        dense: "",
+        borderless: "",
         label: "max"
       }, null, 8
       /* PROPS */
-      , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <q-input @update:model-value=\"val => { form.image = val[0] }\" class=\"m-2\" standout type=\"file\" @change=\"handleChange\" outlined label=\"icon_url\"/> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_range, {
-        name: "price_range",
-        modelValue: $setup.range,
-        "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
-          return $setup.range = $event;
-        }),
-        "label-always": ""
-      }, null, 8
-      /* PROPS */
-      , ["modelValue"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_btn, {
+      , ["modelValue"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_btn, {
         color: "primary",
         label: "Submit",
         type: "submit",

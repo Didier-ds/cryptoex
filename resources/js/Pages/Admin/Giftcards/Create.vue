@@ -18,10 +18,10 @@
                 <JetValidationErrors class="px-2" />
                 <div class="p-4">
                     <div class="grid sm:grid-cols-2">
-                        <div>
+                        <div class="mb-2">
                             <label
                                 for="type"
-                                class="text-base work font-medium pb-2">
+                                class="block my-1 work font-medium pb-2">
                                 Card Type
                             </label>
                             <select
@@ -41,10 +41,10 @@
                                 </option>
                             </select>
                         </div>
-                        <div>
+                        <div class="mb-2">
                             <label
                                 for="type"
-                                class="text-base work font-medium pb-2">
+                                class="block my-1 work font-medium pb-2">
                                 Card country
                             </label>
                             <select
@@ -66,11 +66,11 @@
                             </select>
                         </div>
                     </div>
-                    <div class="grid sm:grid-cols-2">
-                        <div>
+                    <div class="grid sm:grid-cols-2 ">
+                        <div class="mb-2">
                             <label
                                 for="type"
-                                class="text-base work font-medium pb-2">
+                                class="block my-1 work font-medium pb-2">
                                 Card Receipt
                             </label>
                             <select
@@ -90,38 +90,50 @@
                                 </option>
                             </select>
                         </div>
+                        <div class="mb-2">
+                            <label
+                                for="type"
+                                class="my-1 work font-medium pb-2">
+                                Card Rate
+                            </label>
+                            <q-input
+                                v-model="form.rate"
+                                class="px-2 border rounded"
+                                type="number"
+                                dense
+                                borderless
+                                label="rate" />
+                            <!-- <q-input @update:model-value="val => { form.image = val[0] }" class="m-2" standout type="file" @change="handleChange" outlined label="icon_url"/> -->
+                        </div>
                     </div>
-                    <div class="grid sm:grid-cols-2">
-                        <q-input
-                            v-model="form.rate"
-                            class="m-2"
-                            standout
+                    <div >
+                        <p class="my-1 work font-medium">Card Price Range</p>
+                        <div class="q-mt-xl">
+                            <q-range
+                                name="price_range"
+                                v-model="range"
+                                :min="0"
+                                :max="1000"
+                                label-always
+                            />
+                        </div>
+                        
+                    </div>
+                    <div class="grid grid-cols-2">
+                         <q-input
+                            v-model="range.min"
+                            class="m-2 px-2 border rounded"
                             type="number"
-                            outlined
-                            label="rate" />
-                        <q-input
-                            v-model="form.min"
-                            class="m-2"
-                            standout
-                            type="number"
-                            outlined
+                            dense
+                            borderless
                             label="min" />
                         <q-input
-                            v-model="form.max"
-                            class="m-2"
-                            standout
+                            v-model="range.max"
+                            class="m-2 px-2 border rounded"
                             type="number"
-                            outlined
+                            dense
+                            borderless
                             label="max" />
-
-                        <!-- <q-input @update:model-value="val => { form.image = val[0] }" class="m-2" standout type="file" @change="handleChange" outlined label="icon_url"/> -->
-                    </div>
-                    <div class="q-mt-xl">
-                        <q-range
-                        name="price_range"
-                        v-model="range"
-                        label-always
-                        />
                     </div>
                 </div>
                 <div class="flex p-4">
@@ -141,7 +153,7 @@
 <script setup>
 import AdminLayout from '@/Layouts/AdminLayout'
 import JetValidationErrors from '@/Jetstream/ValidationErrors.vue'
-import { useForm } from '@/utils'
+import { useForm, ref } from '@/utils'
 import { useQuasar } from 'quasar'
 const $q = useQuasar()
 const form = useForm({
@@ -149,13 +161,13 @@ const form = useForm({
     type: '',
     country: '',
     rate: '',
-    min: '',
-    max: '',
+    min: 50,
+    max: 100,
 })
-const range = ref({
-        min: 10,
-        max: 50
-      })
+ const range = ref({
+         min: 50,
+         max: 100
+       })
 defineProps({
     cardnames: {
         type: Array,
@@ -173,6 +185,9 @@ defineProps({
 
 const submit = () => {
     // form.filename = `https://drive.google.com/uc?id=${form.filename}`
+    const {min, max} = range.value;
+    form.min = min;
+    form.max = max
     form.transform((data) => ({
         ...data,
     }))

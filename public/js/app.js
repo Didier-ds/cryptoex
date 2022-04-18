@@ -1017,6 +1017,14 @@ var map = {
 		"./resources/js/Pages/API/Partials/ApiTokenManager.vue",
 		"resources_js_Pages_API_Partials_ApiTokenManager_vue"
 	],
+	"./Admin/BtcTransferProof/Index.vue": [
+		"./resources/js/Pages/Admin/BtcTransferProof/Index.vue",
+		"resources_js_Pages_Admin_BtcTransferProof_Index_vue"
+	],
+	"./Admin/BtcTransferProof/Show.vue": [
+		"./resources/js/Pages/Admin/BtcTransferProof/Show.vue",
+		"resources_js_Pages_Admin_BtcTransferProof_Show_vue"
+	],
 	"./Admin/BtcVendor/Create.vue": [
 		"./resources/js/Pages/Admin/BtcVendor/Create.vue",
 		"/js/vendor",
