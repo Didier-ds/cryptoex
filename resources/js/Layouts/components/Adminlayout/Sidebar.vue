@@ -1,5 +1,5 @@
 <template>
-    <div id="sidebar" class="work " :class="isSideBar ? 'active' : ''">
+    <div id="sidebar" class="work" :class="isSideBar ? 'active' : ''">
         <div
             class="flex justify-center my-5 items-center uppercase select-none flex-row">
             <div>
@@ -40,56 +40,79 @@
                 Cryptomania<br />Exchange
             </p>
         </div>
-        
-            <div class="w-full text-base mt-[5em]">
-                <Disclosure v-slot="{ open }">
-                    <DisclosureButton
-                    class="flex justify-between w-full py-2  font-medium text-left  focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75"
-                    >
+
+        <div class="w-full text-base mt-[5em]">
+            <Disclosure v-slot="{ open }">
+                <DisclosureButton
+                    class="flex justify-between w-full py-2 font-medium text-left focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75">
                     <div class="flex">
-                        <svg class="link_icon" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg
+                            class="link_icon"
+                            stroke="currentColor"
+                            fill="none"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            height="20"
+                            width="20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <polygon
+                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
                         <span>Giftcards</span>
                     </div>
                     <ChevronUpIcon
                         :class="open ? 'transform rotate-180' : ''"
-                        class="link_icon h-5 "
-                    />
-                    </DisclosureButton>
-                    <DisclosurePanel class="px-4  pb-2  ">
-                        <inertia-link href="/admin/cardlets" class="p-2 pl-[4rem] block focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75 hover:bg-gray-50">Cardlets</inertia-link>
-                        <inertia-link href="/admin/giftcards" class="p-2 pl-[4rem] block focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75 hover:bg-gray-50">Vendors</inertia-link>
-                    </DisclosurePanel>
-                </Disclosure>
-                <Disclosure as="div" class="mt-4" v-slot="{ open }">
-                    <DisclosureButton
-                    class="flex justify-between w-full  py-2  font-medium text-left  focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75"
+                        class="link_icon h-5" />
+                </DisclosureButton>
+                <DisclosurePanel class="px-4 pb-2">
+                    <inertia-link
+                        href="/admin/cardlets"
+                        class="p-2 pl-[4rem] block focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75 hover:bg-gray-50"
+                        >Cardlets</inertia-link
                     >
+                    <inertia-link
+                        href="/admin/giftcards"
+                        class="p-2 pl-[4rem] block focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75 hover:bg-gray-50"
+                        >Vendors</inertia-link
+                    >
+                </DisclosurePanel>
+            </Disclosure>
+            <Disclosure as="div" class="mt-4" v-slot="{ open }">
+                <DisclosureButton
+                    class="flex justify-between w-full py-2 font-medium text-left focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75">
                     <div class="flex">
                         <CurrencyDollarIcon
-                        :class="open ? 'transform rotate-180' : ''"
-                        class="link_icon h-5"
-                    />
+                            :class="open ? 'transform rotate-180' : ''"
+                            class="link_icon h-5" />
                         <span>Bitcoin</span>
                     </div>
                     <ChevronUpIcon
                         :class="open ? 'transform rotate-180' : ''"
-                        class="link_icon h-5"
-                    />
-                    </DisclosureButton>
-                    <DisclosurePanel class="px-4 pb-2  ">
-                        <inertia-link class="p-2 pl-[4rem] block focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75 hover:bg-gray-50">Proofs</inertia-link>
-                        <inertia-link class="p-2 pl-[4rem] block focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75 hover:bg-gray-50">Vendors</inertia-link>
-                    </DisclosurePanel>
-                </Disclosure>
-                <inertia-link href="/admin/users" class="flex mt-4 py-2  font-medium text-left  focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75">
-                        <UserIcon
-                        :class="open ? 'transform rotate-180' : ''"
-                        class="link_icon h-5"
-                    />
-                        <span>User</span>
-                </inertia-link>
+                        class="link_icon h-5" />
+                </DisclosureButton>
+                <DisclosurePanel class="px-4 pb-2">
+                    <inertia-link
+                        class="p-2 pl-[4rem] block focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75 hover:bg-gray-50"
+                        >Proofs</inertia-link
+                    >
+                    <inertia-link
+                        class="p-2 pl-[4rem] block focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75 hover:bg-gray-50"
+                        >Vendors</inertia-link
+                    >
+                </DisclosurePanel>
+            </Disclosure>
+            <inertia-link
+                href="/admin/users"
+                class="flex mt-4 py-2 font-medium text-left focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75">
+                <UserIcon
+                    :class="open ? 'transform rotate-180' : ''"
+                    class="link_icon h-5" />
+                <span>User</span>
+            </inertia-link>
         </div>
-        
+
         <div class="absolute inset-x-0 bottom-0">
             <p class="text-center text-sm work font-medium text-grey">
                 Cryptomania Exchange © 2021. <br />
@@ -102,23 +125,27 @@
 // import {useRouter} from 'vue-router'
 
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
-import { ChevronUpIcon, CurrencyDollarIcon, UserIcon } from '@heroicons/vue/solid'
+import {
+    ChevronUpIcon,
+    CurrencyDollarIcon,
+    UserIcon,
+} from '@heroicons/vue/solid'
 
-    defineProps({
-        isSideBar: {
-            type: Boolean,
-        },
-    })
-   
-        const changeRoute = (path) => {
-                //  router.push({'path' = path})
-                context.emit('toggleSideBar')
-            }
-          const   toggleSiblings = (e) => {
-                // e.t
-                console.log(e.target.classList)
-                e.target.classList.replace('open-sibling','hidden-sibling');
-            }
+defineProps({
+    isSideBar: {
+        type: Boolean,
+    },
+})
+
+const changeRoute = (path) => {
+    //  router.push({'path' = path})
+    context.emit('toggleSideBar')
+}
+const toggleSiblings = (e) => {
+    // e.t
+    console.log(e.target.classList)
+    e.target.classList.replace('open-sibling', 'hidden-sibling')
+}
 </script>
 
 <style lang="scss" scoped>
@@ -197,30 +224,31 @@ import { ChevronUpIcon, CurrencyDollarIcon, UserIcon } from '@heroicons/vue/soli
 }
 
 .left-sidebar-item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  height: 2.5rem;
-  position: relative;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 100%;
-  min-width: calc(.25rem * 16);
-  max-width: calc(.25rem * 64);
-  width: calc(.25rem * 64);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    height: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    min-width: calc(0.25rem * 16);
+    max-width: calc(0.25rem * 64);
+    width: calc(0.25rem * 64);
 }
 
-.link_icon{
-  width: 4rem;
+.link_icon {
+    width: 4rem;
 }
 
-.hidden-sibling + ul, [data-collapsed="true"] .arrow {
-  display: none;
+.hidden-sibling + ul,
+[data-collapsed='true'] .arrow {
+    display: none;
 }
 
 ul ul .left-sidebar-item {
-  padding-left: calc(.25rem * 16);
+    padding-left: calc(0.25rem * 16);
 }
 </style>

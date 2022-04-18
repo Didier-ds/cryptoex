@@ -163,7 +163,6 @@
                                 {{ data.user.email }}
                             </dd>
                         </div>
-                        
                     </dl>
                 </div>
                 <div class="px-4 py-5 sm:px-6">

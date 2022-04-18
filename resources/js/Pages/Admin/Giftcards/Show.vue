@@ -30,8 +30,7 @@
             <q-btn fab icon="add" color="primary" />
           </q-page-sticky> -->
         <div
-            class="shadow-lg overflow-x-scroll
-             work border border-gray-200 border-dashed sm:rounded-lg m-4">
+            class="shadow-lg overflow-x-scroll work border border-gray-200 border-dashed sm:rounded-lg m-4">
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                     <tr>

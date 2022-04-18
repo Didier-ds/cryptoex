@@ -21,8 +21,13 @@ class AdminCardletController extends Controller
      */
     public function index(Request $request)
     {
-        $allCardlets = Cardlet::orderBy('created_at','desc')->with('images')->get();
-        
+        $type = $request->query('type');
+        $allCardlets = [];
+        if($type){
+            $allCardlets = Cardlet::Where('status', $type)->get();
+        } else {
+            $allCardlets = Cardlet::orderBy('created_at','desc')->with('images')->get();
+        }
         return Inertia::render('Admin/Cardlets/Index', ['cardlets' => $allCardlets]);
     }
 

@@ -66,7 +66,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="grid sm:grid-cols-2 ">
+                    <div class="grid sm:grid-cols-2">
                         <div class="mb-2">
                             <label
                                 for="type"
@@ -106,7 +106,7 @@
                             <!-- <q-input @update:model-value="val => { form.image = val[0] }" class="m-2" standout type="file" @change="handleChange" outlined label="icon_url"/> -->
                         </div>
                     </div>
-                    <div >
+                    <div>
                         <p class="my-1 work font-medium">Card Price Range</p>
                         <div class="q-mt-xl">
                             <q-range
@@ -114,13 +114,11 @@
                                 v-model="range"
                                 :min="0"
                                 :max="1000"
-                                label-always
-                            />
+                                label-always />
                         </div>
-                        
                     </div>
                     <div class="grid grid-cols-2">
-                         <q-input
+                        <q-input
                             v-model="range.min"
                             class="m-2 px-2 border rounded"
                             type="number"
@@ -164,10 +162,10 @@ const form = useForm({
     min: 50,
     max: 100,
 })
- const range = ref({
-         min: 50,
-         max: 100
-       })
+const range = ref({
+    min: 50,
+    max: 100,
+})
 defineProps({
     cardnames: {
         type: Array,
@@ -185,8 +183,8 @@ defineProps({
 
 const submit = () => {
     // form.filename = `https://drive.google.com/uc?id=${form.filename}`
-    const {min, max} = range.value;
-    form.min = min;
+    const { min, max } = range.value
+    form.min = min
     form.max = max
     form.transform((data) => ({
         ...data,
