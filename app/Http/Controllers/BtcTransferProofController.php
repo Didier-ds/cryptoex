@@ -24,6 +24,21 @@ class BtcTransferProofController extends Controller
     {
         //
     }
+
+
+    /**
+     * Display a listing of the resource to admin.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function admin_index()
+    {
+        //
+        $allProofs = BtcTransferProof::orderBy('created_at','desc')->get();
+        return Inertia::render('Admin/BtcTransferProof/Index', ['proofs' => $allProofs]);
+
+
+    }
     
     /**
      * Show the form for creating a new resource.

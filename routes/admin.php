@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\CurrencyController;
 use App\Http\Controllers\Admin\ReceiptTypeController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\BtcVendorController;
+use App\Http\Controllers\BtcTransferProofController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified'],'prefix' => 'admin'], function () {
@@ -33,6 +34,8 @@ Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified'],'prefix
     Route::get('btc-vendors', [BtcVendorController::class, 'index'])->name('btc-vendors.index');
     Route::get('/btc-vendors/create', [BtcVendorController::class, 'create'])->name('btc-vendors.create');
     Route::post('/btc-vendors/create', [BtcVendorController::class, 'store'])->name('btc-vendors.store');
+    Route::get('/bitcoin-proofs', [BtcTransferProofController::class, 'admin_index'])->name('btc-vendors.admin_index');
+
 
 
     Route::post('login', 'AdminLoginController@login')->name('login.post');

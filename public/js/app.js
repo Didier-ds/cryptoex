@@ -1019,6 +1019,7 @@ var map = {
 	],
 	"./Admin/BtcTransferProof/Index.vue": [
 		"./resources/js/Pages/Admin/BtcTransferProof/Index.vue",
+		"/js/vendor",
 		"resources_js_Pages_Admin_BtcTransferProof_Index_vue"
 	],
 	"./Admin/BtcTransferProof/Show.vue": [
