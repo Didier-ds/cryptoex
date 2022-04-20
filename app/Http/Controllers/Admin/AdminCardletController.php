@@ -58,11 +58,10 @@ class AdminCardletController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($uuid)
     {
         //
-        
-        $data = Cardlet::with('images')->where('id', $id)->first();
+        $data = Cardlet::with('images')->where('uuid', $uuid)->first();
         $user = User::where('id', $data->user_id)->with('bankDetails')->first();
         $data->user = $user;
         return Inertia::render('Admin/Cardlets/Show', ['data' => $data]);

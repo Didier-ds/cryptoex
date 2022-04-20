@@ -33,7 +33,12 @@
 
         <section class="max-w-4xl mx-auto py-4 px-2 lg:px-8">
             <div
-                class="bg-white border shadow overflow-hidden work sm:rounded-lg">
+                class="bg-white border relative shadow overflow-hidden work sm:rounded-lg">
+                <div class="absolute top-0 right-0 m-2">
+                    <q-badge :color="STATUS_COLOR">
+                        {{ data.status }}
+                    </q-badge>
+                </div>
                 <div class="px-4 py-5 sm:px-6 grid grid-cols-3">
                     <!-- {{data.images}} -->
                     <q-img

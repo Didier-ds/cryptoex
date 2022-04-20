@@ -61,6 +61,7 @@
             <div
                 v-if="tablet"
                 class="shadow-lg overflow-x-scroll border border-gray-200 work border-dashed rounded-lg m-4">
+                
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                         <tr>
