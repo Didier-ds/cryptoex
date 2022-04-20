@@ -15,7 +15,7 @@
                         </p>
                     </div>
                     <jet-validation-errors class="mb-4" />
-                    <form @submit.prevent="submit">
+                    <form  @submit.prevent="submit">
                         <div
                             class="input_container border rounded focus-within:shadow focus-within:border-cyan mb-8">
                             <q-input
@@ -49,7 +49,7 @@
                                 label="Login" />
                         </div>
                     </form>
-                    <div class="other_link_section flex flex-col">
+                    <div class="other_link_section work flex flex-col">
                         <inertia-link
                             to="/forgotpassword"
                             class="forgot-password self-end inline-block mb-8 font-semibold text-cyan"

@@ -79,7 +79,7 @@
                     >
                 </DisclosurePanel>
             </Disclosure>
-            <Disclosure as="div" class="mt-4" v-slot="{ open }">
+            <Disclosure v-slot="{ open }" as="div" class="mt-4">
                 <DisclosureButton
                     class="flex justify-between w-full py-2 font-medium text-left focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75">
                     <div class="flex">
@@ -94,6 +94,7 @@
                 </DisclosureButton>
                 <DisclosurePanel class="px-4 pb-2">
                     <inertia-link
+                        href="/admin/bitcoin-proofs"
                         class="p-2 pl-[4rem] block focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75 hover:bg-gray-50"
                         >Proofs</inertia-link
                     >

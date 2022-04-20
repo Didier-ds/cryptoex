@@ -15,10 +15,10 @@
                         </p>
                     </div>
                     <jet-validation-errors class="mb-4" />
-                    <form @submit.prevent="submit">
+                    <form autocomplete="off" @submit.prevent="submit">
                         <!-- fullname Input Container -->
                         <div
-                            class="input_container border rounded focus-within:shadow focus-within:border-cyan">
+                            class="input_container text-black border rounded focus-within:shadow focus-within:border-cyan">
                             <q-input
                                 v-model="form.fullname"
                                 :rules="[
@@ -35,7 +35,7 @@
 
                         <!-- Email Input Container -->
                         <div
-                            class="input_container border rounded focus-within:shadow focus-within:border-cyan">
+                            class="input_container text-black border rounded focus-within:shadow focus-within:border-cyan">
                             <q-input
                                 v-model="form.email"
                                 :rules="[
@@ -52,7 +52,7 @@
 
                         <!-- Phone Input Container -->
                         <div
-                            class="input_container border rounded focus-within:shadow focus-within:border-cyan">
+                            class="input_container text-black border rounded focus-within:shadow focus-within:border-cyan">
                             <q-input
                                 v-model="form.phone"
                                 required
@@ -74,13 +74,14 @@
 
                         <!-- password Input Container -->
                         <div
-                            class="input_container border rounded focus-within:shadow focus-within:border-cyan">
+                            class="input_container text-black border rounded focus-within:shadow focus-within:border-cyan">
                             <q-input
                                 v-model="form.password"
                                 required
                                 lazy-rules
                                 :type="isPwd ? 'password' : 'text'"
                                 borderless
+                                autocomplete="new-password"
                                 :rules="[isValidPWd]"
                                 input-class="my_input "
                                 placeholder="Password">
@@ -94,7 +95,7 @@
 
                         <!-- passowrd confirmation Input Container -->
                         <div
-                            class="input_container border rounded focus-within:shadow focus-within:border-cyan">
+                            class="input_container text-black border rounded focus-within:shadow focus-within:border-cyan">
                             <q-input
                                 v-model="form.password_confirmation"
                                 required
@@ -127,7 +128,7 @@
               class="forgot-password self-end inline-block mb-4 font-semibold text-cyan"
               >Forgot Your Password</inertia-link
             > -->
-                        <p class="font-semibold">
+                        <p class="font-semibold work">
                             Already have an account ?
                             <inertia-link href="/login"
                                 ><span class="text-cyan"
@@ -151,6 +152,7 @@ import {
     useForm,
     confirmPassword,
     isValidEmail,
+    isValidPWd,
     isValidFullName,
 } from '@/utils'
 defineProps({

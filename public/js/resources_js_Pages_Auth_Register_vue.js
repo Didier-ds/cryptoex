@@ -87,6 +87,7 @@ __webpack_require__.r(__webpack_exports__);
       useForm: _utils__WEBPACK_IMPORTED_MODULE_3__.useForm,
       confirmPassword: _utils__WEBPACK_IMPORTED_MODULE_3__.confirmPassword,
       isValidEmail: _utils__WEBPACK_IMPORTED_MODULE_3__.isValidEmail,
+      isValidPWd: _utils__WEBPACK_IMPORTED_MODULE_3__.isValidPWd,
       isValidFullName: _utils__WEBPACK_IMPORTED_MODULE_3__.isValidFullName
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
@@ -206,13 +207,13 @@ var _hoisted_7 = /*#__PURE__*/_withScopeId(function () {
 
 var _hoisted_8 = ["onSubmit"];
 var _hoisted_9 = {
-  "class": "input_container border rounded focus-within:shadow focus-within:border-cyan"
+  "class": "input_container text-black border rounded focus-within:shadow focus-within:border-cyan"
 };
 var _hoisted_10 = {
-  "class": "input_container border rounded focus-within:shadow focus-within:border-cyan"
+  "class": "input_container text-black border rounded focus-within:shadow focus-within:border-cyan"
 };
 var _hoisted_11 = {
-  "class": "input_container border rounded focus-within:shadow focus-within:border-cyan"
+  "class": "input_container text-black border rounded focus-within:shadow focus-within:border-cyan"
 };
 
 var _hoisted_12 = /*#__PURE__*/_withScopeId(function () {
@@ -224,10 +225,10 @@ var _hoisted_12 = /*#__PURE__*/_withScopeId(function () {
 });
 
 var _hoisted_13 = {
-  "class": "input_container border rounded focus-within:shadow focus-within:border-cyan"
+  "class": "input_container text-black border rounded focus-within:shadow focus-within:border-cyan"
 };
 var _hoisted_14 = {
-  "class": "input_container border rounded focus-within:shadow focus-within:border-cyan"
+  "class": "input_container text-black border rounded focus-within:shadow focus-within:border-cyan"
 };
 var _hoisted_15 = {
   "class": "mb-4"
@@ -236,7 +237,7 @@ var _hoisted_16 = {
   "class": "other_link_section mt-8 flex flex-col"
 };
 var _hoisted_17 = {
-  "class": "font-semibold"
+  "class": "font-semibold work"
 };
 
 var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Already have an account ? ");
@@ -265,6 +266,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["JetValidationErrors"], {
         "class": "mb-4"
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+        autocomplete: "off",
         onSubmit: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)($setup.submit, ["prevent"])
       }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" fullname Input Container "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_input, {
         modelValue: $setup.form.fullname,
@@ -330,7 +332,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "lazy-rules": "",
         type: $setup.isPwd ? 'password' : 'text',
         borderless: "",
-        rules: [_ctx.isValidPWd],
+        autocomplete: "new-password",
+        rules: [$setup.isValidPWd],
         "input-class": "my_input ",
         placeholder: "Password"
       }, {
