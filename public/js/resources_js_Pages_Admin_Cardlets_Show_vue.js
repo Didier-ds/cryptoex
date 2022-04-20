@@ -1150,7 +1150,7 @@ var _hoisted_7 = {
   "class": "m-2 absolute top-0 right-0"
 };
 var _hoisted_8 = {
-  "class": "px-4 py-5 sm:px-6 grid grid-cols-3"
+  "class": "px-4 py-5 sm:px-6 overflow-x-scroll scroll-smooth snap-mandatory snap-x flex flex-nowrap"
 };
 
 var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -1424,9 +1424,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           key: image,
           src: image.filename,
           "spinner-color": "secondary",
-          "class": "border shadow rounded m-2",
+          "class": "border snap-start shadow rounded m-2",
           style: {
             "height": "140px",
+            "min-width": "150px",
             "max-width": "150px"
           },
           onClick: function onClick($event) {

@@ -39,15 +39,15 @@
                         {{ data.status }}
                     </q-badge>
                 </div>
-                <div class="px-4 py-5 sm:px-6 grid grid-cols-3">
+                <div class="px-4 py-5 sm:px-6 overflow-x-scroll scroll-smooth snap-mandatory snap-x flex flex-nowrap">
                     <!-- {{data.images}} -->
                     <q-img
                         v-for="image in data.images"
                         :key="image"
                         :src="image.filename"
                         spinner-color="secondary"
-                        class="border shadow rounded m-2"
-                        style="height: 140px; max-width: 150px"
+                        class="border snap-start shadow rounded m-2"
+                        style="height: 140px; min-width:150px; max-width: 150px"
                         @click="SHOW_IMAGE_MODAL(image.filename)" />
                 </div>
                 <div class="px-4 py-5 sm:px-6 border-t border-gray-200">
