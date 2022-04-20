@@ -297,7 +297,7 @@ __webpack_require__.r(__webpack_exports__);
       var data = {
         status: status
       };
-      _utils__WEBPACK_IMPORTED_MODULE_3__.Inertia.visit(route('cardlet.update', props.data.uuid), {
+      _utils__WEBPACK_IMPORTED_MODULE_3__.Inertia.visit(route('proof.update', props.data.uuid), {
         method: 'patch',
         data: data,
         onSuccess: function onSuccess() {

@@ -240,7 +240,7 @@ const CLOSE_MODAL = () => {
 const STATUS_COLOR = computed(() => statusColor(props.data.status))
 const CHANGE_STATUS = (status) => {
     const data = { status }
-    Inertia.visit(route('cardlet.update', props.data.uuid), {
+    Inertia.visit(route('proof.update', props.data.uuid), {
         method: 'patch',
         data,
         onSuccess: () => {

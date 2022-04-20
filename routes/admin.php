@@ -34,12 +34,13 @@ Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified'],'prefix
     Route::get('btc-vendors', [BtcVendorController::class, 'index'])->name('btc-vendors.index');
     Route::get('/btc-vendors/create', [BtcVendorController::class, 'create'])->name('btc-vendors.create');
     Route::post('/btc-vendors/create', [BtcVendorController::class, 'store'])->name('btc-vendors.store');
-    Route::get('/bitcoin-proofs', [BtcTransferProofController::class, 'admin_index'])->name('btc-vendors.admin_index');
-    Route::get('/bitcoin-proofs/{uuid}', [BtcTransferProofController::class, 'admin_show'])->name('btc-vendors.admin_show');
+    Route::get('/bitcoin-proofs', [BtcTransferProofController::class, 'admin_index'])->name('proof.admin_index');
+    Route::get('/bitcoin-proofs/{uuid}', [BtcTransferProofController::class, 'admin_show'])->name('proof.admin_show');
+    Route::patch('/bitcoin-proofs/{uuid}', [BtcTransferProofController::class, 'update'])->name('proof.update');
 
 
 
-    Route::post('login', 'AdminLoginController@login')->name('login.post');
-    Route::get('login', [AdminLoginController::class, 'index'])->name('login.index');
+    // Route::post('login', 'AdminLoginController@login')->name('login.post');
+    // Route::get('login', [AdminLoginController::class, 'index'])->name('login.index');
 });
 
