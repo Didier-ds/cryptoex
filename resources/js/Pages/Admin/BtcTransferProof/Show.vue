@@ -1,7 +1,7 @@
 <template>
     <admin-layout>
         <!-- {{data}} -->
-        <div class="m-4 inline-block">
+        <div class="mx-4 md:m-4 inline-block">
                     <GoBack />
                 </div>
         <div class="flex justify-between px-2 lg:px-8 max-w-4xl mx-auto work items-center p-4">
@@ -57,7 +57,7 @@
                         <!-- name -->
                         <div class="sm:col-span-1">
                             <dt class="text-sm font-medium text-gray-500">
-                                name
+                                vendor name
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900">
                                 {{ data.vendor_name }}
@@ -65,7 +65,7 @@
                         </div>
                          <div class="sm:col-span-1">
                             <dt class="text-sm font-medium text-gray-500">
-                                Transfer Id
+                                Proof Id
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900">
                                 #{{ data.uuid.slice(0, 8) }}
@@ -92,7 +92,7 @@
                             <dt class="text-sm font-medium text-gray-500">
                                 Amount
                             </dt>
-                            <dd class="mt-1 text-sm font-medium text-gray-900">
+                            <dd class="mt-1 text-sm ibm font-semibold text-green-900">
                                 &#8358;{{ data.amount * data.rate }}
                             </dd>
                         </div>

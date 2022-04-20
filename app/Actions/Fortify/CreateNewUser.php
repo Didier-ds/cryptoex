@@ -39,7 +39,7 @@ class CreateNewUser implements CreatesNewUsers
             ]), function (User $user) {
                 $roleManager = new RoleManager();
                 $roleManager->createRole();
-                $user->assignRole(Konstants::ROLE_ADMIN);
+                $user->assignRole(Konstants::ROLE_USER);
             });
         });
     }

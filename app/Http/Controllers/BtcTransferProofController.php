@@ -109,10 +109,10 @@ class BtcTransferProofController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function admin_show($id)
+    public function admin_show($uuid)
     {
         //
-        $data = BtcTransferProof::where('id', $id)->first();
+        $data = BtcTransferProof::where('uuid', $uuid)->first();
         $user = User::where('id', $data->user_id)->with('bankDetails')->first();
         $data->user = $user;
         return Inertia::render('Admin/BtcTransferProof/Show', ['data' => $data]);
@@ -138,9 +138,28 @@ class BtcTransferProofController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $uuid)
     {
         //
+         //
+         $proof = BtcTransferProof::where('uuid', $uuid)->first();
+         if (!$proof) {
+             return redirect()->back()->with('error', 'proof doesnt exist');
+         }
+ 
+         // Update cardlet status
+         $owner = $proof->user;
+         $proof->update(['status' => $request->status]);
+         // notify Cardlet Owner
+         $owner->notify(new CardletNotification(Helpers::buildMailData(
+             'Bitcoin Transfer Status',
+             Konstants::MAIL_BTC_PROOF_C_BODY($owner),
+            Konstants::MAIL_BTC_PROOF_C_ACT,
+            Konstants::URL_LOGIN,
+            Konstants::MAIL_LAST
+         )));
+         // Return Response
+         return redirect()->back()->with('success', 'Status Changed Successfully');
     }
 
     /**

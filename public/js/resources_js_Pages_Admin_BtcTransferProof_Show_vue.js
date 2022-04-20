@@ -1129,7 +1129,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "m-4 inline-block"
+  "class": "mx-4 md:m-4 inline-block"
 };
 var _hoisted_2 = {
   "class": "flex justify-between px-2 lg:px-8 max-w-4xl mx-auto work items-center p-4"
@@ -1176,7 +1176,7 @@ var _hoisted_11 = {
 
 var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("dt", {
   "class": "text-sm font-medium text-gray-500"
-}, " name ", -1
+}, " vendor name ", -1
 /* HOISTED */
 );
 
@@ -1189,7 +1189,7 @@ var _hoisted_14 = {
 
 var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("dt", {
   "class": "text-sm font-medium text-gray-500"
-}, " Transfer Id ", -1
+}, " Proof Id ", -1
 /* HOISTED */
 );
 
@@ -1233,7 +1233,7 @@ var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_25 = {
-  "class": "mt-1 text-sm font-medium text-gray-900"
+  "class": "mt-1 text-sm ibm font-semibold text-green-900"
 };
 var _hoisted_26 = {
   "class": "sm:col-span-1"
