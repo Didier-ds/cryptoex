@@ -31,10 +31,16 @@ class BtcTransferProofController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function admin_index()
+    public function admin_index(Request $request)
     {
         //
-        $allProofs = BtcTransferProof::orderBy('created_at','desc')->get();
+        $status = $request->query('status');
+        $allProofs = [];
+        if($status){
+            $allProofs = BtcTransferProof::Where('status', $status)->orderBy('created_at','desc')->get();
+        } else {
+            $allProofs = BtcTransferProof::orderBy('created_at','desc')->get();
+        }
         return Inertia::render('Admin/BtcTransferProof/Index', ['proofs' => $allProofs]);
 
 

@@ -24,7 +24,7 @@ class AdminCardletController extends Controller
         $status = $request->query('status');
         $allCardlets = [];
         if($status){
-            $allCardlets = Cardlet::Where('status', $status)->get();
+            $allCardlets = Cardlet::Where('status', $status)->orderBy('created_at','desc')->get();
         } else {
             $allCardlets = Cardlet::orderBy('created_at','desc')->with('images')->get();
         }

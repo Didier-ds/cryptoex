@@ -1,12 +1,63 @@
 <template>
     <admin-layout>
         <!-- {{proofs}} -->
-        <div class="work">
+        <div class="work min-h-[70vh]">
             <div class="flex flex-row justify-between items-center mx-4">
                 <div class="my-1">
                     <GoBack />
                 </div>
                 <p class="font-medium text-xl p-2">Bitcoin Proofs</p>
+            </div>
+            <div class="flex work justify-end mx-4">
+                <Menu as="div" class="relative inline-block text-left">
+                    <div>
+                        <MenuButton
+                            class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-primary rounded bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+                            Filter
+                            <FilterIcon
+                                class="w-5 h-5 ml-2 -mr-1 text-white"
+                                aria-hidden="true" />
+                        </MenuButton>
+                    </div>
+
+                    <transition
+                        enter-active-class="transition duration-100 ease-out"
+                        enter-from-class="transform scale-95 opacity-0"
+                        enter-to-class="transform scale-100 opacity-100"
+                        leave-active-class="transition duration-75 ease-in"
+                        leave-from-class="transform scale-100 opacity-100"
+                        leave-to-class="transform scale-95 opacity-0">
+                        <MenuItems
+                            class="absolute right-0 w-56 z-10 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                            <div class="px-1 py-1">
+                                <MenuItem  v-slot="{ active }">
+                                    <inertia-link
+                                        href="/admin/bitcoin-proofs"
+                                        :class="[
+                                            active
+                                                ? 'bg-violet-500 text-white'
+                                                : 'text-gray-900',
+                                            'group block rounded-md capitalize items-center w-full px-2 py-2 text-sm',
+                                        ]">
+                                        All Proofs
+                                    </inertia-link>
+                                </MenuItem>
+                                 <MenuItem v-for="(status, index) in statuses" v-slot="{ active }" :key="index">
+                                    <inertia-link
+                                    :href="'?status='+status"
+                                        :class="[
+                                            active
+                                                ? 'bg-violet-500 text-white'
+                                                : 'text-gray-900',
+                                            'group block rounded-md capitalize items-center w-full px-2 py-2 text-sm',
+                                        ]">
+                                        {{status}} Proofs
+                                    </inertia-link>
+                                </MenuItem>
+                            </div>
+                        </MenuItems>
+                    </transition>
+                </Menu>
             </div>
             <template v-if="tablet">
                     <div class="shadow-lg overflow-x-scroll border border-gray-200 work border-dashed rounded-lg m-4">
@@ -75,7 +126,7 @@
                             </template>
                             <template v-else>
                                 <div class="work text-lg w-full text-center font-medium py-10 p-2" style="display: table-caption; caption-side: bottom;">
-                                    No Giftcards found
+                                    No Bitcoin Transfer Proofs found
                                 </div>
                             </template>
                         </table>
@@ -107,7 +158,7 @@
                 </template>
                 <template v-else>
                     <div class="work text-lg w-full text-center font-medium py-10 p-2" >
-                            No Giftcards found
+                            No Bitcoin Transfer Proofs found
                         </div>
                 </template>
             </template>
@@ -119,6 +170,8 @@
 <script setup>
 import AdminLayout from '@/Layouts/AdminLayout.vue'
 import { statusColor, tablet } from '@/utils'
+import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
+import { FilterIcon } from '@heroicons/vue/solid'
 
 defineProps({
     proofs: {
@@ -126,6 +179,20 @@ defineProps({
         default: () => []
     }
 })
+
+
+const statuses = [
+    'pending', 'paid','cancelled'
+]
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.disabled,
+.disabled *,
+[disabled],
+[disabled] * {
+    outline: 0 !important;
+    cursor: default !important;
+    opacity: 1 !important;
+}
+</style>
