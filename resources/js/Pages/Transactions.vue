@@ -19,13 +19,19 @@
                     :label="status.label"
                     :total="status.total" />
             </div> -->
-            <div class="py-10 p-4">
+            <div class="p-4 max-w-4xl mx-auto">
                 <div id="giftcards">
-                    <h2 class="font-bold work big mb-2">
-                        GIFTCARD TRANSACTIONS
-                    </h2>
+                    <div class="flex justify-between items-center">
+                        <h2 class="font-bold work big mb-2">
+                            <!-- GIFTCARD TRANSACTIONS -->
+                        </h2>
+                        <div class="border p-0.5 rounded-full flex border-cyan">
+                            <inertia-link href="/user/transactions/giftcards" :class="{ 'bg-primary text-white': $page.url === '/user/transactions/giftcards' }" class=" work mr-1 p-1 px-4 rounded-full">Giftcard</inertia-link>
+                            <inertia-link href="/user/transactions/bitcoin" :class="{ 'bg-primary work' : $page.url === '/user/transactions/bitcoin' }" class="work p-1 px-4 rounded-full">Bitcoin</inertia-link>
+                        </div>
+                    </div>
                     <div
-                        class="max-w-4xl mx-auto"
+                        class=""
                         :class="{
                             'border p-2 shadow-lg bg-white rounded': tablet,
                         }">
