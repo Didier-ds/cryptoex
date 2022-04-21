@@ -29,7 +29,7 @@
         <div
             v-else
             id="cardlet"
-            class="flex justify-between bg-white mb-2 border shadow-md rounded p-2 items-center">
+            class=" bg-white mb-4 border shadow-md rounded p-3 items-center">
             <div class="cardlet_property flex items-center">
                 <div class="cardlet_box image rounded-md">
                     <img
@@ -37,29 +37,29 @@
                         :src="'/images/cards/' + imgType + '.png'"
                         alt="" />
                 </div>
-                <div class="cardlet_details capitalize mx-4">
-                    <p class="work font-medium capitalize">
-                        {{ name }} giftcard
-                    </p>
-                    <p class="font-medium work">${{ amount }}</p>
-                </div>
-            </div>
-            <div class="cardlet_price text-right">
-                <div class="status flex items-center justify-between">
-                    <p class="text-tiny work text-gray-600 font-medium">
-                        {{ createdAt.slice(0, 10) }}
-                    </p>
-                    <div
-                        class="border rounded-md p-0.5 px-1 flex items-center gap-2 text-xs font-medium work justify-center bg-gray-50 rounded-lg">
-                        <ColorBall :status="status" :size="'sm'" />{{ status }}
+                <div class="flex-1 ml-4">
+                    <div class="cardlet_details flex justify-between mb-1 items-center capitalize ">
+                        <p class="work font-medium capitalize">
+                            {{ name }} giftcard
+                        </p>
+                        <p class="font-bold work ibm">${{ amount }}</p>
+                    </div>
+                    <div class="status flex items-center justify-between">
+                        <p class="text-tiny work text-gray-600 font-medium">
+                            {{ createdAt.slice(0, 10) }}
+                        </p>
+                        <q-badge :color="statusColor(status)">
+                            {{ status }}
+                        </q-badge>
                     </div>
                 </div>
             </div>
+            
         </div>
     </div>
 </template>
 <script setup>
-import { tablet, ExactCardImg, computed } from '@/utils'
+import { tablet, ExactCardImg, computed, statusColor } from '@/utils'
 import ColorBall from '@/components/reusables_/ColorBall.vue'
 const props = defineProps({
     status: {
