@@ -7,29 +7,28 @@
                     :src="'/images/cards/' + imgType + '.png'"
                     alt="" />
             </div>
-            <div class="giftcard_name capitalize">{{ name }} giftcard</div>
-            <div class="type">{{ type }}</div>
-            <div class="amount">
+            <p class="giftcard_name work capitalize">{{ name }} giftcard</p>
+            <p class="type text-gray-600 work ">{{ type }}</p>
+            <p class="amount ibm font-semibold">
                 ${{ amount }} |
                 <span class="rate text-cyan font-medium work"
                     >&#8358;{{ rate }}</span
                 >
-            </div>
+            </p>
             <div class="total font-semibold text-green-800">
                 &#8358;{{ +amount * +rate }}
             </div>
-            <div class="status flex items-center justify-center">
-                <div
-                    class="border rounded-md p-1 px-2 flex items-center gap-2 justify-center bg-gray-50 rounded-lg">
-                    <ColorBall :status="status" />{{ status }}
-                </div>
+            <div class="status ">
+                <q-badge :color="statusColor(status)">
+                            {{ status }}
+                        </q-badge>
             </div>
-            <div class="date">{{ createdAt.slice(0, 10) }}</div>
+            <p class="date work text-gray-600">{{ createdAt.slice(0, 10) }}</p>
         </div>
         <div
             v-else
             id="cardlet"
-            class=" bg-white mb-4 border shadow-md rounded p-3 items-center">
+            class=" bg-white mb-4 border  rounded p-3 items-center">
             <div class="cardlet_property flex items-center">
                 <div class="cardlet_box image rounded-md">
                     <img
