@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\cardletUploaded;
 use App\Helpers\Helpers;
 use App\Helpers\ResponseBuilder;
 use App\Http\Requests\CardletImageRequest;
@@ -17,6 +18,7 @@ use App\Models\User;
 use App\Notifications\CardletNotification;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
+use Notification;
 // use Illuminate\Support\Facades\Session;
 // use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
@@ -42,16 +44,24 @@ class CardletController extends Controller
                 foreach($files as $file){
                     $this->uploadCardletImages($file, $newCardlet->id);
                 }
-                $admins = User::role(Konstants::ROLE_ADMIN)->get();
-                foreach ($admins as $admin) {
-                    $admin->notify(new CardletNotification(Helpers::buildMailData(
-                        'Giftcard Status',
-                        Konstants::MAIL_CARDLET_C_BODY($user),
-                        Konstants::MAIL_CARDLET_C_ACT,
-                        Konstants::URL_LOGIN,
-                        Konstants::MAIL_LAST
-                    )));
-                }
+                // $admins = User::role(Konstants::ROLE_ADMIN)->get();
+                // Notification::send($admins, new CardletNotification(Helpers::buildMailData(
+                //          'Giftcard Status',
+                //          Konstants::MAIL_CARDLET_C_BODY($user),
+                //          Konstants::MAIL_CARDLET_C_ACT,
+                //          Konstants::URL_LOGIN,
+                //          Konstants::MAIL_LAST
+                // )));
+                event(new cardletUploaded($newCardlet, $user));
+                // foreach ($admins as $admin) {
+                    // $admin->notify(new CardletNotification(Helpers::buildMailData(
+                    //     'Giftcard Status',
+                    //     Konstants::MAIL_CARDLET_C_BODY($user),
+                    //     Konstants::MAIL_CARDLET_C_ACT,
+                    //     Konstants::URL_LOGIN,
+                    //     Konstants::MAIL_LAST
+                    // )));
+                // }
                 return redirect()->back()->with('success', 'Status Changed Successfully');
                 } else {
                      return redirect()->back()->with('error', 'Please Something Went Wrong');

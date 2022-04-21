@@ -62,9 +62,9 @@ class Konstants
     const MAIL_BTC_PROOF_C_ACT = 'View Proof';
 
     const MAIL_LAST = 'Regards,';
-    public static function MAIL_CARDLET_C_BODY(User $user): string
+    public static function MAIL_CARDLET_C_BODY(User $user, Cardlet $cardlet): string
     {
-        return "A redeemable giftcard has been uploaded by $user->fullname. Review and" .
+        return "A redeemable $cardlet->name  $cardlet->type has been uploaded by $user->fullname. Review and" .
             " respond appropriately";
     }
 
