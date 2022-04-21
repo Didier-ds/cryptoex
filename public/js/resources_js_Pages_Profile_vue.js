@@ -927,9 +927,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , ["class"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" :class=\"$route.path === '/transactions' ? 'selectedLink' : ''\" "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
-      active: _ctx.$page.url === '/user/transactions'
+      active: _ctx.$page.url === '/user/transactions/giftcards'
     }),
-    href: "/user/transactions"
+    href: "/user/transactions/giftcards"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_5, _hoisted_6];

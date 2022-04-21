@@ -14,31 +14,28 @@
                 <div>Status</div>
                 <div>Date</div>
             </div>
-            <template v-if="!!cardlets.length">
+            <template v-if="!!proofs.length">
                 <Proof
                     v-for="(proof, index) in proofs"
                     :key="index"
-                    :status="cardlet.status"
-                    :name="cardlet.name"
-                    :amount="cardlet.amount"
-                    :rate="cardlet.rate"
-                    :created-at="cardlet.created_at"
-                    :type="cardlet.type" />
+                    :status="proof.status"
+                    :vendor-name="proof.name"
+                    :amount="proof.amount"
+                    :created-at="proof.created_at"
+                   />
             </template>
 
             <template v-else>
-                <Empty>You Have No Gift Card Transations</Empty>
+                <Empty>You Have No Bitcoin Transations</Empty>
             </template>
         </div>
     </transactions-layout>
 </template>
 <script setup>
 import TransactionsLayout from '@/Layouts/TransactionsLayout'
-import StatusBox from '@/components/StatusBox.vue'
-// import ProofCard from '@/components/ProofCard.vue'
-import Cardlet from '@/components/Cardlet.vue'
+import Proof from '@/components/Transactions/Proof.vue'
 import Empty from '@/components/reusables_/Empty.vue'
-import { tablet, computed } from '@/utils'
+import { tablet } from '@/utils'
 
 defineProps({
     proofs: {
@@ -52,7 +49,7 @@ defineProps({
 <style lang="scss">
 .grid_section {
     display: grid;
-    grid-template-columns: 0.3fr 1fr 1fr 1fr 0.5fr 1fr 0.5fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 0.5fr;
     text-align: center;
 
     div {

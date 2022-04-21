@@ -65,8 +65,8 @@
             </inertia-link>
             <!-- :class="$route.path === '/transactions' ? 'selectedLink' : ''" -->
             <inertia-link
-                :class="{ active: $page.url === '/user/transactions' }"
-                href="/user/transactions">
+                :class="{ active: $page.url === '/user/transactions/giftcards' }"
+                href="/user/transactions/giftcards">
                 <div class="link_icon">
                     <svg
                         width="24"

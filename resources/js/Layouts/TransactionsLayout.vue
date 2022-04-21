@@ -27,7 +27,7 @@
                         </h2>
                         <div class="border p-0.5 rounded-full flex border-cyan">
                             <inertia-link href="/user/transactions/giftcards" :class="{ 'bg-primary text-white': $page.url === '/user/transactions/giftcards' }" class=" work mr-1 p-1 px-4 rounded-full">Giftcard</inertia-link>
-                            <inertia-link href="/user/transactions/bitcoin" :class="{ 'bg-primary work' : $page.url === '/user/transactions/bitcoin' }" class="work p-1 px-4 rounded-full">Bitcoin</inertia-link>
+                            <inertia-link href="/user/transactions/bitcoins" :class="{ 'bg-primary text-white' : $page.url === '/user/transactions/bitcoins' }" class="work p-1 px-4 rounded-full">Bitcoin</inertia-link>
                         </div>
                     </div>
                    <slot></slot>
