@@ -23,6 +23,10 @@ class BtcTransferProofController extends Controller
     public function index()
     {
         //
+        $userId = auth()->id();
+        $userProofs = BtcTransferProof::where('user_id', $userId)->orderBy('created_at','desc')->get();
+        return Inertia::render('Proofs', ['proofs' => $userProofs]);
+
     }
 
 

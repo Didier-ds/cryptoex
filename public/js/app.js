@@ -1185,6 +1185,11 @@ var map = {
 		"/js/vendor",
 		"resources_js_Pages_CardletUpload_vue"
 	],
+	"./Cardlets.vue": [
+		"./resources/js/Pages/Cardlets.vue",
+		"/js/vendor",
+		"resources_js_Pages_Cardlets_vue"
+	],
 	"./CryptoTrade.vue": [
 		"./resources/js/Pages/CryptoTrade.vue",
 		"/js/vendor",
@@ -1242,14 +1247,14 @@ var map = {
 		"./resources/js/Pages/Profile/Show.vue",
 		"resources_js_Pages_Profile_Show_vue"
 	],
+	"./Proofs.vue": [
+		"./resources/js/Pages/Proofs.vue",
+		"/js/vendor",
+		"resources_js_Pages_Proofs_vue"
+	],
 	"./TermsOfService.vue": [
 		"./resources/js/Pages/TermsOfService.vue",
 		"resources_js_Pages_TermsOfService_vue"
-	],
-	"./Transactions.vue": [
-		"./resources/js/Pages/Transactions.vue",
-		"/js/vendor",
-		"resources_js_Pages_Transactions_vue"
 	],
 	"./Welcome.vue": [
 		"./resources/js/Pages/Welcome.vue",
