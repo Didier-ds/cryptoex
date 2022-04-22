@@ -361,7 +361,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
     var prevStep = function prevStep() {
       if (currentStep.value <= 0) {
-        return false;
+        window.history.back();
       }
 
       currentStep.value--;

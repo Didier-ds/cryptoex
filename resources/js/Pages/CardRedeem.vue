@@ -374,7 +374,7 @@ const nextStep = async () => {
 
 const prevStep = () => {
     if (currentStep.value <= 0) {
-        return false
+        window.history.back()
     }
     currentStep.value--
 }
