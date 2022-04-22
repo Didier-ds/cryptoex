@@ -239,7 +239,7 @@ export default {
         border-radius: 0;
     }
 }
-@media (max-width: 769px) {
+@media (max-width: 995px) {
     #sidebar {
         z-index: 15;
         transform: translateX(-100%);

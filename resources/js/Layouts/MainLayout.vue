@@ -80,7 +80,7 @@ main {
     opacity: 0;
     transition: 0.5s ease-in-out;
 }
-@media (max-width: 769px) {
+@media (max-width: 995px) {
     .overlay.active {
         opacity: 1;
         display: block;

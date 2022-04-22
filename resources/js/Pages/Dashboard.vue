@@ -5,10 +5,10 @@
                 <h2 class="text-lg pt-4 work big font-bold capitalize">
                     Hello, {{ $page.props.user.fullname }}
                 </h2>
-                <p class="text-grey-600 font-medium">
+                <p class="text-gray-600 font-medium">
                     Lets Make Trading easy for you
                 </p>
-                <div class="grid_container my-4 md:grid gap-4 grid-cols-2">
+                <div class="grid_container my-4 flex flex-col items-center sm:grid gap-10 grid-cols-2">
                     <div class="menu_btn_container my-4">
                         <inertia-link
                             href="/giftcards"
@@ -63,7 +63,7 @@
                         </div>
                     </div>
 
-                    <div class="transactions_container my-4">
+                    <div class="transactions_container w-full my-4">
                         <h2 class="font-bold work big">TRANSACTIONS</h2>
                         <div>
                             <template v-if="recentCardlets.data.length">
