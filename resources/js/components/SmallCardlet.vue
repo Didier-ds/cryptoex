@@ -1,32 +1,5 @@
 <template>
-    <div>
-        <div v-if="tablet" class="grid_section items-center p-2 my-2">
-            <div class="image mx-auto">
-                <img
-                    class="w-full"
-                    :src="'/images/cards/' + imgType + '.png'"
-                    alt="" />
-            </div>
-            <p class="giftcard_name work capitalize">{{ name }} giftcard</p>
-            <p class="type text-gray-600 work ">{{ type }}</p>
-            <p class="amount ibm font-semibold">
-                ${{ amount }} |
-                <span class="rate text-cyan font-medium work"
-                    >&#8358;{{ rate }}</span
-                >
-            </p>
-            <div class="total font-semibold text-green-800">
-                &#8358;{{ +amount * +rate }}
-            </div>
-            <div class="status ">
-                <q-badge :color="statusColor(status)">
-                            {{ status }}
-                        </q-badge>
-            </div>
-            <p class="date work text-gray-600">{{ createdAt.slice(0, 10) }}</p>
-        </div>
-        <div
-            v-else
+    <div
             id="cardlet"
             class=" bg-white mb-4 border  rounded p-3 items-center">
             <div class="cardlet_property flex items-center">
@@ -55,19 +28,13 @@
             </div>
             
         </div>
-    </div>
 </template>
+
 <script setup>
-import { ExactCardImg, computed, statusColor } from '@/utils'
-import ColorBall from '@/components/reusables_/ColorBall.vue'
-const props = defineProps({
+defineProps({
     status: {
         type: String,
         default: 'failed',
-    },
-    tablet: {
-        type: Boolean,
-        default: false
     },
     name: {
         type: String,
@@ -90,12 +57,8 @@ const props = defineProps({
         default: '',
     },
 })
-const imgType = computed(() => {
-    return ExactCardImg(props.name)
-})
 </script>
+
 <style lang="scss" scoped>
-.image {
-    max-width: 2.5em;
-}
+
 </style>

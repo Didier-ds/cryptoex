@@ -1197,12 +1197,8 @@ var map = {
 	],
 	"./Dashboard.vue": [
 		"./resources/js/Pages/Dashboard.vue",
-		"resources_js_Pages_Dashboard_vue"
-	],
-	"./Dashboards.vue": [
-		"./resources/js/Pages/Dashboards.vue",
 		"/js/vendor",
-		"resources_js_Pages_Dashboards_vue"
+		"resources_js_Pages_Dashboard_vue"
 	],
 	"./Giftcards.vue": [
 		"./resources/js/Pages/Giftcards.vue",

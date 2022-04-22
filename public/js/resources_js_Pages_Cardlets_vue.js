@@ -240,6 +240,10 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       "default": 'failed'
     },
+    tablet: {
+      type: Boolean,
+      "default": false
+    },
     name: {
       type: String,
       "default": ''
@@ -271,7 +275,6 @@ __webpack_require__.r(__webpack_exports__);
     var __returned__ = {
       props: props,
       imgType: imgType,
-      tablet: _utils__WEBPACK_IMPORTED_MODULE_0__.tablet,
       ExactCardImg: _utils__WEBPACK_IMPORTED_MODULE_0__.ExactCardImg,
       computed: _utils__WEBPACK_IMPORTED_MODULE_0__.computed,
       statusColor: _utils__WEBPACK_IMPORTED_MODULE_0__.statusColor,
@@ -1155,6 +1158,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.cardlets, function (cardlet, index) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["Cardlet"], {
           key: index,
+          tablet: $setup.tablet,
           status: cardlet.status,
           name: cardlet.name,
           amount: cardlet.amount,
@@ -1163,7 +1167,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           type: cardlet.type
         }, null, 8
         /* PROPS */
-        , ["status", "name", "amount", "rate", "created-at", "type"]);
+        , ["tablet", "status", "name", "amount", "rate", "created-at", "type"]);
       }), 128
       /* KEYED_FRAGMENT */
       )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["Empty"], {
@@ -1266,7 +1270,7 @@ var _hoisted_20 = {
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_q_badge = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("q-badge");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [$setup.tablet ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [$props.tablet ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     "class": "w-full",
     src: '/images/cards/' + $setup.imgType + '.png',
     alt: ""

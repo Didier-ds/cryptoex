@@ -5,7 +5,9 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\BtcTransferProofController;
 use App\Http\Controllers\CardletController;
 use App\Http\Controllers\CardsController;
+use App\Http\Controllers\OverviewController;
 use App\Http\Controllers\UserBankDetailsController;
+use App\Models\Cardlet;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -34,15 +36,9 @@ use Spatie\Permission\Models\Role;
 // Route::get('/registers', function () {
 //     return Inertia::render('Login2');
 // });
-Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
-    if(Auth::user()->hasRole('admin')) {
-        return Inertia::render('Admin/Dashboard');
-    } else {
-        return Inertia::render('Dashboards');
-    }
-})->name('dashboard');
 // hasRole
  Route::middleware(['auth:sanctum', 'verified'])->group(function(){
+     Route::get('/', [OverviewController::class, 'index'])->name('dashboard');
      Route::get('/giftcards', [CardsController::class, 'index'])->name('card.index');
      Route::get('/upload/{uuid}', [CardsController::class, 'isType'])->name('card.isType');
      Route::post('user/btc-transfer-proof-make/{uuid}', [BtcTransferProofController::class, 'store'])->name('proof.store');// To upload user btc transfer proof

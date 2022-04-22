@@ -20,6 +20,7 @@
                             <Cardlet
                                 v-for="(cardlet, index) in cardlets"
                                 :key="index"
+                                :tablet="tablet"
                                 :status="cardlet.status"
                                 :name="cardlet.name"
                                 :amount="cardlet.amount"
