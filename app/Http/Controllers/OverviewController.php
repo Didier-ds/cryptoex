@@ -18,7 +18,7 @@ class OverviewController extends Controller
     public function index()
     {
         //
-        $cardlets = Cardlet::where('user_id', auth()->id())->orderBy('created_at','desc')->paginate(5);
+        $cardlets = Cardlet::where('user_id', auth()->id())->orderBy('created_at','desc')->paginate(4);
         return Inertia::render('Dashboard', ['recent-cardlets' => $cardlets]);
     }
 

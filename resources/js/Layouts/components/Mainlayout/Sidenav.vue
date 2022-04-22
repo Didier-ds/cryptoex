@@ -194,7 +194,7 @@ export default {
     position: fixed;
     top: 0;
     left: 0;
-    width: 20vw;
+    width: calc(.25rem * 64);
     // border-right: 2px solid #f8f9fb;
 }
 .link_list {
