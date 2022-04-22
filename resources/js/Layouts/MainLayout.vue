@@ -54,7 +54,7 @@ input {
 main {
     transition: 0.5s ease-in-out;
     // margin-top: 40px;
-    padding-left: calc(.25rem * 64);
+    padding-left: calc(.27rem * 64);
     // margin-bottom: 50px;
     // position: relative;
 }

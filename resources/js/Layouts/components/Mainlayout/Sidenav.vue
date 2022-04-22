@@ -194,7 +194,7 @@ export default {
     position: fixed;
     top: 0;
     left: 0;
-    width: calc(.25rem * 64);
+    width: calc(.27rem * 64);
     // border-right: 2px solid #f8f9fb;
 }
 .link_list {
@@ -226,6 +226,7 @@ export default {
             font-size: 1.1em;
             line-height: 22px;
             letter-spacing: -0.408px;
+            // background-color: #f8f9fb;
             // color: #6c757de2
         }
     }
@@ -237,6 +238,7 @@ export default {
         margin-left: 0.5em;
         border-left: 2px solid var(--q-primary);
         border-radius: 0;
+        background-color: #f8f9fb;
     }
 }
 @media (max-width: 995px) {

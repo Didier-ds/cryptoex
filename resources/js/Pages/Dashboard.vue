@@ -8,8 +8,8 @@
                 <p class="text-gray-600 font-medium">
                     Lets Make Trading easy for you
                 </p>
-                <div class="grid_container my-4 flex flex-col items-center sm:grid gap-10 grid-cols-2">
-                    <div class="menu_btn_container my-4">
+                <div class="grid_container my-4 flex flex-col items-center sm:grid sm:gap-10 grid-cols-2">
+                    <div class="menu_btn_container ">
                         <inertia-link
                             href="/giftcards"
                             class="action_btn select-none rounded-md flex flex-col justify-center items-center bg-white p-4 border shadow-md giftcard_btn p-ripple lightcyan">

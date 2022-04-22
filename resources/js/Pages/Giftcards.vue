@@ -14,9 +14,9 @@
 
             <div
                 v-if="skeleton"
-                class="card-container lg:grid grid-cols-3 gap-4 sm:grid-cols-2 flex flex-wrap"></div>
+                class="card-container lg:grid grid-cols-2 gap-4 sm:grid-cols-3 flex flex-wrap"></div>
             <div
-                class="card-container grid sm:grid-cols-4 grid-cols-2 grid flex-wrap">
+                class="card-container grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 grid flex-wrap">
                 <Card
                     v-for="(card, index) in giftcards"
                     :key="index"
