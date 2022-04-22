@@ -64,6 +64,45 @@
                 <span>Home</span>
             </inertia-link>
             <!-- :class="$route.path === '/transactions' ? 'selectedLink' : ''" -->
+            
+
+            <inertia-link
+                :class="{ active: $page.url === '/giftcards' }"
+                href="/giftcards">
+                <div class="link_icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path fill-rule="evenodd" clip-rule="evenodd" d="M7.66618 22H16.3328C19.7231 22 22 19.6219 22 16.0833V7.91672C22 4.37811 19.7231 2 16.3338 2H7.66618C4.2769 2 2 4.37811 2 7.91672V16.0833C2 19.6219 4.2769 22 7.66618 22ZM8.49886 11C7.12021 11 6 9.87827 6 8.5C6 7.12173 7.12021 6 8.49886 6C9.8765 6 10.9977 7.12173 10.9977 8.5C10.9977 9.87827 9.8765 11 8.49886 11ZM19.8208 14.934C20.1557 15.7926 19.9817 16.8246 19.6237 17.6749C19.1994 18.6863 18.3869 19.452 17.3632 19.7864C16.9087 19.935 16.432 20 15.9564 20H7.52864C6.68999 20 5.94788 19.7988 5.3395 19.4241C4.95839 19.1889 4.89102 18.646 5.17358 18.2941C5.6462 17.7059 6.11279 17.1156 6.5834 16.5201C7.48038 15.3808 8.08473 15.0506 8.75645 15.3406C9.02896 15.4603 9.30248 15.6398 9.58404 15.8297C10.3342 16.3395 11.377 17.0402 12.7506 16.2797C13.6906 15.7532 14.2358 14.8501 14.7106 14.0637L14.7185 14.0506C14.7522 13.9954 14.7855 13.9402 14.8187 13.8852C14.9783 13.6212 15.1357 13.3607 15.3138 13.1207C15.5371 12.8204 16.3646 11.8813 17.4366 12.5501C18.1194 12.9711 18.6936 13.5408 19.308 14.1507C19.5423 14.3839 19.7092 14.6491 19.8208 14.934Z" fill="currentColor"/>
+                    </svg>
+
+                </div>
+                <span>Sell Giftcards</span>
+            </inertia-link>
+
+            <inertia-link
+                :class="{ active: $page.url === '/sell-bitcoin' }"
+                href="/sell-bitcoin">
+                <div class="link_icon">
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M21.9964 8.37513H17.7618C15.7911 8.37859 14.1947 9.93514 14.1911 11.8566C14.1884 13.7823 15.7867 15.3458 17.7618 15.3484H22V15.6543C22 19.0136 19.9636 21 16.5173 21H7.48356C4.03644 21 2 19.0136 2 15.6543V8.33786C2 4.97862 4.03644 3 7.48356 3H16.5138C19.96 3 21.9964 4.97862 21.9964 8.33786V8.37513ZM6.73956 8.36733H12.3796H12.3831H12.3902C12.8124 8.36559 13.1538 8.03019 13.152 7.61765C13.1502 7.20598 12.8053 6.87318 12.3831 6.87491H6.73956C6.32 6.87664 5.97956 7.20858 5.97778 7.61852C5.976 8.03019 6.31733 8.36559 6.73956 8.36733Z"
+                            fill="currentColor" />
+                        <path
+                            opacity="0.4"
+                            d="M16.0374 12.2967C16.2465 13.2478 17.0805 13.9171 18.0326 13.8997H21.2825C21.6787 13.8997 22 13.5716 22 13.166V10.6345C21.9991 10.2298 21.6787 9.90086 21.2825 9.89999H17.9561C16.8731 9.90347 15.9983 10.8024 16 11.9103C16 12.0399 16.0128 12.1696 16.0374 12.2967Z"
+                            fill="currentColor" />
+                        <circle cx="18" cy="11.9" r="1" fill="currentColor" />
+                    </svg>
+                </div>
+                <span>Sell Bitcoin</span>
+            </inertia-link>
+            <!-- :class="$route.path === '/account-details' ? 'selectedLink' : ''" -->
             <inertia-link
                 :class="{ active: $page.url === '/user/transactions/giftcards' }"
                 href="/user/transactions/giftcards">
@@ -89,32 +128,7 @@
                 </div>
                 <span>Transactions</span>
             </inertia-link>
-            <!-- :class="$route.path === '/account-details' ? 'selectedLink' : ''" -->
-            <inertia-link
-                :class="{ active: $page.url === '' }"
-                href=""
-                @click="changeRoute('/account-details')">
-                <div class="link_icon">
-                    <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M21.9964 8.37513H17.7618C15.7911 8.37859 14.1947 9.93514 14.1911 11.8566C14.1884 13.7823 15.7867 15.3458 17.7618 15.3484H22V15.6543C22 19.0136 19.9636 21 16.5173 21H7.48356C4.03644 21 2 19.0136 2 15.6543V8.33786C2 4.97862 4.03644 3 7.48356 3H16.5138C19.96 3 21.9964 4.97862 21.9964 8.33786V8.37513ZM6.73956 8.36733H12.3796H12.3831H12.3902C12.8124 8.36559 13.1538 8.03019 13.152 7.61765C13.1502 7.20598 12.8053 6.87318 12.3831 6.87491H6.73956C6.32 6.87664 5.97956 7.20858 5.97778 7.61852C5.976 8.03019 6.31733 8.36559 6.73956 8.36733Z"
-                            fill="currentColor" />
-                        <path
-                            opacity="0.4"
-                            d="M16.0374 12.2967C16.2465 13.2478 17.0805 13.9171 18.0326 13.8997H21.2825C21.6787 13.8997 22 13.5716 22 13.166V10.6345C21.9991 10.2298 21.6787 9.90086 21.2825 9.89999H17.9561C16.8731 9.90347 15.9983 10.8024 16 11.9103C16 12.0399 16.0128 12.1696 16.0374 12.2967Z"
-                            fill="currentColor" />
-                        <circle cx="18" cy="11.9" r="1" fill="currentColor" />
-                    </svg>
-                </div>
-                <span>Account Details</span>
-            </inertia-link>
+            
             <!-- :class="$route.path === '/profile' ? 'selectedLink' : ''"  -->
             <inertia-link
                 :class="{ active: $page.url.startsWith('/settings') }"
@@ -138,8 +152,8 @@
                 <span>Settings</span>
             </inertia-link>
         </div>
-        <div class="absolute inset-x-0 bottom-0">
-            <p class="text-center text-sm font-medium text-grey">
+        <div class="">
+            <p class="text-center work text-xs font-medium text-gray-600">
                 Cryptomania Exchange © 2021. <br />
                 All rights reserved
             </p>
@@ -168,18 +182,23 @@ export default {
 
 <style lang="scss" scoped>
 #sidebar {
-    min-height: 100vh;
+    height: 100vh;
     width: 100%;
     background-color: white;
     display: flex;
     flex-direction: column;
     position: relative;
+    justify-content: space-between;
     align-items: center;
     transition: 0.5s ease-in-out;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20vw;
     // border-right: 2px solid #f8f9fb;
 }
 .link_list {
-    margin: 8em 0;
+    // margin: 8em 0;
     // padding-left:4em;
     width: 100%;
     .link_icon {
@@ -214,9 +233,10 @@ export default {
         background-color: #f8f9fb;
     }
     a.active {
-        background-color: var(--q-primary);
-        color: white;
-        margin-left: 1.5em;
+        color: var(--q-primary);
+        margin-left: 0.5em;
+        border-left: 2px solid var(--q-primary);
+        border-radius: 0;
     }
 }
 @media (max-width: 769px) {
@@ -224,9 +244,7 @@ export default {
         z-index: 15;
         transform: translateX(-100%);
         width: 80%;
-        position: fixed;
-        top: 0;
-        left: 0;
+
     }
     #sidebar.active {
         transform: translateX(0);

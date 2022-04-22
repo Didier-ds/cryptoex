@@ -30,7 +30,7 @@
                 <div class="flex-1 ml-4">
                     <div class="cardlet_details flex justify-between mb-1 items-center capitalize ">
                         <p class="work font-medium capitalize">
-                            {{ name }} giftcard
+                            {{ vendorName }} 
                         </p>
                         <p class="font-bold work ibm">${{ amount }}</p>
                     </div>

@@ -1,13 +1,13 @@
 <template>
     <transactions-layout>
         <div
-                        class="my-2"
+                        class="my-2 giftcards"
                         :class="{
                             'border p-2 shadow-lg bg-white rounded': tablet,
                         }">
                         <div
                             v-if="tablet"
-                            class="grid_section border-b py-4 p-2">
+                            class=" grid_section border-b py-4 p-2">
                             <div></div>
                             <div>Giftcard</div>
                             <div>Type</div>
@@ -52,7 +52,7 @@ const props = defineProps({
 </script>
 
 <style lang="scss">
-.grid_section {
+.giftcards .grid_section {
     display: grid;
     grid-template-columns: 0.3fr 1fr 1fr 1fr 0.5fr 1fr 0.5fr;
     text-align: center;

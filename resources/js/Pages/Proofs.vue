@@ -1,7 +1,7 @@
 <template>
     <transactions-layout>
         <div
-            class="my-2"
+            class="my-2 proofs"
             :class="{
                 'border p-2 shadow-lg bg-white rounded': tablet,
             }">
@@ -19,7 +19,7 @@
                     v-for="(proof, index) in proofs"
                     :key="index"
                     :status="proof.status"
-                    :vendor-name="proof.name"
+                    :vendor-name="proof.vendor_name"
                     :amount="proof.amount"
                     :created-at="proof.created_at"
                    />
@@ -46,8 +46,8 @@ defineProps({
 
 </script>
 
-<style lang="scss">
-.grid_section {
+<style lang="scss" scoped>
+.proofs .grid_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 0.5fr;
     text-align: center;

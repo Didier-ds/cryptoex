@@ -39,9 +39,9 @@ const toggleSideBar = () => {
 <style lang="scss" scoped>
 @media (min-width: 769px) {
     #layout {
-        display: grid;
+        // display: grid;
 
-        grid-template-columns: minmax(180px, 280px) 1fr;
+        // grid-template-columns: minmax(180px, 280px) 1fr;
     }
 }
 #layout {
@@ -54,7 +54,8 @@ input {
 main {
     transition: 0.5s ease-in-out;
     // margin-top: 40px;
-    margin-bottom: 50px;
+    padding-left: calc(20vw)
+    // margin-bottom: 50px;
     // position: relative;
 }
 
@@ -83,6 +84,9 @@ main {
     .overlay.active {
         opacity: 1;
         display: block;
+    }
+    main {
+        padding-left:0;
     }
     // #view {
     //   width: 100%;
