@@ -65,12 +65,24 @@
 
                     <div class="transactions_container my-4">
                         <h2 class="font-bold work big">TRANSACTIONS</h2>
+                        <div>
+                            <template v-if="recentCardlets.data.length">
+                                <Cardlet
+                                    v-for="(cardlet, index) in recentCardlets.data"
+                                    :key="index"
+                                    :tablet="false"
+                                    :status="cardlet.status"
+                                    :name="cardlet.name"
+                                    :amount="cardlet.amount"
+                                    :rate="cardlet.rate"
+                                    :created-at="cardlet.created_at"
+                                    :type="cardlet.type" />
+                            </template>
 
-                        <Empty>You Have No Gift Card Transations</Empty>
-
-                        <!-- <div class="cardlets ">
-                        <Cardlet :data = "cardlet" v-for="i in 4" :key="i" />
-                    </div> -->
+                            <template v-else>
+                                <Empty>You Have No Gift Card Transations</Empty>
+                            </template>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -80,8 +92,14 @@
 
 <script setup>
 import MainLayout from '@/Layouts/MainLayout.vue'
-// import Cardlet from '@/components/SmallCardlet.vue'
+import Cardlet from '@/components/Cardlet.vue'
 import Empty from '@/components/reusables_/Empty.vue'
+defineProps({
+    recentCardlets: {
+        type: Object,
+        default: () => {}
+    }
+})
 </script>
 
 <style lang="scss" scoped>
