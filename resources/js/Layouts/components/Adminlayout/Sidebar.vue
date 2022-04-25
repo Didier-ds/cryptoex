@@ -42,6 +42,13 @@
         </div>
 
         <div class="w-full text-base mt-[5em]">
+            <inertia-link
+                href="/admin/dashboard"
+                class="flex mb-4 py-2 font-medium text-left focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75">
+                <UserIcon
+                    class="link_icon h-5" />
+                <span>Overview</span>
+            </inertia-link>
             <Disclosure v-slot="{ open }">
                 <DisclosureButton
                     class="flex justify-between w-full py-2 font-medium text-left focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75">
@@ -110,7 +117,14 @@
                 <UserIcon
                     :class="open ? 'transform rotate-180' : ''"
                     class="link_icon h-5" />
-                <span>User</span>
+                <span>Users</span>
+            </inertia-link>
+            <inertia-link
+                href="/admin/admins"
+                class="flex mt-4 py-2 font-medium text-left focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75">
+                <UserIcon
+                    class="link_icon h-5" />
+                <span>Admins</span>
             </inertia-link>
         </div>
 

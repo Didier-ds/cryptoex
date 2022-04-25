@@ -521,6 +521,12 @@ var _hoisted_2 = {
 };
 
 var _hoisted_3 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Overview", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_4 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "flex"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
@@ -541,31 +547,37 @@ var _hoisted_3 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Cardlets");
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Cardlets");
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Vendors");
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Vendors");
 
-var _hoisted_6 = {
+var _hoisted_7 = {
   "class": "flex"
 };
 
-var _hoisted_7 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_8 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Bitcoin", -1
   /* HOISTED */
   );
 });
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Proofs");
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Proofs");
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Vendors");
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Vendors");
 
-var _hoisted_10 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "User", -1
+var _hoisted_11 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Users", -1
   /* HOISTED */
   );
 });
 
-var _hoisted_11 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_12 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Admins", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_13 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "absolute inset-x-0 bottom-0"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
@@ -581,14 +593,26 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
     id: "sidebar",
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["work", $props.isSideBar ? 'active' : ''])
-  }, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Disclosure"], null, {
+  }, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+    href: "/admin/dashboard",
+    "class": "flex mb-4 py-2 font-medium text-left focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["UserIcon"], {
+        "class": "link_icon h-5"
+      }), _hoisted_3];
+    }),
+    _: 1
+    /* STABLE */
+
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Disclosure"], null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref) {
       var open = _ref.open;
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["DisclosureButton"], {
         "class": "flex justify-between w-full py-2 font-medium text-left focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ChevronUpIcon"], {
+          return [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ChevronUpIcon"], {
             "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([open ? 'transform rotate-180' : '', "link_icon h-5"])
           }, null, 8
           /* PROPS */
@@ -608,7 +632,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             "class": "p-2 pl-[4rem] block focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75 hover:bg-gray-50"
           }, {
             "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-              return [_hoisted_4];
+              return [_hoisted_5];
             }),
             _: 1
             /* STABLE */
@@ -618,7 +642,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             "class": "p-2 pl-[4rem] block focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75 hover:bg-gray-50"
           }, {
             "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-              return [_hoisted_5];
+              return [_hoisted_6];
             }),
             _: 1
             /* STABLE */
@@ -643,11 +667,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": "flex justify-between w-full py-2 font-medium text-left focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CurrencyDollarIcon"], {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CurrencyDollarIcon"], {
             "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([open ? 'transform rotate-180' : '', "link_icon h-5"])
           }, null, 8
           /* PROPS */
-          , ["class"]), _hoisted_7]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ChevronUpIcon"], {
+          , ["class"]), _hoisted_8]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ChevronUpIcon"], {
             "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([open ? 'transform rotate-180' : '', "link_icon h-5"])
           }, null, 8
           /* PROPS */
@@ -667,7 +691,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             "class": "p-2 pl-[4rem] block focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75 hover:bg-gray-50"
           }, {
             "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-              return [_hoisted_8];
+              return [_hoisted_9];
             }),
             _: 1
             /* STABLE */
@@ -676,7 +700,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             "class": "p-2 pl-[4rem] block focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75 hover:bg-gray-50"
           }, {
             "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-              return [_hoisted_9];
+              return [_hoisted_10];
             }),
             _: 1
             /* STABLE */
@@ -700,12 +724,24 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.open ? 'transform rotate-180' : '', "link_icon h-5"])
       }, null, 8
       /* PROPS */
-      , ["class"]), _hoisted_10];
+      , ["class"]), _hoisted_11];
     }),
     _: 1
     /* STABLE */
 
-  })]), _hoisted_11], 2
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+    href: "/admin/admins",
+    "class": "flex mt-4 py-2 font-medium text-left focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["UserIcon"], {
+        "class": "link_icon h-5"
+      }), _hoisted_12];
+    }),
+    _: 1
+    /* STABLE */
+
+  })]), _hoisted_13], 2
   /* CLASS */
   );
 }
