@@ -80,6 +80,7 @@
                         
                         class="w-full primary_shadow py-3 work font-semibold"
                         label="Reset Password" />
+                       
                 </div>
             </form>
 <!-- 
@@ -170,6 +171,13 @@ const form = useForm({
     password: '',
     password_confirmation: '',
 })
+
+const submit = () => {
+    form.post(route('password.update'), {
+                onFinish: () =>
+                    form.reset('password', 'password_confirmation'),
+            })
+}
 // export default defineComponent({
 //     components: {
 //         Head,

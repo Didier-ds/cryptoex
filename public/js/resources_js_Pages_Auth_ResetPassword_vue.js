@@ -65,7 +65,15 @@ __webpack_require__.r(__webpack_exports__);
       email: props.email,
       password: '',
       password_confirmation: ''
-    }); // export default defineComponent({
+    });
+
+    var submit = function submit() {
+      form.post(route('password.update'), {
+        onFinish: function onFinish() {
+          return form.reset('password', 'password_confirmation');
+        }
+      });
+    }; // export default defineComponent({
     //     components: {
     //         Head,
     //         JetAuthenticationCard,
@@ -99,10 +107,12 @@ __webpack_require__.r(__webpack_exports__);
     //     },
     // })
 
+
     var __returned__ = {
       props: props,
       isPwd: isPwd,
       form: form,
+      submit: submit,
       Logo: _components_reusables_Logo_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
       EyeIcon: _components_reusables_EyeIcon_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
       Head: _utils__WEBPACK_IMPORTED_MODULE_2__.Head,
@@ -206,16 +216,17 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_4 = {
-  "class": "input_container text-secondary work font-medium border rounded focus-within:shadow-md focus-within:border-cyan mb-8"
-};
+var _hoisted_4 = ["onSubmit"];
 var _hoisted_5 = {
-  "class": "input_container text-secondary work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan mb-8"
+  "class": "input_container text-secondary work font-medium border rounded focus-within:shadow-md focus-within:border-cyan mb-8"
 };
 var _hoisted_6 = {
   "class": "input_container text-secondary work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan mb-8"
 };
 var _hoisted_7 = {
+  "class": "input_container text-secondary work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan mb-8"
+};
+var _hoisted_8 = {
   "class": "mb-4"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -234,10 +245,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Logo"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["JetValidationErrors"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div\n                v-if=\"status\"\n                class=\"mb-4 work font-medium text-sm text-green-600\">\n                {{ status }}\n            </div> "), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p class=\"font-regular work text-gray-600 text-xs md:text-sm\">\n                Enter the email associated with your account and we'll send an\n                email to reset your password\n            </p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
         action: "#",
         "class": "",
-        onSubmit: _cache[5] || (_cache[5] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
-          return _ctx.submit && _ctx.submit.apply(_ctx, arguments);
-        }, ["prevent"]))
-      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_input, {
+        onSubmit: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)($setup.submit, ["prevent"])
+      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_input, {
         modelValue: $setup.form.email,
         "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
           return $setup.form.email = $event;
@@ -252,7 +261,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         autofocus: ""
       }, null, 8
       /* PROPS */
-      , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" password Input Container "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_input, {
+      , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" password Input Container "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_input, {
         modelValue: $setup.form.password,
         "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
           return $setup.form.password = $event;
@@ -282,7 +291,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
       }, 8
       /* PROPS */
-      , ["modelValue", "type", "rules"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" passowrd confirmation Input Container "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_input, {
+      , ["modelValue", "type", "rules"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" passowrd confirmation Input Container "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_input, {
         modelValue: $setup.form.password_confirmation,
         "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
           return $setup.form.password_confirmation = $event;
@@ -312,7 +321,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
       }, 8
       /* PROPS */
-      , ["modelValue", "type", "rules"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_btn, {
+      , ["modelValue", "type", "rules"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_btn, {
         color: "primary",
         type: "submit",
         disabled: $setup.form.processing,
@@ -321,9 +330,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         label: "Reset Password"
       }, null, 8
       /* PROPS */
-      , ["disabled"])])], 32
-      /* HYDRATE_EVENTS */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" \n            <p class=\"font-medium float-left work\">\n                Remember Password?\n                <inertia-link href=\"/login\" class=\"text-primary\"\n                    >Back to Sign-in</inertia-link\n                >\n            </p> ")])];
+      , ["disabled"])])], 40
+      /* PROPS, HYDRATE_EVENTS */
+      , _hoisted_4), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" \n            <p class=\"font-medium float-left work\">\n                Remember Password?\n                <inertia-link href=\"/login\" class=\"text-primary\"\n                    >Back to Sign-in</inertia-link\n                >\n            </p> ")])];
     }),
     _: 1
     /* STABLE */
