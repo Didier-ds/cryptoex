@@ -1,6 +1,6 @@
 <template>
     <div
-        class="text-center flex-col h-60 sm:h-74 flex justify-center items-center">
+        class="text-center flex-col h-[50vh] flex justify-center items-center">
         <div>
             <svg
                 width="100"
