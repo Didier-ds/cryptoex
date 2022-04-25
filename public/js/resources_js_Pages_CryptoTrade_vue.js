@@ -221,13 +221,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         prevStep = _stepsCrementer.prevStep,
         currentStep = _stepsCrementer.currentStep;
 
-    (0,_utils__WEBPACK_IMPORTED_MODULE_4__.watch)(currentStep, function () {
-      if (currentStep.value === 2) {
-        return submit();
-      }
-
-      return false;
-    });
     var isUploadedSuccessfully = (0,_utils__WEBPACK_IMPORTED_MODULE_4__.ref)(false);
     var image = (0,_utils__WEBPACK_IMPORTED_MODULE_4__.ref)(null);
     var preview = (0,_utils__WEBPACK_IMPORTED_MODULE_4__.computed)(function () {
@@ -293,7 +286,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       useForm: _utils__WEBPACK_IMPORTED_MODULE_4__.useForm,
       loader: _utils__WEBPACK_IMPORTED_MODULE_4__.loader,
       stepsCrementer: _utils__WEBPACK_IMPORTED_MODULE_4__.stepsCrementer,
-      watch: _utils__WEBPACK_IMPORTED_MODULE_4__.watch,
       useQuasar: quasar__WEBPACK_IMPORTED_MODULE_5__.useQuasar
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
@@ -1439,9 +1431,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       )])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_45, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
         disabled: $setup.form.processing,
         "class": "px-4 w-full mx-auto md:w-8/12 work py-3 block relative shadow-lg bg-primary rounded text-white font-medium",
-        onClick: _cache[6] || (_cache[6] = function ($event) {
-          return $setup.nextStep($setup.toggleLoader);
-        })
+        onClick: $setup.submit
       }, _hoisted_48, 8
       /* PROPS */
       , _hoisted_46)), [[_directive_ripple]])])], 64

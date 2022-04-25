@@ -199,7 +199,7 @@
                                 v-ripple
                                 :disabled="form.processing"
                                 class="px-4 w-full mx-auto md:w-8/12 work py-3 block relative shadow-lg bg-primary rounded text-white font-medium"
-                                @click="nextStep(toggleLoader)">
+                                @click="submit">
                                 Upload
                             </button>
                         </div>
@@ -218,7 +218,7 @@ import MainLayout from '@/Layouts/MainLayout'
 import { AssetsDropdown } from '../components/CryptoTradeComponents'
 import JetValidationErrors from '@/Jetstream/ValidationErrors.vue'
 import SuccessModal from '@/components/SuccessModal.vue'
-import { ref, computed, useForm, loader, stepsCrementer, watch } from '@/utils'
+import { ref, computed, useForm, loader, stepsCrementer } from '@/utils'
 import { useQuasar } from 'quasar'
 
 const $q = useQuasar()
@@ -236,11 +236,6 @@ const props = defineProps({
 const { isLoading, toggleLoader } = loader()
 const {nextStep, prevStep, currentStep} = stepsCrementer()
 
-watch(currentStep, () => {
-    if (currentStep.value === 2) {
-        return submit()
-    } return false
-})
 const isUploadedSuccessfully = ref(false)
 const image = ref(null)
 const preview = computed(() => {
