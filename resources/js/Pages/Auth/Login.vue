@@ -17,7 +17,7 @@
                     <jet-validation-errors class="mb-4" />
                     <form  @submit.prevent="submit">
                         <div
-                            class="input_container border rounded focus-within:shadow focus-within:border-cyan mb-8">
+                            class="input_container work font-medium border rounded focus-within:shadow-md focus-within:border-cyan mb-8">
                             <q-input
                                 v-model="form.email"
                                 borderless
@@ -25,7 +25,7 @@
                                 placeholder="Email Address" />
                         </div>
                         <div
-                            class="input_container border rounded focus-within:shadow focus-within:border-cyan mb-8">
+                            class="input_container work font-medium border rounded focus-within:shadow-md focus-within:border-cyan mb-8">
                             <q-input
                                 v-model="form.password"
                                 :type="isPwd ? 'password' : 'text'"
@@ -51,14 +51,14 @@
                     </form>
                     <div class="other_link_section work flex flex-col">
                         <inertia-link
-                            to="/forgotpassword"
-                            class="forgot-password self-end inline-block mb-8 font-semibold text-cyan"
+                            href="/forgot-password"
+                            class="forgot-password self-end inline-block mb-8 font-semibold text-primary"
                             >Forgot Your Password</inertia-link
                         >
                         <p class="font-semibold">
                             Don't have an account ?
                             <inertia-link href="/register"
-                                ><span class="text-cyan"
+                                ><span class="text-primary"
                                     >Sign Up</span
                                 ></inertia-link
                             >

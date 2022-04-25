@@ -210,10 +210,10 @@ var _hoisted_7 = /*#__PURE__*/_withScopeId(function () {
 
 var _hoisted_8 = ["onSubmit"];
 var _hoisted_9 = {
-  "class": "input_container border rounded focus-within:shadow focus-within:border-cyan mb-8"
+  "class": "input_container work font-medium border rounded focus-within:shadow-md focus-within:border-cyan mb-8"
 };
 var _hoisted_10 = {
-  "class": "input_container border rounded focus-within:shadow focus-within:border-cyan mb-8"
+  "class": "input_container work font-medium border rounded focus-within:shadow-md focus-within:border-cyan mb-8"
 };
 var _hoisted_11 = {
   "class": "mb-4"
@@ -232,7 +232,7 @@ var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 
 var _hoisted_16 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-    "class": "text-cyan"
+    "class": "text-primary"
   }, "Sign Up", -1
   /* HOISTED */
   );
@@ -302,8 +302,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       , ["disabled"])])], 40
       /* PROPS, HYDRATE_EVENTS */
       , _hoisted_8), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
-        to: "/forgotpassword",
-        "class": "forgot-password self-end inline-block mb-8 font-semibold text-cyan"
+        href: "/forgot-password",
+        "class": "forgot-password self-end inline-block mb-8 font-semibold text-primary"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
           return [_hoisted_13];

@@ -1130,6 +1130,11 @@ var map = {
 		"./resources/js/Pages/Auth/ForgotPassword.vue",
 		"resources_js_Pages_Auth_ForgotPassword_vue"
 	],
+	"./Auth/ForgotPassword1.vue": [
+		"./resources/js/Pages/Auth/ForgotPassword1.vue",
+		"/js/vendor",
+		"resources_js_Pages_Auth_ForgotPassword1_vue"
+	],
 	"./Auth/Login.vue": [
 		"./resources/js/Pages/Auth/Login.vue",
 		"/js/vendor",

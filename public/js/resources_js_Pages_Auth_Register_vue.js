@@ -207,13 +207,13 @@ var _hoisted_7 = /*#__PURE__*/_withScopeId(function () {
 
 var _hoisted_8 = ["onSubmit"];
 var _hoisted_9 = {
-  "class": "input_container text-black border rounded focus-within:shadow focus-within:border-cyan"
+  "class": "input_container work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan"
 };
 var _hoisted_10 = {
-  "class": "input_container text-black border rounded focus-within:shadow focus-within:border-cyan"
+  "class": "input_container work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan"
 };
 var _hoisted_11 = {
-  "class": "input_container text-black border rounded focus-within:shadow focus-within:border-cyan"
+  "class": "input_container work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan"
 };
 
 var _hoisted_12 = /*#__PURE__*/_withScopeId(function () {
@@ -225,10 +225,10 @@ var _hoisted_12 = /*#__PURE__*/_withScopeId(function () {
 });
 
 var _hoisted_13 = {
-  "class": "input_container text-black border rounded focus-within:shadow focus-within:border-cyan"
+  "class": "input_container work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan"
 };
 var _hoisted_14 = {
-  "class": "input_container text-black border rounded focus-within:shadow focus-within:border-cyan"
+  "class": "input_container work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan"
 };
 var _hoisted_15 = {
   "class": "mb-4"

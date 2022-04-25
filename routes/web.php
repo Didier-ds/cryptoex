@@ -33,9 +33,9 @@ use Spatie\Permission\Models\Role;
 //         'phpVersion' => PHP_VERSION,
 //     ]);
 // });
-// Route::get('/registers', function () {
-//     return Inertia::render('Login2');
-// });
+ Route::get('/forgot-password', function () {
+     return Inertia::render('Auth/ForgotPassword1');
+ });
 // hasRole
  Route::middleware(['auth:sanctum', 'verified'])->group(function(){
      Route::get('/', [OverviewController::class, 'index'])->name('dashboard');
