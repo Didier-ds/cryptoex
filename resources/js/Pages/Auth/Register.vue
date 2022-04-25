@@ -18,7 +18,7 @@
                     <form autocomplete="off" @submit.prevent="submit">
                         <!-- fullname Input Container -->
                         <div
-                            class="input_container work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan">
+                            class="input_container text-secondary work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan">
                             <q-input
                                 v-model="form.fullname"
                                 :rules="[
@@ -29,13 +29,13 @@
                                 lazy-rules
                                 type="text"
                                 borderless
-                                input-class="my_input"
+                                input-class="my_input text-secondary"
                                 placeholder="Fullname" />
                         </div>
 
                         <!-- Email Input Container -->
                         <div
-                            class="input_container work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan">
+                            class="input_container text-secondary work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan">
                             <q-input
                                 v-model="form.email"
                                 :rules="[
@@ -46,20 +46,20 @@
                                 lazy-rules
                                 type="email"
                                 borderless
-                                input-class="my_input"
+                                input-class="my_input text-secondary"
                                 placeholder="Email Address" />
                         </div>
 
                         <!-- Phone Input Container -->
                         <div
-                            class="input_container work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan">
+                            class="input_container text-secondary work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan">
                             <q-input
                                 v-model="form.phone"
                                 required
                                 lazy-rules
                                 type="tel"
                                 borderless
-                                input-class="my_input"
+                                input-class="my_input text-secondary"
                                 :rules="[(val) => !!val || 'Phone is required']"
                                 placeholder="Phone Number">
                                 <template #prepend>
@@ -74,7 +74,7 @@
 
                         <!-- password Input Container -->
                         <div
-                            class="input_container work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan">
+                            class="input_container text-secondary work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan">
                             <q-input
                                 v-model="form.password"
                                 required
@@ -83,7 +83,7 @@
                                 borderless
                                 autocomplete="new-password"
                                 :rules="[isValidPWd]"
-                                input-class="my_input "
+                                input-class="my_input text-secondary"
                                 placeholder="Password">
                                 <template #append>
                                     <EyeIcon
@@ -95,7 +95,7 @@
 
                         <!-- passowrd confirmation Input Container -->
                         <div
-                            class="input_container work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan">
+                            class="input_container text-secondary work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan">
                             <q-input
                                 v-model="form.password_confirmation"
                                 required
@@ -103,7 +103,7 @@
                                 :type="isPwd ? 'password' : 'text'"
                                 :rules="confirmPassword(form.password)"
                                 borderless
-                                input-class="my_input "
+                                input-class="my_input text-secondary"
                                 placeholder="Confirm Password">
                                 <template #append>
                                     <EyeIcon
@@ -182,7 +182,7 @@ const submit = () => {
 </script>
 
 <style lang="scss" scoped>
-.input_container {
+.input_container text-secondary {
     margin-bottom: 2em;
 }
 .main_container {

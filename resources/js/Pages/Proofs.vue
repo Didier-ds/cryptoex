@@ -5,9 +5,7 @@
             :class="{
                 'border p-2 shadow-lg bg-white rounded': tablet,
             }">
-            <div
-                v-if="tablet"
-                class="grid_section border-b py-4 p-2">
+            <div v-if="tablet" class="grid_section border-b py-4 p-2">
                 <div>Vendor Name</div>
                 <div>Amount</div>
                 <div>NGN</div>
@@ -21,8 +19,7 @@
                     :status="proof.status"
                     :vendor-name="proof.vendor_name"
                     :amount="proof.amount"
-                    :created-at="proof.created_at"
-                   />
+                    :created-at="proof.created_at" />
             </template>
 
             <template v-else>
@@ -43,7 +40,6 @@ defineProps({
         default: () => [],
     },
 })
-
 </script>
 
 <style lang="scss" scoped>

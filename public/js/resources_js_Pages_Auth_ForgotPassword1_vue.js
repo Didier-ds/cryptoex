@@ -146,13 +146,13 @@ var _hoisted_3 = {
 
 var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
   "class": "font-bold text-gray-800 work text-lg my-2"
-}, "Forgot your password", -1
+}, " Forgot your password ", -1
 /* HOISTED */
 );
 
 var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "font-regular work text-gray-600 text-xs md:text-sm"
-}, "Enter the email associated with your account and we'll send an email to reset your password", -1
+}, " Enter the email associated with your account and we'll send an email to reset your password ", -1
 /* HOISTED */
 );
 
@@ -167,7 +167,7 @@ var _hoisted_9 = {
   "class": "font-medium float-left work"
 };
 
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Remember Password? ");
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Remember Password? ");
 
 var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Back to Sign-in");
 

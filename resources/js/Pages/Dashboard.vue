@@ -8,8 +8,9 @@
                 <p class="text-gray-600 font-medium">
                     Lets Make Trading easy for you
                 </p>
-                <div class="grid_container my-4 flex flex-col items-center sm:grid sm:gap-10 grid-cols-2">
-                    <div class="menu_btn_container ">
+                <div
+                    class="grid_container my-4 flex flex-col items-center sm:grid sm:gap-10 grid-cols-2">
+                    <div class="menu_btn_container">
                         <inertia-link
                             href="/giftcards"
                             class="action_btn select-none rounded-md flex flex-col justify-center items-center bg-white p-4 border shadow-md giftcard_btn p-ripple lightcyan">
@@ -68,7 +69,9 @@
                         <div>
                             <template v-if="recentCardlets.data.length">
                                 <Cardlet
-                                    v-for="(cardlet, index) in recentCardlets.data"
+                                    v-for="(
+                                        cardlet, index
+                                    ) in recentCardlets.data"
                                     :key="index"
                                     :tablet="false"
                                     :status="cardlet.status"
@@ -97,8 +100,8 @@ import Empty from '@/components/reusables_/Empty.vue'
 defineProps({
     recentCardlets: {
         type: Object,
-        default: () => {}
-    }
+        default: () => {},
+    },
 })
 </script>
 

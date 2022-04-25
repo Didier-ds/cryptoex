@@ -207,13 +207,13 @@ var _hoisted_7 = /*#__PURE__*/_withScopeId(function () {
 
 var _hoisted_8 = ["onSubmit"];
 var _hoisted_9 = {
-  "class": "input_container work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan"
+  "class": "input_container text-secondary work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan"
 };
 var _hoisted_10 = {
-  "class": "input_container work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan"
+  "class": "input_container text-secondary work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan"
 };
 var _hoisted_11 = {
-  "class": "input_container work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan"
+  "class": "input_container text-secondary work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan"
 };
 
 var _hoisted_12 = /*#__PURE__*/_withScopeId(function () {
@@ -225,10 +225,10 @@ var _hoisted_12 = /*#__PURE__*/_withScopeId(function () {
 });
 
 var _hoisted_13 = {
-  "class": "input_container work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan"
+  "class": "input_container text-secondary work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan"
 };
 var _hoisted_14 = {
-  "class": "input_container work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan"
+  "class": "input_container text-secondary work font-medium text-black border rounded focus-within:shadow-md focus-within:border-cyan"
 };
 var _hoisted_15 = {
   "class": "mb-4"
@@ -280,7 +280,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "lazy-rules": "",
         type: "text",
         borderless: "",
-        "input-class": "my_input",
+        "input-class": "my_input text-secondary",
         placeholder: "Fullname"
       }, null, 8
       /* PROPS */
@@ -296,7 +296,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "lazy-rules": "",
         type: "email",
         borderless: "",
-        "input-class": "my_input",
+        "input-class": "my_input text-secondary",
         placeholder: "Email Address"
       }, null, 8
       /* PROPS */
@@ -309,7 +309,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "lazy-rules": "",
         type: "tel",
         borderless: "",
-        "input-class": "my_input",
+        "input-class": "my_input text-secondary",
         rules: [function (val) {
           return !!val || 'Phone is required';
         }],
@@ -334,7 +334,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         borderless: "",
         autocomplete: "new-password",
         rules: [$setup.isValidPWd],
-        "input-class": "my_input ",
+        "input-class": "my_input text-secondary",
         placeholder: "Password"
       }, {
         append: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -362,7 +362,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         type: $setup.isPwd ? 'password' : 'text',
         rules: $setup.confirmPassword($setup.form.password),
         borderless: "",
-        "input-class": "my_input ",
+        "input-class": "my_input text-secondary",
         placeholder: "Confirm Password"
       }, {
         append: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -670,7 +670,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".input_container[data-v-e59c811e] {\n  margin-bottom: 2em;\n}\n.main_container[data-v-e59c811e] {\n  margin: 2em 0;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".input_container text-secondary[data-v-e59c811e] {\n  margin-bottom: 2em;\n}\n.main_container[data-v-e59c811e] {\n  margin: 2em 0;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

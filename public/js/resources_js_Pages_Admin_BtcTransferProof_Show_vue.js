@@ -1137,7 +1137,7 @@ var _hoisted_2 = {
 
 var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "font-medium work text-lg capitalize"
-}, " Transfer Details ", -1
+}, "Transfer Details", -1
 /* HOISTED */
 );
 

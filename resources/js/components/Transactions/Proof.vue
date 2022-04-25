@@ -1,25 +1,23 @@
 <template>
     <div>
         <div v-if="tablet" class="grid_section items-center p-2 my-2">
-            <p class=" work capitalize">{{ vendorName }} </p>
+            <p class="work capitalize">{{ vendorName }}</p>
             <!-- <p class="type text-gray-600 work ">{{ type }}</p> -->
-            <p class="amount ibm font-semibold">
-                ${{ amount }}
-            </p>
+            <p class="amount ibm font-semibold">${{ amount }}</p>
             <!-- <div class="total font-semibold text-green-800">
                 &#8358;{{ +amount * +rate }}
             </div> -->
-            <div class="status ">
+            <div class="status">
                 <q-badge :color="statusColor(status)">
-                            {{ status }}
-                        </q-badge>
+                    {{ status }}
+                </q-badge>
             </div>
             <p class="date work text-gray-600">{{ createdAt.slice(0, 10) }}</p>
         </div>
         <div
             v-else
             id="cardlet"
-            class=" bg-white mb-4 border  rounded p-3 items-center">
+            class="bg-white mb-4 border rounded p-3 items-center">
             <div class="cardlet_property flex items-center">
                 <div class="cardlet_box image rounded-md">
                     <img
@@ -28,9 +26,10 @@
                         alt="" />
                 </div>
                 <div class="flex-1 ml-4">
-                    <div class="cardlet_details flex justify-between mb-1 items-center capitalize ">
+                    <div
+                        class="cardlet_details flex justify-between mb-1 items-center capitalize">
                         <p class="work font-medium capitalize">
-                            {{ vendorName }} 
+                            {{ vendorName }}
                         </p>
                         <p class="font-bold work ibm">${{ amount }}</p>
                     </div>
@@ -44,7 +43,6 @@
                     </div>
                 </div>
             </div>
-            
         </div>
     </div>
 </template>
@@ -68,7 +66,6 @@ defineProps({
         default: '',
     },
 })
-
 </script>
 <style lang="scss" scoped>
 .image {

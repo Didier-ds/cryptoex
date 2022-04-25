@@ -2,12 +2,11 @@
     <admin-layout>
         <!-- {{data}} -->
         <div class="mx-4 md:m-4 inline-block">
-                    <GoBack />
-                </div>
-        <div class="flex justify-between px-2 lg:px-8 max-w-4xl mx-auto work items-center p-4">
-            <p class="font-medium work text-lg capitalize">
-                Transfer Details
-            </p>
+            <GoBack />
+        </div>
+        <div
+            class="flex justify-between px-2 lg:px-8 max-w-4xl mx-auto work items-center p-4">
+            <p class="font-medium work text-lg capitalize">Transfer Details</p>
             <!-- {{data.images}} -->
             <div class="py-2 flex gap-2">
                 <button
@@ -68,14 +67,14 @@
                                 {{ data.vendor_name }}
                             </dd>
                         </div>
-                         <div class="sm:col-span-1">
+                        <div class="sm:col-span-1">
                             <dt class="text-sm font-medium text-gray-500">
                                 Proof Id
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900">
                                 #{{ data.uuid.slice(0, 8) }}
                             </dd>
-                        </div> 
+                        </div>
                         <!-- phone -->
                         <div class="sm:col-span-1">
                             <dt class="text-sm font-medium text-gray-500">
@@ -97,7 +96,8 @@
                             <dt class="text-sm font-medium text-gray-500">
                                 Amount
                             </dt>
-                            <dd class="mt-1 text-sm ibm font-semibold text-green-900">
+                            <dd
+                                class="mt-1 text-sm ibm font-semibold text-green-900">
                                 &#8358;{{ data.amount * data.rate }}
                             </dd>
                         </div>

@@ -1,37 +1,35 @@
 <template>
     <transactions-layout>
         <div
-                        class="my-2 giftcards"
-                        :class="{
-                            'border p-2 shadow-lg bg-white rounded': tablet,
-                        }">
-                        <div
-                            v-if="tablet"
-                            class=" grid_section border-b py-4 p-2">
-                            <div></div>
-                            <div>Giftcard</div>
-                            <div>Type</div>
-                            <div>Amount | <span>rate</span></div>
-                            <div>NGN</div>
-                            <div>Status</div>
-                            <div>Date</div>
-                        </div>
-                        <template v-if="!!cardlets.length">
-                            <Cardlet
-                                v-for="(cardlet, index) in cardlets"
-                                :key="index"
-                                :tablet="tablet"
-                                :status="cardlet.status"
-                                :name="cardlet.name"
-                                :amount="cardlet.amount"
-                                :rate="cardlet.rate"
-                                :created-at="cardlet.created_at"
-                                :type="cardlet.type" />
-                        </template>
+            class="my-2 giftcards"
+            :class="{
+                'border p-2 shadow-lg bg-white rounded': tablet,
+            }">
+            <div v-if="tablet" class="grid_section border-b py-4 p-2">
+                <div></div>
+                <div>Giftcard</div>
+                <div>Type</div>
+                <div>Amount | <span>rate</span></div>
+                <div>NGN</div>
+                <div>Status</div>
+                <div>Date</div>
+            </div>
+            <template v-if="!!cardlets.length">
+                <Cardlet
+                    v-for="(cardlet, index) in cardlets"
+                    :key="index"
+                    :tablet="tablet"
+                    :status="cardlet.status"
+                    :name="cardlet.name"
+                    :amount="cardlet.amount"
+                    :rate="cardlet.rate"
+                    :created-at="cardlet.created_at"
+                    :type="cardlet.type" />
+            </template>
 
-                        <template v-else>
-                            <Empty>You Have No Gift Card Transations</Empty>
-                        </template>
+            <template v-else>
+                <Empty>You Have No Gift Card Transations</Empty>
+            </template>
         </div>
     </transactions-layout>
 </template>
@@ -49,7 +47,6 @@ const props = defineProps({
         default: () => [],
     },
 })
-
 </script>
 
 <style lang="scss">

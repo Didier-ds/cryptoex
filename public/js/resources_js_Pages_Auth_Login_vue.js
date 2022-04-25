@@ -210,10 +210,10 @@ var _hoisted_7 = /*#__PURE__*/_withScopeId(function () {
 
 var _hoisted_8 = ["onSubmit"];
 var _hoisted_9 = {
-  "class": "input_container work font-medium border rounded focus-within:shadow-md focus-within:border-cyan mb-8"
+  "class": "input_container text-secondary work font-medium border rounded focus-within:shadow-md focus-within:border-cyan mb-8"
 };
 var _hoisted_10 = {
-  "class": "input_container work font-medium border rounded focus-within:shadow-md focus-within:border-cyan mb-8"
+  "class": "input_container text-secondary work font-medium border rounded focus-within:shadow-md focus-within:border-cyan mb-8"
 };
 var _hoisted_11 = {
   "class": "mb-4"
@@ -264,7 +264,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         name: "email",
         type: "email",
         required: "",
-        "input-class": "my_input",
+        "input-class": "my_input text-secondary",
         placeholder: "Email Address"
       }, null, 8
       /* PROPS */
@@ -276,7 +276,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         type: $setup.isPwd ? 'password' : 'text',
         borderless: "",
         name: "password",
-        "input-class": "my_input relative",
+        "input-class": "my_input text-secondary relative",
         required: "",
         placeholder: "Password"
       }, {

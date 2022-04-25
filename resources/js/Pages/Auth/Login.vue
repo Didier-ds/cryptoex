@@ -15,26 +15,26 @@
                         </p>
                     </div>
                     <jet-validation-errors class="mb-4" />
-                    <form  @submit.prevent="submit">
+                    <form @submit.prevent="submit">
                         <div
-                            class="input_container work font-medium border rounded focus-within:shadow-md focus-within:border-cyan mb-8">
+                            class="input_container text-secondary work font-medium border rounded focus-within:shadow-md focus-within:border-cyan mb-8">
                             <q-input
                                 v-model="form.email"
                                 borderless
                                 name="email"
                                 type="email"
                                 required
-                                input-class="my_input"
+                                input-class="my_input text-secondary"
                                 placeholder="Email Address" />
                         </div>
                         <div
-                            class="input_container work font-medium border rounded focus-within:shadow-md focus-within:border-cyan mb-8">
+                            class="input_container text-secondary work font-medium border rounded focus-within:shadow-md focus-within:border-cyan mb-8">
                             <q-input
                                 v-model="form.password"
                                 :type="isPwd ? 'password' : 'text'"
                                 borderless
                                 name="password"
-                                input-class="my_input relative"
+                                input-class="my_input text-secondary relative"
                                 required
                                 placeholder="Password">
                                 <template #append>

@@ -2,9 +2,10 @@
     <admin-layout>
         <!-- {{data}} -->
         <div class="m-4 inline-block">
-                    <GoBack />
-                </div>
-        <div class="flex justify-between px-2 lg:px-8 max-w-4xl mx-auto work items-center p-4">
+            <GoBack />
+        </div>
+        <div
+            class="flex justify-between px-2 lg:px-8 max-w-4xl mx-auto work items-center p-4">
             <p class="font-medium work text-lg capitalize">
                 {{ data.name }} giftcard
             </p>
@@ -39,7 +40,8 @@
                         {{ data.status }}
                     </q-badge>
                 </div>
-                <div class="px-4 py-5 sm:px-6 overflow-x-scroll scroll-smooth snap-mandatory snap-x flex flex-nowrap">
+                <div
+                    class="px-4 py-5 sm:px-6 overflow-x-scroll scroll-smooth snap-mandatory snap-x flex flex-nowrap">
                     <!-- {{data.images}} -->
                     <q-img
                         v-for="image in data.images"
@@ -47,7 +49,11 @@
                         :src="image.filename"
                         spinner-color="secondary"
                         class="border snap-start shadow rounded m-2"
-                        style="height: 140px; min-width:150px; max-width: 150px"
+                        style="
+                            height: 140px;
+                            min-width: 150px;
+                            max-width: 150px;
+                        "
                         @click="SHOW_IMAGE_MODAL(image.filename)" />
                 </div>
                 <div class="px-4 py-5 sm:px-6 border-t border-gray-200">

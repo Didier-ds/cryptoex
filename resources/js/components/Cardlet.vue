@@ -8,7 +8,7 @@
                     alt="" />
             </div>
             <p class="giftcard_name work capitalize">{{ name }} giftcard</p>
-            <p class="type text-gray-600 work ">{{ type }}</p>
+            <p class="type text-gray-600 work">{{ type }}</p>
             <p class="amount ibm font-semibold">
                 ${{ amount }} |
                 <span class="rate text-cyan font-medium work"
@@ -18,17 +18,17 @@
             <div class="total font-semibold text-green-800">
                 &#8358;{{ +amount * +rate }}
             </div>
-            <div class="status ">
+            <div class="status">
                 <q-badge :color="statusColor(status)">
-                            {{ status }}
-                        </q-badge>
+                    {{ status }}
+                </q-badge>
             </div>
             <p class="date work text-gray-600">{{ createdAt.slice(0, 10) }}</p>
         </div>
         <div
             v-else
             id="cardlet"
-            class=" bg-white mb-4 border  rounded p-3 items-center">
+            class="bg-white mb-4 border rounded p-3 items-center">
             <div class="cardlet_property flex items-center">
                 <div class="cardlet_box image rounded-md">
                     <img
@@ -37,7 +37,8 @@
                         alt="" />
                 </div>
                 <div class="flex-1 ml-4">
-                    <div class="cardlet_details flex justify-between mb-1 items-center capitalize ">
+                    <div
+                        class="cardlet_details flex justify-between mb-1 items-center capitalize">
                         <p class="work font-medium capitalize">
                             {{ name }} giftcard
                         </p>
@@ -53,7 +54,6 @@
                     </div>
                 </div>
             </div>
-            
         </div>
     </div>
 </template>
@@ -67,7 +67,7 @@ const props = defineProps({
     },
     tablet: {
         type: Boolean,
-        default: false
+        default: false,
     },
     name: {
         type: String,

@@ -1156,6 +1156,7 @@ var map = {
 	],
 	"./Auth/ResetPassword.vue": [
 		"./resources/js/Pages/Auth/ResetPassword.vue",
+		"/js/vendor",
 		"resources_js_Pages_Auth_ResetPassword_vue"
 	],
 	"./Auth/TwoFactorChallenge.vue": [

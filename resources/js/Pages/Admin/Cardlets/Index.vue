@@ -29,7 +29,7 @@
                         <MenuItems
                             class="absolute right-0 w-56 z-10 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                             <div class="px-1 py-1">
-                                <MenuItem  v-slot="{ active }">
+                                <MenuItem v-slot="{ active }">
                                     <inertia-link
                                         href="/admin/cardlets"
                                         :class="[
@@ -41,16 +41,19 @@
                                         All giftcards
                                     </inertia-link>
                                 </MenuItem>
-                                 <MenuItem v-for="(status, index) in statuses" v-slot="{ active }" :key="index">
+                                <MenuItem
+                                    v-for="(status, index) in statuses"
+                                    v-slot="{ active }"
+                                    :key="index">
                                     <inertia-link
-                                    :href="'?status='+status"
+                                        :href="'?status=' + status"
                                         :class="[
                                             active
                                                 ? 'bg-violet-500 text-white'
                                                 : 'text-gray-900',
                                             'group block rounded-md capitalize items-center w-full px-2 py-2 text-sm',
                                         ]">
-                                        {{status}} giftcards
+                                        {{ status }} giftcards
                                     </inertia-link>
                                 </MenuItem>
                             </div>
@@ -61,7 +64,6 @@
             <div
                 v-if="tablet"
                 class="shadow-lg overflow-x-scroll border border-gray-200 work border-dashed rounded-lg m-4">
-                
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                         <tr>
@@ -101,29 +103,29 @@
                             </th>
                         </tr>
                     </thead>
-                        <template v-if="cardlets.length"> 
-                            <tbody class="bg-white divide-y divide-gray-200">
-                                <tr
-                                    v-for="cardlet in cardlets"
-                                    :key="cardlet.id"
-                                    class="py-2">
-                                    <td
-                                        class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 capitalize">
-                                        {{ cardlet.name }}
-                                    </td>
-                                    <td
-                                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">
-                                        {{ cardlet.type }}
-                                    </td>
-                                    <td
-                                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 font-medium capitalize">
-                                        ${{ cardlet.amount }}
-                                    </td>
-                                    <td
-                                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 capitalize">
-                                        &#8358;{{ cardlet.rate }}
-                                    </td>
-                                    <!-- <td
+                    <template v-if="cardlets.length">
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr
+                                v-for="cardlet in cardlets"
+                                :key="cardlet.id"
+                                class="py-2">
+                                <td
+                                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 capitalize">
+                                    {{ cardlet.name }}
+                                </td>
+                                <td
+                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">
+                                    {{ cardlet.type }}
+                                </td>
+                                <td
+                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 font-medium capitalize">
+                                    ${{ cardlet.amount }}
+                                </td>
+                                <td
+                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 capitalize">
+                                    &#8358;{{ cardlet.rate }}
+                                </td>
+                                <!-- <td
                                             class="
                                                             px-6
                                                             py-4
@@ -134,62 +136,72 @@
                                     >
                                         {{ REPLACE_UNDERSCORE(cardlet.condition) }}
                                     </td> -->
-                                    <td
-                                        class="px-2 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">
-                                        <q-badge :color="statusColor(cardlet.status)">
-                                            {{ cardlet.status }}
-                                        </q-badge>
-                                    </td>
-                                    <td
-                                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 font-medium capitalize">
-                                        &#8358;{{ +cardlet.amount * +cardlet.rate }}
-                                    </td>
-                                    <td
-                                        class="px-6 py-4 whitespace-nowrap text-right text-sm flex gap-4 font-medium">
-                                        <inertia-link
-                                            :href="route('cardlet.show', cardlet.uuid)"
-                                            class="flex-0 items-center px-4 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                            View Card
-                                        </inertia-link>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </template>
-                        <div v-else class="work text-lg w-full text-center font-medium py-10 p-2" style="display: table-caption; caption-side: bottom;">
-                            No Giftcards found
-                        </div>
+                                <td
+                                    class="px-2 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">
+                                    <q-badge
+                                        :color="statusColor(cardlet.status)">
+                                        {{ cardlet.status }}
+                                    </q-badge>
+                                </td>
+                                <td
+                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 font-medium capitalize">
+                                    &#8358;{{ +cardlet.amount * +cardlet.rate }}
+                                </td>
+                                <td
+                                    class="px-6 py-4 whitespace-nowrap text-right text-sm flex gap-4 font-medium">
+                                    <inertia-link
+                                        :href="
+                                            route('cardlet.show', cardlet.uuid)
+                                        "
+                                        class="flex-0 items-center px-4 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                        View Card
+                                    </inertia-link>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </template>
+                    <div
+                        v-else
+                        class="work text-lg w-full text-center font-medium py-10 p-2"
+                        style="display: table-caption; caption-side: bottom">
+                        No Giftcards found
+                    </div>
                 </table>
             </div>
             <div v-else class="">
                 <template v-if="cardlets.length">
                     <inertia-link
-                    v-for="cardlet in cardlets"
-                    :key="cardlet.id"
-                    :href="route('cardlet.show', cardlet.uuid)"
-                    class="border block work m-4 bg-white shadow p-3 rounded">
-                    <div></div>
-                    <div>
-                        <div class="flex items-center pb-1 justify-between">
-                            <p class="font-medium text-base">{{ cardlet.name }}</p>
-                            <p class="font-semibold">${{ cardlet.amount }}</p>
+                        v-for="cardlet in cardlets"
+                        :key="cardlet.id"
+                        :href="route('cardlet.show', cardlet.uuid)"
+                        class="border block work m-4 bg-white shadow p-3 rounded">
+                        <div></div>
+                        <div>
+                            <div class="flex items-center pb-1 justify-between">
+                                <p class="font-medium text-base">
+                                    {{ cardlet.name }}
+                                </p>
+                                <p class="font-semibold">
+                                    ${{ cardlet.amount }}
+                                </p>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <p class="text-gray-700 text-sm">
+                                    {{ cardlet.created_at.slice(0, 10) }}
+                                </p>
+                                <q-badge :color="statusColor(cardlet.status)">
+                                    {{ cardlet.status }}
+                                </q-badge>
+                            </div>
                         </div>
-                        <div class="flex items-center justify-between">
-                            <p class="text-gray-700 text-sm">
-                                {{ cardlet.created_at.slice(0, 10) }}
-                            </p>
-                            <q-badge :color="statusColor(cardlet.status)">
-                                {{ cardlet.status }}
-                            </q-badge>
-                        </div>
-                    </div>
-                </inertia-link>
+                    </inertia-link>
                 </template>
                 <template v-else>
-                    <div class="work text-lg w-full text-center font-medium py-10 p-2" >
-                            No Giftcards found
-                        </div>
+                    <div
+                        class="work text-lg w-full text-center font-medium py-10 p-2">
+                        No Giftcards found
+                    </div>
                 </template>
-                
             </div>
         </div>
     </admin-layout>
@@ -208,10 +220,7 @@ defineProps({
     },
 })
 
-
-const statuses = [
-    'Pending', 'paid','cancelled'
-]
+const statuses = ['Pending', 'paid', 'cancelled']
 // const STATUS_COLOR = computed(() => statusColor(props.cardlets.status))
 </script>
 
