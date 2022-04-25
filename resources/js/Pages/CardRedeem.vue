@@ -5,7 +5,7 @@
                 <!-- <GoBack /> -->
                 <button
                     class="back_btn cursor-default rounded bg-gray-100 sm:bg-transparent sm:hover:bg-gray-100 p-2 select-none flex items-center"
-                    @click="prevStep">
+                    @click="prevStep(currentStep)">
                     <svg
                         width="24"
                         height="24"
@@ -178,7 +178,7 @@
                                 <button
                                     v-ripple
                                     class="px-4 w-full mx-auto md:w-8/12 work py-3 block relative shadow-lg bg-primary rounded text-white font-medium"
-                                    @click="nextStep">
+                                    @click="nextStep(toggleLoader)">
                                     Confirm
                                 </button>
                             </div>
@@ -279,7 +279,7 @@ import {
 import useFilter from '@/components/CardUploadComponents/utils'
 import useVuelidate from '@vuelidate/core'
 import { required } from '@vuelidate/validators'
-import { ref, useForm, onMounted, computed, watch, loader } from '@/utils'
+import { ref, useForm, onMounted, computed, watch, loader, stepsCrementer } from '@/utils'
 import useDropzone from '@/utils/Dropzone.js'
 
 let SELECTED_CARD_UUID = null
@@ -319,10 +319,11 @@ const form = useForm({
 const { isLoading, toggleLoader } = loader()
 
 //
-const currentStep = ref(0)
+// const currentStep = ref(0)
 
 const isDropzoneActive = ref(false)
 
+const {nextStep, prevStep, currentStep} = stepsCrementer()
 // dropzone import
 const { files, inputFiles, dropFiles, removeFile } = useDropzone()
 
@@ -353,31 +354,33 @@ const setInactive = () => {
 const moveToTwo = async () => {
     const isFormCorrect = await v$.value.$validate()
     if (isFormCorrect) {
-        return nextStep()
+        return nextStep(toggleLoader)
     }
     return false
 }
-// function to increment currentStep value
-const nextStep = async () => {
-    if (currentStep.value >= 2) {
-        return false
-    }
-    toggleLoader()
-    await new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(currentStep.value++)
-            window.scrollTo(0, 0)
-        }, 1000)
-    })
-    toggleLoader()
-}
 
-const prevStep = () => {
-    if (currentStep.value <= 0) {
-        window.history.back()
-    }
-    currentStep.value--
-}
+// nextStep = nextStep(currentStep.value, toggleLoader)
+// function to increment currentStep value
+// const nextStep = async () => {
+//     if (currentStep.value >= 2) {
+//         return false
+//     }
+//     toggleLoader()
+//     await new Promise((resolve) => {
+//         setTimeout(() => {
+//             resolve(currentStep.value++)
+//             window.scrollTo(0, 0)
+//         }, 1000)
+//     })
+//     toggleLoader()
+// }
+
+// const prevStep = () => {
+//     if (currentStep.value <= 0) {
+//         window.history.back()
+//     }
+//     currentStep.value--
+// }
 
 // triggers when user selects country
 const isSelectedCountry = (index) => {

@@ -1495,22 +1495,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "onMounted": () => (/* reexport safe */ vue__WEBPACK_IMPORTED_MODULE_0__.onMounted),
 /* harmony export */   "onUnmounted": () => (/* reexport safe */ vue__WEBPACK_IMPORTED_MODULE_0__.onUnmounted),
 /* harmony export */   "usePage": () => (/* reexport safe */ _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__.usePage),
+/* harmony export */   "stepsCrementer": () => (/* reexport safe */ _stepsCrementer_js__WEBPACK_IMPORTED_MODULE_5__["default"]),
 /* harmony export */   "Inertia": () => (/* reexport safe */ _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia),
-/* harmony export */   "loader": () => (/* reexport safe */ _Loading_js__WEBPACK_IMPORTED_MODULE_5__["default"]),
+/* harmony export */   "loader": () => (/* reexport safe */ _Loading_js__WEBPACK_IMPORTED_MODULE_6__["default"]),
 /* harmony export */   "useForm": () => (/* reexport safe */ _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__.useForm),
 /* harmony export */   "ExactCardImg": () => (/* reexport safe */ _cards__WEBPACK_IMPORTED_MODULE_2__.ExactCardImg),
-/* harmony export */   "isValidEmail": () => (/* reexport safe */ _validate_js__WEBPACK_IMPORTED_MODULE_6__.isValidEmail),
-/* harmony export */   "isValidFullName": () => (/* reexport safe */ _validate_js__WEBPACK_IMPORTED_MODULE_6__.isValidFullName),
-/* harmony export */   "confirmPassword": () => (/* reexport safe */ _validate_js__WEBPACK_IMPORTED_MODULE_6__.confirmPassword),
-/* harmony export */   "isValidPWd": () => (/* reexport safe */ _validate_js__WEBPACK_IMPORTED_MODULE_6__.isValidPWd)
+/* harmony export */   "isValidEmail": () => (/* reexport safe */ _validate_js__WEBPACK_IMPORTED_MODULE_7__.isValidEmail),
+/* harmony export */   "isValidFullName": () => (/* reexport safe */ _validate_js__WEBPACK_IMPORTED_MODULE_7__.isValidFullName),
+/* harmony export */   "confirmPassword": () => (/* reexport safe */ _validate_js__WEBPACK_IMPORTED_MODULE_7__.confirmPassword),
+/* harmony export */   "isValidPWd": () => (/* reexport safe */ _validate_js__WEBPACK_IMPORTED_MODULE_7__.isValidPWd)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
 /* harmony import */ var _cards__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./cards */ "./resources/js/utils/cards.js");
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
 /* harmony import */ var _breakpoints_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./breakpoints.js */ "./resources/js/utils/breakpoints.js");
-/* harmony import */ var _Loading_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Loading.js */ "./resources/js/utils/Loading.js");
-/* harmony import */ var _validate_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./validate.js */ "./resources/js/utils/validate.js");
+/* harmony import */ var _stepsCrementer_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./stepsCrementer.js */ "./resources/js/utils/stepsCrementer.js");
+/* harmony import */ var _Loading_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Loading.js */ "./resources/js/utils/Loading.js");
+/* harmony import */ var _validate_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./validate.js */ "./resources/js/utils/validate.js");
+
 
 
 
@@ -1543,6 +1546,85 @@ var statusColor = function statusColor(status) {
 };
 
 
+
+/***/ }),
+
+/***/ "./resources/js/utils/stepsCrementer.js":
+/*!**********************************************!*\
+  !*** ./resources/js/utils/stepsCrementer.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__() {
+  var currentStep = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)(0);
+
+  var nextStep = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(loader) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              if (!(currentStep.value >= 2)) {
+                _context.next = 2;
+                break;
+              }
+
+              return _context.abrupt("return", false);
+
+            case 2:
+              loader();
+              _context.next = 5;
+              return new Promise(function (resolve) {
+                setTimeout(function () {
+                  resolve(currentStep.value++);
+                  window.scrollTo(0, 0);
+                }, 1000);
+              });
+
+            case 5:
+              loader();
+
+            case 6:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function nextStep(_x) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  var prevStep = function prevStep() {
+    if (currentStep.value <= 0) {
+      window.history.back();
+    }
+
+    currentStep.value--;
+  };
+
+  return {
+    currentStep: currentStep,
+    nextStep: nextStep,
+    prevStep: prevStep
+  };
+}
 
 /***/ }),
 

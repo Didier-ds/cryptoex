@@ -250,10 +250,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var _loader = (0,_utils__WEBPACK_IMPORTED_MODULE_8__.loader)(),
         isLoading = _loader.isLoading,
         toggleLoader = _loader.toggleLoader; //
+    // const currentStep = ref(0)
 
 
-    var currentStep = (0,_utils__WEBPACK_IMPORTED_MODULE_8__.ref)(0);
-    var isDropzoneActive = (0,_utils__WEBPACK_IMPORTED_MODULE_8__.ref)(false); // dropzone import
+    var isDropzoneActive = (0,_utils__WEBPACK_IMPORTED_MODULE_8__.ref)(false);
+
+    var _stepsCrementer = (0,_utils__WEBPACK_IMPORTED_MODULE_8__.stepsCrementer)(),
+        nextStep = _stepsCrementer.nextStep,
+        prevStep = _stepsCrementer.prevStep,
+        currentStep = _stepsCrementer.currentStep; // dropzone import
+
 
     var _useDropzone = (0,_utils_Dropzone_js__WEBPACK_IMPORTED_MODULE_9__["default"])(),
         files = _useDropzone.files,
@@ -301,7 +307,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   break;
                 }
 
-                return _context.abrupt("return", nextStep());
+                return _context.abrupt("return", nextStep(toggleLoader));
 
               case 5:
                 return _context.abrupt("return", false);
@@ -317,55 +323,28 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return function moveToTwo() {
         return _ref2.apply(this, arguments);
       };
-    }(); // function to increment currentStep value
-
-
-    var nextStep = /*#__PURE__*/function () {
-      var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                if (!(currentStep.value >= 2)) {
-                  _context2.next = 2;
-                  break;
-                }
-
-                return _context2.abrupt("return", false);
-
-              case 2:
-                toggleLoader();
-                _context2.next = 5;
-                return new Promise(function (resolve) {
-                  setTimeout(function () {
-                    resolve(currentStep.value++);
-                    window.scrollTo(0, 0);
-                  }, 1000);
-                });
-
-              case 5:
-                toggleLoader();
-
-              case 6:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2);
-      }));
-
-      return function nextStep() {
-        return _ref3.apply(this, arguments);
-      };
-    }();
-
-    var prevStep = function prevStep() {
-      if (currentStep.value <= 0) {
-        window.history.back();
-      }
-
-      currentStep.value--;
-    }; // triggers when user selects country
+    }(); // nextStep = nextStep(currentStep.value, toggleLoader)
+    // function to increment currentStep value
+    // const nextStep = async () => {
+    //     if (currentStep.value >= 2) {
+    //         return false
+    //     }
+    //     toggleLoader()
+    //     await new Promise((resolve) => {
+    //         setTimeout(() => {
+    //             resolve(currentStep.value++)
+    //             window.scrollTo(0, 0)
+    //         }, 1000)
+    //     })
+    //     toggleLoader()
+    // }
+    // const prevStep = () => {
+    //     if (currentStep.value <= 0) {
+    //         window.history.back()
+    //     }
+    //     currentStep.value--
+    // }
+    // triggers when user selects country
 
 
     var isSelectedCountry = function isSelectedCountry(index) {
@@ -381,14 +360,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
     var isSelectedPriceRange = function isSelectedPriceRange(index) {
-      var _ref4 = index != null ? filteredCategories.value[index] : {
+      var _ref3 = index != null ? filteredCategories.value[index] : {
         min: null,
         max: null,
         rate: null
       },
-          min = _ref4.min,
-          max = _ref4.max,
-          rate = _ref4.rate;
+          min = _ref3.min,
+          max = _ref3.max,
+          rate = _ref3.rate;
 
       form.rate = rate;
       selectedPriceRange.value = index;
@@ -484,8 +463,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       form: form,
       isLoading: isLoading,
       toggleLoader: toggleLoader,
-      currentStep: currentStep,
       isDropzoneActive: isDropzoneActive,
+      nextStep: nextStep,
+      prevStep: prevStep,
+      currentStep: currentStep,
       files: files,
       inputFiles: inputFiles,
       dropFiles: dropFiles,
@@ -500,8 +481,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       setActive: setActive,
       setInactive: setInactive,
       moveToTwo: moveToTwo,
-      nextStep: nextStep,
-      prevStep: prevStep,
       isSelectedCountry: isSelectedCountry,
       isSelectedCategory: isSelectedCategory,
       isSelectedPriceRange: isSelectedPriceRange,
@@ -528,6 +507,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       computed: _utils__WEBPACK_IMPORTED_MODULE_8__.computed,
       watch: _utils__WEBPACK_IMPORTED_MODULE_8__.watch,
       loader: _utils__WEBPACK_IMPORTED_MODULE_8__.loader,
+      stepsCrementer: _utils__WEBPACK_IMPORTED_MODULE_8__.stepsCrementer,
       useDropzone: _utils_Dropzone_js__WEBPACK_IMPORTED_MODULE_9__["default"]
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
@@ -1811,7 +1791,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <GoBack /> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
         "class": "back_btn cursor-default rounded bg-gray-100 sm:bg-transparent sm:hover:bg-gray-100 p-2 select-none flex items-center",
-        onClick: $setup.prevStep
+        onClick: _cache[0] || (_cache[0] = function ($event) {
+          return $setup.prevStep($setup.currentStep);
+        })
       }, _hoisted_4), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.cardname.name) + " Card ", 1
       /* TEXT */
       )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["JetValidationErrors"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_8, [$setup.isLoading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_spinner_tail, {
@@ -1861,7 +1843,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, null, 8
       /* PROPS */
       , ["price-ranges", "selected-price-range", "onIsSelectedPriceRange"]), $setup.v$.rate.$error ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_22, " Please Select Price Range ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [_hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-        "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+        "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
           return $setup.form.amount = $event;
         }),
         min: $setup.priceRange.min,
@@ -1894,7 +1876,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , ["card-name", "card-type", "currency-image-url", "currency-type", "acc-number", "acc-name", "bank-name", "price", "rate", "total-amount"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_33, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
         "class": "px-4 w-full mx-auto md:w-8/12 work py-3 block relative shadow-lg bg-primary rounded text-white font-medium",
-        onClick: $setup.nextStep
+        onClick: _cache[2] || (_cache[2] = function ($event) {
+          return $setup.nextStep($setup.toggleLoader);
+        })
       }, _hoisted_35)), [[_directive_ripple]])])], 64
       /* STABLE_FRAGMENT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $setup.currentStep === 2 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
@@ -1928,7 +1912,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.files.length]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         "data-active": $setup.isDropzoneActive,
         "class": "border-dashed my-4 px-4 py-4 rounded bg-white flex flex-col text-center justify-between items-center border-2",
-        onDrop: _cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+        onDrop: _cache[4] || (_cache[4] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
           return $setup.dropFiles && $setup.dropFiles.apply($setup, arguments);
         }, ["prevent"])),
         onDragenter: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)($setup.setActive, ["prevent"]),
@@ -1948,7 +1932,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         accept: "image/*",
         multiple: "",
         hidden: "",
-        onChange: _cache[1] || (_cache[1] = function () {
+        onChange: _cache[3] || (_cache[3] = function () {
           return $setup.inputFiles && $setup.inputFiles.apply($setup, arguments);
         })
       }, null, 544
@@ -3060,22 +3044,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "onMounted": () => (/* reexport safe */ vue__WEBPACK_IMPORTED_MODULE_0__.onMounted),
 /* harmony export */   "onUnmounted": () => (/* reexport safe */ vue__WEBPACK_IMPORTED_MODULE_0__.onUnmounted),
 /* harmony export */   "usePage": () => (/* reexport safe */ _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__.usePage),
+/* harmony export */   "stepsCrementer": () => (/* reexport safe */ _stepsCrementer_js__WEBPACK_IMPORTED_MODULE_5__["default"]),
 /* harmony export */   "Inertia": () => (/* reexport safe */ _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia),
-/* harmony export */   "loader": () => (/* reexport safe */ _Loading_js__WEBPACK_IMPORTED_MODULE_5__["default"]),
+/* harmony export */   "loader": () => (/* reexport safe */ _Loading_js__WEBPACK_IMPORTED_MODULE_6__["default"]),
 /* harmony export */   "useForm": () => (/* reexport safe */ _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__.useForm),
 /* harmony export */   "ExactCardImg": () => (/* reexport safe */ _cards__WEBPACK_IMPORTED_MODULE_2__.ExactCardImg),
-/* harmony export */   "isValidEmail": () => (/* reexport safe */ _validate_js__WEBPACK_IMPORTED_MODULE_6__.isValidEmail),
-/* harmony export */   "isValidFullName": () => (/* reexport safe */ _validate_js__WEBPACK_IMPORTED_MODULE_6__.isValidFullName),
-/* harmony export */   "confirmPassword": () => (/* reexport safe */ _validate_js__WEBPACK_IMPORTED_MODULE_6__.confirmPassword),
-/* harmony export */   "isValidPWd": () => (/* reexport safe */ _validate_js__WEBPACK_IMPORTED_MODULE_6__.isValidPWd)
+/* harmony export */   "isValidEmail": () => (/* reexport safe */ _validate_js__WEBPACK_IMPORTED_MODULE_7__.isValidEmail),
+/* harmony export */   "isValidFullName": () => (/* reexport safe */ _validate_js__WEBPACK_IMPORTED_MODULE_7__.isValidFullName),
+/* harmony export */   "confirmPassword": () => (/* reexport safe */ _validate_js__WEBPACK_IMPORTED_MODULE_7__.confirmPassword),
+/* harmony export */   "isValidPWd": () => (/* reexport safe */ _validate_js__WEBPACK_IMPORTED_MODULE_7__.isValidPWd)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
 /* harmony import */ var _cards__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./cards */ "./resources/js/utils/cards.js");
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
 /* harmony import */ var _breakpoints_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./breakpoints.js */ "./resources/js/utils/breakpoints.js");
-/* harmony import */ var _Loading_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Loading.js */ "./resources/js/utils/Loading.js");
-/* harmony import */ var _validate_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./validate.js */ "./resources/js/utils/validate.js");
+/* harmony import */ var _stepsCrementer_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./stepsCrementer.js */ "./resources/js/utils/stepsCrementer.js");
+/* harmony import */ var _Loading_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Loading.js */ "./resources/js/utils/Loading.js");
+/* harmony import */ var _validate_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./validate.js */ "./resources/js/utils/validate.js");
+
 
 
 
@@ -3108,6 +3095,85 @@ var statusColor = function statusColor(status) {
 };
 
 
+
+/***/ }),
+
+/***/ "./resources/js/utils/stepsCrementer.js":
+/*!**********************************************!*\
+  !*** ./resources/js/utils/stepsCrementer.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__() {
+  var currentStep = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)(0);
+
+  var nextStep = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(loader) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              if (!(currentStep.value >= 2)) {
+                _context.next = 2;
+                break;
+              }
+
+              return _context.abrupt("return", false);
+
+            case 2:
+              loader();
+              _context.next = 5;
+              return new Promise(function (resolve) {
+                setTimeout(function () {
+                  resolve(currentStep.value++);
+                  window.scrollTo(0, 0);
+                }, 1000);
+              });
+
+            case 5:
+              loader();
+
+            case 6:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function nextStep(_x) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  var prevStep = function prevStep() {
+    if (currentStep.value <= 0) {
+      window.history.back();
+    }
+
+    currentStep.value--;
+  };
+
+  return {
+    currentStep: currentStep,
+    nextStep: nextStep,
+    prevStep: prevStep
+  };
+}
 
 /***/ }),
 
