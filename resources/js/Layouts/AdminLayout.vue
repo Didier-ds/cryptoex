@@ -28,7 +28,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import Header from './components/Mainlayout/Header.vue'
+import Header from './components/Adminlayout/Header.vue'
 import SideNav from './components/Adminlayout/Sidebar.vue'
 const isSideBar = ref(false)
 const toggleSideBar = () => {
