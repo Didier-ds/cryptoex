@@ -119,7 +119,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _headlessui_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @headlessui/vue */ "./node_modules/@headlessui/vue/dist/headlessui.esm.js");
-/* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/ChevronUpIcon.js");
+/* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/ChevronRightIcon.js");
 /* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/CurrencyDollarIcon.js");
 /* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/UserIcon.js");
 
@@ -151,7 +151,7 @@ __webpack_require__.r(__webpack_exports__);
       Disclosure: _headlessui_vue__WEBPACK_IMPORTED_MODULE_0__.Disclosure,
       DisclosureButton: _headlessui_vue__WEBPACK_IMPORTED_MODULE_0__.DisclosureButton,
       DisclosurePanel: _headlessui_vue__WEBPACK_IMPORTED_MODULE_0__.DisclosurePanel,
-      ChevronUpIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_1__["default"],
+      ChevronRightIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_1__["default"],
       CurrencyDollarIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_2__["default"],
       UserIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_3__["default"]
     };
@@ -416,32 +416,18 @@ var _hoisted_6 = {
 var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Sign Out ");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_DeleteIcon = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DeleteIcon");
+
   var _component_q_btn = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("q-btn");
 
   var _component_inertia_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("inertia-link");
-
-  var _component_DeleteIcon = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DeleteIcon");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("header", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "logo mx-2",
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return _ctx.$emit('toggleSideBar');
     })
-  }, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <img src=\"/img/logo.svg\" class=\"w-full\" alt=\"\" /> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
-    href: "/"
-  }, {
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_btn, {
-        label: "User Panel",
-        color: "primary",
-        "class": "mx-2 font-semibold work",
-        "no-caps": ""
-      })];
-    }),
-    _: 1
-    /* STABLE */
-
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Menu"], {
+  }, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <img src=\"/img/logo.svg\" class=\"w-full\" alt=\"\" /> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Menu"], {
     as: "div",
     "class": "relative inline-block text-left"
   }, {
@@ -509,7 +495,21 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  })])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"capitalize select-none flex items-center\">\n             <div class=\"px-4\"><el-button v-if=\"role\" @click=\"() => $router.push({'path': '/admin'})\" color=\"#1D4ED8\" style=\"color: white\">Admin Dashboard</el-button></div> \n            <div\n                class=\"capitalize select-none flex items-center\"\n                @click=\"toggleModal()\">\n                <ProfilePic :is-size=\"'small'\" /><span\n                    class=\"hidden myHidden font-medium work px-2\"\n                    >{{ $page.props.user.fullname }}</span\n                >\n                <div>\n                    <svg\n                        width=\"20\"\n                        height=\"20\"\n                        viewBox=\"0 0 20 20\"\n                        fill=\"none\"\n                        xmlns=\"http://www.w3.org/2000/svg\">\n                        <path\n                            fill-rule=\"evenodd\"\n                            clip-rule=\"evenodd\"\n                            d=\"M5.29289 7.29289C5.68342 6.90237 6.31658 6.90237 6.70711 7.29289L10 10.5858L13.2929 7.29289C13.6834 6.90237 14.3166 6.90237 14.7071 7.29289C15.0976 7.68342 15.0976 8.31658 14.7071 8.70711L10.7071 12.7071C10.3166 13.0976 9.68342 13.0976 9.29289 12.7071L5.29289 8.70711C4.90237 8.31658 4.90237 7.68342 5.29289 7.29289Z\"\n                            fill=\"#111827\" />\n                    </svg>\n                </div>\n            </div>\n        </div>\n        <transition name=\"fade\">\n            <MenuDropDown\n                v-if=\"isDrop\"\n                @toggle-form=\"toggleForm\"\n                @toggle-modal=\"toggleModal\" />\n        </transition> ")]);
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+    href: "/"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_btn, {
+        label: "User Panel",
+        color: "primary",
+        "class": "mx-2 font-semibold work",
+        "no-caps": ""
+      })];
+    }),
+    _: 1
+    /* STABLE */
+
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"capitalize select-none flex items-center\">\n             <div class=\"px-4\"><el-button v-if=\"role\" @click=\"() => $router.push({'path': '/admin'})\" color=\"#1D4ED8\" style=\"color: white\">Admin Dashboard</el-button></div> \n            <div\n                class=\"capitalize select-none flex items-center\"\n                @click=\"toggleModal()\">\n                <ProfilePic :is-size=\"'small'\" /><span\n                    class=\"hidden myHidden font-medium work px-2\"\n                    >{{ $page.props.user.fullname }}</span\n                >\n                <div>\n                    <svg\n                        width=\"20\"\n                        height=\"20\"\n                        viewBox=\"0 0 20 20\"\n                        fill=\"none\"\n                        xmlns=\"http://www.w3.org/2000/svg\">\n                        <path\n                            fill-rule=\"evenodd\"\n                            clip-rule=\"evenodd\"\n                            d=\"M5.29289 7.29289C5.68342 6.90237 6.31658 6.90237 6.70711 7.29289L10 10.5858L13.2929 7.29289C13.6834 6.90237 14.3166 6.90237 14.7071 7.29289C15.0976 7.68342 15.0976 8.31658 14.7071 8.70711L10.7071 12.7071C10.3166 13.0976 9.68342 13.0976 9.29289 12.7071L5.29289 8.70711C4.90237 8.31658 4.90237 7.68342 5.29289 7.29289Z\"\n                            fill=\"#111827\" />\n                    </svg>\n                </div>\n            </div>\n        </div>\n        <transition name=\"fade\">\n            <MenuDropDown\n                v-if=\"isDrop\"\n                @toggle-form=\"toggleForm\"\n                @toggle-modal=\"toggleModal\" />\n        </transition> ")]);
 }
 
 /***/ }),
@@ -610,7 +610,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
     id: "sidebar",
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["work", $props.isSideBar ? 'active' : ''])
-  }, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+  }, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" // {{$page.props.isAdmin}} "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
     href: "/admin/dashboard",
     "class": "flex mb-4 py-2 font-medium text-left focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75"
   }, {
@@ -629,8 +629,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": "flex justify-between w-full py-2 font-medium text-left focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ChevronUpIcon"], {
-            "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([open ? 'transform rotate-180' : '', "link_icon h-5"])
+          return [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ChevronRightIcon"], {
+            "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([open ? 'transform rotate-90' : '', "link_icon h-5"])
           }, null, 8
           /* PROPS */
           , ["class"])];
@@ -685,11 +685,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
           return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CurrencyDollarIcon"], {
-            "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([open ? 'transform rotate-180' : '', "link_icon h-5"])
-          }, null, 8
-          /* PROPS */
-          , ["class"]), _hoisted_8]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ChevronUpIcon"], {
-            "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([open ? 'transform rotate-180' : '', "link_icon h-5"])
+            "class": "link_icon h-5"
+          }), _hoisted_8]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ChevronRightIcon"], {
+            "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([open ? 'transform rotate-90' : '', "link_icon h-5"])
           }, null, 8
           /* PROPS */
           , ["class"])];

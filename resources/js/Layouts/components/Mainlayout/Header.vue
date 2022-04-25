@@ -53,7 +53,8 @@ const logout = () => {
 
             <!-- <img src="/img/logo.svg" class="w-full" alt="" /> -->
         </div>
-        <div class="w-56 text-right">
+        <div>
+            <div class="w-56 text-right">
             <Menu as="div" class="relative inline-block text-left">
                 <MenuButton class="capitalize select-none flex items-center">
                     <ProfilePic :is-size="'small'" />
@@ -149,6 +150,16 @@ const logout = () => {
                 </transition>
             </Menu>
         </div>
+        <inertia-link v-if="$page.props.isAdmin" href="/"
+                ><q-btn
+                    label="Admin Panel"
+                    color="secondary"
+                    class="mx-2 font-semibold work"
+                    no-caps
+                />
+            </inertia-link>
+        </div>
+        
         <!-- <div class="capitalize select-none flex items-center">
              <div class="px-4"><el-button v-if="role" @click="() => $router.push({'path': '/admin'})" color="#1D4ED8" style="color: white">Admin Dashboard</el-button></div> 
             <div

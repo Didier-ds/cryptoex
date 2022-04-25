@@ -54,14 +54,6 @@ const logout = () => {
             <!-- <img src="/img/logo.svg" class="w-full" alt="" /> -->
         </div>
         <div class="flex items-center">
-            <inertia-link href="/"
-                ><q-btn
-                    label="User Panel"
-                    color="primary"
-                    class="mx-2 font-semibold work"
-                    no-caps
-                />
-            </inertia-link>
             <div class="w-56 text-right">
                 <Menu as="div" class="relative inline-block text-left">
                     <MenuButton class="capitalize select-none flex items-center">
@@ -158,6 +150,14 @@ const logout = () => {
                     </transition>
                 </Menu>
             </div>
+            <inertia-link href="/"
+                ><q-btn
+                    label="User Panel"
+                    color="primary"
+                    class="mx-2 font-semibold work"
+                    no-caps
+                />
+            </inertia-link>
         </div>
         
         <!-- <div class="capitalize select-none flex items-center">

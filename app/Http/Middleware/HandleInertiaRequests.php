@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Konstants;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -35,12 +36,19 @@ class HandleInertiaRequests extends Middleware
      * @return array
      */
     public function share(Request $request): array
-    {
+    {   
         return array_merge(parent::share($request), [
             //
             'userBanks' => fn () => $request->user()
             ? $request->user()->bankDetails
             : [],
+            'isAdmin' => $this->checkUser($request->user()),
         ]);
+    }
+
+    public function checkUser($user){
+        if($user) {
+            return $user->hasRole([Konstants::ROLE_ADMIN])  ? true : false;
+        } else return false;
     }
 }

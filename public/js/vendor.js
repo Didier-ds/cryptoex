@@ -51512,10 +51512,10 @@ function render(_ctx, _cache) {
 
 /***/ }),
 
-/***/ "./node_modules/@heroicons/vue/solid/esm/ChevronUpIcon.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/@heroicons/vue/solid/esm/ChevronUpIcon.js ***!
-  \****************************************************************/
+/***/ "./node_modules/@heroicons/vue/solid/esm/ChevronRightIcon.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@heroicons/vue/solid/esm/ChevronRightIcon.js ***!
+  \*******************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -51535,7 +51535,7 @@ function render(_ctx, _cache) {
   }, [
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("path", {
       "fill-rule": "evenodd",
-      d: "M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z",
+      d: "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z",
       "clip-rule": "evenodd"
     })
   ]))

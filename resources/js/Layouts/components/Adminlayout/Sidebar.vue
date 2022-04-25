@@ -40,7 +40,7 @@
                 Cryptomania<br />Exchange
             </p>
         </div>
-
+        <!-- // {{$page.props.isAdmin}} -->
         <div class="w-full text-base mt-[5em]">
             <inertia-link
                 href="/admin/dashboard"
@@ -69,8 +69,8 @@
                         </svg>
                         <span>Giftcards</span>
                     </div>
-                    <ChevronUpIcon
-                        :class="open ? 'transform rotate-180' : ''"
+                    <ChevronRightIcon
+                        :class="open ? 'transform rotate-90' : ''"
                         class="link_icon h-5" />
                 </DisclosureButton>
                 <DisclosurePanel class="px-4 pb-2">
@@ -91,12 +91,11 @@
                     class="flex justify-between w-full py-2 font-medium text-left focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75">
                     <div class="flex">
                         <CurrencyDollarIcon
-                            :class="open ? 'transform rotate-180' : ''"
                             class="link_icon h-5" />
                         <span>Bitcoin</span>
                     </div>
-                    <ChevronUpIcon
-                        :class="open ? 'transform rotate-180' : ''"
+                    <ChevronRightIcon
+                        :class="open ? 'transform rotate-90' : ''"
                         class="link_icon h-5" />
                 </DisclosureButton>
                 <DisclosurePanel class="px-4 pb-2">
@@ -141,7 +140,7 @@
 
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import {
-    ChevronUpIcon,
+    ChevronRightIcon,
     CurrencyDollarIcon,
     UserIcon,
 } from '@heroicons/vue/solid'
