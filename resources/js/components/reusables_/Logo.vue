@@ -1,5 +1,5 @@
 <template>
-    <div class="flex items-center work uppercase select-none flex-row">
+    <inertia-link href="/" class="flex items-center work uppercase select-none flex-row">
         <div>
             <svg
                 width="44"
@@ -35,7 +35,7 @@
             </svg>
         </div>
         <p class="font-bold opacity-80 px-2">Cryptomania<br />Exchange</p>
-    </div>
+    </inertia-link>
 </template>
 
 <script setup></script>
