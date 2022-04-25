@@ -8,7 +8,7 @@
             <div v-if="tablet" class="grid_section border-b py-4 p-2">
                 <div>Vendor Name</div>
                 <div>Amount</div>
-                <div>NGN</div>
+                <!-- <div>NGN</div> -->
                 <div>Status</div>
                 <div>Date</div>
             </div>
@@ -42,10 +42,10 @@ defineProps({
 })
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .proofs .grid_section {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 0.5fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     text-align: center;
 
     div {
