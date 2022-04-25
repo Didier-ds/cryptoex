@@ -1,7 +1,7 @@
 import { ref, reactive, watch, computed, onMounted, onUnmounted } from 'vue'
 import { Inertia } from '@inertiajs/inertia'
 import { ExactCardImg } from './cards'
-import { usePage, useForm } from '@inertiajs/inertia-vue3'
+import { usePage, useForm, Head } from '@inertiajs/inertia-vue3'
 import { tablet } from './breakpoints.js'
 import loader from './Loading.js'
 import {
@@ -30,6 +30,7 @@ const statusColor = (status) => {
 export {
     ref,
     watch,
+    Head,
     statusColor,
     reactive,
     tablet,

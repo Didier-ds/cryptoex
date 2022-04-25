@@ -280,7 +280,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
-var appName = 'Laravel';
+var appName = 'Cryptomania ';
 
 (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.createInertiaApp)({
   title: function title(_title) {
@@ -1128,6 +1128,7 @@ var map = {
 	],
 	"./Auth/ForgotPassword.vue": [
 		"./resources/js/Pages/Auth/ForgotPassword.vue",
+		"/js/vendor",
 		"resources_js_Pages_Auth_ForgotPassword_vue"
 	],
 	"./Auth/ForgotPassword1.vue": [

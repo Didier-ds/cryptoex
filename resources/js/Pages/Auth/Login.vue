@@ -21,6 +21,9 @@
                             <q-input
                                 v-model="form.email"
                                 borderless
+                                name="email"
+                                type="email"
+                                required
                                 input-class="my_input"
                                 placeholder="Email Address" />
                         </div>
@@ -30,7 +33,9 @@
                                 v-model="form.password"
                                 :type="isPwd ? 'password' : 'text'"
                                 borderless
+                                name="password"
                                 input-class="my_input relative"
+                                required
                                 placeholder="Password">
                                 <template #append>
                                     <EyeIcon

@@ -261,6 +261,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $setup.form.email = $event;
         }),
         borderless: "",
+        name: "email",
+        type: "email",
+        required: "",
         "input-class": "my_input",
         placeholder: "Email Address"
       }, null, 8
@@ -272,7 +275,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }),
         type: $setup.isPwd ? 'password' : 'text',
         borderless: "",
+        name: "password",
         "input-class": "my_input relative",
+        required: "",
         placeholder: "Password"
       }, {
         append: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -477,6 +482,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ref": () => (/* reexport safe */ vue__WEBPACK_IMPORTED_MODULE_0__.ref),
 /* harmony export */   "watch": () => (/* reexport safe */ vue__WEBPACK_IMPORTED_MODULE_0__.watch),
+/* harmony export */   "Head": () => (/* reexport safe */ _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__.Head),
 /* harmony export */   "statusColor": () => (/* binding */ statusColor),
 /* harmony export */   "reactive": () => (/* reexport safe */ vue__WEBPACK_IMPORTED_MODULE_0__.reactive),
 /* harmony export */   "tablet": () => (/* reexport safe */ _breakpoints_js__WEBPACK_IMPORTED_MODULE_4__.tablet),
