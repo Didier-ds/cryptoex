@@ -280,7 +280,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
-var appName = 'Cryptomania ';
+var appName = 'Cryptomania Exchange'; // import { LoadingBar } from 'quasar'
 
 (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.createInertiaApp)({
   title: function title(_title) {
@@ -328,9 +328,11 @@ var appName = 'Cryptomania ';
       }
     }).mount(el);
   }
-}); // InertiaProgress.init({ color: '#00c2ff' });
-
-quasar__WEBPACK_IMPORTED_MODULE_7__.LoadingBar.start();
+});
+_inertiajs_progress__WEBPACK_IMPORTED_MODULE_3__.InertiaProgress.init({
+  color: '#00c2ff',
+  showSpinner: true
+}); // LoadingBar.start()
 
 /***/ }),
 
@@ -400,16 +402,16 @@ var primary = '#00C2FF';
     },
     notify: {
       /* look at QuasarConfOptions from the API card */
-    },
-    loadingBar: {
-      size: '3px',
-      color: 'primary'
-    }
+    } // loadingBar: {
+    //     size: '3px',
+    //     color: 'primary',
+    // },
+
   },
   plugins: {
     Loading: quasar__WEBPACK_IMPORTED_MODULE_3__.Loading,
-    Notify: quasar__WEBPACK_IMPORTED_MODULE_3__.Notify,
-    LoadingBar: quasar__WEBPACK_IMPORTED_MODULE_3__.LoadingBar
+    Notify: quasar__WEBPACK_IMPORTED_MODULE_3__.Notify // LoadingBar,
+
   }
 });
 

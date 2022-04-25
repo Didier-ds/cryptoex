@@ -19,14 +19,14 @@ export default {
         notify: {
             /* look at QuasarConfOptions from the API card */
         },
-        loadingBar: {
-            size: '3px',
-            color: 'primary',
-        },
+        // loadingBar: {
+        //     size: '3px',
+        //     color: 'primary',
+        // },
     },
     plugins: {
         Loading,
         Notify,
-        LoadingBar,
+        // LoadingBar,
     },
 }
