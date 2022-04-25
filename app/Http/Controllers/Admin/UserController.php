@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Konstants;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -17,8 +18,21 @@ class UserController extends Controller
     public function index()
     {
         //
-        $users = User::all();
+        $users = User::role(Konstants::ROLE_USER)->get();
         return Inertia::render('Admin/Users/Index', ['data' => $users]);
+
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function admin_index()
+    {
+        //
+        $admins = User::role(Konstants::ROLE_ADMIN)->get();
+        return Inertia::render('Admin/Admins/Index', ['data' => $admins]);
 
     }
 

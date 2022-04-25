@@ -28,6 +28,8 @@ Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified'],'prefix
     Route::post('giftcards/create', [CardsController::class, 'store'])->name('cards.store');
     Route::get('users', [UserController::class, 'index'])->name('users.index');
     Route::get('users/{user_id}', [UserController::class, 'show'])->name('users.show');
+    Route::get('admins', [UserController::class, 'admin_index'])->name('admins.index');
+    Route::get('admins/{admin_id}', [UserController::class, 'show'])->name('admins.show');
     Route::get('/update/giftcards', [CardsController::class, 'update'])->name('cards.update');
     Route::patch('update/giftcards/{uuid}', [CardsController::class, 'cardRateChange'])->name('cards.cardRateChange');
     Route::get('/giftcard/category/{uuid}', [CardsController::class, 'isType'])->name('card.isType');

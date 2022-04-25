@@ -1019,6 +1019,11 @@ var map = {
 		"./resources/js/Pages/API/Partials/ApiTokenManager.vue",
 		"resources_js_Pages_API_Partials_ApiTokenManager_vue"
 	],
+	"./Admin/Admins/Index.vue": [
+		"./resources/js/Pages/Admin/Admins/Index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Admin_Admins_Index_vue"
+	],
 	"./Admin/BtcTransferProof/Index.vue": [
 		"./resources/js/Pages/Admin/BtcTransferProof/Index.vue",
 		"/js/vendor",
