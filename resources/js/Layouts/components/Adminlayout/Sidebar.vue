@@ -171,9 +171,12 @@ defineProps({
     background-color: white;
     // display: flex;
     // flex-direction: column;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
     align-items: center;
     transition: 0.5s ease-in-out;
+    width: calc(0.27rem * 64);
     // border-right: 2px solid #f8f9fb;
 }
 .link_list {
@@ -222,9 +225,7 @@ defineProps({
         z-index: 15;
         transform: translateX(-100%);
         width: 80%;
-        position: fixed;
-        top: 0;
-        left: 0;
+        
     }
     #sidebar.active {
         transform: translateX(0);

@@ -2,17 +2,17 @@
     <admin-layout> 
         <div class="px-2">
             <p class="text-lg work font-semibold">Dashboard</p>
-            <div class="grid work my-4">
-                <div class="border p-3 rounded flex justify-between items-center bg-white mb-2 shadow">
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 work my-4">
+                <div class="border p-3 rounded flex justify-between items-center bg-white m-4 shadow">
                     <p class="text-base font-medium">Pending Giftcards</p>
                     <p class="text-lg font-medium text-yellow-600">{{$page.props['pending-cardlets']}}</p>
                 </div>
-                <div class="border p-3 rounded flex justify-between items-center bg-white mb-2 shadow">
+                <div class="border p-3 rounded flex justify-between items-center bg-white m-4 shadow">
                     <p class="text-base font-medium">Pending Btc Trade</p>
                     <p class="text-lg font-medium text-yellow-600">{{$page.props['pending-proofs']}}</p>
                 </div>
             </div>
-            <div>
+            <div class="grid md:grid-cols-2">
                 <div class="box">
                     <p class="text-lg font-semibold">Recently Uploaded Giftcards</p>
                     <div>
