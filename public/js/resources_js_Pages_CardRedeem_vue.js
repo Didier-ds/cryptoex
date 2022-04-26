@@ -1106,46 +1106,64 @@ var _hoisted_1 = {
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"myHidden\" data-v-db50f4b8><svg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-db50f4b8><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M3 5C3 4.44772 3.44772 4 4 4H16C16.5523 4 17 4.44772 17 5C17 5.55228 16.5523 6 16 6H4C3.44772 6 3 5.55228 3 5Z\" fill=\"#111827\" data-v-db50f4b8></path><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M3 10C3 9.44772 3.44772 9 4 9H16C16.5523 9 17 9.44772 17 10C17 10.5523 16.5523 11 16 11H4C3.44772 11 3 10.5523 3 10Z\" fill=\"#111827\" data-v-db50f4b8></path><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M3 15C3 14.4477 3.44772 14 4 14H16C16.5523 14 17 14.4477 17 15C17 15.5523 16.5523 16 16 16H4C3.44772 16 3 15.5523 3 15Z\" fill=\"#111827\" data-v-db50f4b8></path></svg></div>", 1);
 
 var _hoisted_3 = {
-  "class": "w-56 text-right"
+  "class": "flex items-center"
 };
 var _hoisted_4 = {
-  "class": "hidden myHidden font-medium work px-2"
+  "class": "text-right"
 };
 var _hoisted_5 = {
+  "class": "hidden myHidden font-medium work px-2"
+};
+var _hoisted_6 = {
   "class": "px-1 py-1"
 };
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Trade Giftcards ");
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Trade Giftcards ");
 
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Sell Bitcoin ");
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Sell Bitcoin ");
 
-var _hoisted_8 = {
+var _hoisted_9 = {
   "class": "px-1 py-1"
 };
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Transactions ");
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Transactions ");
 
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Settings ");
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Settings ");
 
-var _hoisted_11 = {
+var _hoisted_12 = {
   "class": "px-1 py-1"
 };
 
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Sign Out ");
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Sign Out ");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_q_btn = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("q-btn");
+
   var _component_inertia_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("inertia-link");
 
   var _component_DeleteIcon = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DeleteIcon");
-
-  var _component_q_btn = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("q-btn");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("header", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "logo mx-2",
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return _ctx.$emit('toggleSideBar');
     })
-  }, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <img src=\"/img/logo.svg\" class=\"w-full\" alt=\"\" /> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Menu"], {
+  }, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <img src=\"/img/logo.svg\" class=\"w-full\" alt=\"\" /> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_ctx.$page.props.isAdmin ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_inertia_link, {
+    key: 0,
+    href: "/admin/dashboard"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_btn, {
+        label: "Admin Panel",
+        color: "secondary",
+        "class": "mx-2 font-semibold work",
+        "no-caps": ""
+      })];
+    }),
+    _: 1
+    /* STABLE */
+
+  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Menu"], {
     as: "div",
     "class": "relative inline-block text-left"
   }, {
@@ -1156,7 +1174,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
           return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ProfilePic"], {
             "is-size": 'small'
-          }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.user.fullname), 1
+          }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.user.fullname), 1
           /* TEXT */
           ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ChevronDownIcon"], {
             "class": "w-5 h-5 -mr-1 text-secondary",
@@ -1179,7 +1197,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             "class": "absolute right-0 w-56 mt-2 work z-20 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           }, {
             "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-              return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["MenuItem"], null, {
+              return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["MenuItem"], null, {
                 "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref) {
                   var active = _ref.active;
                   return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
@@ -1187,7 +1205,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([active ? 'bg-primary text-white' : 'text-gray-900', 'group flex rounded-md items-center w-full font-medium cursor-default px-2 py-2 text-sm'])
                   }, {
                     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-                      return [_hoisted_6];
+                      return [_hoisted_7];
                     }),
                     _: 2
                     /* DYNAMIC */
@@ -1207,7 +1225,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([active ? 'bg-primary text-white' : 'text-gray-900', 'group flex rounded-md items-center w-full font-medium cursor-default px-2 py-2 text-sm'])
                   }, {
                     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-                      return [_hoisted_7];
+                      return [_hoisted_8];
                     }),
                     _: 2
                     /* DYNAMIC */
@@ -1219,7 +1237,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 _: 1
                 /* STABLE */
 
-              })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["MenuItem"], null, {
+              })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["MenuItem"], null, {
                 "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref3) {
                   var active = _ref3.active;
                   return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
@@ -1227,7 +1245,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([active ? 'bg-primary text-white' : 'text-gray-900', 'group flex rounded-md items-center w-full font-medium cursor-default px-2 py-2 text-sm'])
                   }, {
                     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-                      return [_hoisted_9];
+                      return [_hoisted_10];
                     }),
                     _: 2
                     /* DYNAMIC */
@@ -1247,7 +1265,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([active ? 'bg-primary text-white' : 'text-gray-900', 'group flex rounded-md items-center w-full font-medium cursor-default px-2 py-2 text-sm'])
                   }, {
                     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-                      return [_hoisted_10];
+                      return [_hoisted_11];
                     }),
                     _: 2
                     /* DYNAMIC */
@@ -1259,7 +1277,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 _: 1
                 /* STABLE */
 
-              })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["MenuItem"], null, {
+              })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["MenuItem"], null, {
                 "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref5) {
                   var active = _ref5.active;
                   return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
@@ -1271,7 +1289,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                     "aria-hidden": "true"
                   }, null, 8
                   /* PROPS */
-                  , ["active"]), _hoisted_12], 2
+                  , ["active"]), _hoisted_13], 2
                   /* CLASS */
                   )];
                 }),
@@ -1293,22 +1311,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  })]), _ctx.$page.props.isAdmin ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_inertia_link, {
-    key: 0,
-    href: "/"
-  }, {
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_btn, {
-        label: "Admin Panel",
-        color: "secondary",
-        "class": "mx-2 font-semibold work",
-        "no-caps": ""
-      })];
-    }),
-    _: 1
-    /* STABLE */
-
-  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"capitalize select-none flex items-center\">\n             <div class=\"px-4\"><el-button v-if=\"role\" @click=\"() => $router.push({'path': '/admin'})\" color=\"#1D4ED8\" style=\"color: white\">Admin Dashboard</el-button></div> \n            <div\n                class=\"capitalize select-none flex items-center\"\n                @click=\"toggleModal()\">\n                <ProfilePic :is-size=\"'small'\" /><span\n                    class=\"hidden myHidden font-medium work px-2\"\n                    >{{ $page.props.user.fullname }}</span\n                >\n                <div>\n                    <svg\n                        width=\"20\"\n                        height=\"20\"\n                        viewBox=\"0 0 20 20\"\n                        fill=\"none\"\n                        xmlns=\"http://www.w3.org/2000/svg\">\n                        <path\n                            fill-rule=\"evenodd\"\n                            clip-rule=\"evenodd\"\n                            d=\"M5.29289 7.29289C5.68342 6.90237 6.31658 6.90237 6.70711 7.29289L10 10.5858L13.2929 7.29289C13.6834 6.90237 14.3166 6.90237 14.7071 7.29289C15.0976 7.68342 15.0976 8.31658 14.7071 8.70711L10.7071 12.7071C10.3166 13.0976 9.68342 13.0976 9.29289 12.7071L5.29289 8.70711C4.90237 8.31658 4.90237 7.68342 5.29289 7.29289Z\"\n                            fill=\"#111827\" />\n                    </svg>\n                </div>\n            </div>\n        </div>\n        <transition name=\"fade\">\n            <MenuDropDown\n                v-if=\"isDrop\"\n                @toggle-form=\"toggleForm\"\n                @toggle-modal=\"toggleModal\" />\n        </transition> ")]);
+  })])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"capitalize select-none flex items-center\">\n             <div class=\"px-4\"><el-button v-if=\"role\" @click=\"() => $router.push({'path': '/admin'})\" color=\"#1D4ED8\" style=\"color: white\">Admin Dashboard</el-button></div> \n            <div\n                class=\"capitalize select-none flex items-center\"\n                @click=\"toggleModal()\">\n                <ProfilePic :is-size=\"'small'\" /><span\n                    class=\"hidden myHidden font-medium work px-2\"\n                    >{{ $page.props.user.fullname }}</span\n                >\n                <div>\n                    <svg\n                        width=\"20\"\n                        height=\"20\"\n                        viewBox=\"0 0 20 20\"\n                        fill=\"none\"\n                        xmlns=\"http://www.w3.org/2000/svg\">\n                        <path\n                            fill-rule=\"evenodd\"\n                            clip-rule=\"evenodd\"\n                            d=\"M5.29289 7.29289C5.68342 6.90237 6.31658 6.90237 6.70711 7.29289L10 10.5858L13.2929 7.29289C13.6834 6.90237 14.3166 6.90237 14.7071 7.29289C15.0976 7.68342 15.0976 8.31658 14.7071 8.70711L10.7071 12.7071C10.3166 13.0976 9.68342 13.0976 9.29289 12.7071L5.29289 8.70711C4.90237 8.31658 4.90237 7.68342 5.29289 7.29289Z\"\n                            fill=\"#111827\" />\n                    </svg>\n                </div>\n            </div>\n        </div>\n        <transition name=\"fade\">\n            <MenuDropDown\n                v-if=\"isDrop\"\n                @toggle-form=\"toggleForm\"\n                @toggle-modal=\"toggleModal\" />\n        </transition> ")]);
 }
 
 /***/ }),

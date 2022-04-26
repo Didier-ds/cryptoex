@@ -53,8 +53,16 @@ const logout = () => {
 
             <!-- <img src="/img/logo.svg" class="w-full" alt="" /> -->
         </div>
-        <div>
-            <div class="w-56 text-right">
+        <div class="flex items-center">
+            <inertia-link v-if="$page.props.isAdmin" href="/admin/dashboard"
+                ><q-btn
+                    label="Admin Panel"
+                    color="secondary"
+                    class="mx-2 font-semibold work"
+                    no-caps
+                />
+            </inertia-link>
+            <div class="text-right">
             <Menu as="div" class="relative inline-block text-left">
                 <MenuButton class="capitalize select-none flex items-center">
                     <ProfilePic :is-size="'small'" />
@@ -149,15 +157,7 @@ const logout = () => {
                     </MenuItems>
                 </transition>
             </Menu>
-        </div>
-        <inertia-link v-if="$page.props.isAdmin" href="/"
-                ><q-btn
-                    label="Admin Panel"
-                    color="secondary"
-                    class="mx-2 font-semibold work"
-                    no-caps
-                />
-            </inertia-link>
+            </div>
         </div>
         
         <!-- <div class="capitalize select-none flex items-center">
