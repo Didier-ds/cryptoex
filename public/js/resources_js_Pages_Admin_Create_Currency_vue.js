@@ -158,21 +158,17 @@ __webpack_require__.r(__webpack_exports__);
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose(); // import {useRouter} from 'vue-router'
-
-    var changeRoute = function changeRoute(path) {
-      //  router.push({'path' = path})
-      context.emit('toggleSideBar');
-    };
-
-    var toggleSiblings = function toggleSiblings(e) {
-      // e.t
-      console.log(e.target.classList);
-      e.target.classList.replace('open-sibling', 'hidden-sibling');
-    };
+    // const changeRoute = (path) => {
+    //     //  router.push({'path' = path})
+    //     context.emit('toggleSideBar')
+    // }
+    // const toggleSiblings = (e) => {
+    //     // e.t
+    //     console.log(e.target.classList)
+    //     e.target.classList.replace('open-sibling', 'hidden-sibling')
+    // }
 
     var __returned__ = {
-      changeRoute: changeRoute,
-      toggleSiblings: toggleSiblings,
       Disclosure: _headlessui_vue__WEBPACK_IMPORTED_MODULE_0__.Disclosure,
       DisclosureButton: _headlessui_vue__WEBPACK_IMPORTED_MODULE_0__.DisclosureButton,
       DisclosurePanel: _headlessui_vue__WEBPACK_IMPORTED_MODULE_0__.DisclosurePanel,
@@ -729,7 +725,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
     id: "sidebar",
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["work overflow-y-scroll", $props.isSideBar ? 'active' : ''])
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["work overflow-y-auto", $props.isSideBar ? 'active' : ''])
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" // {{$page.props.isAdmin}} "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
     href: "/admin/dashboard",
     "class": "flex mb-4 py-2 font-medium text-left focus:outline-none focus-visible:ring focus-visible:ring-cyan-500 focus-visible:ring-opacity-75"
@@ -1465,7 +1461,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "#sidebar[data-v-20d0b69e] {\n  min-height: 100vh;\n  width: 100%;\n  background-color: white;\n  position: relative;\n  align-items: center;\n  transition: 0.5s ease-in-out;\n}\n.link_list[data-v-20d0b69e] {\n  margin: 2em 0;\n  width: 100%;\n}\n.link_list .link_icon[data-v-20d0b69e] {\n  align-self: center;\n  display: inline-flex;\n  min-width: 24px;\n  margin: 12px 0;\n  margin-right: 24px !important;\n}\n.link_list a[data-v-20d0b69e] {\n  display: flex;\n  align-items: center;\n  padding: 0 1em;\n  padding-left: 2.5em;\n  transition: 0.2s ease-in-out;\n  position: relative;\n  margin-bottom: 1.3em;\n  cursor: pointer;\n  border-top-left-radius: 0.4em;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  border-bottom-left-radius: 0.4em;\n}\n.link_list a span[data-v-20d0b69e] {\n  font-family: \"DM SANS\";\n  font-weight: 500;\n  font-size: 1.1em;\n  line-height: 22px;\n  letter-spacing: -0.408px;\n}\n.link_list a[data-v-20d0b69e]:hover {\n  background-color: #f8f9fb;\n}\n.link_list a.active[data-v-20d0b69e] {\n  background-color: var(--q-primary);\n  color: white;\n  margin-left: 1.5em;\n}\n@media (max-width: 769px) {\n#sidebar[data-v-20d0b69e] {\n    z-index: 15;\n    transform: translateX(-100%);\n    width: 80%;\n    position: fixed;\n    top: 0;\n    left: 0;\n}\n#sidebar.active[data-v-20d0b69e] {\n    transform: translateX(0);\n}\n.overlay.active[data-v-20d0b69e] {\n    opacity: 1;\n    display: block;\n}\n}\n.left-sidebar-item[data-v-20d0b69e] {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: flex-start;\n  height: 2.5rem;\n  position: relative;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n  min-width: 4rem;\n  max-width: 16rem;\n  width: 16rem;\n}\n.link_icon[data-v-20d0b69e] {\n  width: 4rem;\n}\n.hidden-sibling + ul[data-v-20d0b69e],\n[data-collapsed=true] .arrow[data-v-20d0b69e] {\n  display: none;\n}\nul ul .left-sidebar-item[data-v-20d0b69e] {\n  padding-left: 4rem;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "#sidebar[data-v-20d0b69e] {\n  height: 100%;\n  width: 100%;\n  background-color: white;\n  position: relative;\n  align-items: center;\n  transition: 0.5s ease-in-out;\n}\n.link_list[data-v-20d0b69e] {\n  margin: 2em 0;\n  width: 100%;\n}\n.link_list .link_icon[data-v-20d0b69e] {\n  align-self: center;\n  display: inline-flex;\n  min-width: 24px;\n  margin: 12px 0;\n  margin-right: 24px !important;\n}\n.link_list a[data-v-20d0b69e] {\n  display: flex;\n  align-items: center;\n  padding: 0 1em;\n  padding-left: 2.5em;\n  transition: 0.2s ease-in-out;\n  position: relative;\n  margin-bottom: 1.3em;\n  cursor: pointer;\n  border-top-left-radius: 0.4em;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  border-bottom-left-radius: 0.4em;\n}\n.link_list a span[data-v-20d0b69e] {\n  font-family: \"DM SANS\";\n  font-weight: 500;\n  font-size: 1.1em;\n  line-height: 22px;\n  letter-spacing: -0.408px;\n}\n.link_list a[data-v-20d0b69e]:hover {\n  background-color: #f8f9fb;\n}\n.link_list a.active[data-v-20d0b69e] {\n  background-color: var(--q-primary);\n  color: white;\n  margin-left: 1.5em;\n}\n@media (max-width: 769px) {\n#sidebar[data-v-20d0b69e] {\n    z-index: 15;\n    transform: translateX(-100%);\n    width: 80%;\n    position: fixed;\n    top: 0;\n    left: 0;\n}\n#sidebar.active[data-v-20d0b69e] {\n    transform: translateX(0);\n}\n.overlay.active[data-v-20d0b69e] {\n    opacity: 1;\n    display: block;\n}\n}\n.link_icon[data-v-20d0b69e] {\n  width: 4rem;\n}\n.hidden-sibling + ul[data-v-20d0b69e],\n[data-collapsed=true] .arrow[data-v-20d0b69e] {\n  display: none;\n}\nul ul .left-sidebar-item[data-v-20d0b69e] {\n  padding-left: 4rem;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

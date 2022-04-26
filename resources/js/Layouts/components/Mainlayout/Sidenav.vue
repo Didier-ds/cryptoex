@@ -1,5 +1,5 @@
 <template>
-    <div id="sidebar" class="overflow-y-scroll" :class="isSideBar ? 'active' : ''">
+    <div id="sidebar" class="overflow-y-auto" :class="isSideBar ? 'active' : ''">
         <div class="h-full w-full absolute min-h-[70vh] flex-nowrap flex flex-col justify-between inset-0">
             <div
                 class="flex justify-center my-5 items-center uppercase select-none flex-row">

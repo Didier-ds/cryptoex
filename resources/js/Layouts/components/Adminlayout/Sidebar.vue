@@ -1,5 +1,5 @@
 <template>
-    <div id="sidebar" class="work overflow-y-scroll" :class="isSideBar ? 'active' : ''">
+    <div id="sidebar" class="work overflow-y-auto" :class="isSideBar ? 'active' : ''">
         <div class="h-full w-full absolute min-h-[70vh] flex flex-col justify-between  flex-nowrap inset-0">        
             <div
                 class="flex justify-center my-5 items-center uppercase select-none flex-row">
@@ -153,20 +153,20 @@ defineProps({
     },
 })
 
-const changeRoute = (path) => {
-    //  router.push({'path' = path})
-    context.emit('toggleSideBar')
-}
-const toggleSiblings = (e) => {
-    // e.t
-    console.log(e.target.classList)
-    e.target.classList.replace('open-sibling', 'hidden-sibling')
-}
+// const changeRoute = (path) => {
+//     //  router.push({'path' = path})
+//     context.emit('toggleSideBar')
+// }
+// const toggleSiblings = (e) => {
+//     // e.t
+//     console.log(e.target.classList)
+//     e.target.classList.replace('open-sibling', 'hidden-sibling')
+// }
 </script>
 
 <style lang="scss" scoped>
 #sidebar {
-    min-height: 100vh;
+    height: 100%;
     width: 100%;
     background-color: white;
     // display: flex;
@@ -237,22 +237,6 @@ const toggleSiblings = (e) => {
     //   width: 100%;
     //   margin-left: 0px;
     // }
-}
-
-.left-sidebar-item {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    height: 2.5rem;
-    position: relative;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 100%;
-    min-width: calc(0.25rem * 16);
-    max-width: calc(0.25rem * 64);
-    width: calc(0.25rem * 64);
 }
 
 .link_icon {

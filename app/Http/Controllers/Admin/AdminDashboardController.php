@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\BtcTransferProof;
+use App\Models\Cardlet;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -15,7 +18,13 @@ class AdminDashboardController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Admin/Dashboard');
+        $pendingProofs = BtcTransferProof::Where('status', 'pending')->orderBy('created_at','desc')->get();
+        $pendingCardlets = Cardlet::Where('status', 'pending')->orderBy('created_at','desc')->get();
+        // dd(count($pendingCardlets));
+        $recentCardlets = Cardlet::orderBy('created_at','desc')->paginate(5);
+        $recentProofs = BtcTransferProof::orderBy('created_at','desc')->paginate(5);
+
+        return Inertia::render('Admin/Dashboard', ['pending-proofs' => count($pendingProofs), 'pending-cardlets' => count($pendingCardlets),'recent-cardlets' => $recentCardlets, 'recent-proofs' => $recentProofs]);
     }
 
     /**
