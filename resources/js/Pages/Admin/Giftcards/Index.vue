@@ -23,13 +23,7 @@
             <div
                 v-if="skeleton"
                 class="card-container lg:grid grid-cols-3 gap-4 sm:grid-cols-2 flex flex-wrap">
-                <!-- <Skeleton
-        :style="{ maxWidth: '12em' }"
-        width="100%"
-        height="12em"
-        v-for="i in 12"
-        :key="i"
-      ></Skeleton> -->
+              
             </div>
             <div
                 class="card-container grid sm:grid-cols-4 grid-cols-2 grid flex-wrap">
