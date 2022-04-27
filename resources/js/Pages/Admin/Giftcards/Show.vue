@@ -10,21 +10,25 @@
                     {{ cardname.name }} giftcard
                 </p>
                 <!-- {{data.images}} -->
-                <div class="py-2 flex gap-2">
-                    <inertia-link
-                        href="/admin/giftcards/create"
-                        class="flex-0 items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                        Create Category
-                    </inertia-link>
-                </div>
             </div>
         </div>
-       <CountryDropdown
-            :countries="myFilteredCountries"
-            :selected-country="selectedCountry"
-            @is-selected-country="
-                isSelectedCountry
-            " />
+        <div class="flex justify-end gap-4 px-2">
+            <div class="py-2 flex gap-2">
+                <inertia-link
+                    href="/admin/giftcards/create"
+                    class="flex-0 items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    Create Category
+                </inertia-link>
+            </div>
+             <CountryDropdown
+                class="w-56"
+                :countries="myFilteredCountries"
+                :selected-country="selectedCountry"
+                @is-selected-country="
+                    isSelectedCountry
+                " />
+        </div>
+      
        <template v-if="tablet">
             <div
                 class="shadow-lg overflow-x-scroll work border border-gray-200 border-dashed sm:rounded-lg m-4">
@@ -60,7 +64,7 @@
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
                         <tr
-                            v-for="category in categories"
+                            v-for="category in filteredCategories"
                             :key="category.id"
                             class="py-2">
                             <td
@@ -107,9 +111,9 @@
             </div>
        </template>
        <template v-else>
-            <template v-if="categories.length">
+            <template v-if="filteredCategories.length">
                     <inertia-link
-                        v-for="category in categories"
+                        v-for="category in filteredCategories"
                         :key="category.id"
                         :href="route('cards.update', category.uuid)"
                         class="border block work m-4 bg-white shadow p-3 rounded">
@@ -139,14 +143,13 @@
                 </div>
             </template>
        </template>
-        
     </admin-layout>
 </template>
 
 <script setup>
 import AdminLayout from '@/Layouts/AdminLayout.vue'
-import { CountryDropdown } from '@/components/CardUploadComponents'
-import { computed, tablet } from '@/utils'
+import  CountryDropdown  from '@/components/Admin/CategoryFilterCountry'
+import { ref, computed, tablet } from '@/utils'
 import useFilter from '@/components/CardUploadComponents/utils'
 // import Modal from '@/Jetstream/Modal.vue'
 // import CategoryCard from '@/components/Admin/CategoryCard.vue'
@@ -170,9 +173,21 @@ const {
     filteredCountries,
 } = useFilter()
 
+const filteredCategories = ref([])
+
 const myFilteredCountries = computed(() => {
     return filteredCountries(props.categories)
 })
+
+const isSelectedCountry = (index) => {
+    // form.country = myFilteredCountries.value[index].type
+        filteredCategories.value = props.categories.filter(
+            (category) => category.country === myFilteredCountries.value[index].type
+        )
+        selectedCountry.value = index
+}
+
+
 </script>
 
 <style lang="scss" scoped></style>
