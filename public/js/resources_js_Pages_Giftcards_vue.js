@@ -1423,7 +1423,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "#layout[data-v-ec9a7772] {\n  min-height: 100vh;\n}\ninput[data-v-ec9a7772] {\n  -webkit-appearance: none !important;\n     -moz-appearance: none !important;\n          appearance: none !important;\n}\nmain[data-v-ec9a7772] {\n  transition: 0.5s ease-in-out;\n  padding-left: 17.28rem;\n}\n.overlay[data-v-ec9a7772] {\n  background-color: #00000045;\n  width: 100%;\n  height: 100vh;\n  position: fixed;\n  top: 0;\n  left: 0;\n  display: none;\n  opacity: 0;\n  transition: 0.5s ease-in-out;\n}\n@media (max-width: 995px) {\n.overlay.active[data-v-ec9a7772] {\n    opacity: 1;\n    display: block;\n}\nmain[data-v-ec9a7772] {\n    padding-left: 0;\n}\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "#layout[data-v-ec9a7772] {\n  min-height: 100vh;\n}\ninput[data-v-ec9a7772] {\n  -webkit-appearance: none !important;\n     -moz-appearance: none !important;\n          appearance: none !important;\n}\nmain[data-v-ec9a7772] {\n  transition: 0.5s ease-in-out;\n  min-height: 100vh;\n  padding-left: 17.28rem;\n}\n.overlay[data-v-ec9a7772] {\n  background-color: #00000045;\n  width: 100%;\n  height: 100vh;\n  position: fixed;\n  top: 0;\n  left: 0;\n  display: none;\n  opacity: 0;\n  transition: 0.5s ease-in-out;\n}\n@media (max-width: 995px) {\n.overlay.active[data-v-ec9a7772] {\n    opacity: 1;\n    display: block;\n}\nmain[data-v-ec9a7772] {\n    padding-left: 0;\n}\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

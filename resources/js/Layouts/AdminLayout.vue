@@ -55,6 +55,7 @@ main {
     transition: 0.5s ease-in-out;
     // margin-top: 40px;
     padding-left: calc(0.27rem * 64);
+    min-height: 100vh;
     // margin-bottom: 50px;
     // position: relative;
 }
