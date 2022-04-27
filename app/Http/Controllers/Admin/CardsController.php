@@ -130,6 +130,8 @@ class CardsController extends Controller
         $request->validate(['rate' => 'required']);
         $card = Card::where('uuid', $uuid)->first();
         $card->rate = $request->rate;
+        $card->min = $request->min;
+        $card->max = $request->max;
         $card->save();
         return redirect()->route('cards.index');
         // if ($card) {

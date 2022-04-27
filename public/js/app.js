@@ -1104,6 +1104,11 @@ var map = {
 		"/js/vendor",
 		"resources_js_Pages_Admin_Giftcards_Show_vue"
 	],
+	"./Admin/Giftcards/components/CardUpdateModal.vue": [
+		"./resources/js/Pages/Admin/Giftcards/components/CardUpdateModal.vue",
+		"/js/vendor",
+		"resources_js_Pages_Admin_Giftcards_components_CardUpdateModal_vue"
+	],
 	"./Admin/Login.vue": [
 		"./resources/js/Pages/Admin/Login.vue",
 		"/js/vendor",

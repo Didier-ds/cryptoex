@@ -38,6 +38,11 @@
                             <th
                                 scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Country
+                            </th>
+                            <th
+                                scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Type
                             </th>
                             <!-- <th
@@ -67,6 +72,14 @@
                             v-for="category in filteredCategories"
                             :key="category.id"
                             class="py-2">
+                            <td
+                                class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 capitalize">
+                                <div class="flex w-20 uppercase items-center">
+                                    <img :src="category.currency.icon_url" class="mx-auto" />
+                                    <p>{{ category.currency.currency }}</p>
+                                </div>
+                                
+                            </td>
                             <td
                                 class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 capitalize">
                                 {{ category.type }}
@@ -112,11 +125,12 @@
        </template>
        <template v-else>
             <template v-if="filteredCategories.length">
-                    <inertia-link
+                <div class="grid">
+                    <button
                         v-for="category in filteredCategories"
                         :key="category.id"
-                        :href="route('cards.update', category.uuid)"
-                        class="border block work m-4 bg-white shadow p-3 rounded">
+                        class="border work m-4 bg-white shadow p-3 rounded"
+                        @click="showUpdateModal(category.uuid)">
                         <div></div>
                         <div>
                             <div class="flex items-center pb-1 justify-between">
@@ -134,7 +148,9 @@
                                 </q-badge>
                             </div>
                         </div>
-                    </inertia-link>
+                    </button>
+                </div>
+                    
             </template>
             <template v-else>
                 <div
@@ -143,14 +159,19 @@
                 </div>
             </template>
        </template>
+        <CardUpdateModal v-if="isShowModal" @toggle-modal="isShowModal = false" :selectedCategory="selectedCategory"/>
     </admin-layout>
 </template>
 
 <script setup>
 import AdminLayout from '@/Layouts/AdminLayout.vue'
 import  CountryDropdown  from '@/components/Admin/CategoryFilterCountry'
-import { ref, computed, tablet } from '@/utils'
+import CardUpdateModal from './components/CardUpdateModal.vue'
+import { ref, computed, tablet, useForm } from '@/utils'
 import useFilter from '@/components/CardUploadComponents/utils'
+import { useQuasar } from 'quasar'
+const $q = useQuasar()
+
 // import Modal from '@/Jetstream/Modal.vue'
 // import CategoryCard from '@/components/Admin/CategoryCard.vue'
 const props = defineProps({
@@ -163,7 +184,12 @@ const props = defineProps({
         default: () => {},
     },
 })
-
+const selectedCategory = ref(null)
+const isShowModal = ref(false)
+const showUpdateModal = (categoryId) => {
+    selectedCategory.value = props.categories.find(category => category.uuid === categoryId)
+    isShowModal.value = true;
+}
 const {
     // selectedCategory,
     selectedCountry,
@@ -187,7 +213,7 @@ const isSelectedCountry = (index) => {
         selectedCountry.value = index
 }
 
-
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+</style>
