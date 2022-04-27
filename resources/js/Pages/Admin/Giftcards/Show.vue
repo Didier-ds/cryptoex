@@ -19,7 +19,12 @@
                 </div>
             </div>
         </div>
-       
+       <CountryDropdown
+            :countries="myFilteredCountries"
+            :selected-country="selectedCountry"
+            @is-selected-country="
+                isSelectedCountry
+            " />
        <template v-if="tablet">
             <div
                 class="shadow-lg overflow-x-scroll work border border-gray-200 border-dashed sm:rounded-lg m-4">
@@ -140,10 +145,12 @@
 
 <script setup>
 import AdminLayout from '@/Layouts/AdminLayout.vue'
-import { statusColor, tablet } from '@/utils'
+import { CountryDropdown } from '@/components/CardUploadComponents'
+import { computed, tablet } from '@/utils'
+import useFilter from '@/components/CardUploadComponents/utils'
 // import Modal from '@/Jetstream/Modal.vue'
 // import CategoryCard from '@/components/Admin/CategoryCard.vue'
-defineProps({
+const props = defineProps({
     categories: {
         type: Array,
         default: () => [],
@@ -152,6 +159,19 @@ defineProps({
         type: Object,
         default: () => {},
     },
+})
+
+const {
+    // selectedCategory,
+    selectedCountry,
+    // filteredPriceRanges,
+    // filteredCategories,
+    // selectedPriceRange,
+    filteredCountries,
+} = useFilter()
+
+const myFilteredCountries = computed(() => {
+    return filteredCountries(props.categories)
 })
 </script>
 

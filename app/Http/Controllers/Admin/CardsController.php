@@ -71,6 +71,20 @@ class CardsController extends Controller
         {   
             $cardname = CardName::where('uuid', $request->uuid)->first();
             $cards = Card::where('name', $cardname->name)->get();
+            $cards = collect($cards);
+            $cards = $cards->map( function ($card) {
+            return [
+                    'uuid' => $card->uuid,
+                    'name' => $card->name,
+                    'type' => $card->type,
+                    'rate' => $card->rate,
+                    'min' => $card->min, 
+                    'max' => $card->max,
+                    'country' => $card->country,
+                    'updated_at' => $card->updated_at,
+                    'currency' => Currencies::where('currency', $card->country)->first()
+                ];
+            });
             return Inertia::render('Admin/Giftcards/Show', ['categories' => $cards, 'cardname' => $cardname]);
         }
 
