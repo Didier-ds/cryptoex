@@ -213,6 +213,11 @@ __webpack_require__.r(__webpack_exports__);
       isShowModal.value = true;
     };
 
+    var closeModal = function closeModal() {
+      isShowModal.value = false;
+      isSelectedCountry(selectedCountryIndex.value);
+    };
+
     var _useFilter = (0,_components_CardUploadComponents_utils__WEBPACK_IMPORTED_MODULE_4__["default"])(),
         selectedCountry = _useFilter.selectedCountry,
         filteredCountries = _useFilter.filteredCountries;
@@ -221,12 +226,14 @@ __webpack_require__.r(__webpack_exports__);
     var myFilteredCountries = (0,_utils__WEBPACK_IMPORTED_MODULE_3__.computed)(function () {
       return filteredCountries(props.categories);
     });
+    var selectedCountryIndex = (0,_utils__WEBPACK_IMPORTED_MODULE_3__.ref)(null);
 
     var isSelectedCountry = function isSelectedCountry(index) {
       // form.country = myFilteredCountries.value[index].type
       filteredCategories.value = props.categories.filter(function (category) {
         return category.country === myFilteredCountries.value[index].type;
       });
+      selectedCountryIndex.value = index;
       selectedCountry.value = index;
     };
 
@@ -236,10 +243,12 @@ __webpack_require__.r(__webpack_exports__);
       selectedCategory: selectedCategory,
       isShowModal: isShowModal,
       showUpdateModal: showUpdateModal,
+      closeModal: closeModal,
       selectedCountry: selectedCountry,
       filteredCountries: filteredCountries,
       filteredCategories: filteredCategories,
       myFilteredCountries: myFilteredCountries,
+      selectedCountryIndex: selectedCountryIndex,
       isSelectedCountry: isSelectedCountry,
       AdminLayout: _Layouts_AdminLayout_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
       CountryDropdown: _components_Admin_CategoryFilterCountry__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -247,7 +256,7 @@ __webpack_require__.r(__webpack_exports__);
       ref: _utils__WEBPACK_IMPORTED_MODULE_3__.ref,
       computed: _utils__WEBPACK_IMPORTED_MODULE_3__.computed,
       tablet: _utils__WEBPACK_IMPORTED_MODULE_3__.tablet,
-      useForm: _utils__WEBPACK_IMPORTED_MODULE_3__.useForm,
+      watch: _utils__WEBPACK_IMPORTED_MODULE_3__.watch,
       useFilter: _components_CardUploadComponents_utils__WEBPACK_IMPORTED_MODULE_4__["default"],
       useQuasar: quasar__WEBPACK_IMPORTED_MODULE_5__.useQuasar
     };
@@ -346,6 +355,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             message: 'Card Updated',
             position: 'top-right'
           });
+          closeModal();
           $q.loading.hide();
         },
         onError: function onError(errors) {
@@ -366,6 +376,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       computed: _utils__WEBPACK_IMPORTED_MODULE_0__.computed,
       useForm: _utils__WEBPACK_IMPORTED_MODULE_0__.useForm,
       onMounted: _utils__WEBPACK_IMPORTED_MODULE_0__.onMounted,
+      Inertia: _utils__WEBPACK_IMPORTED_MODULE_0__.Inertia,
       useQuasar: quasar__WEBPACK_IMPORTED_MODULE_1__.useQuasar
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
@@ -429,6 +440,7 @@ __webpack_require__.r(__webpack_exports__);
       ref: _utils__WEBPACK_IMPORTED_MODULE_0__.ref,
       watch: _utils__WEBPACK_IMPORTED_MODULE_0__.watch,
       onMounted: _utils__WEBPACK_IMPORTED_MODULE_0__.onMounted,
+      usePage: _utils__WEBPACK_IMPORTED_MODULE_0__.usePage,
       Listbox: _headlessui_vue__WEBPACK_IMPORTED_MODULE_1__.Listbox,
       ListboxLabel: _headlessui_vue__WEBPACK_IMPORTED_MODULE_1__.ListboxLabel,
       ListboxButton: _headlessui_vue__WEBPACK_IMPORTED_MODULE_1__.ListboxButton,
@@ -1083,9 +1095,7 @@ var _hoisted_17 = {
 var _hoisted_18 = {
   "class": "px-6 py-4 whitespace-nowrap text-right text-sm flex gap-4 font-medium"
 };
-
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Upgrade ");
-
+var _hoisted_19 = ["onClick"];
 var _hoisted_20 = {
   key: 0,
   "class": "grid"
@@ -1171,19 +1181,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         /* DYNAMIC_SLOTS */
         )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_17, " $" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(category.rate), 1
         /* TEXT */
-        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <td\r\n                                    class=\"\r\n                                                    px-6\r\n                                                    py-4\r\n                                                    whitespace-nowrap\r\n                                                    text-sm text-gray-500\r\n                                                    capitalize\r\n                                                \"\r\n                            >\r\n                                {{ REPLACE_UNDERSCORE(giftcard.condition) }}\r\n                            </td> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
-          href: _ctx.route('cards.update', category.uuid),
+        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <td\r\n                                    class=\"\r\n                                                    px-6\r\n                                                    py-4\r\n                                                    whitespace-nowrap\r\n                                                    text-sm text-gray-500\r\n                                                    capitalize\r\n                                                \"\r\n                            >\r\n                                {{ REPLACE_UNDERSCORE(giftcard.condition) }}\r\n                            </td> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+          onClick: function onClick($event) {
+            return $setup.showUpdateModal(category.uuid);
+          },
           "class": "flex-0 items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-        }, {
-          "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-            return [_hoisted_19];
-          }),
-          _: 2
-          /* DYNAMIC */
-
-        }, 1032
-        /* PROPS, DYNAMIC_SLOTS */
-        , ["href"])])]);
+        }, " Upgrade ", 8
+        /* PROPS */
+        , _hoisted_19)])]);
       }), 128
       /* KEYED_FRAGMENT */
       ))])])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
@@ -1224,9 +1229,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       )), $setup.isShowModal ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["CardUpdateModal"], {
         key: 2,
         "selected-category": $setup.selectedCategory,
-        onToggleModal: _cache[0] || (_cache[0] = function ($event) {
-          return $setup.isShowModal = false;
-        })
+        onToggleModal: $setup.closeModal
       }, null, 8
       /* PROPS */
       , ["selected-category"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];

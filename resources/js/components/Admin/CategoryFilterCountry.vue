@@ -87,7 +87,7 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted } from '@/utils'
+import { ref, watch, onMounted, usePage } from '@/utils'
 import {
     Listbox,
     ListboxLabel,
@@ -114,6 +114,9 @@ watch(selectedCountry, () => {
     // console.log(props.selectedCountry)
     emits('isSelectedCountry', selectedCountry.value) // props.countries.findIndex(a => a.type === selectedCountry.value.type)
 })
+
+ 
+
 onMounted(() => {
     selectedCountry.value = 0
 })

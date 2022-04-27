@@ -133,7 +133,7 @@ class CardsController extends Controller
         $card->min = $request->min;
         $card->max = $request->max;
         $card->save();
-        return redirect()->route('cards.index');
+        return redirect()->back();
         // if ($card) {
         //     return response()->json(['status' => 'successful', 'type' => 'card', 'data' => new CardResource($card)], 200);
         // } else {

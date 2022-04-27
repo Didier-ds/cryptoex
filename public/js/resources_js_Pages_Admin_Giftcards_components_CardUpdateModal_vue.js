@@ -86,6 +86,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             message: 'Card Updated',
             position: 'top-right'
           });
+          closeModal();
           $q.loading.hide();
         },
         onError: function onError(errors) {
@@ -106,6 +107,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       computed: _utils__WEBPACK_IMPORTED_MODULE_0__.computed,
       useForm: _utils__WEBPACK_IMPORTED_MODULE_0__.useForm,
       onMounted: _utils__WEBPACK_IMPORTED_MODULE_0__.onMounted,
+      Inertia: _utils__WEBPACK_IMPORTED_MODULE_0__.Inertia,
       useQuasar: quasar__WEBPACK_IMPORTED_MODULE_1__.useQuasar
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {

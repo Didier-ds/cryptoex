@@ -112,11 +112,11 @@
 
                             <td
                                 class="px-6 py-4 whitespace-nowrap text-right text-sm flex gap-4 font-medium">
-                                <inertia-link
-                                    :href="route('cards.update', category.uuid)"
+                                <button
+                                    @click="showUpdateModal(category.uuid)"
                                     class="flex-0 items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                                     Upgrade
-                                </inertia-link>
+                                </button>
                             </td>
                         </tr>
                     </tbody>
@@ -159,7 +159,7 @@
                 </div>
             </template>
        </template>
-        <CardUpdateModal v-if="isShowModal" :selected-category="selectedCategory" @toggle-modal="isShowModal = false"/>
+        <CardUpdateModal v-if="isShowModal" :selected-category="selectedCategory" @toggle-modal="closeModal"/>
     </admin-layout>
 </template>
 
@@ -167,7 +167,7 @@
 import AdminLayout from '@/Layouts/AdminLayout.vue'
 import  CountryDropdown  from '@/components/Admin/CategoryFilterCountry'
 import CardUpdateModal from './components/CardUpdateModal.vue'
-import { ref, computed, tablet, useForm } from '@/utils'
+import { ref, computed, tablet, watch } from '@/utils'
 import useFilter from '@/components/CardUploadComponents/utils'
 import { useQuasar } from 'quasar'
 const $q = useQuasar()
@@ -190,6 +190,10 @@ const showUpdateModal = (categoryId) => {
     selectedCategory.value = props.categories.find(category => category.uuid === categoryId)
     isShowModal.value = true;
 }
+const closeModal = () => {
+    isShowModal.value = false
+    isSelectedCountry(selectedCountryIndex.value)
+}
 const {
     // selectedCategory,
     selectedCountry,
@@ -204,14 +208,16 @@ const filteredCategories = ref([])
 const myFilteredCountries = computed(() => {
     return filteredCountries(props.categories)
 })
-
+const selectedCountryIndex = ref(null)
 const isSelectedCountry = (index) => {
     // form.country = myFilteredCountries.value[index].type
         filteredCategories.value = props.categories.filter(
             (category) => category.country === myFilteredCountries.value[index].type
         )
+        selectedCountryIndex.value = index
         selectedCountry.value = index
 }
+
 
 </script>
 

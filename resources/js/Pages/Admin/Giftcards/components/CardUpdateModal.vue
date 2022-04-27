@@ -73,7 +73,7 @@
        </div>
 </template>
 <script setup>
-import { ref, computed, useForm, onMounted } from '@/utils'
+import { ref, computed, useForm, onMounted, Inertia } from '@/utils'
 import { useQuasar } from 'quasar'
 const $q = useQuasar()
 
@@ -134,13 +134,16 @@ const submit = () => {
                     message: 'Card Updated',
                     position: 'top-right',
                 })
+                closeModal()
                 $q.loading.hide();
+                
             },
             onError: (errors) => {
                 console.log(errors)
             },
         })
 }
+
 </script>
 <style lang="scss" scoped>
 #overlay {
