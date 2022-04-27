@@ -1,8 +1,16 @@
 <template>
-    <div id="overlay" @click="closeModal">
-        <div id="box" class="w-11/12 mx-auto p-2 z-20 rounded-sm">
-            <p>Modal</p>
+    <div id="overlay" >
+        <div id="box" class="w-11/12 mx-auto p-3 z-20 rounded-sm">
+            <p class="text-center text-lg work font-semibold">{{selectedCategory.country}} {{selectedCategory.type}}</p>
             <form @submit.prevent="submit">
+                <div class="mb-2">
+                    <p class="my-1 work font-medium">Card Name</p>
+                    <p class="text-base border p-2 my-1 work font-medium">{{selectedCategory.name}}</p>
+                </div>
+                <div class="mb-2">
+                    <p class="my-1 work font-medium">Card Type</p>
+                    <p class="text-base border p-2 my-1 work font-medium">{{selectedCategory.type}}</p>
+                </div>
                 <div>
                         <p class="my-1 work font-medium">Card Price Range</p>
                         <div class="q-mt-xl">
@@ -53,28 +61,34 @@
                         :disabled="form.processing"
                         class="mx-auto"
                         no-cap />
+                    <q-btn 
+                        @click="closeModal"
+                        color="warning"
+                        label="Cancel"
+                        class="mx-auto"
+                        no-cap/>
                 </div>
             </form>
         </div>
        </div>
 </template>
 <script setup>
-import { ref, computed, useForm } from '@/utils'
+import { ref, computed, useForm, onMounted } from '@/utils'
 import { useQuasar } from 'quasar'
 const $q = useQuasar()
 
 // import Modal from '@/Jetstream/Modal.vue'
 // import CategoryCard from '@/components/Admin/CategoryCard.vue'
-// const props = defineProps({
-//     categories: {
-//         type: Array,
-//         default: () => [],
-//     },
-//     cardname: {
-//         type: Object,
-//         default: () => {},
-//     },
-// })
+ const props = defineProps({
+     selectedCategory: {
+         type: Object,
+         default: () => {},
+     },
+     cardname: {
+         type: Object,
+         default: () => {},
+     },
+ })
 const emit = defineEmits(['toggleModal'])
 const closeModal = () => {
     emit('toggleModal')
@@ -87,11 +101,22 @@ const form = useForm({
     min: 50,
     max: 100,
 })
+
+
+    onMounted(() => {
+        const {min, max, rate} = props.selectedCategory
+        form.rate = rate
+        range.value.min = min
+        range.value.max = max
+        
+    })
+
 const range = ref({
     min: 50,
     max: 100,
 })
 const submit = () => {
+    $q.loading.show();
     // form.filename = `https://drive.google.com/uc?id=${form.filename}`
     const { min, max } = range.value
     form.min = min
@@ -101,14 +126,15 @@ const submit = () => {
     }))
 
         // eslint-disable-next-line no-undef
-        .post(`/admin/giftcards/create`, {
+        .patch(`/admin/update/giftcards/${props.selectedCategory.uuid}`, {
             onSuccess: () => {
                 form.reset()
                 $q.notify({
                     type: 'positive',
-                    message: 'Receipt Created',
+                    message: 'Card Updated',
                     position: 'top-right',
                 })
+                $q.loading.hide();
             },
             onError: (errors) => {
                 console.log(errors)
@@ -121,7 +147,7 @@ const submit = () => {
     position: fixed;
     width: 100%;
     height: 100%;
-    z-index: 300;
+    z-index: 10;
     background-color: #00000026;
     display: flex;
     justify-content: center;

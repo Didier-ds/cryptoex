@@ -22,23 +22,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    selectedCategory: {
+      type: Object,
+      "default": function _default() {}
+    },
+    cardname: {
+      type: Object,
+      "default": function _default() {}
+    }
+  },
   emits: ['toggleModal'],
   setup: function setup(__props, _ref) {
     var expose = _ref.expose,
         emit = _ref.emit;
     expose();
+    var props = __props;
     var $q = (0,quasar__WEBPACK_IMPORTED_MODULE_1__.useQuasar)(); // import Modal from '@/Jetstream/Modal.vue'
     // import CategoryCard from '@/components/Admin/CategoryCard.vue'
-    // const props = defineProps({
-    //     categories: {
-    //         type: Array,
-    //         default: () => [],
-    //     },
-    //     cardname: {
-    //         type: Object,
-    //         default: () => {},
-    //     },
-    // })
 
     var closeModal = function closeModal() {
       emit('toggleModal');
@@ -52,13 +53,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       min: 50,
       max: 100
     });
+    (0,_utils__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
+      var _props$selectedCatego = props.selectedCategory,
+          min = _props$selectedCatego.min,
+          max = _props$selectedCatego.max,
+          rate = _props$selectedCatego.rate;
+      form.rate = rate;
+      range.value.min = min;
+      range.value.max = max;
+    });
     var range = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.ref)({
       min: 50,
       max: 100
     });
 
     var submit = function submit() {
-      // form.filename = `https://drive.google.com/uc?id=${form.filename}`
+      $q.loading.show(); // form.filename = `https://drive.google.com/uc?id=${form.filename}`
+
       var _range$value = range.value,
           min = _range$value.min,
           max = _range$value.max;
@@ -67,14 +78,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       form.transform(function (data) {
         return _objectSpread({}, data);
       }) // eslint-disable-next-line no-undef
-      .post("/admin/giftcards/create", {
+      .patch("/admin/update/giftcards/".concat(props.selectedCategory.uuid), {
         onSuccess: function onSuccess() {
           form.reset();
           $q.notify({
             type: 'positive',
-            message: 'Receipt Created',
+            message: 'Card Updated',
             position: 'top-right'
           });
+          $q.loading.hide();
         },
         onError: function onError(errors) {
           console.log(errors);
@@ -84,6 +96,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     var __returned__ = {
       $q: $q,
+      props: props,
       emit: emit,
       closeModal: closeModal,
       form: form,
@@ -92,6 +105,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       ref: _utils__WEBPACK_IMPORTED_MODULE_0__.ref,
       computed: _utils__WEBPACK_IMPORTED_MODULE_0__.computed,
       useForm: _utils__WEBPACK_IMPORTED_MODULE_0__.useForm,
+      onMounted: _utils__WEBPACK_IMPORTED_MODULE_0__.onMounted,
       useQuasar: quasar__WEBPACK_IMPORTED_MODULE_1__.useQuasar
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
@@ -122,19 +136,48 @@ var _withScopeId = function _withScopeId(n) {
 };
 
 var _hoisted_1 = {
+  id: "overlay"
+};
+var _hoisted_2 = {
   id: "box",
-  "class": "w-11/12 mx-auto p-2 z-20 rounded-sm"
+  "class": "w-11/12 mx-auto p-3 z-20 rounded-sm"
+};
+var _hoisted_3 = {
+  "class": "text-center text-lg work font-semibold"
+};
+var _hoisted_4 = ["onSubmit"];
+var _hoisted_5 = {
+  "class": "mb-2"
 };
 
-var _hoisted_2 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Modal", -1
+var _hoisted_6 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+    "class": "my-1 work font-medium"
+  }, "Card Name", -1
   /* HOISTED */
   );
 });
 
-var _hoisted_3 = ["onSubmit"];
+var _hoisted_7 = {
+  "class": "text-base border p-2 my-1 work font-medium"
+};
+var _hoisted_8 = {
+  "class": "mb-2"
+};
 
-var _hoisted_4 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_9 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+    "class": "my-1 work font-medium"
+  }, "Card Type", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_10 = {
+  "class": "text-base border p-2 my-1 work font-medium"
+};
+
+var _hoisted_11 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     "class": "my-1 work font-medium"
   }, "Card Price Range", -1
@@ -142,17 +185,17 @@ var _hoisted_4 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_5 = {
+var _hoisted_12 = {
   "class": "q-mt-xl"
 };
-var _hoisted_6 = {
+var _hoisted_13 = {
   "class": "grid grid-cols-2"
 };
-var _hoisted_7 = {
+var _hoisted_14 = {
   "class": "mb-2"
 };
 
-var _hoisted_8 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_15 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
     "for": "type",
     "class": "my-1 work font-medium pb-2"
@@ -161,7 +204,7 @@ var _hoisted_8 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_9 = {
+var _hoisted_16 = {
   "class": "flex p-4"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -171,12 +214,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_q_btn = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("q-btn");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-    id: "overlay",
-    onClick: $setup.closeModal
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.selectedCategory.country) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.selectedCategory.type), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
     onSubmit: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)($setup.submit, ["prevent"])
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_range, {
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.selectedCategory.name), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.selectedCategory.type), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_range, {
     name: "price_range",
     modelValue: $setup.range,
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
@@ -187,7 +233,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "label-always": ""
   }, null, 8
   /* PROPS */
-  , ["modelValue"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_input, {
+  , ["modelValue"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_input, {
     modelValue: $setup.range.min,
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return $setup.range.min = $event;
@@ -211,7 +257,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     label: "max"
   }, null, 8
   /* PROPS */
-  , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_input, {
+  , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_input, {
     modelValue: $setup.form.rate,
     "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
       return $setup.form.rate = $event;
@@ -223,7 +269,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     label: "rate"
   }, null, 8
   /* PROPS */
-  , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <q-input @update:model-value=\"val => { form.image = val[0] }\" class=\"m-2\" standout type=\"file\" @change=\"handleChange\" outlined label=\"icon_url\"/> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_btn, {
+  , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <q-input @update:model-value=\"val => { form.image = val[0] }\" class=\"m-2\" standout type=\"file\" @change=\"handleChange\" outlined label=\"icon_url\"/> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_btn, {
     color: "primary",
     label: "Submit",
     type: "submit",
@@ -232,9 +278,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "no-cap": ""
   }, null, 8
   /* PROPS */
-  , ["disabled"])])], 40
+  , ["disabled"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_q_btn, {
+    onClick: $setup.closeModal,
+    color: "warning",
+    label: "Cancel",
+    "class": "mx-auto",
+    "no-cap": ""
+  })])], 40
   /* PROPS, HYDRATE_EVENTS */
-  , _hoisted_3)])]);
+  , _hoisted_4)])]);
 }
 
 /***/ }),
@@ -521,7 +573,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "#overlay[data-v-1a95de40] {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  z-index: 300;\n  background-color: #00000026;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  top: 0;\n  left: 0;\n}\n#box[data-v-1a95de40] {\n  margin: 0 auto;\n  width: 90%;\n  max-width: 47.375rem;\n  display: flex;\n  flex-direction: column;\n  min-height: 0;\n  border-radius: 1rem;\n  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);\n  background: #fff;\n}\n@media (max-width: 425px) {\n#box[data-v-1a95de40] {\n    margin: 1em;\n}\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "#overlay[data-v-1a95de40] {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  z-index: 10;\n  background-color: #00000026;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  top: 0;\n  left: 0;\n}\n#box[data-v-1a95de40] {\n  margin: 0 auto;\n  width: 90%;\n  max-width: 47.375rem;\n  display: flex;\n  flex-direction: column;\n  min-height: 0;\n  border-radius: 1rem;\n  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);\n  background: #fff;\n}\n@media (max-width: 425px) {\n#box[data-v-1a95de40] {\n    margin: 1em;\n}\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

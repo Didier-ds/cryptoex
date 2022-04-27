@@ -159,7 +159,7 @@
                 </div>
             </template>
        </template>
-        <CardUpdateModal v-if="isShowModal" @toggle-modal="isShowModal = false" :selectedCategory="selectedCategory"/>
+        <CardUpdateModal v-if="isShowModal" :selected-category="selectedCategory" @toggle-modal="isShowModal = false"/>
     </admin-layout>
 </template>
 
