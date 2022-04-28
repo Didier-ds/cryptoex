@@ -184,8 +184,8 @@ defineProps({
 const submit = () => {
     // form.filename = `https://drive.google.com/uc?id=${form.filename}`
     const { min, max } = range.value
-    form.min = min
-    form.max = max
+    form.min = +min
+    form.max = +max
     form.transform((data) => ({
         ...data,
     }))

@@ -49,13 +49,13 @@ class UserBankDetailsController extends Controller
     public function getBanks(Request $request)
     {
         //
-        $head  = [Konstants::KEY_HEAD => 'Bearer ' . env("FLUTTERWAVE_KEY")];
-        $res = Http::withHeaders($head)->get(Konstants::URL_FLUTTER_BANK);
+        $head  = [Konstants::KEY_HEAD => 'Bearer ' . env("WALLET_AFRICA_PUB_KEY")];
+        $res = Http::withHeaders($head)->post(Konstants::URL_WALLETSAFRICA);
         $banks = $res->json();
         if ($res->status() != 200) {
-            dd($banks);
-            // return response(ResponseBuilder::genErrorRes($banks), Konstants::STATUS_ERROR);
+             return response(ResponseBuilder::genErrorRes($banks), Konstants::STATUS_ERROR);
         }
+        // dd($banks);
         return response()->json($banks, Konstants::STATUS_OK);
     }
 

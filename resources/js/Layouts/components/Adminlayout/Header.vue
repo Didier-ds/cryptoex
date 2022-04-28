@@ -135,7 +135,42 @@ const logout = () => {
                                     </inertia-link>
                                 </MenuItem>
                             </div> -->
-
+                            <MenuItem v-slot="{ active }">
+                                    <inertia-link
+                                        href="/admin/cardname/create"
+                                        :class="[
+                                            active
+                                                ? 'bg-primary text-white'
+                                                : 'text-gray-900',
+                                            'group flex items-center w-full font-medium cursor-default px-2 py-2 text-sm',
+                                        ]">
+                                        Create Giftcard
+                                    </inertia-link>
+                                </MenuItem>
+                            <MenuItem v-slot="{ active }">
+                                    <inertia-link
+                                        href="/admin/receipt/create"
+                                        :class="[
+                                            active
+                                                ? 'bg-primary text-white'
+                                                : 'text-gray-900',
+                                            'group flex items-center w-full font-medium cursor-default px-2 py-2 text-sm',
+                                        ]">
+                                        Create Receipt
+                                    </inertia-link>
+                                </MenuItem>
+                            <MenuItem v-slot="{ active }">
+                                    <inertia-link
+                                        href="/admin/currency/create"
+                                        :class="[
+                                            active
+                                                ? 'bg-primary text-white'
+                                                : 'text-gray-900',
+                                            'group flex items-center w-full font-medium cursor-default px-2 py-2 text-sm',
+                                        ]">
+                                        Create Currency
+                                    </inertia-link>
+                                </MenuItem>
                             <div class="px-1 py-1">
                                 <MenuItem v-slot="{ active }">
                                     <button

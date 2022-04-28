@@ -86,6 +86,7 @@ class Konstants
     const URL_LOGIN = 'https://cryptomania-staging.herokuapp.com/login';
     const URL_VETTED = 'http://Crypto-ex.netlify.app/email/verification/when/now?verify=verified';
     const URL_FLUTTER_BANK = "https://api.flutterwave.com/v3/banks/NG";
+    const URL_WALLETSAFRICA = "https://sandbox.wallets.africa/transfer/banks/all";
     const URL_FLUTTER_RESOLVE = "https://api.flutterwave.com/v3/accounts/resolve";
     const URL_MYLANCER = "https://maylancer.org/api/nuban/api.php?";
     const URL_BTC_RATE = "https://api.coinpaprika.com/v1/price-converter?base_currency_id=btc-bitcoin&quote_currency_id=usd-us-dollars&amount=1";

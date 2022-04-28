@@ -521,11 +521,18 @@ var _hoisted_4 = {
 var _hoisted_5 = {
   "class": "hidden myHidden font-medium work px-2"
 };
-var _hoisted_6 = {
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Create Giftcard ");
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Create Receipt ");
+
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Create Currency ");
+
+var _hoisted_9 = {
   "class": "px-1 py-1"
 };
 
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Sign Out ");
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Sign Out ");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_q_btn = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("q-btn");
@@ -587,9 +594,69 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             "class": "absolute right-0 w-56 mt-2 work z-20 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           }, {
             "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-              return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"px-1 py-1\">\n                                <MenuItem v-slot=\"{ active }\">\n                                    <inertia-link\n                                        href=\"/giftcards\"\n                                        :class=\"[\n                                            active\n                                                ? 'bg-primary text-white'\n                                                : 'text-gray-900',\n                                            'group flex rounded-md items-center w-full font-medium cursor-default px-2 py-2 text-sm',\n                                        ]\">\n                                        Trade Giftcards\n                                    </inertia-link>\n                                </MenuItem>\n                                <MenuItem v-slot=\"{ active }\">\n                                    <inertia-link\n                                        href=\"/sell-bitcoin\"\n                                        :class=\"[\n                                            active\n                                                ? 'bg-primary text-white'\n                                                : 'text-gray-900',\n                                            'group flex rounded-md items-center w-full font-medium cursor-default px-2 py-2 text-sm',\n                                        ]\">\n                                        Sell Bitcoin\n                                    </inertia-link>\n                                </MenuItem>\n                            </div>\n                            <div class=\"px-1 py-1\">\n                                <MenuItem v-slot=\"{ active }\">\n                                    <inertia-link\n                                        href=\"/user/transactions\"\n                                        :class=\"[\n                                            active\n                                                ? 'bg-primary text-white'\n                                                : 'text-gray-900',\n                                            'group flex rounded-md items-center w-full font-medium cursor-default px-2 py-2 text-sm',\n                                        ]\">\n                                        Transactions\n                                    </inertia-link>\n                                </MenuItem>\n                                <MenuItem v-slot=\"{ active }\">\n                                    <inertia-link\n                                        href=\"/settings/profile\"\n                                        :class=\"[\n                                            active\n                                                ? 'bg-primary text-white'\n                                                : 'text-gray-900',\n                                            'group flex rounded-md items-center w-full font-medium cursor-default px-2 py-2 text-sm',\n                                        ]\">\n                                        Settings\n                                    </inertia-link>\n                                </MenuItem>\n                            </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["MenuItem"], null, {
+              return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"px-1 py-1\">\n                                <MenuItem v-slot=\"{ active }\">\n                                    <inertia-link\n                                        href=\"/giftcards\"\n                                        :class=\"[\n                                            active\n                                                ? 'bg-primary text-white'\n                                                : 'text-gray-900',\n                                            'group flex rounded-md items-center w-full font-medium cursor-default px-2 py-2 text-sm',\n                                        ]\">\n                                        Trade Giftcards\n                                    </inertia-link>\n                                </MenuItem>\n                                <MenuItem v-slot=\"{ active }\">\n                                    <inertia-link\n                                        href=\"/sell-bitcoin\"\n                                        :class=\"[\n                                            active\n                                                ? 'bg-primary text-white'\n                                                : 'text-gray-900',\n                                            'group flex rounded-md items-center w-full font-medium cursor-default px-2 py-2 text-sm',\n                                        ]\">\n                                        Sell Bitcoin\n                                    </inertia-link>\n                                </MenuItem>\n                            </div>\n                            <div class=\"px-1 py-1\">\n                                <MenuItem v-slot=\"{ active }\">\n                                    <inertia-link\n                                        href=\"/user/transactions\"\n                                        :class=\"[\n                                            active\n                                                ? 'bg-primary text-white'\n                                                : 'text-gray-900',\n                                            'group flex rounded-md items-center w-full font-medium cursor-default px-2 py-2 text-sm',\n                                        ]\">\n                                        Transactions\n                                    </inertia-link>\n                                </MenuItem>\n                                <MenuItem v-slot=\"{ active }\">\n                                    <inertia-link\n                                        href=\"/settings/profile\"\n                                        :class=\"[\n                                            active\n                                                ? 'bg-primary text-white'\n                                                : 'text-gray-900',\n                                            'group flex rounded-md items-center w-full font-medium cursor-default px-2 py-2 text-sm',\n                                        ]\">\n                                        Settings\n                                    </inertia-link>\n                                </MenuItem>\n                            </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["MenuItem"], null, {
                 "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref) {
                   var active = _ref.active;
+                  return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+                    href: "/admin/cardname/create",
+                    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([active ? 'bg-primary text-white' : 'text-gray-900', 'group flex items-center w-full font-medium cursor-default px-2 py-2 text-sm'])
+                  }, {
+                    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+                      return [_hoisted_6];
+                    }),
+                    _: 2
+                    /* DYNAMIC */
+
+                  }, 1032
+                  /* PROPS, DYNAMIC_SLOTS */
+                  , ["class"])];
+                }),
+                _: 1
+                /* STABLE */
+
+              }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["MenuItem"], null, {
+                "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref2) {
+                  var active = _ref2.active;
+                  return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+                    href: "/admin/receipt/create",
+                    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([active ? 'bg-primary text-white' : 'text-gray-900', 'group flex items-center w-full font-medium cursor-default px-2 py-2 text-sm'])
+                  }, {
+                    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+                      return [_hoisted_7];
+                    }),
+                    _: 2
+                    /* DYNAMIC */
+
+                  }, 1032
+                  /* PROPS, DYNAMIC_SLOTS */
+                  , ["class"])];
+                }),
+                _: 1
+                /* STABLE */
+
+              }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["MenuItem"], null, {
+                "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref3) {
+                  var active = _ref3.active;
+                  return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+                    href: "/admin/currency/create",
+                    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([active ? 'bg-primary text-white' : 'text-gray-900', 'group flex items-center w-full font-medium cursor-default px-2 py-2 text-sm'])
+                  }, {
+                    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+                      return [_hoisted_8];
+                    }),
+                    _: 2
+                    /* DYNAMIC */
+
+                  }, 1032
+                  /* PROPS, DYNAMIC_SLOTS */
+                  , ["class"])];
+                }),
+                _: 1
+                /* STABLE */
+
+              }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["MenuItem"], null, {
+                "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref4) {
+                  var active = _ref4.active;
                   return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
                     onClick: $setup.logout,
                     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([active ? 'bg-negative text-white' : 'text-gray-900', 'group flex rounded-md items-center w-full font-medium cursor-default px-2 py-2 text-sm'])
@@ -599,7 +666,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                     "aria-hidden": "true"
                   }, null, 8
                   /* PROPS */
-                  , ["active"]), _hoisted_7], 2
+                  , ["active"]), _hoisted_10], 2
                   /* CLASS */
                   )];
                 }),
@@ -900,7 +967,7 @@ var _hoisted_2 = {
 
 var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "font-medium work text-lg capitalize"
-}, " Create A New giftcard ", -1
+}, " Create A New Receipt ", -1
 /* HOISTED */
 );
 
@@ -908,7 +975,7 @@ var _hoisted_4 = ["onSubmit"];
 
 var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "font-medium p-4 work text-lg capitalize"
-}, " Create A New giftcard ", -1
+}, " Create A New Receipt ", -1
 /* HOISTED */
 );
 

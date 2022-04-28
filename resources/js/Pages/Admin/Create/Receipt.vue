@@ -6,14 +6,14 @@
                     <GoBack />
                 </div>
                 <p class="font-medium work text-lg capitalize">
-                    Create A New giftcard
+                    Create A New Receipt
                 </p>
             </div>
             <form
                 class="shadow-lg border max-w-xl mx-auto overflow-hidden work sm:rounded-lg m-4"
                 @submit.prevent="submit">
                 <p class="font-medium p-4 work text-lg capitalize">
-                    Create A New giftcard
+                    Create A New Receipt
                 </p>
                 <JetValidationErrors class="px-2" />
                 <div class="p-4">
