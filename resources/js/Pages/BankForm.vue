@@ -49,7 +49,7 @@
                                     <div
                                         v-if="v$.accountNumber.$error"
                                         class="text-red-600 work text-xs pt-1">
-                                        Amount field is required.
+                                        Account Number field is required.
                                     </div>
                             </div>
                             <div class="input_box">
@@ -66,12 +66,6 @@
                             </div> -->
                         </div>
                         <div class="float-right">
-                            <button
-                                v-ripple
-                                @click="verifyDetails"
-                                class="px-4 py-2 relative shadow-lg bg-cyan rounded text-white font-medium">
-                                Verify Details
-                            </button>
                             <button
                                 v-ripple
                                 type="submit"
@@ -109,12 +103,17 @@ const v$ = useVuelidate(rules, credentials)
 const form = useForm({
     account_name: null,
     bank_name: null,
+    account_number: null
 })
 
 // watch when user selects banks option
 watch(() => credentials.bankCode, () => {
     // finds the bank name of the selected bank from the banks 
     form.bank_name = banks.value.find(bank => credentials.bankCode === bank.bankCode).bankName
+})
+// watch when user selects banks option
+watch([() => credentials.bankCode, () => credentials.accountNumber], () => {
+    verifyDetails()
 })
 const banks = ref([])
 const {isLoading, toggleLoader} = loader()
@@ -137,7 +136,7 @@ const verifyDetails = async () => {
                 res => {
                     console.log(res)
                     const { accountName, accountNumber } = res.data
-                    form.account__number = accountNumber
+                    form.account_number = accountNumber
                     form.account_name = accountName
                 }
             ).catch()
@@ -150,20 +149,20 @@ onMounted(() => {
 const prev_url = new URLSearchParams(window.location.search).get('prev_url')
 
 const submit = () => {
-    // form.transform((data) => ({
-    //     ...data,
-    // }))
-    //     // eslint-disable-next-line no-undef
-    //     .post(`/user/bank-account?prev_url=${prev_url}`, {
-    //         onSuccess: () => {
-    //             form.reset()
-    //         },
-    //     })
+     form.transform((data) => ({
+         ...data,
+     }))
+         // eslint-disable-next-line no-undef
+         .post(`/user/bank-account?prev_url=${prev_url}`, {
+             onSuccess: () => {
+                 form.reset()
+             },
+         })
 }
 
-watchEffect(() => {
-  verifyDetails()
-});
+// watchEffect(() => {
+//   verifyDetails()
+// });
 </script>
 
 <style lang="scss" scoped>

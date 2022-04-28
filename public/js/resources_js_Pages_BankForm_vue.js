@@ -183,6 +183,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/utils */ "./resources/js/utils/index.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -219,7 +225,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var v$ = (0,_vuelidate_core__WEBPACK_IMPORTED_MODULE_3__["default"])(rules, credentials);
     var form = (0,_utils__WEBPACK_IMPORTED_MODULE_6__.useForm)({
       account_name: null,
-      bank_name: null
+      bank_name: null,
+      account_number: null
     }); // watch when user selects banks option
 
     (0,_utils__WEBPACK_IMPORTED_MODULE_6__.watch)(function () {
@@ -229,6 +236,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       form.bank_name = banks.value.find(function (bank) {
         return credentials.bankCode === bank.bankCode;
       }).bankName;
+    }); // watch when user selects banks option
+
+    (0,_utils__WEBPACK_IMPORTED_MODULE_6__.watch)([function () {
+      return credentials.bankCode;
+    }, function () {
+      return credentials.accountNumber;
+    }], function () {
+      verifyDetails();
     });
     var banks = (0,_utils__WEBPACK_IMPORTED_MODULE_6__.ref)([]);
 
@@ -299,7 +314,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     var _res$data = res.data,
                         accountName = _res$data.accountName,
                         accountNumber = _res$data.accountNumber;
-                    form.account__number = accountNumber;
+                    form.account_number = accountNumber;
                     form.account_name = accountName;
                   })["catch"]();
                 }
@@ -322,20 +337,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     });
     var prev_url = new URLSearchParams(window.location.search).get('prev_url');
 
-    var submit = function submit() {// form.transform((data) => ({
-      //     ...data,
-      // }))
-      //     // eslint-disable-next-line no-undef
-      //     .post(`/user/bank-account?prev_url=${prev_url}`, {
-      //         onSuccess: () => {
-      //             form.reset()
-      //         },
-      //     })
-    };
+    var submit = function submit() {
+      form.transform(function (data) {
+        return _objectSpread({}, data);
+      }) // eslint-disable-next-line no-undef
+      .post("/user/bank-account?prev_url=".concat(prev_url), {
+        onSuccess: function onSuccess() {
+          form.reset();
+        }
+      });
+    }; // watchEffect(() => {
+    //   verifyDetails()
+    // });
 
-    (0,vue__WEBPACK_IMPORTED_MODULE_5__.watchEffect)(function () {
-      verifyDetails();
-    });
+
     var __returned__ = {
       credentials: credentials,
       rules: rules,
@@ -1183,18 +1198,14 @@ var _hoisted_16 = /*#__PURE__*/_withScopeId(function () {
 var _hoisted_17 = {
   "class": "float-right"
 };
-
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Verify Details ");
-
-var _hoisted_19 = [_hoisted_18];
-var _hoisted_20 = {
+var _hoisted_18 = {
   type: "submit",
   "class": "px-4 py-2 relative shadow-lg bg-cyan rounded text-white font-medium"
 };
 
-var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Submit ");
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Submit ");
 
-var _hoisted_22 = [_hoisted_21];
+var _hoisted_20 = [_hoisted_19];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _directive_ripple = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDirective)("ripple");
 
@@ -1230,7 +1241,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": "p-2 w-full md:w-10/12 focus:outline-none rounded border bg-white my-2 focus:border-cyan focus:shadow-md"
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.credentials.accountNumber]]), $setup.v$.accountNumber.$error ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_14, " Amount field is required. ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.credentials.accountNumber]]), $setup.v$.accountNumber.$error ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_14, " Account Number field is required. ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
           return $setup.form.account_name = $event;
         }),
@@ -1239,10 +1250,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": "p-2 w-full md:w-10/12 focus:outline-none rounded border bg-white my-2 focus:border-cyan focus:shadow-md"
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.account_name]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"input_box\">\r\n                                <label class=\"font-medium\">Phone</label>\r\n                                <input type=\"text\" v-model=\"\"/>\r\n                            </div> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
-        onClick: $setup.verifyDetails,
-        "class": "px-4 py-2 relative shadow-lg bg-cyan rounded text-white font-medium"
-      }, _hoisted_19)), [[_directive_ripple]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", _hoisted_20, _hoisted_22)), [[_directive_ripple]])])])], 40
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.account_name]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"input_box\">\r\n                                <label class=\"font-medium\">Phone</label>\r\n                                <input type=\"text\" v-model=\"\"/>\r\n                            </div> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", _hoisted_18, _hoisted_20)), [[_directive_ripple]])])])], 40
       /* PROPS, HYDRATE_EVENTS */
       , _hoisted_4)])])];
     }),
