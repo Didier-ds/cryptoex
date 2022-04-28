@@ -28,10 +28,17 @@
                         <div class="input_card_container">
                             <div class="input_box">
                                 <label class="font-medium">Bank Name</label>
-                                <input
+                                <select
                                     v-model="form.bank_name"
                                     type="text"
-                                    class="p-2 w-full md:w-10/12 focus:outline-none rounded border bg-white my-2 focus:border-cyan focus:shadow-md" />
+                                    class="p-2 w-full md:w-10/12 focus:outline-none rounded border bg-white my-2 focus:border-cyan focus:shadow-md" >
+                                    <option
+                                        v-for="bank in banks"
+                                        :key="bank"
+                                        :value="bank.bankCode">
+                                        {{ bank.bankName }}
+                                    </option>   
+                                </select>
                             </div>
                             <div class="input_box">
                                 <label class="font-medium"
@@ -71,14 +78,36 @@
 <script setup>
 import MainLayout from '@/Layouts/MainLayout.vue'
 import JetValidationErrors from '@/Jetstream/ValidationErrors.vue'
-
-import { useForm } from '@/utils'
+import axios from 'axios'
+import { useForm, ref, onMounted } from '@/utils'
 const form = useForm({
     bank_name: '',
     account_number: '',
     account_name: 'Didier Dodji Senou',
 })
+const banks = ref([])
+var array = [1, 2, 3];
+// Store after JSON stringifying (is this a verb?) it
+localStorage.setItem('myArray', JSON.stringify(array));
 
+// Get an array from local storage
+
+// Retrieve the array from local storage
+var array = localStorage.getItem('myArray');
+// Parse it to something usable in js
+array = JSON.parse(array);
+const getBanks = () => {
+    const storedBanks = JSON.parse(localStorage.getItem('banks'))
+    if(!storedBanks){
+        axios.get('/api/v1/banks').then((res) => {
+            banks.value = res.data
+            localStorage.setItem('banks', JSON.stringify(res.data));
+        })
+    } else banks.value = storedBanks;
+}
+onMounted(() => {
+    getBanks()
+})
 const prev_url = new URLSearchParams(window.location.search).get('prev_url')
 
 const submit = () => {
