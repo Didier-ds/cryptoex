@@ -50,12 +50,30 @@ class UserBankDetailsController extends Controller
     {
         //
         $head  = [Konstants::KEY_HEAD => 'Bearer ' . env("WALLET_AFRICA_PUB_KEY")];
-        $res = Http::withHeaders($head)->post(Konstants::URL_WALLETSAFRICA);
+        $res = Http::withHeaders($head)->post(Konstants::URL_WALLETSAFRICA_GET_BANKS);
         $banks = $res->json();
         if ($res->status() != 200) {
              return response(ResponseBuilder::genErrorRes($banks), Konstants::STATUS_ERROR);
         }
         // dd($banks);
+        return response()->json($banks, Konstants::STATUS_OK);
+    }
+
+    /**
+     * verify user bank Data.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function verifyUserBankDetails(Request $request)
+    {
+        // dd($request);
+        $head  = [Konstants::KEY_HEAD => 'Bearer ' . env("WALLET_AFRICA_PUB_KEY")];
+        $res = Http::withHeaders($head)->post(Konstants::URL_WALLETSAFRICA_VERFIFY_BANK, $request);
+        $banks = $res->json();
+        if ($res->status() != 200) {
+             return response()->json($banks, Konstants::STATUS_ERROR); //;Konstants::STATUS_ERROR);
+        }
         return response()->json($banks, Konstants::STATUS_OK);
     }
 

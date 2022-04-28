@@ -2,9 +2,6 @@
     <main-layout>
         <div class="px-2">
             <div class="flex flex-row justify-between items-center mx-4">
-                <!-- <div class="my-1">
-                    <GoBack />
-                </div> -->
                 <div class="">
                     <h2 class="text-lg work font-semibold p-ripple">
                         Bank Details
@@ -29,7 +26,7 @@
                             <div class="input_box">
                                 <label class="font-medium">Bank Name</label>
                                 <select
-                                    v-model="form.bank_name"
+                                    v-model="credentials.bankCode"
                                     type="text"
                                     class="p-2 w-full md:w-10/12 focus:outline-none rounded border bg-white my-2 focus:border-cyan focus:shadow-md" >
                                     <option
@@ -39,21 +36,28 @@
                                         {{ bank.bankName }}
                                     </option>   
                                 </select>
+                                <p v-if="isLoading" class="text-xs text-right -mt-1 work">Hold On, Getting Banks...</p>
                             </div>
                             <div class="input_box">
                                 <label class="font-medium"
                                     >Account Number</label
                                 >
                                 <input
-                                    v-model="form.account_number"
+                                    v-model="credentials.accountNumber"
                                     type="tel"
                                     class="p-2 w-full md:w-10/12 focus:outline-none rounded border bg-white my-2 focus:border-cyan focus:shadow-md" />
+                                    <div
+                                        v-if="v$.accountNumber.$error"
+                                        class="text-red-600 work text-xs pt-1">
+                                        Amount field is required.
+                                    </div>
                             </div>
                             <div class="input_box">
                                 <label class="font-medium">Account Name</label>
                                 <input
                                     v-model="form.account_name"
                                     type="text"
+                                    disabled
                                     class="p-2 w-full md:w-10/12 focus:outline-none rounded border bg-white my-2 focus:border-cyan focus:shadow-md" />
                             </div>
                             <!-- <div class="input_box">
@@ -64,8 +68,15 @@
                         <div class="float-right">
                             <button
                                 v-ripple
+                                @click="verifyDetails"
                                 class="px-4 py-2 relative shadow-lg bg-cyan rounded text-white font-medium">
                                 Verify Details
+                            </button>
+                            <button
+                                v-ripple
+                                type="submit"
+                                class="px-4 py-2 relative shadow-lg bg-cyan rounded text-white font-medium">
+                                Submit
                             </button>
                         </div>
                     </div>
@@ -78,49 +89,81 @@
 <script setup>
 import MainLayout from '@/Layouts/MainLayout.vue'
 import JetValidationErrors from '@/Jetstream/ValidationErrors.vue'
+import useVuelidate from '@vuelidate/core'
+import { required, minLength, maxLength } from '@vuelidate/validators'
+
 import axios from 'axios'
-import { useForm, ref, onMounted } from '@/utils'
+import {watchEffect} from 'vue'
+import { useForm, ref, reactive, watch, onMounted, loader } from '@/utils'
+const credentials = reactive({
+        bankCode: '',
+        accountNumber: '',
+        secretKey:process.env.MIX_WALLETS_AFRICA_SECRET_KEY
+})
+
+const rules = {
+    bankCode: { required }, // Matches state.firstName
+    accountNumber: { required, minLength:minLength(10), maxLength:maxLength(10) },
+}
+const v$ = useVuelidate(rules, credentials)
 const form = useForm({
-    bank_name: '',
-    account_number: '',
-    account_name: 'Didier Dodji Senou',
+    account_name: null,
+    bank_name: null,
+})
+
+// watch when user selects banks option
+watch(() => credentials.bankCode, () => {
+    // finds the bank name of the selected bank from the banks 
+    form.bank_name = banks.value.find(bank => credentials.bankCode === bank.bankCode).bankName
 })
 const banks = ref([])
-var array = [1, 2, 3];
-// Store after JSON stringifying (is this a verb?) it
-localStorage.setItem('myArray', JSON.stringify(array));
-
-// Get an array from local storage
-
-// Retrieve the array from local storage
-var array = localStorage.getItem('myArray');
-// Parse it to something usable in js
-array = JSON.parse(array);
-const getBanks = () => {
-    const storedBanks = JSON.parse(localStorage.getItem('banks'))
-    if(!storedBanks){
-        axios.get('/api/v1/banks').then((res) => {
-            banks.value = res.data
-            localStorage.setItem('banks', JSON.stringify(res.data));
-        })
-    } else banks.value = storedBanks;
+const {isLoading, toggleLoader} = loader()
+const getBanks = async () => {
+    toggleLoader()
+        const storedBanks = JSON.parse(localStorage.getItem('banks'))
+        if(!storedBanks){
+           await axios.get('/api/v1/banks').then((res) => {
+                banks.value = res.data
+                localStorage.setItem('banks', JSON.stringify(res.data));
+            })
+        } else banks.value = storedBanks;
+    toggleLoader()
 }
+
+const verifyDetails = async () => {
+    const isFormCorrect = await v$.value.$validate()
+    if (isFormCorrect)  {
+            axios.post('/api/v1/verify/bank', credentials).then(
+                res => {
+                    console.log(res)
+                    const { accountName, accountNumber } = res.data
+                    form.account__number = accountNumber
+                    form.account_name = accountName
+                }
+            ).catch()
+        }
+}
+
 onMounted(() => {
     getBanks()
 })
 const prev_url = new URLSearchParams(window.location.search).get('prev_url')
 
 const submit = () => {
-    form.transform((data) => ({
-        ...data,
-    }))
-        // eslint-disable-next-line no-undef
-        .post(`/user/bank-account?prev_url=${prev_url}`, {
-            onSuccess: () => {
-                form.reset()
-            },
-        })
+    // form.transform((data) => ({
+    //     ...data,
+    // }))
+    //     // eslint-disable-next-line no-undef
+    //     .post(`/user/bank-account?prev_url=${prev_url}`, {
+    //         onSuccess: () => {
+    //             form.reset()
+    //         },
+    //     })
 }
+
+watchEffect(() => {
+  verifyDetails()
+});
 </script>
 
 <style lang="scss" scoped>
